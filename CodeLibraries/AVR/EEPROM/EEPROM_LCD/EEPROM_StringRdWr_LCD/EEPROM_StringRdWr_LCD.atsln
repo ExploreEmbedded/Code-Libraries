@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "EEPROM_StringRdWr_LCD", "EEPROM_StringRdWr_LCD.cproj", "{6DC90303-5BDA-4B42-B1D8-32CE3C491628}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DC90303-5BDA-4B42-B1D8-32CE3C491628}.Debug|AVR.ActiveCfg = Debug|AVR
+		{6DC90303-5BDA-4B42-B1D8-32CE3C491628}.Debug|AVR.Build.0 = Debug|AVR
+		{6DC90303-5BDA-4B42-B1D8-32CE3C491628}.Release|AVR.ActiveCfg = Release|AVR
+		{6DC90303-5BDA-4B42-B1D8-32CE3C491628}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,7 @@
+"delay.obj",
+"i2c.obj",
+"main.obj",
+"lcd.obj",
+"rtc.obj" 
+TO "rtc_on_lcd" 
+RAMSIZE(256) 

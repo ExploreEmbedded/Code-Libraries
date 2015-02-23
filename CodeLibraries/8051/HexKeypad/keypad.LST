@@ -1,0 +1,296 @@
+C51 COMPILER V9.02   KEYPAD                                                                02/21/2015 10:47:35 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE KEYPAD
+OBJECT MODULE PLACED IN keypad.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE keypad.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /***************************************************************************************************
+   2                                             ExploreEmbedded      
+   3           ****************************************************************************************************
+   4           * File:   keypad.c
+   5           * Version: 15.0
+   6           * Author: ExploreEmbedded
+   7           * Website: http://www.exploreembedded.com/wiki
+   8           * Description: Contains the library routines for 4x4 Hex-Keypad
+   9          
+  10          The libraries have been tested on ExploreEmbedded development boards. We strongly believe that the 
+  11          library works on any of development boards for respective controllers. However, ExploreEmbedded 
+  12          disclaims any kind of hardware failure resulting out of usage of libraries, directly or indirectly.
+  13          Files may be subject to change without prior notice. The revision history contains the information 
+  14          related to updates. 
+  15          
+  16          
+  17          GNU GENERAL PUBLIC LICENSE: 
+  18              This program is free software: you can redistribute it and/or modify
+  19              it under the terms of the GNU General Public License as published by
+  20              the Free Software Foundation, either version 3 of the License, or
+  21              (at your option) any later version.
+  22          
+  23              This program is distributed in the hope that it will be useful,
+  24              but WITHOUT ANY WARRANTY; without even the implied warranty of
+  25              MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  26              GNU General Public License for more details.
+  27          
+  28              You should have received a copy of the GNU General Public License
+  29              along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  30          
+  31          Errors and omissions should be reported to codelibraries@exploreembedded.com
+  32           **************************************************************************************************/
+  33          
+  34          
+  35          
+  36          /***************************************************************************************************
+  37                                       Revision History
+  38           ****************************************************************************************************
+  39          15.0: Initial version 
+  40           ***************************************************************************************************/
+  41          
+  42          
+  43          /***************************************************************************************************
+  44                                       PORT configurations/Connections
+  45           ****************************************************************************************************
+  46           Note:
+  47            1.Rows should be connected to lower 4-bits of PORTx
+  48            1.Cols should be connected to higher 4-bits of PORTx
+  49            The Row/Col information has to be updated in keypad.h
+  50                      ___________________
+  51                     |    |    |    |    |
+  52                     | 0  | 1  | 2  | 3  |--------- R0
+  53                     |____|____|____|____|
+  54                     |    |    |    |    |
+  55                             | 4  | 5  | 6  | 7  |--------- R1
+C51 COMPILER V9.02   KEYPAD                                                                02/21/2015 10:47:35 PAGE 2   
+
+  56                     |____|____|____|____|
+  57                     |    |    |    |    |
+  58                             | 8  | 9  | A  | B  |--------- R2
+  59                             |____|____|____|____|
+  60                             |    |    |    |    |
+  61                             | C  | D  | E  | F  |--------- R3
+  62                     |____|____|____|____|
+  63                       |    |    |    |
+  64                       |    |    |    |____________ C3
+  65                       |    |    |
+  66                       |    |    |_________________ C2
+  67                       |    |
+  68                       |    |______________________ C1
+  69                       |
+  70                       |___________________________ C0
+  71          
+  72           ****************************************************************************************************/
+  73          
+  74          
+  75          #include "keypad.h"
+  76          #include "delay.h"
+  77          
+  78          
+  79          
+  80          
+  81          /***************************************************************************************************
+  82                                     local function prototypes
+  83           ***************************************************************************************************/
+  84          static uint8_t keypad_ScanKey();
+  85          /**************************************************************************************************/
+  86          
+  87          
+  88          
+  89          
+  90          
+  91          /***************************************************************************************************
+  92                             void KEYPAD_Init()
+  93           ***************************************************************************************************
+  94           * I/P Arguments:none
+  95           * Return value : none
+  96          
+  97           * description  : This function configures the rows and columns for keypad scan
+  98                  1.ROW lines are configured as Output.
+  99                  2.Column Lines are configured as Input.
+ 100           ***************************************************************************************************/
+ 101          void KEYPAD_Init()
+ 102          {
+ 103   1              M_RowColDirection= C_RowOutputColInput_U8; // Configure Row lines as O/P and Column lines as I/P
+ 104   1      }
+ 105          
+ 106          
+ 107          
+ 108          
+ 109          /***************************************************************************************************
+ 110                             void KEYPAD_WaitForKeyRelease()
+ 111           ***************************************************************************************************
+ 112           * I/P Arguments:none
+ 113          
+ 114           * Return value : none
+ 115          
+ 116           * description  : This function waits till the previous key is released.
+ 117           ***************************************************************************************************/
+C51 COMPILER V9.02   KEYPAD                                                                02/21/2015 10:47:35 PAGE 3   
+
+ 118          void KEYPAD_WaitForKeyRelease()
+ 119          {
+ 120   1              uint8_t key;
+ 121   1              do
+ 122   1              {
+ 123   2                      do
+ 124   2                      {
+ 125   3                              M_ROW=0x0F;           // Pull the ROW lines to low and Column lines high.
+ 126   3                              key=M_COL & 0x0F;     // Read the Columns, to check the key press
+ 127   3                      }while(key!=0x0F);
+ 128   2      
+ 129   2                      DELAY_ms(1);
+ 130   2      
+ 131   2                      M_ROW=0x0F;           // Pull the ROW lines to low and Column lines high.
+ 132   2                      key=M_COL & 0x0F;     // Read the Columns, to check the key press
+ 133   2              }while(key!=0x0F);   // Wait till the Key is released,
+ 134   1                                   // If no Key is pressed, Column lines will be High(0x0F)
+ 135   1      }
+ 136          
+ 137          
+ 138          
+ 139          
+ 140          
+ 141          /***************************************************************************************************
+ 142                             void KEYPAD_WaitForKeyPress()
+ 143           ***************************************************************************************************
+ 144           * I/P Arguments:none
+ 145          
+ 146           * Return value : none
+ 147          
+ 148           * description  : This function waits till a new key is pressed.
+ 149                            The new Key pressed can be decoded by the function KEYPAD_GetKey.
+ 150           ***************************************************************************************************/
+ 151          void KEYPAD_WaitForKeyPress()
+ 152          {
+ 153   1              uint8_t var_keyPress_u8;
+ 154   1              do
+ 155   1              {
+ 156   2                      do
+ 157   2                      {
+ 158   3                              M_ROW=0x0F;               // Pull the ROW lines to low and Column lines high.
+ 159   3                              var_keyPress_u8=M_COL & 0x0F;     // Read the Columns, to check the key press
+ 160   3                      }while(var_keyPress_u8==0x0F); // Wait till the Key is pressed,
+ 161   2                      // if a Key is pressed the corresponding Column line go low
+ 162   2      
+ 163   2                      DELAY_ms(1);              // Wait for some time(debounce Time);
+ 164   2      
+ 165   2                      M_ROW=0x0F;               // After debounce time, perform the above operation
+ 166   2                      var_keyPress_u8=M_COL & 0x0F;     // to ensure the Key press.
+ 167   2      
+ 168   2              }while(var_keyPress_u8==0x0F);
+ 169   1      }
+ 170          
+ 171          
+ 172          
+ 173          
+ 174          
+ 175          
+ 176          
+ 177          
+ 178          
+ 179          /***************************************************************************************************
+C51 COMPILER V9.02   KEYPAD                                                                02/21/2015 10:47:35 PAGE 4   
+
+ 180                             unsigned char KEYPAD_GetKey()
+ 181           ***************************************************************************************************
+ 182           * I/P Arguments:none
+ 183          
+ 184           * Return value : uint8_t--> ASCII value of the Key Pressed
+ 185          
+ 186           * description: This function waits till a key is pressed and returns its ASCII Value
+ 187                          It follows the following sequences to decode the key pressed:
+ 188                                          1.Wait till the previous key is released..
+ 189                                          2.Wait for the new key press.
+ 190                                          3.Scan all the rows one at a time for the pressed key.
+ 191                                          4.Decodes the key pressed depending on ROW-COL combination and returns its
+ 192                                            ASCII value.
+ 193           ***************************************************************************************************/
+ 194          uint8_t KEYPAD_GetKey()
+ 195          {
+ 196   1              uint8_t var_keyPress_u8;
+ 197   1      
+ 198   1              KEYPAD_WaitForKeyRelease();    // Wait for the previous key release
+ 199   1              DELAY_ms(1);
+ 200   1      
+ 201   1              KEYPAD_WaitForKeyPress();      // Wait for the new key press
+ 202   1              var_keyPress_u8 = keypad_ScanKey();        // Scan for the key pressed.
+ 203   1      
+ 204   1              switch(var_keyPress_u8)                       // Decode the key
+ 205   1              {
+ 206   2              case 0xe7: var_keyPress_u8='0'; break;
+ 207   2              case 0xeb: var_keyPress_u8='1'; break;
+ 208   2              case 0xed: var_keyPress_u8='2'; break;
+ 209   2              case 0xee: var_keyPress_u8='3'; break;
+ 210   2              case 0xd7: var_keyPress_u8='4'; break;
+ 211   2              case 0xdb: var_keyPress_u8='5'; break;
+ 212   2              case 0xdd: var_keyPress_u8='6'; break;
+ 213   2              case 0xde: var_keyPress_u8='7'; break;
+ 214   2              case 0xb7: var_keyPress_u8='8'; break;
+ 215   2              case 0xbb: var_keyPress_u8='9'; break;
+ 216   2              case 0xbd: var_keyPress_u8='A'; break;
+ 217   2              case 0xbe: var_keyPress_u8='B'; break;
+ 218   2              case 0x77: var_keyPress_u8='C'; break;
+ 219   2              case 0x7b: var_keyPress_u8='D'; break;
+ 220   2              case 0x7d: var_keyPress_u8='E'; break;
+ 221   2              case 0x7e: var_keyPress_u8='F'; break;
+ 222   2              default  : var_keyPress_u8='z'; break;
+ 223   2              }
+ 224   1              return(var_keyPress_u8);                      // Return the key
+ 225   1      }
+ 226          
+ 227          
+ 228          
+ 229          
+ 230          
+ 231          
+ 232          /***************************************************************************************************
+ 233                               static uint8_t keypad_ScanKey()
+ 234           ***************************************************************************************************
+ 235           * I/P Arguments:none
+ 236          
+ 237           * Return value : uint8_t--> Scancode of the Key Pressed
+ 238          
+ 239           * description  : This function scans all the rows to decode the key pressed.
+ 240                  1.Each time a ROW line is pulled low to detect the KEY.
+ 241                  2.Column Lines are read to check the key press.
+C51 COMPILER V9.02   KEYPAD                                                                02/21/2015 10:47:35 PAGE 5   
+
+ 242                  3.If any Key is pressed then corresponding Column Line goes low.
+ 243          
+ 244                  4.Return the ScanCode(Combination of ROW & COL) for decoding the key.
+ 245           ***************************************************************************************************/
+ 246          static uint8_t keypad_ScanKey()
+ 247          {
+ 248   1      
+ 249   1              uint8_t var_keyScanCode_u8 = 0xEF,i, var_keyPress_u8;
+ 250   1      
+ 251   1              for(i=0;i<0x04;i++)                // Scan All the 4-Rows for key press
+ 252   1              {
+ 253   2                      M_ROW=var_keyScanCode_u8;        // Select 1-Row at a time for Scanning the Key
+ 254   2                      DELAY_ms(1);
+ 255   2                      var_keyPress_u8=M_COL & 0x0F;    // Read the Column, for key press
+ 256   2      
+ 257   2                      if(var_keyPress_u8!=0x0F)        // If the KEY press is detected for the selected
+ 258   2                              break;                     // ROW then stop Scanning,
+ 259   2      
+ 260   2                      var_keyScanCode_u8=((var_keyScanCode_u8<<1)+0x01); // Rotate the ScanKey to SCAN the remaining Rows
+ 261   2              }
+ 262   1              var_keyPress_u8 = var_keyPress_u8 + (var_keyScanCode_u8 & 0xf0); // Return the row and COL status to deco
+             -de the key
+ 263   1              return(var_keyPress_u8);
+ 264   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    267    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

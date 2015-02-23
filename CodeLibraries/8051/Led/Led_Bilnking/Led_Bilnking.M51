@@ -1,0 +1,139 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        02/21/2015  10:30:53  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE Led_Blinking.obj, delay.obj TO Led_Bilnking RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  Led_Blinking.obj (LED_BLINKING)
+  delay.obj (DELAY)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  Led_Bilnking (LED_BLINKING)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0024H     UNIT         ?PR?MAIN?LED_BLINKING
+            CODE    0824H     0017H     UNIT         ?PR?_DELAY_MS?DELAY
+            CODE    083BH     0017H     UNIT         ?PR?_DELAY_SEC?DELAY
+            CODE    0852H     000CH     UNIT         ?PR?_DELAY_US?DELAY
+            CODE    085EH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   Led_Bilnking (LED_BLINKING)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?LED_BLINKING
+
+?PR?MAIN?LED_BLINKING
+  +--> ?PR?_DELAY_SEC?DELAY
+
+?PR?_DELAY_SEC?DELAY
+  +--> ?PR?_DELAY_MS?DELAY
+
+?PR?_DELAY_MS?DELAY
+  +--> ?PR?_DELAY_US?DELAY
+
+
+
+SYMBOL TABLE OF MODULE:  Led_Bilnking (LED_BLINKING)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/21/2015  10:30:53  PAGE 2
+
+
+
+  -------         MODULE        LED_BLINKING
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0800H         PUBLIC        main
+  -------         PROC          MAIN
+  C:0800H         LINE#         21
+  C:0800H         LINE#         22
+  C:0800H         LINE#         24
+  C:0800H         LINE#         25
+  C:0800H         LINE#         28
+  C:0803H         LINE#         29
+  C:0806H         LINE#         30
+  C:0809H         LINE#         31
+  C:080CH         LINE#         33
+  C:0813H         LINE#         37
+  C:0816H         LINE#         38
+  C:0818H         LINE#         39
+  C:081AH         LINE#         40
+  C:081CH         LINE#         42
+  C:0822H         LINE#         43
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LED_BLINKING
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:083BH         PUBLIC        _DELAY_sec
+  C:0824H         PUBLIC        _DELAY_ms
+  C:0852H         PUBLIC        _DELAY_us
+  -------         PROC          _DELAY_US
+  D:0006H         SYMBOL        us_count
+  C:0852H         LINE#         55
+  C:0852H         LINE#         56
+  C:0852H         LINE#         57
+  C:0856H         LINE#         58
+  C:0856H         LINE#         59
+  C:085BH         LINE#         60
+  C:085DH         LINE#         61
+  -------         ENDPROC       _DELAY_US
+  -------         PROC          _DELAY_MS
+  D:0004H         SYMBOL        ms_count
+  C:0824H         LINE#         76
+  C:0828H         LINE#         77
+  C:0828H         LINE#         78
+  C:082CH         LINE#         79
+  C:082CH         LINE#         80
+  C:0833H         LINE#         81
+  C:0838H         LINE#         82
+  C:083AH         LINE#         84
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          _DELAY_SEC
+  D:0002H         SYMBOL        sec_count
+  C:083BH         LINE#         102
+  C:083FH         LINE#         103
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/21/2015  10:30:53  PAGE 3
+
+
+  C:083FH         LINE#         106
+  C:0843H         LINE#         107
+  C:0843H         LINE#         108
+  C:084AH         LINE#         109
+  C:084FH         LINE#         110
+  C:0851H         LINE#         111
+  -------         ENDPROC       _DELAY_SEC
+  -------         ENDMOD        DELAY
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 005EH BYTE ( 4%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=109
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

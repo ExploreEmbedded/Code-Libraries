@@ -1,0 +1,24 @@
+_LCD_Init: CODE, 1744 0 79
+_DELAY_ms: CODE, 1219 0 20
+__stringtab: STRING, 3 0 16
+__stringdata: STRING, 19 0 8
+_lcd_SendCmdSignals: CODE, 1328 0 25
+_main: CODE, 1907 0 123
+_LCD_CmdWrite: CODE, 1557 0 54
+_EEPROM_WriteByte: CODE, 1382 0 31
+_EEPROM_ReadString: CODE, 1413 0 35
+__initialization: CODE, 2030 0 14
+_LCD_Clear: CODE, 1174 0 11
+_DELAY_us: CODE, 1163 0 11
+_LCD_DisplayString: CODE, 1448 0 35
+_LCD_GoToLine: CODE, 1239 0 21
+_lcd_BusyCheck: CODE, 1823 0 84
+_LCD_GoToNextLine: CODE, 1260 0 22
+_EEPROM_WriteString: CODE, 1483 0 36
+_EEPROM_ReadByte: CODE, 1304 0 24
+_lcd_SendNibble: CODE, 1519 0 38
+_lcd_Reset: CODE, 1665 0 79
+_lcd_DataWrite: CODE, 1611 0 54
+_LCD_DisplayChar: CODE, 1353 0 29
+_lcd_SendDataSignals: CODE, 1282 0 22
+Total: 871

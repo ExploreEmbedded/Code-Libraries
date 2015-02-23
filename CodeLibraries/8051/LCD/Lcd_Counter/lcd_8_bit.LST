@@ -1,0 +1,12 @@
+C51 COMPILER V9.02   LCD_8_BIT                                                             01/28/2015 19:00:24 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE LCD_8_BIT
+OBJECT MODULE PLACED IN lcd_8_bit.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE lcd_8_bit.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+*** ERROR C318 OF lcd_8_bit.c: can't open file 'lcd_8_bit.c'
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)

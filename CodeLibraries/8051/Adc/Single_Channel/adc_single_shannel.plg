@@ -1,0 +1,25 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\work_space\updatedLib\8051\Adc\Single_Channel\adc_single_shannel.uvproj
+Project File Date:  10/14/2012
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling delay.c...
+compiling main.c...
+MAIN.C(38): warning C206: 'LCD_GoToLineTwo': missing function-prototype
+MAIN.C(39): error C141: syntax error near ')'
+compiling adc.c...
+ADC.C(110): warning C206: 'delay_us': missing function-prototype
+ADC.C(110): error C267: 'delay_us': requires ANSI-style prototype
+compiling lcd.c...
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(35): warning C206: 'ADC_StartConversion': missing function-prototype
+MAIN.C(35): error C267: 'ADC_StartConversion': requires ANSI-style prototype
+compiling adc.c...
+Target not created

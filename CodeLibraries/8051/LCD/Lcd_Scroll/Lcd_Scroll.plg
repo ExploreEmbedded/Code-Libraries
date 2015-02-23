@@ -1,0 +1,100 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\work_space\updatedLib\8051\LCD\Lcd_Scroll\Lcd_Scroll.uvproj
+Project File Date:  12/27/2013
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling delay.c...
+compiling main.c...
+MAIN.C(19): warning C209: '_LCD_Init': too few actual parameters
+MAIN.C(24): warning C209: '_LCD_ScrollMessage': too few actual parameters
+MAIN.C(24): warning C214: 'Argument': conversion: pointer to non-pointer
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _LCD_INIT
+    MODULE:  main.obj (MAIN)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _LCD_SCROLLMESSAGE
+    MODULE:  main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _LCD_INIT
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 087AH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _LCD_SCROLLMESSAGE
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 087FH
+Program Size: data=9.0 xdata=0 code=134
+creating hex file from "Lcd_Scroll"...
+"Lcd_Scroll" - 0 Error(s), 8 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(19): warning C209: '_LCD_Init': too few actual parameters
+MAIN.C(24): warning C209: '_LCD_ScrollMessage': too few actual parameters
+MAIN.C(24): warning C214: 'Argument': conversion: pointer to non-pointer
+compiling lcd.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+Program Size: data=28.0 xdata=0 code=872
+creating hex file from "Lcd_Scroll"...
+"Lcd_Scroll" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(25): warning C206: 'DELAY_Sec': missing function-prototype
+MAIN.C(25): error C267: 'DELAY_Sec': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(26): warning C206: 'DELAY_Sec': missing function-prototype
+MAIN.C(26): error C267: 'DELAY_Sec': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=28.0 xdata=0 code=940
+creating hex file from "Lcd_Scroll"...
+"Lcd_Scroll" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling delay.c...
+compiling main.c...
+MAIN.C(26): warning C206: 'DELAY_sec': missing function-prototype
+MAIN.C(26): error C267: 'DELAY_sec': requires ANSI-style prototype
+compiling lcd.c...
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=28.0 xdata=0 code=940
+creating hex file from "Lcd_Scroll"...
+"Lcd_Scroll" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=28.0 xdata=0 code=940
+creating hex file from "Lcd_Scroll"...
+"Lcd_Scroll" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+Program Size: data=28.0 xdata=0 code=933
+creating hex file from "Lcd_Scroll"...
+"Lcd_Scroll" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling delay.c...
+compiling main.c...
+compiling lcd.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+Program Size: data=28.0 xdata=0 code=933
+creating hex file from "Lcd_Scroll"...
+"Lcd_Scroll" - 0 Error(s), 1 Warning(s).

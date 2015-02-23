@@ -1,0 +1,7 @@
+"delay.obj",
+"eeprom.obj",
+"i2c.obj",
+"main.obj",
+"lcd.obj" 
+TO "Eeprom_CharRdWr_Lcd" 
+RAMSIZE(256) 

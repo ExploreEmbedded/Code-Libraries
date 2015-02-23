@@ -1,0 +1,8 @@
+_UART_Init: CODE, 1808 0 22
+_UART_RxChar: CODE, 1792 0 7
+_main: CODE, 1830 0 32
+__initialization: CODE, 2044 0 0
+___lldiv: CODE, 1950 0 94
+_UART_SetBaudRate: CODE, 1862 0 88
+_UART_TxChar: CODE, 1799 0 9
+Total: 252

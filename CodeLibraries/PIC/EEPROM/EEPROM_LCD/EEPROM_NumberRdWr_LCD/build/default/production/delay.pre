@@ -1,0 +1,60 @@
+
+# 1 "delay.c"
+
+# 64 "stdutils.h"
+typedef signed char sint8_t;
+typedef unsigned char uint8_t;
+
+typedef signed int sint16_t;
+typedef unsigned int uint16_t;
+
+typedef signed long int sint32_t;
+typedef unsigned long int uint32_t;
+
+
+# 231
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = ON
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
+
+# 55 "delay.h"
+void DELAY_us(uint16_t us_count);
+void DELAY_ms(uint16_t ms_count);
+void DELAY_sec(uint16_t var_delaySecCount_u16);
+
+# 55 "delay.c"
+void DELAY_us(uint16_t us_count)
+{
+while(us_count!=0)
+{
+us_count--;
+}
+}
+
+# 76
+void DELAY_ms(uint16_t ms_count)
+{
+while(ms_count!=0)
+{
+DELAY_us(300u);
+ms_count--;
+}
+
+}
+
+# 102
+void DELAY_sec(uint16_t sec_count)
+{
+
+
+while(sec_count!=0)
+{
+DELAY_ms(1000);
+sec_count--;
+}
+}

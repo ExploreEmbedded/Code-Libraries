@@ -1,0 +1,84 @@
+C51 COMPILER V9.02   MAIN                                                                  02/01/2015 18:22:48 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*-----------------------------------------------------------------------------
+   2                   Program to demonstrate Number(16-bit, 32bit) read write 
+   3            -----------------------------------------------------------------------------
+   4            note:
+   5            Refer lcd.h file for Pin connections
+   6            Refer i2c.c for SDA and SCL connection.
+   7          ------------------------------------------------------------------------------*/
+   8          
+   9          
+  10          #include "lcd.h"        //User defined LCD library which conatins the lcd routines
+  11          #include "eeprom.h" //User defined library which conatins eeprom(At2404) routines
+  12          #include "delay.h"
+  13          
+  14          
+  15          /* start the main program */
+  16          void main() 
+  17          {
+  18   1         uint16_t var_writeNumber_u16=12345, var_readNumber_u16;
+  19   1         uint32_t var_writeNumber_u32=123456789, var_readNumber_u32; 
+  20   1      
+  21   1         /* Initilize the lcd before displaying any thing on the lcd */
+  22   1          LCD_Init(8,2,16);                                                                                             
+  23   1       
+  24   1              LCD_DisplayString("16-bit Number   read write");
+  25   1          DELAY_sec(2);
+  26   1      
+  27   1              LCD_Clear();                                         
+  28   1              LCD_Printf("Wr:%u",var_writeNumber_u16);  //Dispaly the 16-bit String to be written 
+  29   1              EEPROM_WriteNBytes(50,&var_writeNumber_u16,sizeof(var_writeNumber_u16)); // Write the 16-bit number into 
+             -eeprom
+*** WARNING C182 IN LINE 29 OF MAIN.C: pointer to different objects
+  30   1      
+  31   1              LCD_GoToLine(2);                                   
+  32   1              EEPROM_ReadNBytes(50,&var_readNumber_u16,sizeof(var_readNumber_u16));  // Read the 16-bit number from eep
+             -rom
+*** WARNING C182 IN LINE 32 OF MAIN.C: pointer to different objects
+  33   1          LCD_Printf("Rd:%u",var_writeNumber_u16);  //Dispaly the 16-bit number read from eeprom
+  34   1      
+  35   1              DELAY_sec(2);
+  36   1              LCD_Clear();
+  37   1              
+  38   1              LCD_DisplayString("32-bit Number   read write");
+  39   1          DELAY_sec(2);
+  40   1      
+  41   1              LCD_Clear();                                         
+  42   1              LCD_Printf("Wr:%U",var_writeNumber_u32);  //Dispaly the 32-bit String to be written 
+  43   1              EEPROM_WriteNBytes(100,&var_writeNumber_u32,sizeof(var_writeNumber_u32)); // Write the 32-bit number into
+             - eeprom
+*** WARNING C182 IN LINE 43 OF MAIN.C: pointer to different objects
+  44   1      
+  45   1              LCD_GoToLine(2);                                   
+  46   1              EEPROM_ReadNBytes(100,&var_readNumber_u32,sizeof(var_readNumber_u32));  // Read the 32-bit number from ee
+             -prom
+*** WARNING C182 IN LINE 46 OF MAIN.C: pointer to different objects
+  47   1          LCD_Printf("Rd:%U",var_writeNumber_u32);  //Dispaly the 32-bit number read from eeprom
+C51 COMPILER V9.02   MAIN                                                                  02/01/2015 18:22:48 PAGE 2   
+
+  48   1      
+  49   1                              
+  50   1              while(1);
+  51   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    210    ----
+   CONSTANT SIZE    =     78    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      12
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  4 WARNING(S),  0 ERROR(S)

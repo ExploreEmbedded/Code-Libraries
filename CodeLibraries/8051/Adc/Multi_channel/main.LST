@@ -1,0 +1,87 @@
+C51 COMPILER V9.02   MAIN                                                                  01/28/2015 18:53:30 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /***************************************************************************************************
+   2                                             ExploreEmbedded      
+   3          ****************************************************************************************************
+   4           * File:   main.c
+   5           * Version: 15.0
+   6           * Author: ExploreEmbedded
+   7           * Website: http://www.exploreembedded.com/wiki
+   8           * Description: Program to demonstrate multi(4) channel ADC, 8bit(0-255) adc value is displayed on lcd
+   9           
+  10          The libraries have been tested on ExploreEmbedded development boards. We strongly believe that the 
+  11          library works on any of development boards for respective controllers. However, ExploreEmbedded 
+  12          disclaims any kind of hardware failure resulting out of usage of libraries, directly or indirectly.
+  13          Files may be subject to change without prior notice. The revision history contains the information 
+  14          related to updates. 
+  15           
+  16           
+  17          GNU GENERAL PUBLIC LICENSE: 
+  18              This program is free software: you can redistribute it and/or modify
+  19              it under the terms of the GNU General Public License as published by
+  20              the Free Software Foundation, either version 3 of the License, or
+  21              (at your option) any later version.
+  22          
+  23              This program is distributed in the hope that it will be useful,
+  24              but WITHOUT ANY WARRANTY; without even the implied warranty of
+  25              MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  26              GNU General Public License for more details.
+  27          
+  28              You should have received a copy of the GNU General Public License
+  29              along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+  30           
+  31          Errors and omissions should be reported to codelibraries@exploreembedded.com
+  32           **************************************************************************************************/
+  33          
+  34          
+  35          /* Reg51.h contains the defnition of all ports and SFRs */
+  36          
+  37          
+  38          #include "lcd.h"        //User defined LCD library which conatins the lcd routines
+  39          #include "adc.h"   //User defined library which conatins the adc routines
+  40          
+  41          
+  42          /* start the main program */
+  43          void main() 
+  44          {
+  45   1         uint16_t adc_result0,adc_result1,adc_result2,adc_result3;            
+  46   1      
+  47   1          LCD_Init(8,2,16);      /* Initialize 2x16lcd in 8-bit mode */    
+  48   1          ADC_Init();                    /* Initialize the adc module*/        
+  49   1          
+  50   1         while(1)
+  51   1          {
+  52   2              /* Get the adc value of first four channels */
+  53   2                       adc_result0= ADC_GetAdcValue(0);
+  54   2                       adc_result1= ADC_GetAdcValue(1);
+  55   2                       adc_result2= ADC_GetAdcValue(2);
+C51 COMPILER V9.02   MAIN                                                                  01/28/2015 18:53:30 PAGE 2   
+
+  56   2                       adc_result3= ADC_GetAdcValue(3);                 
+  57   2              
+  58   2                       LCD_GoToLine(1);
+  59   2               LCD_Printf("C0:%d C1:%d \nC2:%d C3:%d ",adc_result0,adc_result1,adc_result2,adc_result3);        
+             -              
+  60   2          }                    
+  61   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     88    ----
+   CONSTANT SIZE    =     26    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       8
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

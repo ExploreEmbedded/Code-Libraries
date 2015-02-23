@@ -1,0 +1,87 @@
+C51 COMPILER V9.02   MAIN                                                                  02/21/2015 10:34:01 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*-----------------------------------------------------------------------------
+   2             Program to demonstrate 4digit counter on 4-SevenSegment(CommonAnode) display
+   3            -----------------------------------------------------------------------------
+   4            note:
+   5          Code is for CommonAnode type of segment, fire_code[] and help_code[] must be complemented for CommonCathod
+             -e
+   6          ------------------------------------------------------------------------------*/
+   7          
+   8                                                                                                                                                  
+   9          /* Reg51.h contains the defnition of all ports and SFRs */
+  10          #include <reg51.h> 
+  11          
+  12          #include "delay.h"      //User defined delay library which conatins the delay routines
+  13          
+  14          #define SegmentValue P0
+  15          #define SegmentSlection P1
+  16          
+  17          #define SegOne   0x01
+  18          #define SegTwo   0x02
+  19          #define SegThree 0x04
+  20          #define SegFour  0x08    
+  21          #define NoSeg    0x00
+  22          
+  23          
+  24          void display(unsigned char seg_code[])
+  25          {                                                  
+  26   1              unsigned char i;
+  27   1                                                                        
+  28   1         for(i=0;i<100;i++)      
+  29   1               { 
+  30   2                 SegmentSlection=SegOne;
+  31   2                 SegmentValue = seg_code[0];
+  32   2                 DELAY_ms(1);
+  33   2         
+  34   2                 SegmentSlection=SegTwo;
+  35   2                 SegmentValue = seg_code[1];
+  36   2                 DELAY_ms(1);
+  37   2       
+  38   2                 SegmentSlection=SegThree;
+  39   2                 SegmentValue = seg_code[2];
+  40   2                 DELAY_ms(1);
+  41   2      
+  42   2                 SegmentSlection=SegFour; 
+  43   2                 SegmentValue = seg_code[3];
+  44   2                 DELAY_ms(1);
+  45   2      
+  46   2                 SegmentValue = NoSeg; // to turn off all segments
+  47   2                }
+  48   1       }
+  49          /* start the main program */
+  50          void main() 
+  51          {
+  52   1          unsigned char fire_code[]={0x71,0x06,0x50,0x79},help_code[]={0x76,0x79,0x38,0x73};
+  53   1         while(1)
+  54   1          {
+C51 COMPILER V9.02   MAIN                                                                  02/21/2015 10:34:01 PAGE 2   
+
+  55   2                display(fire_code);
+  56   2                      DELAY_sec(1);
+  57   2      
+  58   2                 display(help_code);
+  59   2                      DELAY_sec(1);
+  60   2                }                                                                                                                                                      
+  61   1        }                                                                             
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    164    ----
+   CONSTANT SIZE    =      8    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      12
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

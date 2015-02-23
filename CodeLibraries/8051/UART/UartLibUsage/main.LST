@@ -1,0 +1,78 @@
+C51 COMPILER V9.02   MAIN                                                                  02/01/2015 19:00:01 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*-----------------------------------------------------------------------------
+   2            Program to demonstrate uart library usage at 9600 baudrate
+   3            -----------------------------------------------------------------------------
+   4            note:
+   5            Refer uart.h for baud rate configuraton.
+   6          ------------------------------------------------------------------------------*/
+   7          
+   8          #include"uart.h"
+   9          int main()
+  10          {
+  11   1        code char str_TxMsg_u8[]={"Good Morning"};
+  12   1        char var_uartData_u8='A';
+  13   1        uint16_t var_num_u16= 1234u;
+  14   1        char str_readString_u8[10];
+  15   1        char ch;
+  16   1       
+  17   1       
+  18   1        UART_Init(9600);
+  19   1        UART_TxString("\n\rProgram to illustrate the UART library usage ");
+  20   1       
+  21   1        UART_TxString(str_TxMsg_u8);    /* Transmit the message stored in a string */
+  22   1        UART_TxString("\n\rChar:");
+  23   1        UART_TxChar('X');             /* Transmit the specified Ascii character */
+  24   1        UART_TxChar(var_uartData_u8);    /* Transmit the char stored in a variable */
+  25   1       
+  26   1        UART_TxString("\n\rDec:");
+  27   1        UART_TxDecimalNumber(1234,5);  /* Transmit the specified digits of a number */
+  28   1        UART_TxString(" Hex:");
+  29   1        UART_TxHexNumber(0xABCD,5);    /* Note here the number of digits to transmit=5 */
+  30   1        UART_TxString(" Bin:");        /* The number Transmitted on UART will be as below*/
+  31   1        UART_TxBinaryNumber(0xABCD,16);/* dec=01234, hex=0ABCD, bin=1010101111001101*/
+  32   1       
+  33   1       
+  34   1        UART_Printf("\n\rDec=%d Hex=%x Bin:%b str=%s",var_num_u16,var_num_u16,var_num_u16,str_TxMsg_u8);
+  35   1        UART_Printf("\n\rDec=%d Hex=%x Bin:%b str=%s",123u,0xABCDu,0x55u,"hello,world");
+  36   1       
+  37   1        UART_Printf("\n\rEnter a String: ");
+  38   1        UART_RxString(str_readString_u8);
+  39   1        UART_Printf("\n\rEntered string is: %s",str_readString_u8);
+  40   1       
+  41   1        do
+  42   1        {
+  43   2              UART_Printf("\n\rEnter 'E' to exit: ");
+  44   2              ch = UART_RxChar();
+  45   2              UART_Printf("\n\rYou entered: %c",ch);
+  46   2        }while((ch!='E') && (ch!='e'));
+  47   1       
+  48   1       
+  49   1        UART_Printf("\n\rEnjoy Embedded Programming");
+  50   1        while(1);
+  51   1       
+  52   1        return 0;
+  53   1      }
+
+
+C51 COMPILER V9.02   MAIN                                                                  02/01/2015 19:00:01 PAGE 2   
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    280    ----
+   CONSTANT SIZE    =    242    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      14
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

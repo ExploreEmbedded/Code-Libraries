@@ -1,0 +1,73 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/23/2012  13:53:05  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE Switches_and_leds.obj TO Switches_and_leds RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  Switches_and_leds.obj (SWITCHES_AND_LEDS)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  Switches_and_leds (SWITCHES_AND_LEDS)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     000CH     UNIT         ?C_C51STARTUP
+            CODE    000FH     0009H     UNIT         ?PR?MAIN?SWITCHES_AND_LEDS
+
+
+
+OVERLAY MAP OF MODULE:   Switches_and_leds (SWITCHES_AND_LEDS)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?SWITCHES_AND_LEDS
+
+
+
+SYMBOL TABLE OF MODULE:  Switches_and_leds (SWITCHES_AND_LEDS)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        SWITCHES_AND_LEDS
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00A0H         PUBLIC        P2
+  C:000FH         PUBLIC        main
+  -------         PROC          MAIN
+  -------         DO            
+  D:0007H         SYMBOL        SwitchData
+  -------         ENDDO         
+  C:000FH         LINE#         19
+  C:000FH         LINE#         20
+  C:000FH         LINE#         24
+  C:0012H         LINE#         26
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/23/2012  13:53:05  PAGE 2
+
+
+  C:0012H         LINE#         27
+  C:0012H         LINE#         30
+  C:0014H         LINE#         33
+  C:0016H         LINE#         34
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        SWITCHES_AND_LEDS
+
+Program Size: data=9.0 xdata=0 code=24
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

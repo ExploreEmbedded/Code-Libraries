@@ -1,0 +1,80 @@
+C51 COMPILER V9.02   MAIN                                                                  02/01/2015 21:07:08 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*-----------------------------------------------------------------------------
+   2                   Program to demonstrate Number(16-bit, 32bit) read write 
+   3            -----------------------------------------------------------------------------
+   4            note:
+   5            Refer uart.h file for baud rate configuration
+   6            Refer i2c.c for SDA and SCL connection.
+   7          ------------------------------------------------------------------------------*/
+   8          
+   9          
+  10          #include "uart.h"       
+  11          #include "eeprom.h" //User defined library which conatins eeprom(At2404) routines
+  12          
+  13          
+  14          /* start the main program */
+  15          void main() 
+  16          {
+  17   1         uint16_t var_writeNumber_u16=12345, var_readNumber_u16;
+  18   1         uint32_t var_writeNumber_u32=123456789, var_readNumber_u32; 
+  19   1      
+  20   1         /* Initilize the lcd before displaying any thing on the lcd */
+  21   1          UART_Init(9600);                                                                                              
+  22   1       
+  23   1              UART_TxString("\n\r16-bit Number   read write");
+  24   1          
+  25   1                                                   
+  26   1              UART_Printf("\n\rWr:%u",var_writeNumber_u16);  //Dispaly the 16-bit String to be written 
+  27   1              EEPROM_WriteNBytes(50,&var_writeNumber_u16,sizeof(var_writeNumber_u16)); // Write the 16-bit number into 
+             -eeprom
+*** WARNING C182 IN LINE 27 OF MAIN.C: pointer to different objects
+  28   1      
+  29   1                                                 
+  30   1              EEPROM_ReadNBytes(50,&var_readNumber_u16,sizeof(var_readNumber_u16));  // Read the 16-bit number from eep
+             -rom
+*** WARNING C182 IN LINE 30 OF MAIN.C: pointer to different objects
+  31   1          UART_Printf("\n\rRd:%u",var_writeNumber_u16);  //Dispaly the 16-bit number read from eeprom
+  32   1      
+  33   1              
+  34   1              UART_TxString("\n\r32-bit Number   read write");
+  35   1          
+  36   1      
+  37   1                                                           
+  38   1              UART_Printf("\n\rWr:%U",var_writeNumber_u32);  //Dispaly the 32-bit String to be written 
+  39   1              EEPROM_WriteNBytes(100,&var_writeNumber_u32,sizeof(var_writeNumber_u32)); // Write the 32-bit number into
+             - eeprom
+*** WARNING C182 IN LINE 39 OF MAIN.C: pointer to different objects
+  40   1      
+  41   1                                                 
+  42   1              EEPROM_ReadNBytes(100,&var_readNumber_u32,sizeof(var_readNumber_u32));  // Read the 32-bit number from ee
+             -prom
+*** WARNING C182 IN LINE 42 OF MAIN.C: pointer to different objects
+  43   1          UART_Printf("\n\rRd:%U",var_writeNumber_u32);  //Dispaly the 32-bit number read from eeprom
+  44   1      
+  45   1                              
+  46   1              while(1);
+  47   1      }
+C51 COMPILER V9.02   MAIN                                                                  02/01/2015 21:07:08 PAGE 2   
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    183    ----
+   CONSTANT SIZE    =     90    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      12
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  4 WARNING(S),  0 ERROR(S)

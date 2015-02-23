@@ -1,0 +1,86 @@
+C51 COMPILER V9.02   MAIN                                                                  01/28/2015 19:38:37 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*-----------------------------------------------------------------------------
+   2          Program to demonstrate displaying of 5-digit LCD_Connter
+   3          -----------------------------------------------------------------------------
+   4          note:
+   5          Refer lcd.c(lcd_4_bit.c/lcd_8_bit.c) file for Pin connections
+   6          ------------------------------------------------------------------------------*/
+   7          
+   8          
+   9          #include "lcd.h"        //User defined LCD library which conatins the lcd routines
+  10          #include "delay.h" //User defined library which conatins the delay routines
+  11          
+  12          
+  13          int main()
+  14          {
+  15   1              char a_displayMsg_u8[]={"Good Morning"};
+  16   1              char var_lcdData_u8='A';
+  17   1              uint16_t var_number_u16= 1234u;
+  18   1      
+  19   1      
+  20   1              LCD_Init(8,2,16);
+  21   1              LCD_ScrollMessage(0,"            Program to illustrate the lcd library usage ");
+  22   1      
+  23   1      
+  24   1              LCD_Clear();
+  25   1              LCD_DisplayString("Hello, world");    /* Display the specified Message */
+  26   1              LCD_GoToNextLine();
+  27   1              LCD_DisplayString(a_displayMsg_u8);   /* Display the message stored in a string */
+  28   1      
+  29   1              DELAY_sec(2);
+  30   1              LCD_Clear();
+  31   1              LCD_DisplayString("Display Char\n");
+  32   1              LCD_DisplayChar('X');             /* Display the specified Ascii character */
+  33   1              LCD_DisplayChar(var_lcdData_u8);    /* Display the char stored in a variable */
+  34   1      
+  35   1      
+  36   1              DELAY_sec(2);
+  37   1              LCD_Clear();
+  38   1              LCD_DisplayString("D:");
+  39   1              LCD_DisplayDecimalNumber(1234,5);   /* Display the specified digits of a number */
+  40   1              LCD_DisplayString(" H:");
+  41   1              LCD_DisplayHexNumber(0xABCD,5);     /* Note here the num=1234, and digitsToDisplay=5 */
+  42   1              LCD_GoToNextLine();                 /* The number displayed on LCD will be as below*/
+  43   1              LCD_DisplayBinaryNumber(0xABCD,16); /* dec=01234, hex=0ABCD,
+  44   1                                     bin=1010101111001101*/
+  45   1      
+  46   1      
+  47   1      
+  48   1              DELAY_sec(2);
+  49   1              LCD_Clear();
+  50   1              LCD_Printf("D=%3d H=%3x \n%8b",var_number_u16,var_number_u16,var_number_u16);
+  51   1      
+  52   1      
+  53   1      
+  54   1              DELAY_sec(2);
+  55   1              LCD_Clear();
+C51 COMPILER V9.02   MAIN                                                                  01/28/2015 19:38:37 PAGE 2   
+
+  56   1              LCD_Printf("Enjoy Embedded \nProgramming");
+  57   1      
+  58   1              while(1);
+  59   1      
+  60   1              return 0;
+  61   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    222    ----
+   CONSTANT SIZE    =    149    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      16
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

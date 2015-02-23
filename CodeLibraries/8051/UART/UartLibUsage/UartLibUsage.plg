@@ -1,0 +1,26 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\work_space\updatedLib\8051\UART\UartLibUsage\UartLibUsage.uvproj
+Project File Date:  02/01/2015
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(34): error C202: 'a_TxMsg_u8': undefined identifier
+compiling uart.c...
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=79.0 xdata=0 code=2281
+"UartLibUsage" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling uart.c...
+linking...
+Program Size: data=79.0 xdata=0 code=2281
+creating hex file from "UartLibUsage"...
+"UartLibUsage" - 0 Error(s), 0 Warning(s).

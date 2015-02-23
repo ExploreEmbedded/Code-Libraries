@@ -1,0 +1,59 @@
+C51 COMPILER V9.02   LED_COUNTER                                                           02/21/2015 10:31:38 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE LED_COUNTER
+OBJECT MODULE PLACED IN Led_Counter.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE Led_Counter.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*-----------------------------------------------------------------------------
+   2                           Program to demonstrate binary upcounter
+   3            -----------------------------------------------------------------------------
+   4           
+   5          note: Leds can be connected to any of the ports as all the ports are blinked
+   6          
+   7          ------------------------------------------------------------------------------*/
+   8          
+   9          
+  10          /* Reg51.h contains the defnition of all ports and SFRs */
+  11          #include <reg51.h> 
+  12          
+  13          
+  14          #include "delay.h" //User defined library which conatins the delay routines
+  15          
+  16          
+  17          
+  18          
+  19          /* start the main program */
+  20          void main() 
+  21          {
+  22   1         unsigned char cnt=0;
+  23   1        while(1)
+  24   1          {
+  25   2      
+  26   2               /* Display the counter on all the ports */ 
+  27   2                 P0=cnt;
+  28   2                 P1=cnt;
+  29   2                 P2=cnt;
+  30   2                 P3=cnt;
+  31   2      
+  32   2               /* Increment the counter after 1-sec */ 
+  33   2                 DELAY_sec(1);
+  34   2              cnt++;
+  35   2            }
+  36   1        }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     26    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

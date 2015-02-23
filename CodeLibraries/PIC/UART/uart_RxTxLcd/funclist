@@ -1,0 +1,22 @@
+_LCD_Init: CODE, 1666 0 79
+_DELAY_ms: CODE, 1218 0 20
+_lcd_SendCmdSignals: CODE, 1325 0 25
+_UART_Init: CODE, 1303 0 22
+_UART_RxChar: CODE, 1180 0 7
+_main: CODE, 1527 0 60
+_LCD_CmdWrite: CODE, 1419 0 54
+__initialization: CODE, 2011 0 33
+___lldiv: CODE, 1917 0 94
+_LCD_Clear: CODE, 1207 0 11
+_UART_SetBaudRate: CODE, 1829 0 88
+_DELAY_us: CODE, 1196 0 11
+_LCD_GoToLine: CODE, 1238 0 21
+_lcd_BusyCheck: CODE, 1745 0 84
+_LCD_GoToNextLine: CODE, 1259 0 22
+_lcd_SendNibble: CODE, 1381 0 38
+_lcd_Reset: CODE, 1587 0 79
+_lcd_DataWrite: CODE, 1473 0 54
+_LCD_DisplayChar: CODE, 1350 0 31
+_UART_TxChar: CODE, 1187 0 9
+_lcd_SendDataSignals: CODE, 1281 0 22
+Total: 864

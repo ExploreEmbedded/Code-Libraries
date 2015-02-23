@@ -1,0 +1,30 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\work_space\updatedLib\8051\UART\tx_string\tx_string.uvproj
+Project File Date:  10/14/2012
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(17): warning C209: '_UART_Init': too few actual parameters
+compiling uart.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UART_PRINTF?UART
+Program Size: data=84.0 xdata=0 code=1700
+creating hex file from "tx_string"...
+"tx_string" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling uart.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=28.0 xdata=0 code=850
+creating hex file from "tx_string"...
+"tx_string" - 0 Error(s), 1 Warning(s).

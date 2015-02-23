@@ -1,0 +1,397 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\work_space\updatedLib\8051\RTC\RTC_UART\RTC_ON_UART.uvproj
+Project File Date:  10/20/2012
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling delay.c...
+compiling i2c.c...
+compiling main.c...
+rtc.h(44): warning C318: can't open file 'stdutils.h'
+RTC.H(68): error C131: 'uint8_t': duplicate function-parameter
+RTC.H(68): error C131: 'uint8_t': duplicate function-parameter
+RTC.H(69): error C131: 'uint8_t': duplicate function-parameter
+RTC.H(69): error C131: 'uint8_t': duplicate function-parameter
+RTC.H(70): error C141: syntax error near '*', expected ')'
+RTC.H(71): error C141: syntax error near '*', expected ')'
+MAIN.C(29): error C208: '_RTC_SetTime': too many actual parameters
+MAIN.C(30): error C208: '_RTC_SetDate': too many actual parameters
+MAIN.C(38): error C208: '_RTC_GetTime': too many actual parameters
+MAIN.C(41): error C208: '_RTC_GetDate': too many actual parameters
+compiling uart.c...
+UART.C(59): error C141: syntax error near 'var_baudRate_u32', expected ')'
+UART.C(61): error C202: 'TMOD': undefined identifier
+UART.C(62): error C202: 'SCON': undefined identifier
+UART.C(63): error C202: 'TR1': undefined identifier
+UART.C(64): error C202: 'var_baudRate_u32': undefined identifier
+UART.C(84): error C141: syntax error near 'var_baudRate_u32', expected ')'
+UART.C(86): error C202: 'sint8_t': undefined identifier
+UART.C(86): error C141: syntax error near 'RegValue'
+UART.C(88): error C202: 'var_baudRate_u32': undefined identifier
+UART.C(92): error C202: 'RegValue': undefined identifier
+UART.C(97): error C202: 'RegValue': undefined identifier
+UART.C(100): error C202: 'TH1': undefined identifier
+UART.C(118): error C202: 'RI': undefined identifier
+UART.C(119): error C202: 'RI': undefined identifier
+UART.C(121): error C202: 'SBUF': undefined identifier
+UART.C(141): error C202: 'SBUF': undefined identifier
+UART.C(142): error C202: 'TI': undefined identifier
+UART.C(143): error C202: 'TI': undefined identifier
+uart.c(162): warning C322: unknown identifier
+uart.c(191): warning C322: unknown identifier
+uart.c(230): warning C322: unknown identifier
+uart.c(230): warning C322: unknown identifier
+uart.c(302): warning C322: unknown identifier
+uart.c(373): warning C322: unknown identifier
+uart.c(408): warning C322: unknown identifier
+uart.c(471): warning C322: unknown identifier
+compiling rtc.c...
+rtc.h(44): warning C318: can't open file 'stdutils.h'
+RTC.H(68): error C131: 'uint8_t': duplicate function-parameter
+RTC.H(68): error C131: 'uint8_t': duplicate function-parameter
+RTC.H(69): error C131: 'uint8_t': duplicate function-parameter
+RTC.H(69): error C131: 'uint8_t': duplicate function-parameter
+RTC.H(70): error C141: syntax error near '*', expected ')'
+RTC.H(71): error C141: syntax error near '*', expected ')'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(21): error C267: 'UART_Init': requires ANSI-style prototype
+compiling uart.c...
+UART.C(59): error C141: syntax error near 'var_baudRate_u32', expected ')'
+UART.C(61): error C202: 'TMOD': undefined identifier
+UART.C(62): error C202: 'SCON': undefined identifier
+UART.C(63): error C202: 'TR1': undefined identifier
+UART.C(64): error C202: 'var_baudRate_u32': undefined identifier
+UART.C(84): error C141: syntax error near 'var_baudRate_u32', expected ')'
+UART.C(86): error C202: 'sint8_t': undefined identifier
+UART.C(86): error C141: syntax error near 'RegValue'
+UART.C(88): error C202: 'var_baudRate_u32': undefined identifier
+UART.C(92): error C202: 'RegValue': undefined identifier
+UART.C(97): error C202: 'RegValue': undefined identifier
+UART.C(100): error C202: 'TH1': undefined identifier
+UART.C(118): error C202: 'RI': undefined identifier
+UART.C(119): error C202: 'RI': undefined identifier
+UART.C(121): error C202: 'SBUF': undefined identifier
+UART.C(141): error C202: 'SBUF': undefined identifier
+UART.C(142): error C202: 'TI': undefined identifier
+UART.C(143): error C202: 'TI': undefined identifier
+uart.c(162): warning C322: unknown identifier
+uart.c(191): warning C322: unknown identifier
+uart.c(230): warning C322: unknown identifier
+uart.c(230): warning C322: unknown identifier
+uart.c(302): warning C322: unknown identifier
+uart.c(373): warning C322: unknown identifier
+uart.c(408): warning C322: unknown identifier
+uart.c(471): warning C322: unknown identifier
+compiling rtc.c...
+RTC.C(59): warning C206: 'I2C_Init': missing function-prototype
+RTC.C(159): error C207: 'I2C_Read': declared with 'void' parameter list
+RTC.C(160): error C207: 'I2C_Read': declared with 'void' parameter list
+RTC.C(161): error C207: 'I2C_Read': declared with 'void' parameter list
+RTC.C(196): error C207: 'I2C_Read': declared with 'void' parameter list
+RTC.C(197): error C207: 'I2C_Read': declared with 'void' parameter list
+RTC.C(198): error C207: 'I2C_Read': declared with 'void' parameter list
+Target not created
+Build target 'Target 1'
+compiling i2c.c...
+I2C.C(100): warning C206: 'DELAY_us': missing function-prototype
+I2C.C(100): error C267: 'DELAY_us': requires ANSI-style prototype
+compiling main.c...
+MAIN.C(21): error C267: 'UART_Init': requires ANSI-style prototype
+compiling uart.c...
+UART.C(59): error C141: syntax error near 'var_baudRate_u32', expected ')'
+UART.C(61): error C202: 'TMOD': undefined identifier
+UART.C(62): error C202: 'SCON': undefined identifier
+UART.C(63): error C202: 'TR1': undefined identifier
+UART.C(64): error C202: 'var_baudRate_u32': undefined identifier
+UART.C(84): error C141: syntax error near 'var_baudRate_u32', expected ')'
+UART.C(86): error C202: 'sint8_t': undefined identifier
+UART.C(86): error C141: syntax error near 'RegValue'
+UART.C(88): error C202: 'var_baudRate_u32': undefined identifier
+UART.C(92): error C202: 'RegValue': undefined identifier
+UART.C(97): error C202: 'RegValue': undefined identifier
+UART.C(100): error C202: 'TH1': undefined identifier
+UART.C(118): error C202: 'RI': undefined identifier
+UART.C(119): error C202: 'RI': undefined identifier
+UART.C(121): error C202: 'SBUF': undefined identifier
+UART.C(141): error C202: 'SBUF': undefined identifier
+UART.C(142): error C202: 'TI': undefined identifier
+UART.C(143): error C202: 'TI': undefined identifier
+uart.c(162): warning C322: unknown identifier
+uart.c(191): warning C322: unknown identifier
+uart.c(230): warning C322: unknown identifier
+uart.c(230): warning C322: unknown identifier
+uart.c(302): warning C322: unknown identifier
+uart.c(373): warning C322: unknown identifier
+uart.c(408): warning C322: unknown identifier
+uart.c(471): warning C322: unknown identifier
+compiling rtc.c...
+Target not created
+Build target 'Target 1'
+compiling i2c.c...
+I2C.C(100): warning C206: 'DELAY_us': missing function-prototype
+I2C.C(100): error C267: 'DELAY_us': requires ANSI-style prototype
+compiling main.c...
+compiling uart.c...
+Target not created
+Build target 'Target 1'
+compiling delay.c...
+compiling i2c.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=73.0 xdata=0 code=2012
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=73.0 xdata=0 code=2012
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=73.0 xdata=0 code=2021
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=73.0 xdata=0 code=2030
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=73.0 xdata=0 code=2039
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=73.0 xdata=0 code=2030
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=73.0 xdata=0 code=2059
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=73.0 xdata=0 code=2059
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=73.0 xdata=0 code=1976
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=73.0 xdata=0 code=1976
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=73.0 xdata=0 code=1985
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=73.0 xdata=0 code=1985
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=73.0 xdata=0 code=1985
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=73.0 xdata=0 code=1985
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling uart.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=71.0 xdata=0 code=2253
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=71.0 xdata=0 code=2253
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling delay.c...
+compiling i2c.c...
+compiling main.c...
+compiling uart.c...
+compiling rtc.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=71.0 xdata=0 code=2407
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=71.0 xdata=0 code=2452
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling i2c.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=71.0 xdata=0 code=2452
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling i2c.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=71.0 xdata=0 code=2452
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=71.0 xdata=0 code=2452
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=71.0 xdata=0 code=2434
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=71.0 xdata=0 code=2452
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling i2c.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=71.0 xdata=0 code=2452
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=71.0 xdata=0 code=2452
+creating hex file from "RTC_ON_UART"...
+"RTC_ON_UART" - 0 Error(s), 2 Warning(s).

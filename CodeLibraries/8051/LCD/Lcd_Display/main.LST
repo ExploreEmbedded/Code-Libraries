@@ -1,0 +1,52 @@
+C51 COMPILER V9.02   MAIN                                                                  01/28/2015 19:53:43 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*-----------------------------------------------------------------------------
+   2                   Program to demonstrate displaying of message on LCD
+   3            -----------------------------------------------------------------------------
+   4            note:
+   5            Refer lcd.h file for Pin connections
+   6          ------------------------------------------------------------------------------*/ 
+   7          
+   8          #include "lcd.h"        //User defined LCD library which contains the lcd routines
+   9          #include "delay.h" //User defined library which contains the delay routines
+  10          
+  11          
+  12          /* start the main program */
+  13          void main() 
+  14          {
+  15   1      
+  16   1        /* Initilize the lcd before displaying any thing on the lcd */
+  17   1          LCD_Init(8,2,16);
+  18   1      
+  19   1        /* Display "hello, world" on first line*/
+  20   1        LCD_DisplayString("hello, world");
+  21   1      
+  22   1        /*Go to second line and display "good morning" */
+  23   1        LCD_GoToNextLine();
+  24   1        LCD_DisplayString("good morning");
+  25   1      
+  26   1      
+  27   1        while(1);
+  28   1      
+  29   1        }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     32    ----
+   CONSTANT SIZE    =     26    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

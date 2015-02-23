@@ -1,0 +1,4 @@
+"delay.obj",
+"main.obj" 
+TO "SingleSegment" 
+RAMSIZE(256) 

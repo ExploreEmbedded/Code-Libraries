@@ -1,0 +1,1389 @@
+
+Multi_channel.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000067c  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000020  00800060  0000067c  00000710  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000005  00800080  00800080  00000730  2**0
+                  ALLOC
+  3 .debug_aranges 00000080  00000000  00000000  00000730  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_pubnames 00000179  00000000  00000000  000007b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000a87  00000000  00000000  00000929  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000003fc  00000000  00000000  000013b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000009c1  00000000  00000000  000017ac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000140  00000000  00000000  00002170  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000004ac  00000000  00000000  000022b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000004f0  00000000  00000000  0000275c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000090  00000000  00000000  00002c4c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	ec e7       	ldi	r30, 0x7C	; 124
+  68:	f6 e0       	ldi	r31, 0x06	; 6
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
+
+0000006c <.do_copy_data_loop>:
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+
+00000070 <.do_copy_data_start>:
+  70:	a0 38       	cpi	r26, 0x80	; 128
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <.do_copy_data_loop>
+
+00000076 <__do_clear_bss>:
+  76:	10 e0       	ldi	r17, 0x00	; 0
+  78:	a0 e8       	ldi	r26, 0x80	; 128
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	a5 38       	cpi	r26, 0x85	; 133
+  82:	b1 07       	cpc	r27, r17
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 d0 02 	call	0x5a0	; 0x5a0 <main>
+  8a:	0c 94 3c 03 	jmp	0x678	; 0x678 <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <ADC_Init>:
+ * description :This function initializes the ADC module.
+
+***************************************************************************************************/
+void ADC_Init()
+ {
+   ADCSRA=(1<<ADEN) | (1<<ADPS0); /* Enable ADC , sampling freq=osc_freq/2 */
+  92:	81 e8       	ldi	r24, 0x81	; 129
+  94:	86 b9       	out	0x06, r24	; 6
+   ADMUX=0x00;                    /* Result right justified, select channel zero */
+  96:	17 b8       	out	0x07, r1	; 7
+  }
+  98:	08 95       	ret
+
+0000009a <ADC_GetAdcValue>:
+				 For AVR/PIC(10-bit adc) the adc value per lsb will be 5/1023=0048v
+***************************************************************************************************/				 
+uint16_t ADC_GetAdcValue(uint8_t var_adcChannel_u8)
+ {
+   
+   ADMUX = var_adcChannel_u8;               /* Select the required channel */
+  9a:	87 b9       	out	0x07, r24	; 7
+   util_BitSet(ADCSRA,ADSC);              /* Start the ADC conversion by setting ADSC bit */
+  9c:	36 9a       	sbi	0x06, 6	; 6
+   
+   while(util_IsBitCleared(ADCSRA,ADIF)); /* Wait till the conversion is over */
+  9e:	34 9b       	sbis	0x06, 4	; 6
+  a0:	fe cf       	rjmp	.-4      	; 0x9e <ADC_GetAdcValue+0x4>
+                                          /* ADIF will be set once ADC conversion is complete */
+     return(ADCW);                        /* Return the 10-bit result */
+  a2:	24 b1       	in	r18, 0x04	; 4
+  a4:	35 b1       	in	r19, 0x05	; 5
+ }
+  a6:	c9 01       	movw	r24, r18
+  a8:	08 95       	ret
+
+000000aa <DELAY_sec>:
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  aa:	44 e1       	ldi	r20, 0x14	; 20
+  ac:	51 e0       	ldi	r21, 0x01	; 1
+  ae:	09 c0       	rjmp	.+18     	; 0xc2 <DELAY_sec+0x18>
+      It generates a delay of 1sec for each count,
+      if 10 is passed as the argument then it generates delay of 10sec
+***************************************************************************************************/
+void DELAY_sec(uint16_t var_delaySecCount_u16)
+ {
+	 while(var_delaySecCount_u16!=0)
+  b0:	20 e1       	ldi	r18, 0x10	; 16
+  b2:	37 e2       	ldi	r19, 0x27	; 39
+  b4:	fa 01       	movw	r30, r20
+  b6:	31 97       	sbiw	r30, 0x01	; 1
+  b8:	f1 f7       	brne	.-4      	; 0xb6 <DELAY_sec+0xc>
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+  ba:	21 50       	subi	r18, 0x01	; 1
+  bc:	30 40       	sbci	r19, 0x00	; 0
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+  be:	d1 f7       	brne	.-12     	; 0xb4 <DELAY_sec+0xa>
+	  {
+	     DELAY_ms(1000);	      /* DELAY_ms is called to generate 1sec delay */
+		 var_delaySecCount_u16--;
+  c0:	01 97       	sbiw	r24, 0x01	; 1
+      It generates a delay of 1sec for each count,
+      if 10 is passed as the argument then it generates delay of 10sec
+***************************************************************************************************/
+void DELAY_sec(uint16_t var_delaySecCount_u16)
+ {
+	 while(var_delaySecCount_u16!=0)
+  c2:	00 97       	sbiw	r24, 0x00	; 0
+  c4:	a9 f7       	brne	.-22     	; 0xb0 <DELAY_sec+0x6>
+	  {
+	     DELAY_ms(1000);	      /* DELAY_ms is called to generate 1sec delay */
+		 var_delaySecCount_u16--;
+		}
+  }
+  c6:	08 95       	ret
+
+000000c8 <lcd_BusyCheck>:
+static void lcd_BusyCheck()
+{
+	uint8_t busyflag;
+#ifdef LCD_RW       //Perform Busy check if LCD_RW pin is used
+
+	util_UpdateBit(M_LcdDataBusDirection,LCD_D7,C_PinInput_U8); // Configure busy pin as input
+  c8:	a7 98       	cbi	0x14, 7	; 20
+	M_LcdClearBit(LCD_RS);           // Select the Command Register by pulling RS LOW
+  ca:	95 98       	cbi	0x12, 5	; 18
+	M_LcdSetBit(LCD_RW);             // Select the Read Operation for busy flag by setting RW
+  cc:	96 9a       	sbi	0x12, 6	; 18
+		M_LcdSetBit(LCD_EN); 
+		DELAY_us(10);
+		busyflag = util_GetBitStatus(M_LcdDataBusInput,LCD_D7);
+
+
+		if(STK_LCDConfig.mvar_LcdMode_U8 == 4)
+  ce:	30 91 84 00 	lds	r19, 0x0084
+    can be achieved.
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+  d2:	94 e2       	ldi	r25, 0x24	; 36
+	M_LcdClearBit(LCD_RS);           // Select the Command Register by pulling RS LOW
+	M_LcdSetBit(LCD_RW);             // Select the Read Operation for busy flag by setting RW
+	do
+	{
+
+		M_LcdClearBit(LCD_EN);             // Send a High-to-Low Pulse at Enable Pin
+  d4:	97 98       	cbi	0x12, 7	; 18
+  d6:	89 2f       	mov	r24, r25
+  d8:	8a 95       	dec	r24
+  da:	f1 f7       	brne	.-4      	; 0xd8 <lcd_BusyCheck+0x10>
+		DELAY_us(10);	
+		M_LcdSetBit(LCD_EN); 
+  dc:	97 9a       	sbi	0x12, 7	; 18
+  de:	89 2f       	mov	r24, r25
+  e0:	8a 95       	dec	r24
+  e2:	f1 f7       	brne	.-4      	; 0xe0 <lcd_BusyCheck+0x18>
+		DELAY_us(10);
+		busyflag = util_GetBitStatus(M_LcdDataBusInput,LCD_D7);
+  e4:	23 b3       	in	r18, 0x13	; 19
+
+
+		if(STK_LCDConfig.mvar_LcdMode_U8 == 4)
+  e6:	34 30       	cpi	r19, 0x04	; 4
+  e8:	41 f4       	brne	.+16     	; 0xfa <lcd_BusyCheck+0x32>
+		{
+			/* Perform extra dummy read for 4-bit */ 	   	
+			M_LcdClearBit(LCD_EN);
+  ea:	97 98       	cbi	0x12, 7	; 18
+  ec:	89 2f       	mov	r24, r25
+  ee:	8a 95       	dec	r24
+  f0:	f1 f7       	brne	.-4      	; 0xee <lcd_BusyCheck+0x26>
+			DELAY_us(10);
+			M_LcdSetBit(LCD_EN); 
+  f2:	97 9a       	sbi	0x12, 7	; 18
+  f4:	89 2f       	mov	r24, r25
+  f6:	8a 95       	dec	r24
+  f8:	f1 f7       	brne	.-4      	; 0xf6 <lcd_BusyCheck+0x2e>
+			DELAY_us(10);
+		}	
+	}while(busyflag);
+  fa:	27 fd       	sbrc	r18, 7
+  fc:	eb cf       	rjmp	.-42     	; 0xd4 <lcd_BusyCheck+0xc>
+
+	util_UpdateBit(M_LcdDataBusDirection,LCD_D7,C_PinOutput_U8);
+  fe:	a7 9a       	sbi	0x14, 7	; 20
+#else
+	/* Busy flag cannot be read as LCD_RW is not available hence Extra delay of 1ms is added 
+	  to ensure the LCD completes previous operation and ready to receive new commands/data */
+	DELAY_ms(1);  
+#endif
+}
+ 100:	08 95       	ret
+
+00000102 <lcd_SendNibble>:
+
+ * description : This functions is used to send the higher nibble of the data to LCD in 4-bit mode
+ *************************************************************************************************/
+static void lcd_SendNibble(uint8_t var)
+{
+	util_UpdateBit(M_LcdDataBus,LCD_D4,util_GetBitStatus(var,LCD_D4));
+ 102:	98 2f       	mov	r25, r24
+ 104:	84 ff       	sbrs	r24, 4
+ 106:	02 c0       	rjmp	.+4      	; 0x10c <lcd_SendNibble+0xa>
+ 108:	ac 9a       	sbi	0x15, 4	; 21
+ 10a:	01 c0       	rjmp	.+2      	; 0x10e <lcd_SendNibble+0xc>
+ 10c:	ac 98       	cbi	0x15, 4	; 21
+ 10e:	25 b3       	in	r18, 0x15	; 21
+	util_UpdateBit(M_LcdDataBus,LCD_D5,util_GetBitStatus(var,LCD_D5));
+ 110:	95 ff       	sbrs	r25, 5
+ 112:	02 c0       	rjmp	.+4      	; 0x118 <lcd_SendNibble+0x16>
+ 114:	ad 9a       	sbi	0x15, 5	; 21
+ 116:	01 c0       	rjmp	.+2      	; 0x11a <lcd_SendNibble+0x18>
+ 118:	ad 98       	cbi	0x15, 5	; 21
+ 11a:	25 b3       	in	r18, 0x15	; 21
+	util_UpdateBit(M_LcdDataBus,LCD_D6,util_GetBitStatus(var,LCD_D6));
+ 11c:	96 ff       	sbrs	r25, 6
+ 11e:	02 c0       	rjmp	.+4      	; 0x124 <lcd_SendNibble+0x22>
+ 120:	ae 9a       	sbi	0x15, 6	; 21
+ 122:	01 c0       	rjmp	.+2      	; 0x126 <lcd_SendNibble+0x24>
+ 124:	ae 98       	cbi	0x15, 6	; 21
+ 126:	95 b3       	in	r25, 0x15	; 21
+	util_UpdateBit(M_LcdDataBus,LCD_D7,util_GetBitStatus(var,LCD_D7));
+ 128:	87 ff       	sbrs	r24, 7
+ 12a:	02 c0       	rjmp	.+4      	; 0x130 <lcd_SendNibble+0x2e>
+ 12c:	af 9a       	sbi	0x15, 7	; 21
+ 12e:	01 c0       	rjmp	.+2      	; 0x132 <lcd_SendNibble+0x30>
+ 130:	af 98       	cbi	0x15, 7	; 21
+ 132:	85 b3       	in	r24, 0x15	; 21
+ 134:	08 95       	ret
+
+00000136 <lcd_SendCmdSignals>:
+
+ * description : This functions generates the signals for sending the var_lcdCmd_u8 to LCD
+ *************************************************************************************************/
+static void lcd_SendCmdSignals()
+{
+	M_LcdClearBit(LCD_RS);           // Select the Command Register by pulling RS LOW
+ 136:	95 98       	cbi	0x12, 5	; 18
+#ifdef LCD_RW
+	M_LcdClearBit(LCD_RW);           // Select the Write Operation  by pulling RW LOW
+ 138:	96 98       	cbi	0x12, 6	; 18
+#endif
+	M_LcdSetBit(LCD_EN);             // Send a High-to-Low Pusle at Enable Pin
+ 13a:	97 9a       	sbi	0x12, 7	; 18
+ 13c:	84 e2       	ldi	r24, 0x24	; 36
+ 13e:	8a 95       	dec	r24
+ 140:	f1 f7       	brne	.-4      	; 0x13e <lcd_SendCmdSignals+0x8>
+	DELAY_us(10);
+	M_LcdClearBit(LCD_EN);
+ 142:	97 98       	cbi	0x12, 7	; 18
+}
+ 144:	08 95       	ret
+
+00000146 <LCD_CmdWrite>:
+                Some of the commonly used commands are defined in lcd.h.
+                For more commands refer the data sheet and send the supported command.				
+				The behaviour is undefined if unsupported commands are sent.    
+ ***************************************************************************************************/
+void LCD_CmdWrite( uint8_t var_lcdCmd_u8)
+{
+ 146:	1f 93       	push	r17
+ 148:	18 2f       	mov	r17, r24
+	lcd_BusyCheck();
+ 14a:	0e 94 64 00 	call	0xc8	; 0xc8 <lcd_BusyCheck>
+	if(STK_LCDConfig.mvar_LcdMode_U8 == M_EightBitMode)
+ 14e:	80 91 84 00 	lds	r24, 0x0084
+ 152:	88 30       	cpi	r24, 0x08	; 8
+ 154:	11 f4       	brne	.+4      	; 0x15a <LCD_CmdWrite+0x14>
+	{
+
+		M_LcdDataBus = var_lcdCmd_u8;     // Send the complete command if the selected mode is 8-bit
+ 156:	15 bb       	out	0x15, r17	; 21
+ 158:	0c c0       	rjmp	.+24     	; 0x172 <LCD_CmdWrite+0x2c>
+		lcd_SendCmdSignals();  // Signals for command write operation
+	}
+	else if(STK_LCDConfig.mvar_LcdMode_U8 == M_FourBitMode)
+ 15a:	84 30       	cpi	r24, 0x04	; 4
+ 15c:	61 f4       	brne	.+24     	; 0x176 <LCD_CmdWrite+0x30>
+	{
+		lcd_SendNibble(var_lcdCmd_u8);  // Send the command in two nibbles as the selected mode is 4-bit
+ 15e:	81 2f       	mov	r24, r17
+ 160:	0e 94 81 00 	call	0x102	; 0x102 <lcd_SendNibble>
+		lcd_SendCmdSignals(); // Signals for command write operation
+ 164:	0e 94 9b 00 	call	0x136	; 0x136 <lcd_SendCmdSignals>
+
+		lcd_SendNibble(var_lcdCmd_u8 << 4);
+ 168:	81 2f       	mov	r24, r17
+ 16a:	82 95       	swap	r24
+ 16c:	80 7f       	andi	r24, 0xF0	; 240
+ 16e:	0e 94 81 00 	call	0x102	; 0x102 <lcd_SendNibble>
+		lcd_SendCmdSignals();
+ 172:	0e 94 9b 00 	call	0x136	; 0x136 <lcd_SendCmdSignals>
+	}
+}
+ 176:	1f 91       	pop	r17
+ 178:	08 95       	ret
+
+0000017a <LCD_GoToNextLine>:
+ ***************************************************************************************************/
+void  LCD_GoToNextLine()
+{
+	/*Increment the current line number.
+	  In case it exceeds the limit, rool it back to first line */
+	VAR_LcdTrackLineNum_U8++;
+ 17a:	80 91 81 00 	lds	r24, 0x0081
+ 17e:	8f 5f       	subi	r24, 0xFF	; 255
+ 180:	80 93 81 00 	sts	0x0081, r24
+	VAR_LcdTrackCursorPos_U8 = 0x00;
+ 184:	10 92 80 00 	sts	0x0080, r1
+	if(VAR_LcdTrackLineNum_U8 > STK_LCDConfig.mvar_MaxSupportedLines_U8)
+ 188:	90 91 82 00 	lds	r25, 0x0082
+ 18c:	98 17       	cp	r25, r24
+ 18e:	18 f4       	brcc	.+6      	; 0x196 <LCD_GoToNextLine+0x1c>
+		VAR_LcdTrackLineNum_U8 = 0x01;
+ 190:	81 e0       	ldi	r24, 0x01	; 1
+ 192:	80 93 81 00 	sts	0x0081, r24
+	LCD_CmdWrite(ARR_LcdLineNumAddress_U8[VAR_LcdTrackLineNum_U8]);
+ 196:	e0 91 81 00 	lds	r30, 0x0081
+ 19a:	f0 e0       	ldi	r31, 0x00	; 0
+ 19c:	e0 5a       	subi	r30, 0xA0	; 160
+ 19e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1a0:	80 81       	ld	r24, Z
+ 1a2:	0e 94 a3 00 	call	0x146	; 0x146 <LCD_CmdWrite>
+}
+ 1a6:	08 95       	ret
+
+000001a8 <LCD_GoToLine>:
+           mENUM_LcdLineTwo,
+           mENUM_LcdLineThree,
+           mENUM_LcdLineFour,
+ ***************************************************************************************************/
+void LCD_GoToLine(uint8_t var_lineNumber_u8)
+{
+ 1a8:	e8 2f       	mov	r30, r24
+	if(var_lineNumber_u8 <= STK_LCDConfig.mvar_MaxSupportedLines_U8)
+ 1aa:	80 91 82 00 	lds	r24, 0x0082
+ 1ae:	8e 17       	cp	r24, r30
+ 1b0:	50 f0       	brcs	.+20     	; 0x1c6 <LCD_GoToLine+0x1e>
+	{
+		/* If the line number is within range then
+	       Move the Cursor to beginning of the specified line */
+		VAR_LcdTrackCursorPos_U8 = 0x00;
+ 1b2:	10 92 80 00 	sts	0x0080, r1
+		VAR_LcdTrackLineNum_U8 = var_lineNumber_u8;
+ 1b6:	e0 93 81 00 	sts	0x0081, r30
+		LCD_CmdWrite(ARR_LcdLineNumAddress_U8[var_lineNumber_u8]);
+ 1ba:	f0 e0       	ldi	r31, 0x00	; 0
+ 1bc:	e0 5a       	subi	r30, 0xA0	; 160
+ 1be:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1c0:	80 81       	ld	r24, Z
+ 1c2:	0e 94 a3 00 	call	0x146	; 0x146 <LCD_CmdWrite>
+ 1c6:	08 95       	ret
+
+000001c8 <LCD_Clear>:
+
+ * description  :This function clears the LCD and moves the cursor to beginning of first line
+ ***************************************************************************************************/
+void LCD_Clear()
+{
+	LCD_CmdWrite(CMD_LCD_CLEAR);	// Clear the LCD and go to First line First Position
+ 1c8:	81 e0       	ldi	r24, 0x01	; 1
+ 1ca:	0e 94 a3 00 	call	0x146	; 0x146 <LCD_CmdWrite>
+	LCD_GoToLine(mENUM_LcdLineOne);
+ 1ce:	81 e0       	ldi	r24, 0x01	; 1
+ 1d0:	0e 94 d4 00 	call	0x1a8	; 0x1a8 <LCD_GoToLine>
+}
+ 1d4:	08 95       	ret
+
+000001d6 <LCD_Init>:
+
+ * description  :This function is used to initialize the lcd.
+                 *It initializes the LCD for selected mode(4/8-bit) and Type(16x2/16x1 etc)
+**************************************************************************************************/
+void LCD_Init(uint8_t var_lcdMode_u8, uint8_t var_lcdNoOfLines_u8, uint8_t var_MaxCharsPerLine_u8)
+{
+ 1d6:	0f 93       	push	r16
+ 1d8:	1f 93       	push	r17
+ 1da:	58 2f       	mov	r21, r24
+
+
+	M_LcdDataBusDirection = C_PortOutput_U8;     //Configure the Data Bus as output
+ 1dc:	8f ef       	ldi	r24, 0xFF	; 255
+ 1de:	84 bb       	out	0x14, r24	; 20
+	M_LcdControlBusDirection = C_PortOutput_U8;  //Configure the Control Bus as output
+ 1e0:	81 bb       	out	0x11, r24	; 17
+	STK_LCDConfig.mvar_LcdMode_U8 = var_lcdMode_u8;      // Keep the track of selected Mode(4/8 bit)
+ 1e2:	50 93 84 00 	sts	0x0084, r21
+	STK_LCDConfig.mvar_MaxSupportedChars_U8 = var_MaxCharsPerLine_u8; //Keep the LCD type
+ 1e6:	40 93 83 00 	sts	0x0083, r20
+	STK_LCDConfig.mvar_MaxSupportedLines_U8 = var_lcdNoOfLines_u8;
+ 1ea:	60 93 82 00 	sts	0x0082, r22
+	if(var_lcdNoOfLines_u8 > mENUM_LcdLineTwo)
+ 1ee:	63 30       	cpi	r22, 0x03	; 3
+ 1f0:	40 f0       	brcs	.+16     	; 0x202 <LCD_Init+0x2c>
+	{
+		ARR_LcdLineNumAddress_U8[mENUM_LcdLineThree] =  0x90 + (var_MaxCharsPerLine_u8 & 0x0fu);
+ 1f2:	84 2f       	mov	r24, r20
+ 1f4:	8f 70       	andi	r24, 0x0F	; 15
+ 1f6:	80 57       	subi	r24, 0x70	; 112
+ 1f8:	80 93 63 00 	sts	0x0063, r24
+		ARR_LcdLineNumAddress_U8[mENUM_LcdLineFour] =  0xd0 + (var_MaxCharsPerLine_u8 & 0x0fu);
+ 1fc:	80 5c       	subi	r24, 0xC0	; 192
+ 1fe:	80 93 64 00 	sts	0x0064, r24
+ 202:	88 ee       	ldi	r24, 0xE8	; 232
+ 204:	93 e0       	ldi	r25, 0x03	; 3
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+ 206:	24 e1       	ldi	r18, 0x14	; 20
+ 208:	31 e0       	ldi	r19, 0x01	; 1
+ 20a:	f9 01       	movw	r30, r18
+ 20c:	31 97       	sbiw	r30, 0x01	; 1
+ 20e:	f1 f7       	brne	.-4      	; 0x20c <LCD_Init+0x36>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 210:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 212:	d9 f7       	brne	.-10     	; 0x20a <LCD_Init+0x34>
+	}
+
+	DELAY_ms(100);
+
+	if(STK_LCDConfig.mvar_LcdMode_U8 == M_EightBitMode)
+ 214:	58 30       	cpi	r21, 0x08	; 8
+ 216:	11 f4       	brne	.+4      	; 0x21c <LCD_Init+0x46>
+	{
+		LCD_CmdWrite(CMD_LCD_EIGHT_BIT_MODE); // Initialize the LCD for 8-bit 5x7 matrix type
+ 218:	88 e3       	ldi	r24, 0x38	; 56
+ 21a:	2b c0       	rjmp	.+86     	; 0x272 <LCD_Init+0x9c>
+	}
+	else if(STK_LCDConfig.mvar_LcdMode_U8 == M_FourBitMode)
+ 21c:	54 30       	cpi	r21, 0x04	; 4
+ 21e:	59 f5       	brne	.+86     	; 0x276 <LCD_Init+0xa0>
+                 This is used only in 4-bit mode as the LCD by default boots in 8-Bit mode.
+----------------------------------------------------------------------------------*/
+static void lcd_Reset()
+{
+	/* LCD reset sequence for 4-bit mode, refer data sheet for more info */
+	lcd_SendNibble(0x30);
+ 220:	80 e3       	ldi	r24, 0x30	; 48
+ 222:	0e 94 81 00 	call	0x102	; 0x102 <lcd_SendNibble>
+	lcd_SendCmdSignals();
+ 226:	0e 94 9b 00 	call	0x136	; 0x136 <lcd_SendCmdSignals>
+ 22a:	88 ee       	ldi	r24, 0xE8	; 232
+ 22c:	93 e0       	ldi	r25, 0x03	; 3
+ 22e:	24 e1       	ldi	r18, 0x14	; 20
+ 230:	31 e0       	ldi	r19, 0x01	; 1
+ 232:	f9 01       	movw	r30, r18
+ 234:	31 97       	sbiw	r30, 0x01	; 1
+ 236:	f1 f7       	brne	.-4      	; 0x234 <LCD_Init+0x5e>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 238:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 23a:	d9 f7       	brne	.-10     	; 0x232 <LCD_Init+0x5c>
+	DELAY_ms(100);
+	lcd_SendNibble(0x30);
+ 23c:	80 e3       	ldi	r24, 0x30	; 48
+ 23e:	0e 94 81 00 	call	0x102	; 0x102 <lcd_SendNibble>
+	lcd_SendCmdSignals();
+ 242:	0e 94 9b 00 	call	0x136	; 0x136 <lcd_SendCmdSignals>
+ 246:	08 e2       	ldi	r16, 0x28	; 40
+ 248:	12 e0       	ldi	r17, 0x02	; 2
+ 24a:	c8 01       	movw	r24, r16
+ 24c:	01 97       	sbiw	r24, 0x01	; 1
+ 24e:	f1 f7       	brne	.-4      	; 0x24c <LCD_Init+0x76>
+	DELAY_us(200);
+	lcd_SendNibble(0x30);
+ 250:	80 e3       	ldi	r24, 0x30	; 48
+ 252:	0e 94 81 00 	call	0x102	; 0x102 <lcd_SendNibble>
+	lcd_SendCmdSignals();
+ 256:	0e 94 9b 00 	call	0x136	; 0x136 <lcd_SendCmdSignals>
+ 25a:	c8 01       	movw	r24, r16
+ 25c:	01 97       	sbiw	r24, 0x01	; 1
+ 25e:	f1 f7       	brne	.-4      	; 0x25c <LCD_Init+0x86>
+	DELAY_us(200);
+	lcd_SendNibble(0x20);
+ 260:	80 e2       	ldi	r24, 0x20	; 32
+ 262:	0e 94 81 00 	call	0x102	; 0x102 <lcd_SendNibble>
+	lcd_SendCmdSignals();
+ 266:	0e 94 9b 00 	call	0x136	; 0x136 <lcd_SendCmdSignals>
+ 26a:	c8 01       	movw	r24, r16
+ 26c:	01 97       	sbiw	r24, 0x01	; 1
+ 26e:	f1 f7       	brne	.-4      	; 0x26c <LCD_Init+0x96>
+		LCD_CmdWrite(CMD_LCD_EIGHT_BIT_MODE); // Initialize the LCD for 8-bit 5x7 matrix type
+	}
+	else if(STK_LCDConfig.mvar_LcdMode_U8 == M_FourBitMode)
+	{
+		lcd_Reset();
+		LCD_CmdWrite(CMD_LCD_FOUR_BIT_MODE); // Initialize the LCD for 4-bit 5x7 matrix type 
+ 270:	88 e2       	ldi	r24, 0x28	; 40
+ 272:	0e 94 a3 00 	call	0x146	; 0x146 <LCD_CmdWrite>
+	}
+
+	LCD_CmdWrite(CMD_DISPLAY_ON_CURSOR_ON);	 // Display ON cursor ON
+ 276:	8e e0       	ldi	r24, 0x0E	; 14
+ 278:	0e 94 a3 00 	call	0x146	; 0x146 <LCD_CmdWrite>
+	LCD_Clear();	                         // Clear the LCD and go to First line First Position
+ 27c:	0e 94 e4 00 	call	0x1c8	; 0x1c8 <LCD_Clear>
+}
+ 280:	1f 91       	pop	r17
+ 282:	0f 91       	pop	r16
+ 284:	08 95       	ret
+
+00000286 <lcd_SendDataSignals>:
+
+ * description : This functions generates the signals for sending the Data to LCD
+ *************************************************************************************************/
+static void lcd_SendDataSignals()
+{
+	M_LcdSetBit(LCD_RS); 			// Select the Data Register by pulling RS HIGH
+ 286:	95 9a       	sbi	0x12, 5	; 18
+#ifdef LCD_RW
+	M_LcdClearBit(LCD_RW);          // Select the Write Operation  by pulling RW LOW
+ 288:	96 98       	cbi	0x12, 6	; 18
+#endif
+	M_LcdSetBit(LCD_EN);            // Send a High-to-Low Pusle at Enable Pin
+ 28a:	97 9a       	sbi	0x12, 7	; 18
+    can be achieved.
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+ 28c:	84 e2       	ldi	r24, 0x24	; 36
+ 28e:	8a 95       	dec	r24
+ 290:	f1 f7       	brne	.-4      	; 0x28e <lcd_SendDataSignals+0x8>
+	DELAY_us(10);
+	M_LcdClearBit(LCD_EN);
+ 292:	97 98       	cbi	0x12, 7	; 18
+}
+ 294:	08 95       	ret
+
+00000296 <LCD_DisplayChar>:
+ * description  : This function sends a character to be displayed on LCD.
+                  Any valid ascii value can be passed to display respective character
+
+ ***************************************************************************************************/
+void LCD_DisplayChar(char var_lcdData_u8)
+{
+ 296:	1f 93       	push	r17
+ 298:	18 2f       	mov	r17, r24
+	if((VAR_LcdTrackCursorPos_U8>=STK_LCDConfig.mvar_MaxSupportedChars_U8) || (var_lcdData_u8=='\n'))
+ 29a:	90 91 80 00 	lds	r25, 0x0080
+ 29e:	80 91 83 00 	lds	r24, 0x0083
+ 2a2:	98 17       	cp	r25, r24
+ 2a4:	10 f4       	brcc	.+4      	; 0x2aa <LCD_DisplayChar+0x14>
+ 2a6:	1a 30       	cpi	r17, 0x0A	; 10
+ 2a8:	21 f4       	brne	.+8      	; 0x2b2 <LCD_DisplayChar+0x1c>
+	{
+		/* If the cursor has reached to end of line on page1
+		OR NewLine command is issued Then Move the cursor to next line */
+		LCD_GoToNextLine();
+ 2aa:	0e 94 bd 00 	call	0x17a	; 0x17a <LCD_GoToNextLine>
+	}
+	if(var_lcdData_u8!='\n') /* Display the character if its not newLine Char */
+ 2ae:	1a 30       	cpi	r17, 0x0A	; 10
+ 2b0:	d9 f0       	breq	.+54     	; 0x2e8 <LCD_DisplayChar+0x52>
+
+ * description : This functions is used to send a byte of data to LCD.                 .    
+ *************************************************************************************************/
+static void lcd_DataWrite( uint8_t dat)
+{
+	lcd_BusyCheck();
+ 2b2:	0e 94 64 00 	call	0xc8	; 0xc8 <lcd_BusyCheck>
+	if(STK_LCDConfig.mvar_LcdMode_U8 == M_EightBitMode)
+ 2b6:	80 91 84 00 	lds	r24, 0x0084
+ 2ba:	88 30       	cpi	r24, 0x08	; 8
+ 2bc:	11 f4       	brne	.+4      	; 0x2c2 <LCD_DisplayChar+0x2c>
+	{
+		M_LcdDataBus = dat;      // Send the complete data byte if the selected mode is 8-bit
+ 2be:	15 bb       	out	0x15, r17	; 21
+ 2c0:	0c c0       	rjmp	.+24     	; 0x2da <LCD_DisplayChar+0x44>
+		lcd_SendDataSignals();  // Signals for data write operation
+	}
+	else if(STK_LCDConfig.mvar_LcdMode_U8 == M_FourBitMode)
+ 2c2:	84 30       	cpi	r24, 0x04	; 4
+ 2c4:	61 f4       	brne	.+24     	; 0x2de <LCD_DisplayChar+0x48>
+	{
+		lcd_SendNibble(dat);    // Send the data in two nibbles as the selected mode is 4-bit
+ 2c6:	81 2f       	mov	r24, r17
+ 2c8:	0e 94 81 00 	call	0x102	; 0x102 <lcd_SendNibble>
+		lcd_SendDataSignals();  // Signals for data write operation
+ 2cc:	0e 94 43 01 	call	0x286	; 0x286 <lcd_SendDataSignals>
+
+		lcd_SendNibble(dat << 4);
+ 2d0:	81 2f       	mov	r24, r17
+ 2d2:	82 95       	swap	r24
+ 2d4:	80 7f       	andi	r24, 0xF0	; 240
+ 2d6:	0e 94 81 00 	call	0x102	; 0x102 <lcd_SendNibble>
+		lcd_SendDataSignals();
+ 2da:	0e 94 43 01 	call	0x286	; 0x286 <lcd_SendDataSignals>
+	}
+	if(var_lcdData_u8!='\n') /* Display the character if its not newLine Char */
+	{
+
+		lcd_DataWrite(var_lcdData_u8); /* Display the data and keep track of cursor */
+		VAR_LcdTrackCursorPos_U8++;
+ 2de:	80 91 80 00 	lds	r24, 0x0080
+ 2e2:	8f 5f       	subi	r24, 0xFF	; 255
+ 2e4:	80 93 80 00 	sts	0x0080, r24
+	}
+}
+ 2e8:	1f 91       	pop	r17
+ 2ea:	08 95       	ret
+
+000002ec <LCD_DisplayDecimalNumber>:
+				2.(12345,6) then 6-digits ie. 012345 will be displayed
+				3.(12345,C_DisplayDefaultDigits_U8) then 12345 will be displayed.
+ ***************************************************************************************************/
+#if ((Enable_LCD_DisplayDecimalNumber == 1) || (Enable_LCD_DisplayFloatNumber == 1))
+void LCD_DisplayDecimalNumber(uint32_t var_DecNumber_u32, uint8_t var_numOfDigitsToDisplay_u8)
+{
+ 2ec:	6f 92       	push	r6
+ 2ee:	7f 92       	push	r7
+ 2f0:	9f 92       	push	r9
+ 2f2:	af 92       	push	r10
+ 2f4:	bf 92       	push	r11
+ 2f6:	cf 92       	push	r12
+ 2f8:	df 92       	push	r13
+ 2fa:	ef 92       	push	r14
+ 2fc:	ff 92       	push	r15
+ 2fe:	0f 93       	push	r16
+ 300:	df 93       	push	r29
+ 302:	cf 93       	push	r28
+ 304:	cd b7       	in	r28, 0x3d	; 61
+ 306:	de b7       	in	r29, 0x3e	; 62
+ 308:	2a 97       	sbiw	r28, 0x0a	; 10
+ 30a:	0f b6       	in	r0, 0x3f	; 63
+ 30c:	f8 94       	cli
+ 30e:	de bf       	out	0x3e, r29	; 62
+ 310:	0f be       	out	0x3f, r0	; 63
+ 312:	cd bf       	out	0x3d, r28	; 61
+ 314:	6b 01       	movw	r12, r22
+ 316:	7c 01       	movw	r14, r24
+ 318:	94 2e       	mov	r9, r20
+	uint8_t i=0,a[10];
+
+	if(var_DecNumber_u32==0)
+ 31a:	61 15       	cp	r22, r1
+ 31c:	71 05       	cpc	r23, r1
+ 31e:	81 05       	cpc	r24, r1
+ 320:	91 05       	cpc	r25, r1
+ 322:	31 f0       	breq	.+12     	; 0x330 <LCD_DisplayDecimalNumber+0x44>
+ 324:	00 e0       	ldi	r16, 0x00	; 0
+			else
+			{
+				/* In case user expects more digits to be displayed than the actual digits in number,
+  			    then update the remaining digits with zero.
+               Ex: var_num_u32 is 123 and user wants five digits then 00123 has to be displayed */
+				a[i]=0;
+ 326:	3e 01       	movw	r6, r28
+ 328:	08 94       	sec
+ 32a:	61 1c       	adc	r6, r1
+ 32c:	71 1c       	adc	r7, r1
+ 32e:	32 c0       	rjmp	.+100    	; 0x394 <LCD_DisplayDecimalNumber+0xa8>
+#if ((Enable_LCD_DisplayDecimalNumber == 1) || (Enable_LCD_DisplayFloatNumber == 1))
+void LCD_DisplayDecimalNumber(uint32_t var_DecNumber_u32, uint8_t var_numOfDigitsToDisplay_u8)
+{
+	uint8_t i=0,a[10];
+
+	if(var_DecNumber_u32==0)
+ 330:	fe 01       	movw	r30, r28
+ 332:	31 96       	adiw	r30, 0x01	; 1
+ 334:	00 e0       	ldi	r16, 0x00	; 0
+ 336:	02 c0       	rjmp	.+4      	; 0x33c <LCD_DisplayDecimalNumber+0x50>
+	{
+		/* If the number is zero then update the array with the same for displaying */
+		for(i=0;((i<var_numOfDigitsToDisplay_u8) && (i<C_MaxDigitsToDisplay_U8));i++)
+	    	a[i] = 0x00;
+ 338:	11 92       	st	Z+, r1
+	uint8_t i=0,a[10];
+
+	if(var_DecNumber_u32==0)
+	{
+		/* If the number is zero then update the array with the same for displaying */
+		for(i=0;((i<var_numOfDigitsToDisplay_u8) && (i<C_MaxDigitsToDisplay_U8));i++)
+ 33a:	0f 5f       	subi	r16, 0xFF	; 255
+ 33c:	09 15       	cp	r16, r9
+ 33e:	a8 f5       	brcc	.+106    	; 0x3aa <LCD_DisplayDecimalNumber+0xbe>
+ 340:	0a 30       	cpi	r16, 0x0A	; 10
+ 342:	d1 f7       	brne	.-12     	; 0x338 <LCD_DisplayDecimalNumber+0x4c>
+ 344:	32 c0       	rjmp	.+100    	; 0x3aa <LCD_DisplayDecimalNumber+0xbe>
+	{
+		for(i=0;i<var_numOfDigitsToDisplay_u8;i++)
+		{
+			/* Continue extracting the digits from right side
+			   till the Specified var_numOfDigitsToDisplay_u8 */
+			if(var_DecNumber_u32!=0)
+ 346:	c1 14       	cp	r12, r1
+ 348:	d1 04       	cpc	r13, r1
+ 34a:	e1 04       	cpc	r14, r1
+ 34c:	f1 04       	cpc	r15, r1
+ 34e:	d1 f0       	breq	.+52     	; 0x384 <LCD_DisplayDecimalNumber+0x98>
+			{
+				/* Extract the digits from the number till it becomes zero.
+			    First get the remainder and divide the number by 10 each time.
+                If var_num_u32 = 123 then extracted remainder will be 3 and number will be 12.
+				The process continues till it becomes zero or max digits reached*/
+				a[i]=util_GetMod32(var_DecNumber_u32,10);
+ 350:	53 01       	movw	r10, r6
+ 352:	a0 0e       	add	r10, r16
+ 354:	b1 1c       	adc	r11, r1
+ 356:	c7 01       	movw	r24, r14
+ 358:	b6 01       	movw	r22, r12
+ 35a:	2a e0       	ldi	r18, 0x0A	; 10
+ 35c:	30 e0       	ldi	r19, 0x00	; 0
+ 35e:	40 e0       	ldi	r20, 0x00	; 0
+ 360:	50 e0       	ldi	r21, 0x00	; 0
+ 362:	0e 94 1a 03 	call	0x634	; 0x634 <__udivmodsi4>
+ 366:	f5 01       	movw	r30, r10
+ 368:	60 83       	st	Z, r22
+				var_DecNumber_u32=var_DecNumber_u32/10;
+ 36a:	c7 01       	movw	r24, r14
+ 36c:	b6 01       	movw	r22, r12
+ 36e:	2a e0       	ldi	r18, 0x0A	; 10
+ 370:	30 e0       	ldi	r19, 0x00	; 0
+ 372:	40 e0       	ldi	r20, 0x00	; 0
+ 374:	50 e0       	ldi	r21, 0x00	; 0
+ 376:	0e 94 1a 03 	call	0x634	; 0x634 <__udivmodsi4>
+ 37a:	c9 01       	movw	r24, r18
+ 37c:	da 01       	movw	r26, r20
+ 37e:	6c 01       	movw	r12, r24
+ 380:	7d 01       	movw	r14, r26
+ 382:	07 c0       	rjmp	.+14     	; 0x392 <LCD_DisplayDecimalNumber+0xa6>
+			}
+			else if( (var_numOfDigitsToDisplay_u8 == C_DisplayDefaultDigits_U8) ||
+ 384:	fa e0       	ldi	r31, 0x0A	; 10
+ 386:	f9 15       	cp	r31, r9
+ 388:	80 f0       	brcs	.+32     	; 0x3aa <LCD_DisplayDecimalNumber+0xbe>
+			else
+			{
+				/* In case user expects more digits to be displayed than the actual digits in number,
+  			    then update the remaining digits with zero.
+               Ex: var_num_u32 is 123 and user wants five digits then 00123 has to be displayed */
+				a[i]=0;
+ 38a:	f3 01       	movw	r30, r6
+ 38c:	e0 0f       	add	r30, r16
+ 38e:	f1 1d       	adc	r31, r1
+ 390:	10 82       	st	Z, r1
+		for(i=0;((i<var_numOfDigitsToDisplay_u8) && (i<C_MaxDigitsToDisplay_U8));i++)
+	    	a[i] = 0x00;
+	}
+	else
+	{
+		for(i=0;i<var_numOfDigitsToDisplay_u8;i++)
+ 392:	0f 5f       	subi	r16, 0xFF	; 255
+ 394:	09 15       	cp	r16, r9
+ 396:	b8 f2       	brcs	.-82     	; 0x346 <LCD_DisplayDecimalNumber+0x5a>
+ 398:	08 c0       	rjmp	.+16     	; 0x3aa <LCD_DisplayDecimalNumber+0xbe>
+
+
+	while(i)
+	{ 
+		/* Finally get the ascii values of the digits and display*/
+		LCD_DisplayChar(util_Dec2Ascii(a[i-1]));
+ 39a:	fe 01       	movw	r30, r28
+ 39c:	e0 0f       	add	r30, r16
+ 39e:	f1 1d       	adc	r31, r1
+ 3a0:	80 81       	ld	r24, Z
+ 3a2:	80 5d       	subi	r24, 0xD0	; 208
+ 3a4:	0e 94 4b 01 	call	0x296	; 0x296 <LCD_DisplayChar>
+		i--;
+ 3a8:	01 50       	subi	r16, 0x01	; 1
+			}
+		}
+	}
+
+
+	while(i)
+ 3aa:	00 23       	and	r16, r16
+ 3ac:	b1 f7       	brne	.-20     	; 0x39a <LCD_DisplayDecimalNumber+0xae>
+	{ 
+		/* Finally get the ascii values of the digits and display*/
+		LCD_DisplayChar(util_Dec2Ascii(a[i-1]));
+		i--;
+	}
+}
+ 3ae:	2a 96       	adiw	r28, 0x0a	; 10
+ 3b0:	0f b6       	in	r0, 0x3f	; 63
+ 3b2:	f8 94       	cli
+ 3b4:	de bf       	out	0x3e, r29	; 62
+ 3b6:	0f be       	out	0x3f, r0	; 63
+ 3b8:	cd bf       	out	0x3d, r28	; 61
+ 3ba:	cf 91       	pop	r28
+ 3bc:	df 91       	pop	r29
+ 3be:	0f 91       	pop	r16
+ 3c0:	ff 90       	pop	r15
+ 3c2:	ef 90       	pop	r14
+ 3c4:	df 90       	pop	r13
+ 3c6:	cf 90       	pop	r12
+ 3c8:	bf 90       	pop	r11
+ 3ca:	af 90       	pop	r10
+ 3cc:	9f 90       	pop	r9
+ 3ce:	7f 90       	pop	r7
+ 3d0:	6f 90       	pop	r6
+ 3d2:	08 95       	ret
+
+000003d4 <LCD_Printf>:
+	     %12b: will display the 12-LSB of the number
+		 %d: Will display the exact digits of the number
+ *************************************************************************************************/
+#if ( Enable_LCD_Printf   == 1 ) 
+void LCD_Printf(const char *argList, ...)
+{
+ 3d4:	8f 92       	push	r8
+ 3d6:	9f 92       	push	r9
+ 3d8:	af 92       	push	r10
+ 3da:	bf 92       	push	r11
+ 3dc:	cf 92       	push	r12
+ 3de:	df 92       	push	r13
+ 3e0:	ef 92       	push	r14
+ 3e2:	ff 92       	push	r15
+ 3e4:	0f 93       	push	r16
+ 3e6:	1f 93       	push	r17
+ 3e8:	df 93       	push	r29
+ 3ea:	cf 93       	push	r28
+ 3ec:	cd b7       	in	r28, 0x3d	; 61
+ 3ee:	de b7       	in	r29, 0x3e	; 62
+ 3f0:	31 e1       	ldi	r19, 0x11	; 17
+ 3f2:	e3 2e       	mov	r14, r19
+ 3f4:	f1 2c       	mov	r15, r1
+ 3f6:	ec 0e       	add	r14, r28
+ 3f8:	fd 1e       	adc	r15, r29
+ 3fa:	8f 85       	ldd	r24, Y+15	; 0x0f
+ 3fc:	98 89       	ldd	r25, Y+16	; 0x10
+ 3fe:	9c 01       	movw	r18, r24
+ 400:	59 01       	movw	r10, r18
+		   if((ch>=0x30) && (ch<=0x39))
+			{
+			   var_numOfDigitsToDisp_u8 = 0;
+			   while((ch>=0x30) && (ch<=0x39))
+			    {
+				   var_numOfDigitsToDisp_u8 = (var_numOfDigitsToDisp_u8 * 10) + (ch-0x30);
+ 402:	2a e0       	ldi	r18, 0x0A	; 10
+ 404:	c2 2e       	mov	r12, r18
+ 406:	ba c0       	rjmp	.+372    	; 0x57c <__stack+0x11d>
+	/* Loop through the list to extract all the input arguments */
+	for(ptr = argList; *ptr != '\0'; ptr++)
+	{
+
+		ch= *ptr;
+		if(ch == '%')         /*Check for '%' as there will be format specifier after it */
+ 408:	85 32       	cpi	r24, 0x25	; 37
+ 40a:	09 f0       	breq	.+2      	; 0x40e <LCD_Printf+0x3a>
+ 40c:	b2 c0       	rjmp	.+356    	; 0x572 <__stack+0x113>
+		{
+		    ptr++;
+ 40e:	08 94       	sec
+ 410:	a1 1c       	adc	r10, r1
+ 412:	b1 1c       	adc	r11, r1
+		    ch = *ptr;
+ 414:	f5 01       	movw	r30, r10
+ 416:	90 81       	ld	r25, Z
+		   if((ch>=0x30) && (ch<=0x39))
+ 418:	89 2f       	mov	r24, r25
+ 41a:	80 53       	subi	r24, 0x30	; 48
+ 41c:	8a 30       	cpi	r24, 0x0A	; 10
+ 41e:	18 f0       	brcs	.+6      	; 0x426 <LCD_Printf+0x52>
+ 420:	dd 24       	eor	r13, r13
+ 422:	da 94       	dec	r13
+ 424:	0f c0       	rjmp	.+30     	; 0x444 <LCD_Printf+0x70>
+ 426:	dd 24       	eor	r13, r13
+ 428:	09 c0       	rjmp	.+18     	; 0x43c <LCD_Printf+0x68>
+			{
+			   var_numOfDigitsToDisp_u8 = 0;
+			   while((ch>=0x30) && (ch<=0x39))
+			    {
+				   var_numOfDigitsToDisp_u8 = (var_numOfDigitsToDisp_u8 * 10) + (ch-0x30);
+ 42a:	dc 9c       	mul	r13, r12
+ 42c:	d0 2c       	mov	r13, r0
+ 42e:	11 24       	eor	r1, r1
+ 430:	d8 0e       	add	r13, r24
+				   ptr++;
+ 432:	08 94       	sec
+ 434:	a1 1c       	adc	r10, r1
+ 436:	b1 1c       	adc	r11, r1
+				   ch = *ptr;
+ 438:	f5 01       	movw	r30, r10
+ 43a:	90 81       	ld	r25, Z
+		    ptr++;
+		    ch = *ptr;
+		   if((ch>=0x30) && (ch<=0x39))
+			{
+			   var_numOfDigitsToDisp_u8 = 0;
+			   while((ch>=0x30) && (ch<=0x39))
+ 43c:	89 2f       	mov	r24, r25
+ 43e:	80 53       	subi	r24, 0x30	; 48
+ 440:	8a 30       	cpi	r24, 0x0A	; 10
+ 442:	98 f3       	brcs	.-26     	; 0x42a <LCD_Printf+0x56>
+			{
+			  var_numOfDigitsToDisp_u8 = C_MaxDigitsToDisplayUsingPrintf_U8;
+			}				
+
+
+			switch(ch)       /* Decode the type of the argument */
+ 444:	98 35       	cpi	r25, 0x58	; 88
+ 446:	09 f4       	brne	.+2      	; 0x44a <LCD_Printf+0x76>
+ 448:	86 c0       	rjmp	.+268    	; 0x556 <__stack+0xf7>
+ 44a:	99 35       	cpi	r25, 0x59	; 89
+ 44c:	c0 f4       	brcc	.+48     	; 0x47e <__stack+0x1f>
+ 44e:	94 34       	cpi	r25, 0x44	; 68
+ 450:	09 f4       	brne	.+2      	; 0x454 <LCD_Printf+0x80>
+ 452:	4a c0       	rjmp	.+148    	; 0x4e8 <__stack+0x89>
+ 454:	95 34       	cpi	r25, 0x45	; 69
+ 456:	48 f4       	brcc	.+18     	; 0x46a <__stack+0xb>
+ 458:	92 34       	cpi	r25, 0x42	; 66
+ 45a:	09 f4       	brne	.+2      	; 0x45e <LCD_Printf+0x8a>
+ 45c:	7c c0       	rjmp	.+248    	; 0x556 <__stack+0xf7>
+ 45e:	93 34       	cpi	r25, 0x43	; 67
+ 460:	28 f5       	brcc	.+74     	; 0x4ac <__stack+0x4d>
+ 462:	95 32       	cpi	r25, 0x25	; 37
+ 464:	09 f0       	breq	.+2      	; 0x468 <__stack+0x9>
+ 466:	87 c0       	rjmp	.+270    	; 0x576 <__stack+0x117>
+ 468:	83 c0       	rjmp	.+262    	; 0x570 <__stack+0x111>
+ 46a:	93 35       	cpi	r25, 0x53	; 83
+ 46c:	09 f4       	brne	.+2      	; 0x470 <__stack+0x11>
+ 46e:	7b c0       	rjmp	.+246    	; 0x566 <__stack+0x107>
+ 470:	95 35       	cpi	r25, 0x55	; 85
+ 472:	09 f4       	brne	.+2      	; 0x476 <__stack+0x17>
+ 474:	60 c0       	rjmp	.+192    	; 0x536 <__stack+0xd7>
+ 476:	96 34       	cpi	r25, 0x46	; 70
+ 478:	09 f0       	breq	.+2      	; 0x47c <__stack+0x1d>
+ 47a:	7d c0       	rjmp	.+250    	; 0x576 <__stack+0x117>
+ 47c:	6f c0       	rjmp	.+222    	; 0x55c <__stack+0xfd>
+ 47e:	96 36       	cpi	r25, 0x66	; 102
+ 480:	09 f4       	brne	.+2      	; 0x484 <__stack+0x25>
+ 482:	6c c0       	rjmp	.+216    	; 0x55c <__stack+0xfd>
+ 484:	97 36       	cpi	r25, 0x67	; 103
+ 486:	40 f4       	brcc	.+16     	; 0x498 <__stack+0x39>
+ 488:	93 36       	cpi	r25, 0x63	; 99
+ 48a:	81 f0       	breq	.+32     	; 0x4ac <__stack+0x4d>
+ 48c:	94 36       	cpi	r25, 0x64	; 100
+ 48e:	b1 f0       	breq	.+44     	; 0x4bc <__stack+0x5d>
+ 490:	92 36       	cpi	r25, 0x62	; 98
+ 492:	09 f0       	breq	.+2      	; 0x496 <__stack+0x37>
+ 494:	70 c0       	rjmp	.+224    	; 0x576 <__stack+0x117>
+ 496:	5c c0       	rjmp	.+184    	; 0x550 <__stack+0xf1>
+ 498:	95 37       	cpi	r25, 0x75	; 117
+ 49a:	09 f4       	brne	.+2      	; 0x49e <__stack+0x3f>
+ 49c:	43 c0       	rjmp	.+134    	; 0x524 <__stack+0xc5>
+ 49e:	98 37       	cpi	r25, 0x78	; 120
+ 4a0:	09 f4       	brne	.+2      	; 0x4a4 <__stack+0x45>
+ 4a2:	56 c0       	rjmp	.+172    	; 0x550 <__stack+0xf1>
+ 4a4:	93 37       	cpi	r25, 0x73	; 115
+ 4a6:	09 f0       	breq	.+2      	; 0x4aa <__stack+0x4b>
+ 4a8:	66 c0       	rjmp	.+204    	; 0x576 <__stack+0x117>
+ 4aa:	5d c0       	rjmp	.+186    	; 0x566 <__stack+0x107>
+			{
+			case 'C':
+			case 'c':     /* Argument type is of char, hence read char data from the argp */
+				ch = va_arg(argp, uint16_t);
+ 4ac:	87 01       	movw	r16, r14
+ 4ae:	0e 5f       	subi	r16, 0xFE	; 254
+ 4b0:	1f 4f       	sbci	r17, 0xFF	; 255
+				LCD_DisplayChar(ch);
+ 4b2:	f7 01       	movw	r30, r14
+ 4b4:	80 81       	ld	r24, Z
+ 4b6:	0e 94 4b 01 	call	0x296	; 0x296 <LCD_DisplayChar>
+ 4ba:	48 c0       	rjmp	.+144    	; 0x54c <__stack+0xed>
+				break;
+
+			case 'd':    /* Argument type is of signed integer, hence read 16bit data from the argp */
+				var_num_s16 = va_arg(argp, sint16_t);
+ 4bc:	92 e0       	ldi	r25, 0x02	; 2
+ 4be:	89 2e       	mov	r8, r25
+ 4c0:	91 2c       	mov	r9, r1
+ 4c2:	8e 0c       	add	r8, r14
+ 4c4:	9f 1c       	adc	r9, r15
+ 4c6:	f7 01       	movw	r30, r14
+ 4c8:	00 81       	ld	r16, Z
+ 4ca:	11 81       	ldd	r17, Z+1	; 0x01
+#if (Enable_LCD_DisplayDecimalNumber == 1)
+				if(var_num_s16<0)
+ 4cc:	17 ff       	sbrs	r17, 7
+ 4ce:	06 c0       	rjmp	.+12     	; 0x4dc <__stack+0x7d>
+				 { /* If the number is -ve then display the 2's complement along with '-' sign */ 
+				   var_num_s16 = -var_num_s16;
+ 4d0:	10 95       	com	r17
+ 4d2:	01 95       	neg	r16
+ 4d4:	1f 4f       	sbci	r17, 0xFF	; 255
+				   LCD_DisplayChar('-');
+ 4d6:	8d e2       	ldi	r24, 0x2D	; 45
+ 4d8:	0e 94 4b 01 	call	0x296	; 0x296 <LCD_DisplayChar>
+				 }
+				LCD_DisplayDecimalNumber(var_num_s16,var_numOfDigitsToDisp_u8);
+ 4dc:	b8 01       	movw	r22, r16
+ 4de:	88 27       	eor	r24, r24
+ 4e0:	77 fd       	sbrc	r23, 7
+ 4e2:	80 95       	com	r24
+ 4e4:	98 2f       	mov	r25, r24
+ 4e6:	19 c0       	rjmp	.+50     	; 0x51a <__stack+0xbb>
+#endif
+				break;
+				
+			case 'D':    /* Argument type is of integer, hence read 16bit data from the argp */
+				var_num_s32 = va_arg(argp, sint32_t);
+ 4e8:	84 e0       	ldi	r24, 0x04	; 4
+ 4ea:	88 2e       	mov	r8, r24
+ 4ec:	91 2c       	mov	r9, r1
+ 4ee:	8e 0c       	add	r8, r14
+ 4f0:	9f 1c       	adc	r9, r15
+ 4f2:	f7 01       	movw	r30, r14
+ 4f4:	e0 80       	ld	r14, Z
+ 4f6:	f1 80       	ldd	r15, Z+1	; 0x01
+ 4f8:	02 81       	ldd	r16, Z+2	; 0x02
+ 4fa:	13 81       	ldd	r17, Z+3	; 0x03
+#if (Enable_LCD_DisplayDecimalNumber == 1)				
+				if(var_num_s32<0)
+ 4fc:	17 ff       	sbrs	r17, 7
+ 4fe:	0b c0       	rjmp	.+22     	; 0x516 <__stack+0xb7>
+				 { /* If the number is -ve then display the 2's complement along with '-' sign */
+				   var_num_s32 = -var_num_s32;
+ 500:	10 95       	com	r17
+ 502:	00 95       	com	r16
+ 504:	f0 94       	com	r15
+ 506:	e0 94       	com	r14
+ 508:	e1 1c       	adc	r14, r1
+ 50a:	f1 1c       	adc	r15, r1
+ 50c:	01 1d       	adc	r16, r1
+ 50e:	11 1d       	adc	r17, r1
+				   LCD_DisplayChar('-');
+ 510:	8d e2       	ldi	r24, 0x2D	; 45
+ 512:	0e 94 4b 01 	call	0x296	; 0x296 <LCD_DisplayChar>
+				 }
+				LCD_DisplayDecimalNumber(var_num_s32,var_numOfDigitsToDisp_u8);
+ 516:	c8 01       	movw	r24, r16
+ 518:	b7 01       	movw	r22, r14
+ 51a:	4d 2d       	mov	r20, r13
+ 51c:	0e 94 76 01 	call	0x2ec	; 0x2ec <LCD_DisplayDecimalNumber>
+ 520:	74 01       	movw	r14, r8
+ 522:	29 c0       	rjmp	.+82     	; 0x576 <__stack+0x117>
+#endif				
+				break;	
+
+			case 'u':    /* Argument type is of unsigned integer, hence read 16bit unsigned data */
+				var_num_u16 = va_arg(argp, uint16_t);
+ 524:	87 01       	movw	r16, r14
+ 526:	0e 5f       	subi	r16, 0xFE	; 254
+ 528:	1f 4f       	sbci	r17, 0xFF	; 255
+#if (Enable_LCD_DisplayDecimalNumber == 1)				
+				LCD_DisplayDecimalNumber(var_num_u16,var_numOfDigitsToDisp_u8);
+ 52a:	f7 01       	movw	r30, r14
+ 52c:	60 81       	ld	r22, Z
+ 52e:	71 81       	ldd	r23, Z+1	; 0x01
+ 530:	80 e0       	ldi	r24, 0x00	; 0
+ 532:	90 e0       	ldi	r25, 0x00	; 0
+ 534:	08 c0       	rjmp	.+16     	; 0x546 <__stack+0xe7>
+#endif				
+				break;
+			
+			case 'U':    /* Argument type is of integer, hence read 32bit unsigend data */
+				var_num_u32 = va_arg(argp, uint32_t);
+ 536:	87 01       	movw	r16, r14
+ 538:	0c 5f       	subi	r16, 0xFC	; 252
+ 53a:	1f 4f       	sbci	r17, 0xFF	; 255
+#if (Enable_LCD_DisplayDecimalNumber == 1)				
+				LCD_DisplayDecimalNumber(var_num_u32,var_numOfDigitsToDisp_u8);
+ 53c:	f7 01       	movw	r30, r14
+ 53e:	60 81       	ld	r22, Z
+ 540:	71 81       	ldd	r23, Z+1	; 0x01
+ 542:	82 81       	ldd	r24, Z+2	; 0x02
+ 544:	93 81       	ldd	r25, Z+3	; 0x03
+ 546:	4d 2d       	mov	r20, r13
+ 548:	0e 94 76 01 	call	0x2ec	; 0x2ec <LCD_DisplayDecimalNumber>
+ 54c:	78 01       	movw	r14, r16
+ 54e:	13 c0       	rjmp	.+38     	; 0x576 <__stack+0x117>
+#endif				
+				break;
+
+			
+			case 'b':  /* Argument type is of binary,Read int and convert to binary */
+				var_num_u16 = va_arg(argp, uint16_t);
+ 550:	82 e0       	ldi	r24, 0x02	; 2
+ 552:	90 e0       	ldi	r25, 0x00	; 0
+ 554:	05 c0       	rjmp	.+10     	; 0x560 <__stack+0x101>
+				LCD_DisplayBinaryNumber(var_num_u16,var_numOfDigitsToDisp_u8);
+#endif				
+				break;
+
+			case 'B':  /* Argument type is of binary,Read int and convert to binary */
+				var_num_u32 = va_arg(argp, uint32_t);
+ 556:	e4 e0       	ldi	r30, 0x04	; 4
+ 558:	f0 e0       	ldi	r31, 0x00	; 0
+ 55a:	07 c0       	rjmp	.+14     	; 0x56a <__stack+0x10b>
+				break;
+
+
+			case 'F':
+			case 'f': /* Argument type is of float, hence read double data from the argp */
+				var_floatNum_f32 = va_arg(argp, double);
+ 55c:	84 e0       	ldi	r24, 0x04	; 4
+ 55e:	90 e0       	ldi	r25, 0x00	; 0
+ 560:	e8 0e       	add	r14, r24
+ 562:	f9 1e       	adc	r15, r25
+ 564:	08 c0       	rjmp	.+16     	; 0x576 <__stack+0x117>
+				break;
+
+
+			case 'S':
+			case 's': /* Argument type is of string, hence get the pointer to sting passed */
+				str = va_arg(argp, char *);
+ 566:	e2 e0       	ldi	r30, 0x02	; 2
+ 568:	f0 e0       	ldi	r31, 0x00	; 0
+ 56a:	ee 0e       	add	r14, r30
+ 56c:	ff 1e       	adc	r15, r31
+ 56e:	03 c0       	rjmp	.+6      	; 0x576 <__stack+0x117>
+				LCD_DisplayString(str);
+#endif				
+				break;
+
+			case '%':
+				LCD_DisplayChar('%');
+ 570:	85 e2       	ldi	r24, 0x25	; 37
+			}
+		}
+		else
+		{
+			/* As '%' is not detected display/transmit the char passed */
+			LCD_DisplayChar(ch);
+ 572:	0e 94 4b 01 	call	0x296	; 0x296 <LCD_DisplayChar>
+	uint8_t var_numOfDigitsToDisp_u8;
+
+	va_start(argp, argList);
+
+	/* Loop through the list to extract all the input arguments */
+	for(ptr = argList; *ptr != '\0'; ptr++)
+ 576:	08 94       	sec
+ 578:	a1 1c       	adc	r10, r1
+ 57a:	b1 1c       	adc	r11, r1
+ 57c:	f5 01       	movw	r30, r10
+ 57e:	80 81       	ld	r24, Z
+ 580:	88 23       	and	r24, r24
+ 582:	09 f0       	breq	.+2      	; 0x586 <__stack+0x127>
+ 584:	41 cf       	rjmp	.-382    	; 0x408 <LCD_Printf+0x34>
+			LCD_DisplayChar(ch);
+		}
+	}
+
+	va_end(argp);
+}
+ 586:	cf 91       	pop	r28
+ 588:	df 91       	pop	r29
+ 58a:	1f 91       	pop	r17
+ 58c:	0f 91       	pop	r16
+ 58e:	ff 90       	pop	r15
+ 590:	ef 90       	pop	r14
+ 592:	df 90       	pop	r13
+ 594:	cf 90       	pop	r12
+ 596:	bf 90       	pop	r11
+ 598:	af 90       	pop	r10
+ 59a:	9f 90       	pop	r9
+ 59c:	8f 90       	pop	r8
+ 59e:	08 95       	ret
+
+000005a0 <main>:
+#include "adc.h"   //User defined library which conatins the adc routines
+
+
+/* start the main program */
+void main() 
+{
+ 5a0:	af 92       	push	r10
+ 5a2:	bf 92       	push	r11
+ 5a4:	cf 92       	push	r12
+ 5a6:	df 92       	push	r13
+ 5a8:	ef 92       	push	r14
+ 5aa:	ff 92       	push	r15
+ 5ac:	0f 93       	push	r16
+ 5ae:	1f 93       	push	r17
+ 5b0:	cf 93       	push	r28
+ 5b2:	df 93       	push	r29
+   uint16_t adc_result0,adc_result1,adc_result2,adc_result3;		
+
+    LCD_Init(8,2,16);	   /* Initialize 2x16lcd in 8-bit mode */    
+ 5b4:	88 e0       	ldi	r24, 0x08	; 8
+ 5b6:	62 e0       	ldi	r22, 0x02	; 2
+ 5b8:	40 e1       	ldi	r20, 0x10	; 16
+ 5ba:	0e 94 eb 00 	call	0x1d6	; 0x1d6 <LCD_Init>
+    ADC_Init();			   /* Initialize the adc module*/	 
+ 5be:	0e 94 49 00 	call	0x92	; 0x92 <ADC_Init>
+		 adc_result1= ADC_GetAdcValue(1);
+		 adc_result2= ADC_GetAdcValue(2);
+		 adc_result3= ADC_GetAdcValue(3);		  
+	
+		 LCD_GoToLine(1);
+         LCD_Printf("C0:%d C1:%d \nC2:%d C3:%d ",adc_result0,adc_result1,adc_result2,adc_result3);         	     
+ 5c2:	c5 e6       	ldi	r28, 0x65	; 101
+ 5c4:	d0 e0       	ldi	r29, 0x00	; 0
+    ADC_Init();			   /* Initialize the adc module*/	 
+    
+   while(1)
+    {
+       	/* Get the adc value of first four channels */
+		 adc_result0= ADC_GetAdcValue(0);
+ 5c6:	80 e0       	ldi	r24, 0x00	; 0
+ 5c8:	0e 94 4d 00 	call	0x9a	; 0x9a <ADC_GetAdcValue>
+ 5cc:	5c 01       	movw	r10, r24
+		 adc_result1= ADC_GetAdcValue(1);
+ 5ce:	81 e0       	ldi	r24, 0x01	; 1
+ 5d0:	0e 94 4d 00 	call	0x9a	; 0x9a <ADC_GetAdcValue>
+ 5d4:	6c 01       	movw	r12, r24
+		 adc_result2= ADC_GetAdcValue(2);
+ 5d6:	82 e0       	ldi	r24, 0x02	; 2
+ 5d8:	0e 94 4d 00 	call	0x9a	; 0x9a <ADC_GetAdcValue>
+ 5dc:	7c 01       	movw	r14, r24
+		 adc_result3= ADC_GetAdcValue(3);		  
+ 5de:	83 e0       	ldi	r24, 0x03	; 3
+ 5e0:	0e 94 4d 00 	call	0x9a	; 0x9a <ADC_GetAdcValue>
+ 5e4:	8c 01       	movw	r16, r24
+	
+		 LCD_GoToLine(1);
+ 5e6:	81 e0       	ldi	r24, 0x01	; 1
+ 5e8:	0e 94 d4 00 	call	0x1a8	; 0x1a8 <LCD_GoToLine>
+         LCD_Printf("C0:%d C1:%d \nC2:%d C3:%d ",adc_result0,adc_result1,adc_result2,adc_result3);         	     
+ 5ec:	8d b7       	in	r24, 0x3d	; 61
+ 5ee:	9e b7       	in	r25, 0x3e	; 62
+ 5f0:	0a 97       	sbiw	r24, 0x0a	; 10
+ 5f2:	0f b6       	in	r0, 0x3f	; 63
+ 5f4:	f8 94       	cli
+ 5f6:	9e bf       	out	0x3e, r25	; 62
+ 5f8:	0f be       	out	0x3f, r0	; 63
+ 5fa:	8d bf       	out	0x3d, r24	; 61
+ 5fc:	ed b7       	in	r30, 0x3d	; 61
+ 5fe:	fe b7       	in	r31, 0x3e	; 62
+ 600:	31 96       	adiw	r30, 0x01	; 1
+ 602:	ad b7       	in	r26, 0x3d	; 61
+ 604:	be b7       	in	r27, 0x3e	; 62
+ 606:	12 96       	adiw	r26, 0x02	; 2
+ 608:	dc 93       	st	X, r29
+ 60a:	ce 93       	st	-X, r28
+ 60c:	11 97       	sbiw	r26, 0x01	; 1
+ 60e:	b3 82       	std	Z+3, r11	; 0x03
+ 610:	a2 82       	std	Z+2, r10	; 0x02
+ 612:	d5 82       	std	Z+5, r13	; 0x05
+ 614:	c4 82       	std	Z+4, r12	; 0x04
+ 616:	f7 82       	std	Z+7, r15	; 0x07
+ 618:	e6 82       	std	Z+6, r14	; 0x06
+ 61a:	11 87       	std	Z+9, r17	; 0x09
+ 61c:	00 87       	std	Z+8, r16	; 0x08
+ 61e:	0e 94 ea 01 	call	0x3d4	; 0x3d4 <LCD_Printf>
+ 622:	8d b7       	in	r24, 0x3d	; 61
+ 624:	9e b7       	in	r25, 0x3e	; 62
+ 626:	0a 96       	adiw	r24, 0x0a	; 10
+ 628:	0f b6       	in	r0, 0x3f	; 63
+ 62a:	f8 94       	cli
+ 62c:	9e bf       	out	0x3e, r25	; 62
+ 62e:	0f be       	out	0x3f, r0	; 63
+ 630:	8d bf       	out	0x3d, r24	; 61
+ 632:	c9 cf       	rjmp	.-110    	; 0x5c6 <main+0x26>
+
+00000634 <__udivmodsi4>:
+ 634:	a1 e2       	ldi	r26, 0x21	; 33
+ 636:	1a 2e       	mov	r1, r26
+ 638:	aa 1b       	sub	r26, r26
+ 63a:	bb 1b       	sub	r27, r27
+ 63c:	fd 01       	movw	r30, r26
+ 63e:	0d c0       	rjmp	.+26     	; 0x65a <__udivmodsi4_ep>
+
+00000640 <__udivmodsi4_loop>:
+ 640:	aa 1f       	adc	r26, r26
+ 642:	bb 1f       	adc	r27, r27
+ 644:	ee 1f       	adc	r30, r30
+ 646:	ff 1f       	adc	r31, r31
+ 648:	a2 17       	cp	r26, r18
+ 64a:	b3 07       	cpc	r27, r19
+ 64c:	e4 07       	cpc	r30, r20
+ 64e:	f5 07       	cpc	r31, r21
+ 650:	20 f0       	brcs	.+8      	; 0x65a <__udivmodsi4_ep>
+ 652:	a2 1b       	sub	r26, r18
+ 654:	b3 0b       	sbc	r27, r19
+ 656:	e4 0b       	sbc	r30, r20
+ 658:	f5 0b       	sbc	r31, r21
+
+0000065a <__udivmodsi4_ep>:
+ 65a:	66 1f       	adc	r22, r22
+ 65c:	77 1f       	adc	r23, r23
+ 65e:	88 1f       	adc	r24, r24
+ 660:	99 1f       	adc	r25, r25
+ 662:	1a 94       	dec	r1
+ 664:	69 f7       	brne	.-38     	; 0x640 <__udivmodsi4_loop>
+ 666:	60 95       	com	r22
+ 668:	70 95       	com	r23
+ 66a:	80 95       	com	r24
+ 66c:	90 95       	com	r25
+ 66e:	9b 01       	movw	r18, r22
+ 670:	ac 01       	movw	r20, r24
+ 672:	bd 01       	movw	r22, r26
+ 674:	cf 01       	movw	r24, r30
+ 676:	08 95       	ret
+
+00000678 <_exit>:
+ 678:	f8 94       	cli
+
+0000067a <__stop_program>:
+ 67a:	ff cf       	rjmp	.-2      	; 0x67a <__stop_program>

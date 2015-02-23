@@ -1,0 +1,29 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\work_space\updatedLib\8051\SevenSegment\Four_Segments\Four_segments.uvproj
+Project File Date:  10/20/2012
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling delay.c...
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+Program Size: data=34.0 xdata=0 code=626
+creating hex file from "Four_segments"...
+"Four_segments" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(71): warning C206: 'DELAY_Sec': missing function-prototype
+MAIN.C(71): error C267: 'DELAY_Sec': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=34.0 xdata=0 code=633
+creating hex file from "Four_segments"...
+"Four_segments" - 0 Error(s), 0 Warning(s).

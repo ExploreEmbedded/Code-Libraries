@@ -1,0 +1,99 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\work_space\updatedLib\8051\EEPROM\EEPROM_LCD\EEPROM_StringRdWr_LCD\Eeprom_StringRdWr_Lcd.uvproj
+Project File Date:  01/29/2015
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling delay.c...
+compiling eeprom.c...
+EEPROM.C(99): warning C280: 'var_eepromPageNumber_u8': unreferenced local variable
+EEPROM.C(183): warning C280: 'var_eepromPageNumber_u8': unreferenced local variable
+compiling i2c.c...
+compiling main.c...
+compiling lcd.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+Program Size: data=60.0 xdata=0 code=1556
+creating hex file from "Eeprom_StringRdWr_Lcd"...
+"Eeprom_StringRdWr_Lcd" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling eeprom.c...
+EEPROM.C(99): warning C280: 'var_eepromPageNumber_u8': unreferenced local variable
+EEPROM.C(183): warning C280: 'var_eepromPageNumber_u8': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+Program Size: data=60.0 xdata=0 code=1556
+creating hex file from "Eeprom_StringRdWr_Lcd"...
+"Eeprom_StringRdWr_Lcd" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+Program Size: data=58.0 xdata=0 code=1554
+creating hex file from "Eeprom_StringRdWr_Lcd"...
+"Eeprom_StringRdWr_Lcd" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling eeprom.c...
+EEPROM.C(99): warning C280: 'var_eepromPageNumber_u8': unreferenced local variable
+EEPROM.C(183): warning C280: 'var_eepromPageNumber_u8': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+Program Size: data=58.0 xdata=0 code=1554
+creating hex file from "Eeprom_StringRdWr_Lcd"...
+"Eeprom_StringRdWr_Lcd" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling delay.c...
+compiling eeprom.c...
+EEPROM.C(99): warning C280: 'var_eepromPageNumber_u8': unreferenced local variable
+EEPROM.C(183): warning C280: 'var_eepromPageNumber_u8': unreferenced local variable
+compiling i2c.c...
+compiling main.c...
+compiling lcd.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+Program Size: data=58.0 xdata=0 code=1554
+creating hex file from "Eeprom_StringRdWr_Lcd"...
+"Eeprom_StringRdWr_Lcd" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling eeprom.c...
+EEPROM.C(99): warning C280: 'var_eepromPageNumber_u8': unreferenced local variable
+EEPROM.C(183): warning C280: 'var_eepromPageNumber_u8': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+Program Size: data=58.0 xdata=0 code=1554
+creating hex file from "Eeprom_StringRdWr_Lcd"...
+"Eeprom_StringRdWr_Lcd" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling eeprom.c...
+EEPROM.C(99): warning C280: 'var_eepromPageNumber_u8': unreferenced local variable
+EEPROM.C(183): warning C280: 'var_eepromPageNumber_u8': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+Program Size: data=58.0 xdata=0 code=1554
+creating hex file from "Eeprom_StringRdWr_Lcd"...
+"Eeprom_StringRdWr_Lcd" - 0 Error(s), 4 Warning(s).

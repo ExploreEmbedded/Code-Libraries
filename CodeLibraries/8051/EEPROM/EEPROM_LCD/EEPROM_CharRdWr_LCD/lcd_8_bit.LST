@@ -1,0 +1,450 @@
+C51 COMPILER V9.05   LCD_8_BIT                                                             12/23/2012 12:19:35 PAGE 1   
+
+
+C51 COMPILER V9.05, COMPILATION OF MODULE LCD_8_BIT
+OBJECT MODULE PLACED IN lcd_8_bit.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE lcd_8_bit.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*---------------------------------------------------------------------------------
+   2                                  8051 LCD library for 8-bit mode
+   3          Filename: lcd_8_bit.c
+   4          Controller: P89V51RD2/89c51(8051 family)
+   5          Oscillator: 11.0592 MHz
+   6          Author: XploreLabz
+   7          website: www.xplorelabz.com
+   8           ----------------------------------------------------------------------------------
+   9          
+  10           Note:
+  11             1.Pin connection for LCD display in 8-bit mode is as shown below.
+  12                By default the LCD is connected to Port2.
+  13             2.The code can be modified to connect the LCD to any of the PORTs
+  14               by changing the  "#define databus P2".
+  15                      _______________________________________________
+  16                     |                                               |
+  17                     |              16*2 lcd  Display                |
+  18                     |                8-bit Mode                     |
+  19                     |                                               |
+  20                     |                                               |
+  21                     |                                               |
+  22                     |         D7 D6 D5 D4 D3 D2 D1 D0     EN RW RS  |
+  23                      -----------------------------------------------
+  24                               |                     |      |  |  |
+  25                               |<---------P2-------->|      |  |  |
+  26                               |                     |      |  |  |___P0.0
+  27                                                                                    |  |______P0.1
+  28                                                            |_________P0.2
+  29          
+  30          -----------------------------------------------------------------------------------*/
+  31          
+  32          
+  33          #include<reg51.h>
+  34          #include "delay.h"
+  35          #include "lcd.h"
+  36          
+  37          #define databus P2   // LCD databus connected to PORT2
+  38          
+  39          sbit rs= P0^0;           // Register select pin connected to P0.0
+  40          sbit rw= P0^1;           // Read Write pin connected to P0.1
+  41          sbit en= P0^2;           // Enable pin connected to P0.2
+  42          
+  43          
+  44          /* 16x2 LCD Specification */
+  45          #define LCDMaxLines 2
+  46          #define LCDMaxChars 16
+  47          #define LineOne 0x80
+  48          #define LineTwo 0xc0
+  49          
+  50          #define BlankSpace ' '
+  51          
+  52          
+  53          /*---------------------------------------------------------------------------------
+  54                                   void LCD_Init()
+  55           ----------------------------------------------------------------------------------
+C51 COMPILER V9.05   LCD_8_BIT                                                             12/23/2012 12:19:35 PAGE 2   
+
+  56           * Function name:  LCD_Init()
+  57           * I/P Arguments: none.
+  58           * Return value : none
+  59          
+  60           * description  :This function is used to initialize the lcd in 8-bit mode
+  61          
+  62          -----------------------------------------------------------------------------------*/
+  63          void LCD_Init()
+  64          {
+  65   1          delay_us(5000);
+  66   1         LCD_CmdWrite(0x38);   // LCD 2lines, 5*7 matrix
+  67   1         LCD_CmdWrite(0x0E);  // Display ON cursor ON
+  68   1         LCD_CmdWrite(0x01);  // Clear the LCD
+  69   1         LCD_CmdWrite(0x80);  // Move the Cursor to First line First Position
+  70   1      
+  71   1      }
+  72          
+  73          
+  74          
+  75          
+  76          /*---------------------------------------------------------------------------------
+  77                                   void LCD_Clear()
+  78           ----------------------------------------------------------------------------------
+  79           * I/P Arguments: none.
+  80           * Return value : none
+  81          
+  82           * description  :This function clears the LCD and moves the cursor to first Position
+  83          
+  84          -----------------------------------------------------------------------------------*/
+  85          void LCD_Clear()
+  86          {
+  87   1         LCD_CmdWrite(0x01);  // Clear the LCD and go to First line First Position
+  88   1         LCD_CmdWrite(LineOne);
+  89   1      }
+  90          
+  91          
+  92          
+  93          
+  94          
+  95          /*---------------------------------------------------------------------------------
+  96                                   void LCD_GoToLineOne()
+  97           ----------------------------------------------------------------------------------
+  98           * I/P Arguments: none.
+  99           * Return value : none
+ 100          
+ 101           * description  :This function moves the Cursor to First line First Position
+ 102          
+ 103          -----------------------------------------------------------------------------------*/
+ 104          void LCD_GoToLineOne()
+ 105          {
+ 106   1         LCD_CmdWrite(LineOne);       // Move the Cursor to First line First Position
+ 107   1      }
+ 108          
+ 109          
+ 110          
+ 111          
+ 112          /*---------------------------------------------------------------------------------
+ 113                                   void LCD_GoToLineTwo()
+ 114           ----------------------------------------------------------------------------------
+ 115           * I/P Arguments: none.
+ 116           * Return value : none
+ 117          
+C51 COMPILER V9.05   LCD_8_BIT                                                             12/23/2012 12:19:35 PAGE 3   
+
+ 118           * description  :This function moves the Cursor to Second line First Position
+ 119          
+ 120          -----------------------------------------------------------------------------------*/
+ 121          void LCD_GoToLineTwo()
+ 122          {
+ 123   1         LCD_CmdWrite(LineTwo);       // Move the Cursor to Second line First Position
+ 124   1      }
+ 125          
+ 126          
+ 127          
+ 128          
+ 129          /*---------------------------------------------------------------------------------
+ 130                                   void LCD_GoToXY(char row,char col)
+ 131           ----------------------------------------------------------------------------------
+ 132           * I/P Arguments: char row,char col
+ 133                           row -> line number(line1=0, line2=1),
+ 134                                  For 2line LCD the I/P argument should be either 0 or 1.
+ 135                           col -> char number.
+ 136                                  For 16-char LCD the I/P argument should be betwen 0-15.
+ 137           * Return value : none
+ 138          
+ 139           * description  :This function moves the Cursor to specified position
+ 140          
+ 141          -----------------------------------------------------------------------------------*/
+ 142          void LCD_GoToXY(char row, char col)
+ 143          {
+ 144   1         char pos;
+ 145   1      
+ 146   1          if(row<LCDMaxLines)
+ 147   1            {
+ 148   2                       pos= LineOne | (row << 6); // take the line number
+ 149   2                                                  //row0->pos=0x80  row1->pos=0xc0
+ 150   2      
+ 151   2                  if(col<LCDMaxChars)
+ 152   2                         pos= pos+col;            //take the char number
+ 153   2                                                  //now pos points to the given XY pos
+ 154   2      
+ 155   2                       LCD_CmdWrite(pos);            // Move the Cursor to specified Position
+ 156   2             }
+ 157   1      }
+ 158          
+ 159          
+ 160          
+ 161          
+ 162          
+ 163          
+ 164          
+ 165          /*---------------------------------------------------------------------------------
+ 166                                 void LCD_CmdWrite( char cmd)
+ 167          * ---------------------------------------------------------------------------------
+ 168           * I/P Arguments: 8-bit command supported by LCD.
+ 169           * Return value : none
+ 170          
+ 171           * description :This function sends a command to LCD in the following steps.
+ 172               step1: Send the I/P command to LCD.
+ 173               step2: Select the Control Register by making RS low.
+ 174               step3: Select Write operation making RW low.
+ 175                   step4: Send a High-to-Low pulse on Enable PIN with some delay_us.
+ 176          ----------------------------------------------------------------------------------*/
+ 177          void LCD_CmdWrite( char cmd)
+ 178          {
+ 179   1      
+C51 COMPILER V9.05   LCD_8_BIT                                                             12/23/2012 12:19:35 PAGE 4   
+
+ 180   1         databus=cmd;        // Send the command to LCD
+ 181   1           rs=0;             // Select the Command Register by pulling RS LOW
+ 182   1           rw=0;             // Select the Write Operation  by pulling RW LOW
+ 183   1           en=1;             // Send a High-to-Low Pusle at Enable Pin
+ 184   1              delay_us(10);
+ 185   1           en=0;
+ 186   1      
+ 187   1         delay_ms(1);
+ 188   1      }
+ 189          
+ 190          
+ 191          
+ 192          
+ 193          
+ 194          /*---------------------------------------------------------------------------------
+ 195                                 void LCD_DataWrite( char dat)
+ 196           ----------------------------------------------------------------------------------
+ 197           * I/P Arguments: ASCII value of the char to be displayed.
+ 198           * Return value : none
+ 199          
+ 200           * description  :
+ 201              This function sends a character to be displayed on LCD in the following steps.
+ 202                step1: Send the character to LCD.
+ 203                step2: Select the Data Register by making RS high.
+ 204                step3: Select Write operation making RW low.
+ 205                    step4: Send a High-to-Low pulse on Enable PIN with some delay_us.
+ 206          
+ 207          -----------------------------------------------------------------------------------*/
+ 208          void LCD_DataWrite( char dat)
+ 209          {
+ 210   1      
+ 211   1      
+ 212   1         databus=dat;     // Send the data to LCD
+ 213   1           rs=1;                      // Select the Data Register by pulling RS HIGH
+ 214   1           rw=0;                      // Select the Write Operation  by pulling RW LOW
+ 215   1           en=1;                      // Send a High-to-Low Pusle at Enable Pin
+ 216   1              delay_us(10);
+ 217   1           en=0;
+ 218   1      
+ 219   1         delay_ms(1);
+ 220   1      
+ 221   1      }
+ 222          
+ 223          
+ 224          
+ 225          
+ 226          
+ 227          
+ 228          /*---------------------------------------------------------------------------------
+ 229                                 void LCD_DisplayString(char *string_ptr)
+ 230           ----------------------------------------------------------------------------------
+ 231           * I/P Arguments: String(Address of the string) to be displayed.
+ 232           * Return value : none
+ 233          
+ 234           * description  :
+ 235                         This function is used to display the ASCII string on the lcd.
+ 236                           1.The string_ptr points to the first char of the string
+ 237                              and traverses till the end(NULL CHAR).
+ 238                           2.Each time a char is sent to LCD_DataWrite funtion to display.
+ 239          -----------------------------------------------------------------------------------*/
+ 240          void LCD_DisplayString(char *string_ptr)
+ 241          {
+C51 COMPILER V9.05   LCD_8_BIT                                                             12/23/2012 12:19:35 PAGE 5   
+
+ 242   1         while(*string_ptr)
+ 243   1          LCD_DataWrite(*string_ptr++);
+ 244   1              }
+ 245          
+ 246          
+ 247          
+ 248          
+ 249          
+ 250          /*---------------------------------------------------------------------------------
+ 251                                void  LCD_DisplayNumber(unsigned int num)
+ 252           ----------------------------------------------------------------------------------
+ 253           * Function name:  LCD_DisplayNumber()
+ 254           * I/P Arguments: unsigned int.
+ 255           * Return value : none
+ 256          
+ 257           * description  :This function is used to display a 5-digit integer(0-65535).
+ 258                           ex: if the number is 12345 then 12345 is displayed.
+ 259                               if the number is 123 then 00123 is displayed.
+ 260          
+ 261          
+ 262           __________Take 1 by dividing by 10000 and add 0X30 to obtain the ASCII value,
+ 263          |           then take the 4-digit remainder(2345).
+ 264          |
+ 265          | _________Take 2 by dividing by 1000  and add 0X30 to obtain the ASCII value,
+ 266          ||           then take the 3-digit remainder(345)
+ 267          ||
+ 268          || ________Take 3 by dividing by 100   and add 0X30 to obtain the ASCII value,
+ 269          |||           then take the 2-digit remainder(45).
+ 270          |||
+ 271          ||| _______Take 4 by dividing by 10    and add 0X30 to obtain the ASCII value,
+ 272          |||| ______Take 5 the remainder of 45  and add 0X30 to obtain the ASCII value,.
+ 273          |||||
+ 274          12345
+ 275          -----------------------------------------------------------------------------------*/
+ 276          void LCD_DisplayNumber(unsigned int num)
+ 277          {
+ 278   1         LCD_DataWrite((num/10000)+0x30);
+ 279   1         num=num%10000;
+ 280   1      
+ 281   1         LCD_DataWrite((num/1000)+0x30);
+ 282   1         num=num%1000;
+ 283   1      
+ 284   1         LCD_DataWrite((num/100)+0x30);
+ 285   1         num=num%100;
+ 286   1      
+ 287   1         LCD_DataWrite((num/10)+0x30);
+ 288   1      
+ 289   1         LCD_DataWrite((num%10)+0x30);
+ 290   1      
+ 291   1       }
+ 292          
+ 293          
+ 294          
+ 295          
+ 296          
+ 297          /*---------------------------------------------------------------------------------
+ 298                            void LCD_ScrollMessage(char *msg_ptr)
+ 299           ----------------------------------------------------------------------------------
+ 300           * I/P Arguments: char *msg_ptr
+ 301                           msg_ptr -> pointer to the string to be scrolled
+ 302          
+ 303           * Return value : none
+C51 COMPILER V9.05   LCD_8_BIT                                                             12/23/2012 12:19:35 PAGE 6   
+
+ 304          
+ 305           * description  :This function scrolls the given message on the first line.
+ 306                  1.16 chars are displayed at atime.
+ 307                  2.Pointer is incremented to skip a char each time to give the illusion of
+ 308                     moving chars
+ 309                  3.If the chars are less than 16, then the BlankSpaces are displayed.
+ 310          
+ 311          -----------------------------------------------------------------------------------*/
+ 312          
+ 313          void LCD_ScrollMessage(char *msg_ptr)
+ 314          {
+ 315   1        unsigned char i,j;
+ 316   1        LCD_CmdWrite(0x0c);                    //Disable the Cursor
+ 317   1        for(i=0;msg_ptr[i];i++)        //Loop to display the complete string
+ 318   1          {                            //each time 16 chars are displayed and
+ 319   2                                       //pointer is incremented to point to next char
+ 320   2      
+ 321   2            LCD_GoToLineOne();                   //Move the Cursor to first line
+ 322   2      
+ 323   2            for(j=0;j<LCDMaxChars && msg_ptr[i+j];j++) //loop to Display first 16 Chars
+ 324   2                  LCD_DataWrite(msg_ptr[i+j]);                 //or till Null char
+ 325   2      
+ 326   2                for(j=j; j<LCDMaxChars; j++)               //If the chars are below 16
+ 327   2              LCD_DataWrite(BlankSpace);              //then display blank spaces
+ 328   2      
+ 329   2             delay_ms(125);
+ 330   2          }
+ 331   1         LCD_CmdWrite(0x0E);                    //Enable the Cursor
+ 332   1      }
+ 333          
+ 334          
+ 335          
+ 336          
+ 337          
+ 338          /*---------------------------------------------------------------------------------
+ 339                            void LCD_DisplayRtcTime(char hour,char min,char sec)
+ 340           ----------------------------------------------------------------------------------
+ 341           * I/P Arguments: char hour,char min,char sec
+ 342                       hour,min,sec should be packed BCD format, as read from DS1307
+ 343          
+ 344           * Return value : none
+ 345          
+ 346           * description  :This function display hour,min,sec read from DS1307.
+ 347          
+ 348             ___________ Display the higher nibble of hour after adding 0x30(ASCII conversion)
+ 349            |            Display the lower nibble of hour after adding 0x30(ASCII conversion)
+ 350            |
+ 351            |       ________ Display the higher nibble of min after adding 0x30(ASCII conversion)
+ 352            |      |         Display the lower nibble of min after adding 0x30(ASCII conversion)
+ 353            |      |
+ 354            |      |       _____ Display the higher nibble of sec after adding 0x30(ASCII conversion)
+ 355            |      |      |      Display the lower nibble of sec after adding 0x30(ASCII conversion)
+ 356            |      |      |
+ 357            10;10;40
+ 358          
+ 359          -----------------------------------------------------------------------------------*/
+ 360          void LCD_DisplayRtcTime(char hour,char min,char sec)
+ 361          {
+ 362   1          LCD_DataWrite(((hour>>4) & 0x0f) + 0x30);
+ 363   1          LCD_DataWrite((hour & 0x0f) + 0x30);
+ 364   1          LCD_DataWrite(':');
+ 365   1      
+C51 COMPILER V9.05   LCD_8_BIT                                                             12/23/2012 12:19:35 PAGE 7   
+
+ 366   1          LCD_DataWrite(((min>>4) & 0x0f) + 0x30);
+ 367   1              LCD_DataWrite((min & 0x0f) + 0x30);
+ 368   1          LCD_DataWrite(':');
+ 369   1      
+ 370   1          LCD_DataWrite(((sec>>4) & 0x0f) + 0x30);
+ 371   1              LCD_DataWrite((sec & 0x0f) + 0x30);
+ 372   1      
+ 373   1       }
+ 374          
+ 375          
+ 376          
+ 377          
+ 378          
+ 379          
+ 380          /*---------------------------------------------------------------------------------
+ 381                            LCD_DisplayRtcDate(char day,char month,char year)
+ 382           ----------------------------------------------------------------------------------
+ 383           * I/P Arguments: char day,char month,char year
+ 384                       day,month,year should be packed BCD format, as read from DS1307
+ 385          
+ 386           * Return value : none
+ 387          
+ 388           * description  :This function display day,month,year read from DS1307.
+ 389          
+ 390             ___________ Display the higher nibble of day after adding 0x30(ASCII conversion)
+ 391            |            Display the lower nibble of day after adding 0x30(ASCII conversion)
+ 392            |
+ 393            |   ________ Display the higher nibble of month after adding 0x30(ASCII conversion)
+ 394            |  |         Display the lower nibble of month after adding 0x30(ASCII conversion)
+ 395            |  |
+ 396            |  |   _____ Display the higher nibble of year after adding 0x30(ASCII conversion)
+ 397            |  |  |      Display the lower nibble of year after adding 0x30(ASCII conversion)
+ 398            |  |  |
+ 399            01/01/12 (1st-Jan 2012)
+ 400          
+ 401          -----------------------------------------------------------------------------------*/
+ 402          void LCD_DisplayRtcDate(char day,char month,char year)
+ 403           {
+ 404   1           LCD_DataWrite(((day>>4) & 0x0f) + 0x30);
+ 405   1           LCD_DataWrite((day & 0x0f) + 0x30);
+ 406   1           LCD_DataWrite('/');
+ 407   1      
+ 408   1           LCD_DataWrite(((month>>4) & 0x0f) + 0x30);
+ 409   1               LCD_DataWrite((month & 0x0f) + 0x30);
+ 410   1           LCD_DataWrite('/');
+ 411   1      
+ 412   1           LCD_DataWrite(((year>>4) & 0x0f) + 0x30);
+ 413   1              LCD_DataWrite((year & 0x0f) + 0x30);
+ 414   1      
+ 415   1       }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    572    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      16
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,6 @@
+"adc.obj",
+"delay.obj",
+"main.obj",
+"lcd.obj" 
+TO "Temp_Sensor" 
+RAMSIZE(256) 

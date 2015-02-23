@@ -1,0 +1,128 @@
+Version 3.2 HI-TECH Software Intermediate Code
+[; ;stdutils.h: 64: typedef signed char sint8_t;
+[; ;stdutils.h: 65: typedef unsigned char uint8_t;
+[; ;stdutils.h: 67: typedef signed int sint16_t;
+[; ;stdutils.h: 68: typedef unsigned int uint16_t;
+[; ;stdutils.h: 70: typedef signed long int sint32_t;
+[; ;stdutils.h: 71: typedef unsigned long int uint32_t;
+"231 stdutils.h
+[p x FOSC=HS ]
+"232
+[p x WDTE=OFF ]
+"233
+[p x PWRTE=OFF ]
+"234
+[p x BOREN=OFF ]
+"235
+[p x LVP=ON ]
+"236
+[p x CPD=OFF ]
+"237
+[p x WRT=OFF ]
+"238
+[p x CP=OFF ]
+[; ;delay.h: 55: void DELAY_us(uint16_t us_count);
+[; ;delay.h: 56: void DELAY_ms(uint16_t ms_count);
+[; ;delay.h: 57: void DELAY_sec(uint16_t var_delaySecCount_u16);
+"55 delay.c
+[v _DELAY_us `(v ~T0 @X0 1 ef1`ui ]
+"56
+{
+[; ;delay.c: 55: void DELAY_us(uint16_t us_count)
+[; ;delay.c: 56: {
+[e :U _DELAY_us ]
+"55
+[v _us_count `ui ~T0 @X0 1 r1 ]
+"56
+[f ]
+[; ;delay.c: 57: while(us_count!=0)
+"57
+[e $U 2  ]
+[e :U 3 ]
+[; ;delay.c: 58: {
+"58
+{
+[; ;delay.c: 59: us_count--;
+"59
+[e -- _us_count -> -> 1 `i `ui ]
+"60
+}
+[e :U 2 ]
+"57
+[e $ != _us_count -> -> 0 `i `ui 3  ]
+[e :U 4 ]
+[; ;delay.c: 60: }
+[; ;delay.c: 61: }
+"61
+[e :UE 1 ]
+}
+"76
+[v _DELAY_ms `(v ~T0 @X0 1 ef1`ui ]
+"77
+{
+[; ;delay.c: 76: void DELAY_ms(uint16_t ms_count)
+[; ;delay.c: 77: {
+[e :U _DELAY_ms ]
+"76
+[v _ms_count `ui ~T0 @X0 1 r1 ]
+"77
+[f ]
+[; ;delay.c: 78: while(ms_count!=0)
+"78
+[e $U 6  ]
+[e :U 7 ]
+[; ;delay.c: 79: {
+"79
+{
+[; ;delay.c: 80: DELAY_us(300u);
+"80
+[e ( _DELAY_us (1 -> 300 `ui ]
+[; ;delay.c: 81: ms_count--;
+"81
+[e -- _ms_count -> -> 1 `i `ui ]
+"82
+}
+[e :U 6 ]
+"78
+[e $ != _ms_count -> -> 0 `i `ui 7  ]
+[e :U 8 ]
+[; ;delay.c: 82: }
+[; ;delay.c: 84: }
+"84
+[e :UE 5 ]
+}
+"102
+[v _DELAY_sec `(v ~T0 @X0 1 ef1`ui ]
+"103
+{
+[; ;delay.c: 102: void DELAY_sec(uint16_t sec_count)
+[; ;delay.c: 103: {
+[e :U _DELAY_sec ]
+"102
+[v _sec_count `ui ~T0 @X0 1 r1 ]
+"103
+[f ]
+[; ;delay.c: 106: while(sec_count!=0)
+"106
+[e $U 10  ]
+[e :U 11 ]
+[; ;delay.c: 107: {
+"107
+{
+[; ;delay.c: 108: DELAY_ms(1000);
+"108
+[e ( _DELAY_ms (1 -> -> 1000 `i `ui ]
+[; ;delay.c: 109: sec_count--;
+"109
+[e -- _sec_count -> -> 1 `i `ui ]
+"110
+}
+[e :U 10 ]
+"106
+[e $ != _sec_count -> -> 0 `i `ui 11  ]
+[e :U 12 ]
+[; ;delay.c: 110: }
+[; ;delay.c: 111: }
+"111
+[e :UE 9 ]
+}

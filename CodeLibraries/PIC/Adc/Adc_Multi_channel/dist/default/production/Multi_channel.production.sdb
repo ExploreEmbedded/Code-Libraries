@@ -1,0 +1,393 @@
+[p LITE_MODE AUTOSTATIC PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 6 ]
+"121 D:\work_space\updatedLib\PIC\Adc\Multi_channel\lcd.c
+[e E1084 . `uc
+mENUM_LcdDummy 0
+mENUM_LcdLineOne 1
+mENUM_LcdLineTwo 2
+mENUM_LcdLineThree 3
+mENUM_LcdLineFour 4
+mENUM_LcdMaxLines 5
+]
+"54 D:\work_space\updatedLib\PIC\Adc\Multi_channel\adc.c
+[v _ADC_Init ADC_Init `(v  1 e 0 0 ]
+"76
+[v _ADC_GetAdcValue ADC_GetAdcValue `(ui  1 e 2 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abdiv.c
+[v ___abdiv __abdiv `(c  1 e 1 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abmod.c
+[v ___abmod __abmod `(c  1 e 1 0 ]
+"33 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abtoft.c
+[v ___abtoft __abtoft `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\almod.c
+[v ___almod __almod `(l  1 e 4 0 ]
+"42 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\altoft.c
+[v ___altoft __altoft `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\atdiv.c
+[v ___atdiv __atdiv `(m  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\atmod.c
+[v ___atmod __atmod `(m  1 e 3 0 ]
+"37 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\attoft.c
+[v ___attoft __attoft `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"32 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awtoft.c
+[v ___awtoft __awtoft `(f  1 e 3 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftge.c
+[v ___ftge __ftge `(b  1 e 0 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftneg.c
+[v ___ftneg __ftneg `(f  1 e 3 0 ]
+"18 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"44 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lbdiv.c
+[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lbmod.c
+[v ___lbmod __lbmod `(uc  1 e 1 0 ]
+"27 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lbtoft.c
+[v ___lbtoft __lbtoft `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\llmod.c
+[v ___llmod __llmod `(ul  1 e 4 0 ]
+"35 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lltoft.c
+[v ___lltoft __lltoft `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ltdiv.c
+[v ___ltdiv __ltdiv `(um  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ltmod.c
+[v ___ltmod __ltmod `(um  1 e 3 0 ]
+"30 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lttoft.c
+[v ___lttoft __lttoft `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"28 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul24.c
+[v ___tmul __tmul `(um  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic\eeprom.c
+[v _eecpymem eecpymem `(v  1 e 0 0 ]
+"24
+[v _memcpyee memcpyee `(v  1 e 0 0 ]
+"48
+[v ___eetoc __eetoc `(uc  1 e 1 0 ]
+"56
+[v ___eetoi __eetoi `(ui  1 e 2 0 ]
+"64
+[v ___eetom __eetom `(um  1 e 3 0 ]
+"72
+[v ___eetol __eetol `(ul  1 e 4 0 ]
+"80
+[v ___ctoee __ctoee `(uc  1 e 1 0 ]
+"87
+[v ___itoee __itoee `(ui  1 e 2 0 ]
+"94
+[v ___mtoee __mtoee `(um  1 e 3 0 ]
+"101
+[v ___ltoee __ltoee `(ul  1 e 4 0 ]
+"108
+[v ___eetoft __eetoft `(f  1 e 3 0 ]
+"116
+[v ___eetofl __eetofl `(d  1 e 3 0 ]
+"124
+[v ___fttoee __fttoee `(f  1 e 3 0 ]
+"131
+[v ___fltoee __fltoee `(d  1 e 3 0 ]
+"49 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"55 D:\work_space\updatedLib\PIC\Adc\Multi_channel\delay.c
+[v _DELAY_us DELAY_us `(v  1 e 0 0 ]
+"76
+[v _DELAY_ms DELAY_ms `(v  1 e 0 0 ]
+"102
+[v _DELAY_sec DELAY_sec `(v  1 e 0 0 ]
+"112 D:\work_space\updatedLib\PIC\Adc\Multi_channel\lcd.c
+[v _LCD_Init LCD_Init `(v  1 e 0 0 ]
+"154
+[v _LCD_Clear LCD_Clear `(v  1 e 0 0 ]
+"181
+[v _LCD_GoToLine LCD_GoToLine `(v  1 e 0 0 ]
+"208
+[v _LCD_GoToNextLine LCD_GoToNextLine `(v  1 e 0 0 ]
+"274
+[v _LCD_CmdWrite LCD_CmdWrite `(v  1 e 0 0 ]
+"309
+[v _LCD_DisplayChar LCD_DisplayChar `(v  1 e 0 0 ]
+"431
+[v _LCD_DisplayDecimalNumber LCD_DisplayDecimalNumber `(v  1 e 0 0 ]
+"673
+[v _LCD_Printf LCD_Printf `(v  1 e 0 0 ]
+"839
+[v _lcd_DataWrite lcd_DataWrite `(v  1 s 0 lcd_DataWrite ]
+"873
+[v _lcd_BusyCheck lcd_BusyCheck `(v  1 s 0 lcd_BusyCheck ]
+"923
+[v _lcd_Reset lcd_Reset `(v  1 s 0 lcd_Reset ]
+"953
+[v _lcd_SendNibble lcd_SendNibble `(v  1 s 0 lcd_SendNibble ]
+"972
+[v _lcd_SendCmdSignals lcd_SendCmdSignals `(v  1 s 0 lcd_SendCmdSignals ]
+"994
+[v _lcd_SendDataSignals lcd_SendDataSignals `(v  1 s 0 lcd_SendDataSignals ]
+"43 D:\work_space\updatedLib\PIC\Adc\Multi_channel\Multi_channel.c
+[v _main main `(v  1 e 0 0 ]
+"207 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"329
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"1116
+[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+"1122
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
+"1335
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1457
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"2167
+[v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
+"2173
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
+"2231
+[v _EEDATA EEDATA `VEuc  1 e 1 @268 ]
+"2237
+[v _EEADR EEADR `VEuc  1 e 1 @269 ]
+"2255
+[v _EECON1 EECON1 `VEuc  1 e 1 @396 ]
+"2299
+[v _EECON2 EECON2 `VEuc  1 e 1 @397 ]
+"2331
+[v _ADON ADON `VEb  1 e 0 @248 ]
+"2349
+[v _CARRY CARRY `VEb  1 e 0 @24 ]
+"2441
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"2443
+[v _GO GO `VEb  1 e 0 @250 ]
+"2445
+[v _GO_DONE GO_DONE `VEb  1 e 0 @250 ]
+"2559
+[v _RD RD `VEb  1 e 0 @3168 ]
+"2759
+[v _WR WR `VEb  1 e 0 @3169 ]
+"2761
+[v _WREN WREN `VEb  1 e 0 @3170 ]
+"76 D:\work_space\updatedLib\PIC\Adc\Multi_channel\lcd.c
+[v _VAR_LcdTrackLineNum_U8 VAR_LcdTrackLineNum_U8 `uc  1 e 1 0 ]
+"77
+[v _VAR_LcdTrackCursorPos_U8 VAR_LcdTrackCursorPos_U8 `uc  1 e 1 0 ]
+[s S73 . 3 `uc 1 mvar_MaxSupportedLines_U8 1 0 `uc 1 mvar_MaxSupportedChars_U8 1 1 `uc 1 mvar_LcdMode_U8 1 2 ]
+"78
+[v _STK_LCDConfig STK_LCDConfig `S73  1 e 3 0 ]
+"79
+[v _ARR_LcdLineNumAddress_U8 ARR_LcdLineNumAddress_U8 `[5]uc  1 e 5 0 ]
+"43 D:\work_space\updatedLib\PIC\Adc\Multi_channel\Multi_channel.c
+[v _main main `(v  1 e 0 0 ]
+{
+"45
+[v main@adc_result3 adc_result3 `ui  1 a 2 61 ]
+[v main@adc_result2 adc_result2 `ui  1 a 2 59 ]
+[v main@adc_result1 adc_result1 `ui  1 a 2 57 ]
+[v main@adc_result0 adc_result0 `ui  1 a 2 55 ]
+"61
+} 0
+"673 D:\work_space\updatedLib\PIC\Adc\Multi_channel\lcd.c
+[v _LCD_Printf LCD_Printf `(v  1 e 0 0 ]
+{
+[v LCD_Printf@argList argList `*.24DCCuc  1 a 1 wreg ]
+"679
+[v LCD_Printf@var_num_s32 var_num_s32 `l  1 a 4 43 ]
+"681
+[v LCD_Printf@var_num_u32 var_num_u32 `ul  1 a 4 36 ]
+"676
+[v LCD_Printf@var_floatNum_f32 var_floatNum_f32 `d  1 a 3 32 ]
+"678
+[v LCD_Printf@var_num_s16 var_num_s16 `i  1 a 2 47 ]
+"680
+[v LCD_Printf@var_num_u16 var_num_u16 `ui  1 a 2 41 ]
+"677
+[v LCD_Printf@argp argp `[1]*.4v  1 a 1 52 ]
+"683
+[v LCD_Printf@ch ch `uc  1 a 1 51 ]
+"684
+[v LCD_Printf@var_numOfDigitsToDisp_u8 var_numOfDigitsToDisp_u8 `uc  1 a 1 50 ]
+"675
+[v LCD_Printf@ptr ptr `*.24DCCuc  1 a 1 49 ]
+"682
+[v LCD_Printf@str str `*.1uc  1 a 1 35 ]
+"673
+[v LCD_Printf@argList argList `*.24DCCuc  1 a 1 wreg ]
+"686
+[v LCD_Printf@argList argList `*.24DCCuc  1 a 1 40 ]
+"823
+} 0
+"431
+[v _LCD_DisplayDecimalNumber LCD_DisplayDecimalNumber `(v  1 e 0 0 ]
+{
+"433
+[v LCD_DisplayDecimalNumber@a a `[10]uc  1 a 10 11 ]
+[v LCD_DisplayDecimalNumber@i i `uc  1 a 1 21 ]
+"431
+[v LCD_DisplayDecimalNumber@var_DecNumber_u32 var_DecNumber_u32 `ul  1 p 4 4 ]
+[v LCD_DisplayDecimalNumber@var_numOfDigitsToDisplay_u8 var_numOfDigitsToDisplay_u8 `uc  1 p 1 8 ]
+"480
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+{
+"11
+[v ___lldiv@quotient quotient `ul  1 a 4 9 ]
+"12
+[v ___lldiv@counter counter `uc  1 a 1 13 ]
+"6
+[v ___lldiv@divisor divisor `ul  1 p 4 0 ]
+[v ___lldiv@dividend dividend `ul  1 p 4 4 ]
+"31
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+{
+[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
+"6
+[v ___bmul@product product `uc  1 a 1 2 ]
+"4
+[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
+[v ___bmul@multiplicand multiplicand `uc  1 p 1 0 ]
+"6
+[v ___bmul@multiplier multiplier `uc  1 a 1 3 ]
+"51
+} 0
+"309 D:\work_space\updatedLib\PIC\Adc\Multi_channel\lcd.c
+[v _LCD_DisplayChar LCD_DisplayChar `(v  1 e 0 0 ]
+{
+[v LCD_DisplayChar@var_lcdData_u8 var_lcdData_u8 `uc  1 a 1 wreg ]
+[v LCD_DisplayChar@var_lcdData_u8 var_lcdData_u8 `uc  1 a 1 wreg ]
+"311
+[v LCD_DisplayChar@var_lcdData_u8 var_lcdData_u8 `uc  1 a 1 8 ]
+"323
+} 0
+"839
+[v _lcd_DataWrite lcd_DataWrite `(v  1 s 0 lcd_DataWrite ]
+{
+[v lcd_DataWrite@dat dat `uc  1 a 1 wreg ]
+[v lcd_DataWrite@dat dat `uc  1 a 1 wreg ]
+"841
+[v lcd_DataWrite@dat dat `uc  1 a 1 5 ]
+"855
+} 0
+"994
+[v _lcd_SendDataSignals lcd_SendDataSignals `(v  1 s 0 lcd_SendDataSignals ]
+{
+"1003
+} 0
+"208
+[v _LCD_GoToNextLine LCD_GoToNextLine `(v  1 e 0 0 ]
+{
+"217
+} 0
+"112
+[v _LCD_Init LCD_Init `(v  1 e 0 0 ]
+{
+[v LCD_Init@var_lcdMode_u8 var_lcdMode_u8 `uc  1 a 1 wreg ]
+[v LCD_Init@var_lcdMode_u8 var_lcdMode_u8 `uc  1 a 1 wreg ]
+[v LCD_Init@var_lcdNoOfLines_u8 var_lcdNoOfLines_u8 `uc  1 p 1 8 ]
+[v LCD_Init@var_MaxCharsPerLine_u8 var_MaxCharsPerLine_u8 `uc  1 p 1 9 ]
+"116
+[v LCD_Init@var_lcdMode_u8 var_lcdMode_u8 `uc  1 a 1 11 ]
+"141
+} 0
+"923
+[v _lcd_Reset lcd_Reset `(v  1 s 0 lcd_Reset ]
+{
+"938
+} 0
+"76 D:\work_space\updatedLib\PIC\Adc\Multi_channel\delay.c
+[v _DELAY_ms DELAY_ms `(v  1 e 0 0 ]
+{
+[v DELAY_ms@ms_count ms_count `ui  1 p 2 2 ]
+"84
+} 0
+"154 D:\work_space\updatedLib\PIC\Adc\Multi_channel\lcd.c
+[v _LCD_Clear LCD_Clear `(v  1 e 0 0 ]
+{
+"158
+} 0
+"181
+[v _LCD_GoToLine LCD_GoToLine `(v  1 e 0 0 ]
+{
+[v LCD_GoToLine@var_lineNumber_u8 var_lineNumber_u8 `uc  1 a 1 wreg ]
+[v LCD_GoToLine@var_lineNumber_u8 var_lineNumber_u8 `uc  1 a 1 wreg ]
+"183
+[v LCD_GoToLine@var_lineNumber_u8 var_lineNumber_u8 `uc  1 a 1 7 ]
+"191
+} 0
+"274
+[v _LCD_CmdWrite LCD_CmdWrite `(v  1 e 0 0 ]
+{
+[v LCD_CmdWrite@var_lcdCmd_u8 var_lcdCmd_u8 `uc  1 a 1 wreg ]
+[v LCD_CmdWrite@var_lcdCmd_u8 var_lcdCmd_u8 `uc  1 a 1 wreg ]
+"276
+[v LCD_CmdWrite@var_lcdCmd_u8 var_lcdCmd_u8 `uc  1 a 1 5 ]
+"291
+} 0
+"953
+[v _lcd_SendNibble lcd_SendNibble `(v  1 s 0 lcd_SendNibble ]
+{
+[v lcd_SendNibble@var var `uc  1 a 1 wreg ]
+[v lcd_SendNibble@var var `uc  1 a 1 wreg ]
+"955
+[v lcd_SendNibble@var var `uc  1 a 1 1 ]
+"959
+} 0
+"972
+[v _lcd_SendCmdSignals lcd_SendCmdSignals `(v  1 s 0 lcd_SendCmdSignals ]
+{
+"981
+} 0
+"873
+[v _lcd_BusyCheck lcd_BusyCheck `(v  1 s 0 lcd_BusyCheck ]
+{
+"875
+[v lcd_BusyCheck@busyflag busyflag `uc  1 a 1 3 ]
+"907
+} 0
+"54 D:\work_space\updatedLib\PIC\Adc\Multi_channel\adc.c
+[v _ADC_Init ADC_Init `(v  1 e 0 0 ]
+{
+"59
+} 0
+"76
+[v _ADC_GetAdcValue ADC_GetAdcValue `(ui  1 e 2 0 ]
+{
+[v ADC_GetAdcValue@var_adcChannel_u8 var_adcChannel_u8 `uc  1 a 1 wreg ]
+[v ADC_GetAdcValue@var_adcChannel_u8 var_adcChannel_u8 `uc  1 a 1 wreg ]
+"79
+[v ADC_GetAdcValue@var_adcChannel_u8 var_adcChannel_u8 `uc  1 a 1 5 ]
+"88
+} 0
+"55 D:\work_space\updatedLib\PIC\Adc\Multi_channel\delay.c
+[v _DELAY_us DELAY_us `(v  1 e 0 0 ]
+{
+[v DELAY_us@us_count us_count `ui  1 p 2 0 ]
+"61
+} 0

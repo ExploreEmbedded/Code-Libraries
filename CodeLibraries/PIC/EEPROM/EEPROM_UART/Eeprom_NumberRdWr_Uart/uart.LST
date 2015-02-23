@@ -1,0 +1,665 @@
+C51 COMPILER V9.02   UART                                                                  02/01/2015 21:05:00 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE UART
+OBJECT MODULE PLACED IN uart.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE uart.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /***************************************************************************************************
+   2                                             ExploreEmbedded      
+   3          ****************************************************************************************************
+   4           * File:   uart.c (AVR controllers)
+   5           * Version: 15.0
+   6           * Author: ExploreEmbedded
+   7           * Website: http://www.exploreembedded.com/wiki
+   8           * Description: File contains the Library routines for UART
+   9          
+  10          The libraries have been tested on ExploreEmbedded development boards. We strongly believe that the 
+  11          library works on any of development boards for respective controllers. However, ExploreEmbedded 
+  12          disclaims any kind of hardware failure resulting out of usage of libraries, directly or indirectly.
+  13          Files may be subject to change without prior notice. The revision history contains the information 
+  14          related to updates. 
+  15          
+  16          
+  17          GNU GENERAL PUBLIC LICENSE: 
+  18              Copyright (C) 2012  ExploreEmbedded
+  19          
+  20              This program is free software: you can redistribute it and/or modify
+  21              it under the terms of the GNU General Public License as published by
+  22              the Free Software Foundation, either version 3 of the License, or
+  23              (at your option) any later version.
+  24          
+  25              This program is distributed in the hope that it will be useful,
+  26              but WITHOUT ANY WARRANTY; without even the implied warranty of
+  27              MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  28              GNU General Public License for more details.
+  29          
+  30              You should have received a copy of the GNU General Public License
+  31              along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+  32          
+  33          Errors and omissions should be reported to codelibraries@exploreembedded.com
+  34           **************************************************************************************************/
+  35          
+  36          
+  37          /**************************************************************************************************
+  38                                       Revision History
+  39          ****************************************************************************************************
+  40          15.0: Initial version 
+  41          ***************************************************************************************************/
+  42          #include <stdarg.h>
+  43          #include "uart.h"
+  44          
+  45          
+  46          
+  47          
+  48          /***************************************************************************************************
+  49                                   void UART_Init(uint32_t var_baudRate_u32)
+  50          ****************************************************************************************************
+  51           * I/P Arguments: uint32_t : Baudrate to be configured.
+  52           * Return value : none
+  53          
+  54           * description  :This function is used to initialize the UART at specified baud rate.
+  55                           If the requested baud rate is not within the supported range then
+C51 COMPILER V9.02   UART                                                                  02/01/2015 21:05:00 PAGE 2   
+
+  56                           the default baud rate of 9600 is set.
+  57          
+  58          
+  59                              Refer uart.h file for Supported(range) baud rates.          
+  60          ***************************************************************************************************/
+  61          void UART_Init(uint32_t var_baudRate_u32)
+  62          {       
+  63   1              TMOD |= 0x20; //Timer1 in Mode2.
+  64   1          SCON=0x50;    // Asynchronous mode, 8-bit data and 1-stop bit
+  65   1          TR1=1;        //Turn ON the timer for Baud rate generation
+  66   1              UART_SetBaudRate(var_baudRate_u32);
+  67   1      }
+  68          
+  69          
+  70          
+  71          
+  72          
+  73          
+  74          /***************************************************************************************************
+  75                                   void UART_SetBaudRate(uint32_t var_baudRate_u32)
+  76           ***************************************************************************************************
+  77           * I/P Arguments: uint32_t : var_baudRate_u32 to be configured.
+  78           * Return value : none
+  79          
+  80           * description  :This function is used to Set/Change the baudrate on the fly.
+  81                           If the requested baud rate is not within the supported range then
+  82                           the default baudrate of 9600 is set.
+  83          
+  84                              Refer uart.h file for Supported range of baud rates.
+  85          ***************************************************************************************************/
+  86          void UART_SetBaudRate(uint32_t var_baudRate_u32)
+  87          {
+  88   1              sint8_t RegValue;
+  89   1      
+  90   1              if((var_baudRate_u32 >= C_MinBaudRate_U32) && (var_baudRate_u32<=C_MaxBaudRate_U32))
+  91   1              {
+  92   2                      /* Check if the requested baudate is within range,
+  93   2                   If yes then calculate the value to be loaded into baud rate generator. */
+  94   2                      RegValue = M_GetBaudRateGeneratorValue(var_baudRate_u32);
+  95   2              }
+  96   1              else
+  97   1              {
+  98   2                      /*       Invalid baudrate requested, hence set it to default baudrate of 9600 */
+  99   2                      RegValue = M_GetBaudRateGeneratorValue(9600);
+ 100   2              }
+ 101   1      
+ 102   1              TH1 = RegValue; 
+ 103   1      }
+ 104          
+ 105          
+ 106          
+ 107          
+ 108          
+ 109          /***************************************************************************************************
+ 110                                        char UART_RxChar()
+ 111           ***************************************************************************************************
+ 112           * I/P Arguments: none.
+ 113           * Return value : char: Ascii value of the character received
+ 114          
+ 115           * description :This function is used to receive a char from UART module.
+ 116                          It waits till a char is received and returns it after reception.
+ 117          ***************************************************************************************************/
+C51 COMPILER V9.02   UART                                                                  02/01/2015 21:05:00 PAGE 3   
+
+ 118          char UART_RxChar()
+ 119          {
+ 120   1          while(RI==0);         // Wait till the data is received
+ 121   1          RI=0;             // Clear Receive Interrupt Flag for next cycle
+ 122   1          
+ 123   1              return(SBUF);     // return the received char
+ 124   1      }
+ 125          
+ 126          
+ 127          
+ 128          
+ 129          
+ 130          
+ 131          
+ 132          
+ 133          /***************************************************************************************************
+ 134                                   void UART_TxChar(char var_uartData_u8)
+ 135          ****************************************************************************************************
+ 136           * I/P Arguments: char--> Ascii value of the character to be transmitted.
+ 137           * Return value : none.
+ 138          
+ 139           * description  :This function is used to transmit a char through UART module.
+ 140          ***************************************************************************************************/
+ 141          void UART_TxChar(char var_uartData_u8)
+ 142          {
+ 143   1              SBUF=var_uartData_u8; // Load the data to be transmitted
+ 144   1          while(TI==0);       // Wait till the data is trasmitted
+ 145   1          TI=0;                       //Clear the Tx flag for next cycle.
+ 146   1      }
+ 147          
+ 148          
+ 149          
+ 150          
+ 151          
+ 152          
+ 153          
+ 154          /***************************************************************************************************
+ 155                                   void UART_TxString(char *ptr_stringPointer_u8)
+ 156          ****************************************************************************************************
+ 157           * I/P Arguments: String(Address of the string) to be transmitted.
+ 158           * Return value : none
+ 159          
+ 160           * description :This function is used to transmit a NULL terminated string through UART.
+ 161                         1.The ptr_stringPointer_u8 points to the first char of the string
+ 162                              and traverses till the end(NULL CHAR) and transmits a char each time
+ 163          ***************************************************************************************************/
+ 164          #if (Enable_UART_TxString==1)
+ 165          void UART_TxString(char *ptr_stringPointer_u8)
+ 166          {
+ 167   1              while(*ptr_stringPointer_u8)
+ 168   1                      UART_TxChar(*ptr_stringPointer_u8++);// Loop through the string and transmit char by char
+ 169   1      }
+ 170          #endif
+ 171          
+ 172          
+ 173          
+ 174          
+ 175          
+ 176          
+ 177          /***************************************************************************************************
+ 178                                   void UART_RxString(char *ptr_stringPointer_u8)
+ 179          ****************************************************************************************************
+C51 COMPILER V9.02   UART                                                                  02/01/2015 21:05:00 PAGE 4   
+
+ 180           * I/P Arguments: char *:  Address of the string/buffer where the received data needs to be stored
+ 181           * Return value : none
+ 182          
+ 183           * description  :
+ 184                        1.This function is used to receive a ASCII string through UART till the carriage_return/New_
+             -line
+ 185                        2.The stream of data is copied to the buffer till carriage_return/New_line is encountered.
+ 186                                    3. Once the Carriage_return/New_Line is received the string will be null terminated.
+ 187          
+ 188           *****NOTE*******:
+ 189            1.The received char is ECHOED back,
+ 190              if not required then comment UART_TxChar(ch) in the code.
+ 191            2.BackSlash is not taken care.
+ 192          ***************************************************************************************************/
+ 193          #if (Enable_UART_RxString==1)
+              void UART_RxString(char *ptr_stringPointer_u8)
+              {
+                      char ch;
+                      while(1)
+                      {
+                              ch=UART_RxChar();    //Receive a char
+                              UART_TxChar(ch);     //Echo back the received char
+              
+                              if((ch=='\r') || (ch=='\n')) //read till enter key is pressed
+                              {                                                    //once enter key is pressed null terminate the string
+                                      *ptr_stringPointer_u8=0;           //and break the loop
+                                      break;                            
+                              }
+                              *ptr_stringPointer_u8=ch;              //copy the char into string and increment the pointer
+                              ptr_stringPointer_u8++;
+                      }
+              }
+              #endif
+ 212          
+ 213          
+ 214          
+ 215          
+ 216          
+ 217          
+ 218          /***************************************************************************************************
+ 219                  void  UART_TxDecimalNumber(uint32_t var_decNumber_u32, uint8_t var_numOfDigitsToTransmit_u8 )
+ 220           ***************************************************************************************************
+ 221           * I/P Arguments: uint32_t: Number to be transmitted on UART.
+ 222                            uint8_t : Number of digits to be transmitted
+ 223           * Return value : none
+ 224          
+ 225           * description  :This function is used to transmit a max of 10digit decimal number.
+ 226                          2nd parameter specifies the number of digits from the right side to be transmitted
+ 227                           The output for the input combinations is as below
+ 228                          1.(12345,4) then 4-digits ie. 2345 will be transmitted
+ 229                                          2.(12345,6) then 6-digits ie. 012345 will be transmitted
+ 230                                          3.(12345,C_DefaultDigitsToTransmit_U8) then 12345 will be transmitted.
+ 231          ***************************************************************************************************/
+ 232          #if ((Enable_UART_TxDecimalNumber==1) || (Enable_UART_TxFloatNumber==1))
+ 233          void UART_TxDecimalNumber(uint32_t var_decNumber_u32, uint8_t var_numOfDigitsToTransmit_u8)
+ 234          {
+ 235   1              uint8_t i=0,a[10];
+ 236   1      
+ 237   1              if(var_decNumber_u32==0)
+ 238   1              {
+ 239   2                      /* If the number is zero then update the array with the same for transmitting */
+ 240   2                      for(i=0;((i<var_numOfDigitsToTransmit_u8) && (i<C_MaxDigitsToTransmit_U8)) ;i++)
+C51 COMPILER V9.02   UART                                                                  02/01/2015 21:05:00 PAGE 5   
+
+ 241   2                         a[i] = 0x00;
+ 242   2              }
+ 243   1              else
+ 244   1              {
+ 245   2                      for(i=0;i<var_numOfDigitsToTransmit_u8;i++)
+ 246   2                      {
+ 247   3                              /* Continue extracting the digits from right side
+ 248   3                                 till the Specified var_numOfDigitsToTransmit_u8 */
+ 249   3                              if(var_decNumber_u32!=0)
+ 250   3                              {
+ 251   4                                      /* Extract the digits from the number till it becomes zero.
+ 252   4                                  First get the remainder and divide the number by 10 each time.
+ 253   4                      If var_number_u32 = 123 then extracted remainder will be 3 and number will be 12.
+ 254   4                                      The process continues till it becomes zero or max digits reached*/
+ 255   4                                      a[i]=util_GetMod32(var_decNumber_u32,10);
+ 256   4                                      var_decNumber_u32=var_decNumber_u32/10;
+ 257   4                              }
+ 258   3                              else if( (var_numOfDigitsToTransmit_u8 == C_DefaultDigitsToTransmit_U8) ||
+ 259   3                                              (var_numOfDigitsToTransmit_u8 > C_MaxDigitsToTransmit_U8))
+ 260   3                              {
+ 261   4                                      /* Stop the iteration if the Max number of digits are reached or
+ 262   4                                   the user expects exact(Default) digits in the number to be transmitted */ 
+ 263   4                                      break;
+ 264   4                              }
+ 265   3                              else
+ 266   3                              {
+ 267   4                                      /*In case user expects more digits to be transmitted than the actual digits in number,
+ 268   4                                  then update the remaining digits with zero.
+ 269   4                      Ex: var_number_u32 is 123 and user wants five digits then 00123 has to be transmitted */
+ 270   4                                      a[i]=0;
+ 271   4                              }
+ 272   3                      }
+ 273   2              }
+ 274   1      
+ 275   1              while(i)
+ 276   1              { 
+ 277   2                      /* Finally get the ascii values of the digits and transmit*/
+ 278   2                      UART_TxChar(util_Dec2Ascii(a[i-1]));
+ 279   2                      i--;
+ 280   2              }
+ 281   1      }
+ 282          #endif
+ 283          
+ 284          
+ 285          
+ 286          
+ 287          
+ 288          
+ 289          /***************************************************************************************************
+ 290             void  UART_TxHexNumber(uint32_t var_hexNumber_u32, uint8_t var_numOfDigitsToTransmit_u8 )
+ 291           ***************************************************************************************************
+ 292           * Function name:  UART_TxHexNumber()
+ 293           * I/P Arguments: uint32_t: Hexadecimal Number to be transmitted on UART.
+ 294                            uint8_t : Number of digits to be transmitted
+ 295           * Return value : none
+ 296          
+ 297           * description  :This function is used to transmit a max of 10digit hex number.
+ 298                           2nd parameter specifies the number of digits from the right side to be transmitted
+ 299                           The output for the input combinations is as below
+ 300                          1.(0x12AB,3) then 3-digits ie. 2AB will be transmitted
+ 301                                          2.(0x12AB,6) then 6-digits ie. 0012AB will be transmitted
+ 302                                          3.(0x12AB,C_DefaultDigitsToTransmit_U8) then 12AB will be transmitted.
+C51 COMPILER V9.02   UART                                                                  02/01/2015 21:05:00 PAGE 6   
+
+ 303          ***************************************************************************************************/
+ 304          #if (Enable_UART_TxHexNumber==1)
+              void UART_TxHexNumber(uint32_t var_hexNumber_u32,uint8_t var_numOfDigitsToTransmit_u8)
+              {
+                      uint8_t i=0,a[10];
+              
+                      if(var_hexNumber_u32==0)
+                      {
+                              /* If the number zero then update the array with the same for transmitting */
+                              for(i=0;((i<var_numOfDigitsToTransmit_u8) && (i<C_MaxDigitsToTransmit_U8)) ;i++)
+                                a[i]=0x00;
+                      }
+                      else
+                      {
+                              for(i=0;i<var_numOfDigitsToTransmit_u8;i++)
+                              {
+                                      /* Continue extracting the digits from right side till the Specified var_numOfDigitsToTransmit_u8 */
+                                      if(var_hexNumber_u32!=0)
+                                      {
+                                              /* Extract the digits from the number till it becomes zero.
+                                          First get the lower nibble and shift the number 4 times.
+                                         If var_number_u32 = 0xABC then extracted digit will be 0x0C and number will become 0xAB.
+                                         The process continues till it becomes zero or max digits reached*/
+                                              a[i]=(uint8_t)(var_hexNumber_u32 & 0x0f);
+                                              var_hexNumber_u32=var_hexNumber_u32 >> 4;
+                                      }
+                                      else if( (var_numOfDigitsToTransmit_u8 == C_DefaultDigitsToTransmit_U8) ||
+                                                      (var_numOfDigitsToTransmit_u8 > C_MaxDigitsToTransmit_U8))
+                                      {
+                                              /* Stop the iteration if the Max number of digits are reached or
+                                           the user expects exact(Default) digits in the number to be transmitted */ 
+                                              break;
+                                      }
+                                      else
+                                      {
+                                              /* In case user expects more digits to be transmitted than the actual digits in number,
+                                                 then update the remaining digits with zero.
+                              Ex: var_number_u32 is 0x123 and user wants five digits then 00123 has to be transmitted */
+                                              a[i]=0x00;
+                                      }
+                              }
+                      }
+              
+                      while(i!=0)
+                      {
+                              /* Finally get the ascii values of the digits and transmit*/
+                              UART_TxChar(util_Hex2Ascii(a[i-1]));
+                              i--;
+                      }
+              }
+              #endif
+ 354          
+ 355          
+ 356          
+ 357          
+ 358          
+ 359          
+ 360          /***************************************************************************************************
+ 361                      void  UART_TxBinaryNumber(uint32_t var_binNumber_u32, uint8_t var_numOfBitsToTransmit_u8)
+ 362           ***************************************************************************************************
+ 363           * Function name:  UART_TxBinaryNumber()
+ 364           * I/P Arguments: uint32_t: Hexadecimal Number to be transmitted on UART.
+C51 COMPILER V9.02   UART                                                                  02/01/2015 21:05:00 PAGE 7   
+
+ 365                            uint8_t : Number of bits to be transmitted
+ 366           * Return value : none
+ 367          
+ 368           * description  :This function is used to transmit the binary equivalent of the given number.
+ 369                           2nd parameter specifies the number of LSB to be transmitted
+ 370                           The output for the input combinations is as below
+ 371                          1.(10,4) then 4-LSB will be transmitted ie. 1010
+ 372                                          2.(10,8) then 8-LSB will be transmitted ie. 00001010
+ 373                                          3.(10,2) then 2-LSB will be transmitted ie. 10
+ 374          ***************************************************************************************************/
+ 375          #if (Enable_UART_TxBinaryNumber==1)
+              void UART_TxBinaryNumber(uint32_t var_binNumber_u32, uint8_t var_numOfBitsToTransmit_u8)
+              {
+                      uint8_t ch;
+              
+                      while(var_numOfBitsToTransmit_u8!=0)
+                      {
+                              /* Start Extracting the bits from the specified bit positions.
+                           Get the Acsii values of the bits and transmit */
+                              ch = util_GetBitStatus(var_binNumber_u32,(var_numOfBitsToTransmit_u8-1));
+                              UART_TxChar(util_Dec2Ascii(ch));
+                              var_numOfBitsToTransmit_u8--;
+                      }
+              }
+              #endif
+ 390          
+ 391          
+ 392          
+ 393          
+ 394          
+ 395          
+ 396          /***************************************************************************************************
+ 397                      void  UART_TxFloatNumber(float var_floatNumber_f32)
+ 398           ***************************************************************************************************
+ 399           * Function name:  UART_TxFloatNumber()
+ 400           * I/P Arguments: float: float Number to be transmitted on UART.
+ 401          
+ 402           * Return value : none
+ 403          
+ 404           * description  :This function is used to transmit a floating point number
+ 405          
+ 406           * Note         :It supports 6digits of precision.  
+ 407                   Float will be disabled by default as it takes huge controller resources
+ 408                       It can be enabled by changing value of Enable_UART_TxFloatNumber to 1 in uart.h     
+ 409           ***************************************************************************************************/
+ 410          #if (Enable_UART_TxFloatNumber==1)
+              void UART_TxFloatNumber(float var_floatNumber_f32)
+              {
+                      uint32_t var_tempNumber_u32;
+                      /* Dirty hack to support the floating point by extracting the integer and fractional part.
+                    1.Type cast the number to int to get the integer part.
+                        2.transmit the extracted integer part followed by a decimal point(.).
+                        3.Later the integer part is made zero by subtracting with the extracted integer value.
+                        4.Finally the fractional part is multiplied by 100000 to support 6-digit precision */
+              
+                      var_tempNumber_u32 = (uint32_t) var_floatNumber_f32;
+                      UART_TxDecimalNumber(var_tempNumber_u32,C_DefaultDigitsToTransmit_U8);
+              
+                      UART_TxChar('.');
+              
+                      var_floatNumber_f32 = var_floatNumber_f32 - var_tempNumber_u32;
+                      var_tempNumber_u32 = var_floatNumber_f32 * 1000000;
+C51 COMPILER V9.02   UART                                                                  02/01/2015 21:05:00 PAGE 8   
+
+                      UART_TxDecimalNumber(var_tempNumber_u32,C_DefaultDigitsToTransmit_U8);
+              }
+              #endif
+ 430          
+ 431          
+ 432          
+ 433          
+ 434          
+ 435          
+ 436          /***************************************************************************************************
+ 437                      void UART_Printf(const char *argList, ...)
+ 438           ***************************************************************************************************
+ 439           * Function name:  UART_Printf()
+ 440           * I/P Arguments: variable length arguments similar to printf
+ 441          
+ 442           * Return value : none
+ 443          
+ 444           * description  :This function is similar to printf function in C.
+ 445                                           It takes the arguments with specified format and prints accordingly
+ 446                                           The supported format specifiers are as below.
+ 447                                           1. %c: character
+ 448                                           2. %d: signed 16-bit number
+ 449                                           3. %D: signed 32-bit number
+ 450                                           4. %u: unsigned 16-bit number
+ 451                                           5. %U: unsigned 32-bit number
+ 452                                           6. %b: 16-bit binary number
+ 453                                           7. %B: 32-bit binary number
+ 454                                           8. %f: Float number
+ 455                                           9. %x: 16-bit hexadecimal number
+ 456                                           10. %X: 32-bit hexadecimal number
+ 457                                           11. %s: String
+ 458          
+ 459            Note: By default all the functions will be disabled. The required functions can be enabled by 
+ 460                  setting the respective compiler switch to 1 in uart.h file.
+ 461                          Ex:  setting Enable_UART_TxDecimalNumber to 1 will enable %d
+ 462                               setting Enable_UART_TxHexNumber to 1 will enable %x
+ 463          
+ 464            Extra feature is available to specify the number of digits to be transmitted using printf.
+ 465                   ex: %4d: will transmit the lower four digits of the decimal number.
+ 466                       %12b: will transmit the 12-LSB of the number
+ 467                           %d: Will transmit the exact digits of the number
+ 468          ***************************************************************************************************/
+ 469          #if ( Enable_UART_Printf   == 1 ) 
+ 470          void UART_Printf(const char *argList, ...)
+ 471          {
+ 472   1              const char *ptr;
+ 473   1              double var_floatNum_f32;
+ 474   1              va_list argp;
+ 475   1              sint16_t var_num_s16;
+ 476   1              sint32_t var_num_s32;
+ 477   1              uint16_t var_num_u16;
+ 478   1              uint32_t var_num_u32;
+ 479   1              char *str;
+ 480   1              char  ch;
+ 481   1              uint8_t var_numOfDigitsToTransmit_u8;
+ 482   1      
+ 483   1              va_start(argp, argList);
+ 484   1      
+ 485   1              /* Loop through the list to extract all the input arguments */
+ 486   1              for(ptr = argList; *ptr != '\0'; ptr++)
+ 487   1              {
+ 488   2      
+C51 COMPILER V9.02   UART                                                                  02/01/2015 21:05:00 PAGE 9   
+
+ 489   2                      ch= *ptr;
+ 490   2                      if(ch == '%')         /*Check for '%' as there will be format specifier after it */
+ 491   2                      {
+ 492   3                          ptr++;
+ 493   3                          ch = *ptr;
+ 494   3                         if((ch>=0x30) && (ch<=0x39))
+ 495   3                              {
+ 496   4                                 var_numOfDigitsToTransmit_u8 = 0;
+ 497   4                                 while((ch>=0x30) && (ch<=0x39))
+ 498   4                                  {
+ 499   5                                         var_numOfDigitsToTransmit_u8 = (var_numOfDigitsToTransmit_u8 * 10) + (ch-0x30);
+ 500   5                                         ptr++;
+ 501   5                                         ch = *ptr;
+ 502   5                                      }
+ 503   4                              }
+ 504   3                              else
+ 505   3                              {
+ 506   4                                var_numOfDigitsToTransmit_u8 = C_MaxDigitsToTransmitUsingPrintf_U8;
+ 507   4                              }                               
+ 508   3      
+ 509   3      
+ 510   3                              switch(ch)       /* Decode the type of the argument */
+ 511   3                              {
+ 512   4                              case 'C':
+ 513   4                              case 'c':     /* Argument type is of char, hence read char data from the argp */
+ 514   4                                      ch = va_arg(argp, uint16_t);
+ 515   4                                      UART_TxChar(ch);
+ 516   4                                      break;
+ 517   4      
+ 518   4                              case 'd':    /* Argument type is of signed integer, hence read 16bit data from the argp */
+ 519   4                                      var_num_s16 = va_arg(argp, sint16_t);
+ 520   4      #if (Enable_UART_TxDecimalNumber == 1)
+ 521   4                                      if(var_num_s16<0)
+ 522   4                                       { /* If the number is -ve then display the 2's complement along with '-' sign */ 
+ 523   5                                         var_num_s16 = -var_num_s16;
+ 524   5                                         UART_TxChar('-');
+ 525   5                                       }
+ 526   4                                      UART_TxDecimalNumber(var_num_s16,var_numOfDigitsToTransmit_u8);
+ 527   4      #endif
+ 528   4                                      break;
+ 529   4                                      
+ 530   4                              case 'D':    /* Argument type is of integer, hence read 16bit data from the argp */
+ 531   4                                      var_num_s32 = va_arg(argp, sint32_t);
+ 532   4      #if (Enable_UART_TxDecimalNumber == 1)                          
+ 533   4                                      if(var_num_s32<0)
+ 534   4                                       { /* If the number is -ve then display the 2's complement along with '-' sign */
+ 535   5                                         var_num_s32 = -var_num_s32;
+ 536   5                                         UART_TxChar('-');
+ 537   5                                       }
+ 538   4                                      UART_TxDecimalNumber(var_num_s32,var_numOfDigitsToTransmit_u8);
+ 539   4      #endif                          
+ 540   4                                      break;  
+ 541   4      
+ 542   4                              case 'u':    /* Argument type is of unsigned integer, hence read 16bit unsigned data */
+ 543   4                                      var_num_u16 = va_arg(argp, uint16_t);
+ 544   4      #if (Enable_UART_TxDecimalNumber == 1)                          
+ 545   4                                      UART_TxDecimalNumber(var_num_u16,var_numOfDigitsToTransmit_u8);
+ 546   4      #endif                          
+ 547   4                                      break;
+ 548   4                              
+ 549   4                              case 'U':    /* Argument type is of integer, hence read 32bit unsigend data */
+ 550   4                                      var_num_u32 = va_arg(argp, uint32_t);
+C51 COMPILER V9.02   UART                                                                  02/01/2015 21:05:00 PAGE 10  
+
+ 551   4      #if (Enable_UART_TxDecimalNumber == 1)                          
+ 552   4                                      UART_TxDecimalNumber(var_num_u32,var_numOfDigitsToTransmit_u8);
+ 553   4      #endif                          
+ 554   4                                      break;                  
+ 555   4      
+ 556   4                              case 'x':  /* Argument type is of hex, hence hexadecimal data from the argp */
+ 557   4                                      var_num_u16 = va_arg(argp, uint16_t);
+ 558   4      #if (Enable_UART_TxHexNumber == 1)                              
+                                              UART_TxHexNumber(var_num_u16,var_numOfDigitsToTransmit_u8);
+              #endif                          
+ 561   4                                      break;
+ 562   4      
+ 563   4                              case 'X':  /* Argument type is of hex, hence hexadecimal data from the argp */
+ 564   4                                      var_num_u32 = va_arg(argp, uint32_t);
+ 565   4      #if (Enable_UART_TxHexNumber == 1)                                              
+                                              UART_TxHexNumber(var_num_u32,var_numOfDigitsToTransmit_u8);
+              #endif                          
+ 568   4                                      break;
+ 569   4      
+ 570   4                              
+ 571   4                              case 'b':  /* Argument type is of binary,Read int and convert to binary */
+ 572   4                                      var_num_u16 = va_arg(argp, uint16_t);
+ 573   4      #if (Enable_UART_TxBinaryNumber == 1)                                           
+                                              if(var_numOfDigitsToTransmit_u8 == C_MaxDigitsToTransmitUsingPrintf_U8)
+                                                 var_numOfDigitsToTransmit_u8 = 16;
+                                              UART_TxBinaryNumber(var_num_u16,var_numOfDigitsToTransmit_u8);
+              #endif                          
+ 578   4                                      break;
+ 579   4      
+ 580   4                              case 'B':  /* Argument type is of binary,Read int and convert to binary */
+ 581   4                                      var_num_u32 = va_arg(argp, uint32_t);
+ 582   4      #if (Enable_UART_TxBinaryNumber == 1)                           
+                                              if(var_numOfDigitsToTransmit_u8 == C_MaxDigitsToTransmitUsingPrintf_U8)
+                                                 var_numOfDigitsToTransmit_u8 = 16;                           
+                                              UART_TxBinaryNumber(var_num_u32,var_numOfDigitsToTransmit_u8);  
+              #endif                          
+ 587   4                                      break;
+ 588   4      
+ 589   4      
+ 590   4                              case 'F':
+ 591   4                              case 'f': /* Argument type is of float, hence read double data from the argp */
+ 592   4                                      var_floatNum_f32 = va_arg(argp, double);
+ 593   4      #if (Enable_UART_TxFloatNumber == 1)                            
+                                              UART_TxFloatNumber(var_floatNum_f32);
+              #endif
+ 596   4                                      break;
+ 597   4      
+ 598   4      
+ 599   4                              case 'S':
+ 600   4                              case 's': /* Argument type is of string, hence get the pointer to sting passed */
+ 601   4                                      str = va_arg(argp, char *);
+ 602   4      #if (Enable_UART_TxString == 1)
+ 603   4                                      UART_TxString(str);
+ 604   4      #endif                          
+ 605   4                                      break;
+ 606   4      
+ 607   4                              case '%':
+ 608   4                                      UART_TxChar('%');
+ 609   4                                      break;
+ 610   4                              }
+ 611   3                      }
+ 612   2                      else
+C51 COMPILER V9.02   UART                                                                  02/01/2015 21:05:00 PAGE 11  
+
+ 613   2                      {
+ 614   3                              /* As '%' is not detected display/transmit the char passed */
+ 615   3                              UART_TxChar(ch);
+ 616   3                      }
+ 617   2              }
+ 618   1      
+ 619   1              va_end(argp);
+ 620   1      }
+ 621          #endif
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    776    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      64
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

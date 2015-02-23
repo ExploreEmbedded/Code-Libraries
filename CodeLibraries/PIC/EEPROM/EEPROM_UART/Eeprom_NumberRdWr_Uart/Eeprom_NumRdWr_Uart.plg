@@ -1,0 +1,159 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\work_space\updatedLib\8051\EEPROM\EEPROM_UART\Eeprom_NumRdWr_Uart\Eeprom_NumRdWr_Uart.uvproj
+Project File Date:  02/01/2015
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling delay.c...
+compiling eeprom.c...
+EEPROM.C(98): warning C280: 'var_eepromHigherAddress_u8': unreferenced local variable
+EEPROM.C(182): warning C280: 'var_eepromHigherAddress_u8': unreferenced local variable
+compiling i2c.c...
+compiling main.c...
+MAIN.C(22): warning C206: 'UART': missing function-prototype
+MAIN.C(22): error C267: 'UART': requires ANSI-style prototype
+compiling uart.c...
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(28): warning C182: pointer to different objects
+MAIN.C(31): warning C182: pointer to different objects
+MAIN.C(40): warning C182: pointer to different objects
+MAIN.C(43): warning C182: pointer to different objects
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UART_TXCHAR?UART
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _UART_PRINTF
+    MODULE:  main.obj (MAIN)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  ?_UART_PRINTF?BYTE
+    MODULE:  main.obj (MAIN)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _UART_TXSTRING
+    MODULE:  main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _UART_TXSTRING
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 098BH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _UART_TXSTRING
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 09C8H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?_UART_PRINTF?BYTE
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0A04H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?_UART_PRINTF?BYTE
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0A07H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?_UART_PRINTF?BYTE
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0A0AH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?_UART_PRINTF?BYTE
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0A0DH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _UART_PRINTF
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0A0FH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?_UART_PRINTF?BYTE
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0A16H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?_UART_PRINTF?BYTE
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0A19H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _UART_PRINTF
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0A1BH
+Program Size: data=35.0 xdata=0 code=1252
+"Eeprom_NumRdWr_Uart" - 0 Error(s), 21 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(28): warning C182: pointer to different objects
+MAIN.C(31): warning C182: pointer to different objects
+MAIN.C(40): warning C182: pointer to different objects
+MAIN.C(43): warning C182: pointer to different objects
+compiling uart.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=77.0 xdata=0 code=2147
+"Eeprom_NumRdWr_Uart" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(27): warning C182: pointer to different objects
+MAIN.C(30): warning C182: pointer to different objects
+MAIN.C(39): warning C182: pointer to different objects
+MAIN.C(42): warning C182: pointer to different objects
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=77.0 xdata=0 code=2147
+"Eeprom_NumRdWr_Uart" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(27): warning C182: pointer to different objects
+MAIN.C(30): warning C182: pointer to different objects
+MAIN.C(39): warning C182: pointer to different objects
+MAIN.C(42): warning C182: pointer to different objects
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=77.0 xdata=0 code=2147
+"Eeprom_NumRdWr_Uart" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=77.0 xdata=0 code=2147
+creating hex file from "Eeprom_NumRdWr_Uart"...
+"Eeprom_NumRdWr_Uart" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(27): warning C182: pointer to different objects
+MAIN.C(30): warning C182: pointer to different objects
+MAIN.C(39): warning C182: pointer to different objects
+MAIN.C(42): warning C182: pointer to different objects
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=77.0 xdata=0 code=2147
+creating hex file from "Eeprom_NumRdWr_Uart"...
+"Eeprom_NumRdWr_Uart" - 0 Error(s), 7 Warning(s).

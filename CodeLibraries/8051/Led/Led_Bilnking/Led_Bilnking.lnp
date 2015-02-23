@@ -1,0 +1,4 @@
+"Led_Blinking.obj",
+"delay.obj" 
+TO "Led_Bilnking" 
+RAMSIZE(256) 

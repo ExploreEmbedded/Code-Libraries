@@ -1,0 +1,1284 @@
+
+RTC_UART.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000005f6  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000034  00800060  000005f6  0000066a  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .debug_aranges 000000a0  00000000  00000000  0000069e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_pubnames 0000017b  00000000  00000000  0000073e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000884  00000000  00000000  000008b9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 00000429  00000000  00000000  0000113d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   000008ce  00000000  00000000  00001566  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000180  00000000  00000000  00001e34  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    000003a8  00000000  00000000  00001fb4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    0000047e  00000000  00000000  0000235c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000078  00000000  00000000  000027da  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+   8:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+   c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  10:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  14:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  18:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  1c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  20:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  24:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  28:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  2c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  30:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  34:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  38:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  3c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  40:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  44:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  48:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  4c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  50:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e6 ef       	ldi	r30, 0xF6	; 246
+  68:	f5 e0       	ldi	r31, 0x05	; 5
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
+
+0000006c <.do_copy_data_loop>:
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+
+00000070 <.do_copy_data_start>:
+  70:	a4 39       	cpi	r26, 0x94	; 148
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <.do_copy_data_loop>
+  76:	0e 94 75 00 	call	0xea	; 0xea <main>
+  7a:	0c 94 f9 02 	jmp	0x5f2	; 0x5f2 <_exit>
+
+0000007e <__bad_interrupt>:
+  7e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000082 <DELAY_sec>:
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  82:	40 e9       	ldi	r20, 0x90	; 144
+  84:	51 e0       	ldi	r21, 0x01	; 1
+  86:	09 c0       	rjmp	.+18     	; 0x9a <DELAY_sec+0x18>
+      It generates a delay of 1sec for each count,
+      if 10 is passed as the argument then it generates delay of 10sec
+***************************************************************************************************/
+void DELAY_sec(uint16_t var_delaySecCount_u16)
+ {
+	 while(var_delaySecCount_u16!=0)
+  88:	20 e1       	ldi	r18, 0x10	; 16
+  8a:	37 e2       	ldi	r19, 0x27	; 39
+  8c:	fa 01       	movw	r30, r20
+  8e:	31 97       	sbiw	r30, 0x01	; 1
+  90:	f1 f7       	brne	.-4      	; 0x8e <DELAY_sec+0xc>
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+  92:	21 50       	subi	r18, 0x01	; 1
+  94:	30 40       	sbci	r19, 0x00	; 0
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+  96:	d1 f7       	brne	.-12     	; 0x8c <DELAY_sec+0xa>
+	  {
+	     DELAY_ms(1000);	      /* DELAY_ms is called to generate 1sec delay */
+		 var_delaySecCount_u16--;
+  98:	01 97       	sbiw	r24, 0x01	; 1
+      It generates a delay of 1sec for each count,
+      if 10 is passed as the argument then it generates delay of 10sec
+***************************************************************************************************/
+void DELAY_sec(uint16_t var_delaySecCount_u16)
+ {
+	 while(var_delaySecCount_u16!=0)
+  9a:	00 97       	sbiw	r24, 0x00	; 0
+  9c:	a9 f7       	brne	.-22     	; 0x88 <DELAY_sec+0x6>
+	  {
+	     DELAY_ms(1000);	      /* DELAY_ms is called to generate 1sec delay */
+		 var_delaySecCount_u16--;
+		}
+  }
+  9e:	08 95       	ret
+
+000000a0 <I2C_Init>:
+ * description :This function is used to initialize the I2C module
+
+------------------------------------------------------------------------------------*/
+void I2C_Init()
+{
+  TWSR=0x00; //set presca1er bits to zero
+  a0:	11 b8       	out	0x01, r1	; 1
+  TWBR=0x46; //SCL frequency is 50K for 16Mhz
+  a2:	86 e4       	ldi	r24, 0x46	; 70
+  a4:	80 b9       	out	0x00, r24	; 0
+  TWCR=0x04; //enab1e TWI module
+  a6:	84 e0       	ldi	r24, 0x04	; 4
+  a8:	86 bf       	out	0x36, r24	; 54
+}
+  aa:	08 95       	ret
+
+000000ac <I2C_Start>:
+                      ____|         |____________
+
+***************************************************************************************************/
+void I2C_Start()
+{
+  TWCR = ((1<<TWINT) | (1<<TWSTA) | (1<<TWEN));
+  ac:	84 ea       	ldi	r24, 0xA4	; 164
+  ae:	86 bf       	out	0x36, r24	; 54
+  while (!(TWCR & (1<<TWINT)));
+  b0:	06 b6       	in	r0, 0x36	; 54
+  b2:	07 fe       	sbrs	r0, 7
+  b4:	fd cf       	rjmp	.-6      	; 0xb0 <I2C_Start+0x4>
+}
+  b6:	08 95       	ret
+
+000000b8 <I2C_Stop>:
+
+***************************************************************************************************/
+
+void I2C_Stop(void)
+{
+  TWCR = ((1<< TWINT) | (1<<TWEN) | (1<<TWSTO));
+  b8:	84 e9       	ldi	r24, 0x94	; 148
+  ba:	86 bf       	out	0x36, r24	; 54
+  bc:	80 e9       	ldi	r24, 0x90	; 144
+  be:	91 e0       	ldi	r25, 0x01	; 1
+  c0:	01 97       	sbiw	r24, 0x01	; 1
+  c2:	f1 f7       	brne	.-4      	; 0xc0 <I2C_Stop+0x8>
+   DELAY_us(100) ; //wait for a short time
+}
+  c4:	08 95       	ret
+
+000000c6 <I2C_Write>:
+
+
+***************************************************************************************************/
+void I2C_Write(uint8_t var_i2cData_u8)
+{
+  TWDR = var_i2cData_u8 ;
+  c6:	83 b9       	out	0x03, r24	; 3
+  TWCR = ((1<< TWINT) | (1<<TWEN));
+  c8:	84 e8       	ldi	r24, 0x84	; 132
+  ca:	86 bf       	out	0x36, r24	; 54
+  while (!(TWCR & (1 <<TWINT)));
+  cc:	06 b6       	in	r0, 0x36	; 54
+  ce:	07 fe       	sbrs	r0, 7
+  d0:	fd cf       	rjmp	.-6      	; 0xcc <I2C_Write+0x6>
+}
+  d2:	08 95       	ret
+
+000000d4 <I2C_Read>:
+
+
+***************************************************************************************************/
+uint8_t I2C_Read(uint8_t var_ackOption_u8)
+{
+ TWCR = ((1<< TWINT) | (1<<TWEN) | (var_ackOption_u8<<TWEA));
+  d4:	82 95       	swap	r24
+  d6:	88 0f       	add	r24, r24
+  d8:	88 0f       	add	r24, r24
+  da:	80 7c       	andi	r24, 0xC0	; 192
+  dc:	84 68       	ori	r24, 0x84	; 132
+  de:	86 bf       	out	0x36, r24	; 54
+   while ( !(TWCR & (1 <<TWINT)));
+  e0:	06 b6       	in	r0, 0x36	; 54
+  e2:	07 fe       	sbrs	r0, 7
+  e4:	fd cf       	rjmp	.-6      	; 0xe0 <I2C_Read+0xc>
+   return TWDR;
+  e6:	83 b1       	in	r24, 0x03	; 3
+}
+  e8:	08 95       	ret
+
+000000ea <main>:
+
+
+
+/* start the main program */
+void main() 
+{
+  ea:	4f 92       	push	r4
+  ec:	5f 92       	push	r5
+  ee:	6f 92       	push	r6
+  f0:	7f 92       	push	r7
+  f2:	8f 92       	push	r8
+  f4:	9f 92       	push	r9
+  f6:	af 92       	push	r10
+  f8:	bf 92       	push	r11
+  fa:	cf 92       	push	r12
+  fc:	df 92       	push	r13
+  fe:	ef 92       	push	r14
+ 100:	ff 92       	push	r15
+ 102:	0f 93       	push	r16
+ 104:	1f 93       	push	r17
+ 106:	df 93       	push	r29
+ 108:	cf 93       	push	r28
+ 10a:	00 d0       	rcall	.+0      	; 0x10c <main+0x22>
+ 10c:	00 d0       	rcall	.+0      	; 0x10e <main+0x24>
+ 10e:	00 d0       	rcall	.+0      	; 0x110 <main+0x26>
+ 110:	cd b7       	in	r28, 0x3d	; 61
+ 112:	de b7       	in	r29, 0x3e	; 62
+   unsigned char sec,min,hour,day,month,year;
+
+  /* Initilize the Uart before Transmiting/Reaceiving any data */
+    UART_Init(9600);
+ 114:	60 e8       	ldi	r22, 0x80	; 128
+ 116:	75 e2       	ldi	r23, 0x25	; 37
+ 118:	80 e0       	ldi	r24, 0x00	; 0
+ 11a:	90 e0       	ldi	r25, 0x00	; 0
+ 11c:	0e 94 cc 01 	call	0x398	; 0x398 <UART_Init>
+
+  /* Initilize the RTC(ds1307) before reading or writing time/date */
+    RTC_Init();
+ 120:	0e 94 91 01 	call	0x322	; 0x322 <RTC_Init>
+
+	UART_TxString(" Testing RTC ");
+ 124:	80 e6       	ldi	r24, 0x60	; 96
+ 126:	90 e0       	ldi	r25, 0x00	; 0
+ 128:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <UART_TxString>
+ /*##### Set the time and Date only once. Once the Time and Date is set, comment these lines
+         and reflash the code. Else the time will be set every time the controller is reset*/
+    RTC_SetTime(0x10,0x40,0x00);  //  10:40:20 am
+ 12c:	80 e1       	ldi	r24, 0x10	; 16
+ 12e:	60 e4       	ldi	r22, 0x40	; 64
+ 130:	40 e0       	ldi	r20, 0x00	; 0
+ 132:	0e 94 14 01 	call	0x228	; 0x228 <RTC_SetTime>
+    RTC_SetDate(0x01,0x01,0x15);  //  1st Jan 2015
+ 136:	81 e0       	ldi	r24, 0x01	; 1
+ 138:	61 e0       	ldi	r22, 0x01	; 1
+ 13a:	45 e1       	ldi	r20, 0x15	; 21
+ 13c:	0e 94 f7 00 	call	0x1ee	; 0x1ee <RTC_SetDate>
+
+   /* Display the Time and Date continuously */ 
+   while(1)
+    {
+	   /* Read the Time from RTC(ds1307) */ 
+        RTC_GetTime(&hour,&min,&sec);      
+ 140:	43 e0       	ldi	r20, 0x03	; 3
+ 142:	44 2e       	mov	r4, r20
+ 144:	51 2c       	mov	r5, r1
+ 146:	4c 0e       	add	r4, r28
+ 148:	5d 1e       	adc	r5, r29
+ 14a:	32 e0       	ldi	r19, 0x02	; 2
+ 14c:	63 2e       	mov	r6, r19
+ 14e:	71 2c       	mov	r7, r1
+ 150:	6c 0e       	add	r6, r28
+ 152:	7d 1e       	adc	r7, r29
+ 154:	4e 01       	movw	r8, r28
+ 156:	08 94       	sec
+ 158:	81 1c       	adc	r8, r1
+ 15a:	91 1c       	adc	r9, r1
+		
+	    /* Read the Date from RTC(ds1307) */ 
+        RTC_GetDate(&day,&month,&year);        
+ 15c:	24 e0       	ldi	r18, 0x04	; 4
+ 15e:	a2 2e       	mov	r10, r18
+ 160:	b1 2c       	mov	r11, r1
+ 162:	ac 0e       	add	r10, r28
+ 164:	bd 1e       	adc	r11, r29
+ 166:	95 e0       	ldi	r25, 0x05	; 5
+ 168:	c9 2e       	mov	r12, r25
+ 16a:	d1 2c       	mov	r13, r1
+ 16c:	cc 0e       	add	r12, r28
+ 16e:	dd 1e       	adc	r13, r29
+ 170:	86 e0       	ldi	r24, 0x06	; 6
+ 172:	e8 2e       	mov	r14, r24
+ 174:	f1 2c       	mov	r15, r1
+ 176:	ec 0e       	add	r14, r28
+ 178:	fd 1e       	adc	r15, r29
+	 
+        UART_Printf("\n\rtime:%2x:%2x:%2x  \nDate:%2x/%2x/%2x",(uint16_t)hour,(uint16_t)min,(uint16_t)sec,(uint16_t)day,(uint16_t)month,(uint16_t)year);
+ 17a:	0e e6       	ldi	r16, 0x6E	; 110
+ 17c:	10 e0       	ldi	r17, 0x00	; 0
+
+   /* Display the Time and Date continuously */ 
+   while(1)
+    {
+	   /* Read the Time from RTC(ds1307) */ 
+        RTC_GetTime(&hour,&min,&sec);      
+ 17e:	c2 01       	movw	r24, r4
+ 180:	b3 01       	movw	r22, r6
+ 182:	a4 01       	movw	r20, r8
+ 184:	0e 94 61 01 	call	0x2c2	; 0x2c2 <RTC_GetTime>
+		
+	    /* Read the Date from RTC(ds1307) */ 
+        RTC_GetDate(&day,&month,&year);        
+ 188:	c5 01       	movw	r24, r10
+ 18a:	b6 01       	movw	r22, r12
+ 18c:	a7 01       	movw	r20, r14
+ 18e:	0e 94 31 01 	call	0x262	; 0x262 <RTC_GetDate>
+	 
+        UART_Printf("\n\rtime:%2x:%2x:%2x  \nDate:%2x/%2x/%2x",(uint16_t)hour,(uint16_t)min,(uint16_t)sec,(uint16_t)day,(uint16_t)month,(uint16_t)year);
+ 192:	8d b7       	in	r24, 0x3d	; 61
+ 194:	9e b7       	in	r25, 0x3e	; 62
+ 196:	0e 97       	sbiw	r24, 0x0e	; 14
+ 198:	0f b6       	in	r0, 0x3f	; 63
+ 19a:	f8 94       	cli
+ 19c:	9e bf       	out	0x3e, r25	; 62
+ 19e:	0f be       	out	0x3f, r0	; 63
+ 1a0:	8d bf       	out	0x3d, r24	; 61
+ 1a2:	ed b7       	in	r30, 0x3d	; 61
+ 1a4:	fe b7       	in	r31, 0x3e	; 62
+ 1a6:	31 96       	adiw	r30, 0x01	; 1
+ 1a8:	ad b7       	in	r26, 0x3d	; 61
+ 1aa:	be b7       	in	r27, 0x3e	; 62
+ 1ac:	12 96       	adiw	r26, 0x02	; 2
+ 1ae:	1c 93       	st	X, r17
+ 1b0:	0e 93       	st	-X, r16
+ 1b2:	11 97       	sbiw	r26, 0x01	; 1
+ 1b4:	8b 81       	ldd	r24, Y+3	; 0x03
+ 1b6:	82 83       	std	Z+2, r24	; 0x02
+ 1b8:	13 82       	std	Z+3, r1	; 0x03
+ 1ba:	8a 81       	ldd	r24, Y+2	; 0x02
+ 1bc:	84 83       	std	Z+4, r24	; 0x04
+ 1be:	15 82       	std	Z+5, r1	; 0x05
+ 1c0:	89 81       	ldd	r24, Y+1	; 0x01
+ 1c2:	86 83       	std	Z+6, r24	; 0x06
+ 1c4:	17 82       	std	Z+7, r1	; 0x07
+ 1c6:	8c 81       	ldd	r24, Y+4	; 0x04
+ 1c8:	80 87       	std	Z+8, r24	; 0x08
+ 1ca:	11 86       	std	Z+9, r1	; 0x09
+ 1cc:	8d 81       	ldd	r24, Y+5	; 0x05
+ 1ce:	82 87       	std	Z+10, r24	; 0x0a
+ 1d0:	13 86       	std	Z+11, r1	; 0x0b
+ 1d2:	8e 81       	ldd	r24, Y+6	; 0x06
+ 1d4:	84 87       	std	Z+12, r24	; 0x0c
+ 1d6:	15 86       	std	Z+13, r1	; 0x0d
+ 1d8:	0e 94 40 02 	call	0x480	; 0x480 <UART_Printf>
+ 1dc:	8d b7       	in	r24, 0x3d	; 61
+ 1de:	9e b7       	in	r25, 0x3e	; 62
+ 1e0:	0e 96       	adiw	r24, 0x0e	; 14
+ 1e2:	0f b6       	in	r0, 0x3f	; 63
+ 1e4:	f8 94       	cli
+ 1e6:	9e bf       	out	0x3e, r25	; 62
+ 1e8:	0f be       	out	0x3f, r0	; 63
+ 1ea:	8d bf       	out	0x3d, r24	; 61
+ 1ec:	c8 cf       	rjmp	.-112    	; 0x17e <main+0x94>
+
+000001ee <RTC_SetDate>:
+                 The new Date is updated into the non volatile memory of Ds1307.
+		Note: The I/P arguments should of BCD, 
+	      like 0x15,0x08,0x47 for 15th day,8th month and 47th year.				 
+***************************************************************************************************/
+void RTC_SetDate(uint8_t var_day_u8, uint8_t var_month_u8, uint8_t var_year_u8)
+{
+ 1ee:	ff 92       	push	r15
+ 1f0:	0f 93       	push	r16
+ 1f2:	1f 93       	push	r17
+ 1f4:	18 2f       	mov	r17, r24
+ 1f6:	06 2f       	mov	r16, r22
+ 1f8:	f4 2e       	mov	r15, r20
+	I2C_Start();                          // Start I2C communication
+ 1fa:	0e 94 56 00 	call	0xac	; 0xac <I2C_Start>
+
+	I2C_Write(C_Ds1307WriteMode_U8);	  // connect to DS1307 by sending its ID on I2c Bus
+ 1fe:	80 ed       	ldi	r24, 0xD0	; 208
+ 200:	0e 94 63 00 	call	0xc6	; 0xc6 <I2C_Write>
+	I2C_Write(C_Ds1307DateRegAddress_U8); // Request DAY RAM address at 04H
+ 204:	84 e0       	ldi	r24, 0x04	; 4
+ 206:	0e 94 63 00 	call	0xc6	; 0xc6 <I2C_Write>
+
+	I2C_Write(var_day_u8);			      // Write date on RAM address 04H
+ 20a:	81 2f       	mov	r24, r17
+ 20c:	0e 94 63 00 	call	0xc6	; 0xc6 <I2C_Write>
+	I2C_Write(var_month_u8);			      // Write month on RAM address 05H
+ 210:	80 2f       	mov	r24, r16
+ 212:	0e 94 63 00 	call	0xc6	; 0xc6 <I2C_Write>
+	I2C_Write(var_year_u8);			      // Write year on RAM address 06h
+ 216:	8f 2d       	mov	r24, r15
+ 218:	0e 94 63 00 	call	0xc6	; 0xc6 <I2C_Write>
+
+	I2C_Stop();				              // Stop I2C communication after Setting the Date
+ 21c:	0e 94 5c 00 	call	0xb8	; 0xb8 <I2C_Stop>
+}
+ 220:	1f 91       	pop	r17
+ 222:	0f 91       	pop	r16
+ 224:	ff 90       	pop	r15
+ 226:	08 95       	ret
+
+00000228 <RTC_SetTime>:
+                 The new time is updated into the non volatile memory of Ds1307.
+	Note: The I/P arguments should of BCD, 
+	      like 0x12,0x39,0x26 for 12hr,39min and 26sec.			 
+***************************************************************************************************/
+void RTC_SetTime(uint8_t var_hour_u8, uint8_t var_min_u8, uint8_t var_sec_u8)
+{
+ 228:	ff 92       	push	r15
+ 22a:	0f 93       	push	r16
+ 22c:	1f 93       	push	r17
+ 22e:	f8 2e       	mov	r15, r24
+ 230:	06 2f       	mov	r16, r22
+ 232:	14 2f       	mov	r17, r20
+	I2C_Start();                            // Start I2C communication
+ 234:	0e 94 56 00 	call	0xac	; 0xac <I2C_Start>
+
+	I2C_Write(C_Ds1307WriteMode_U8);        // connect to DS1307 by sending its ID on I2c Bus
+ 238:	80 ed       	ldi	r24, 0xD0	; 208
+ 23a:	0e 94 63 00 	call	0xc6	; 0xc6 <I2C_Write>
+	I2C_Write(C_Ds1307SecondRegAddress_U8); // Select the SEC RAM address
+ 23e:	80 e0       	ldi	r24, 0x00	; 0
+ 240:	0e 94 63 00 	call	0xc6	; 0xc6 <I2C_Write>
+
+	I2C_Write(var_sec_u8);			        // Write sec from RAM address 00H
+ 244:	81 2f       	mov	r24, r17
+ 246:	0e 94 63 00 	call	0xc6	; 0xc6 <I2C_Write>
+	I2C_Write(var_min_u8);			        // Write min from RAM address 01H
+ 24a:	80 2f       	mov	r24, r16
+ 24c:	0e 94 63 00 	call	0xc6	; 0xc6 <I2C_Write>
+	I2C_Write(var_hour_u8);			        // Write hour from RAM address 02H
+ 250:	8f 2d       	mov	r24, r15
+ 252:	0e 94 63 00 	call	0xc6	; 0xc6 <I2C_Write>
+
+	I2C_Stop();           	                // Stop I2C communication after Setting the Time
+ 256:	0e 94 5c 00 	call	0xb8	; 0xb8 <I2C_Stop>
+}
+ 25a:	1f 91       	pop	r17
+ 25c:	0f 91       	pop	r16
+ 25e:	ff 90       	pop	r15
+ 260:	08 95       	ret
+
+00000262 <RTC_GetDate>:
+
+	Note: The date read from Ds1307 will be of BCD format, 
+	      like 0x15,0x08,0x47 for 15th day,8th month and 47th year.			  
+***************************************************************************************************/
+void RTC_GetDate(uint8_t *ptr_day_u8,uint8_t *ptr_month_u8,uint8_t *ptr_year_u8)
+{
+ 262:	cf 92       	push	r12
+ 264:	df 92       	push	r13
+ 266:	ef 92       	push	r14
+ 268:	ff 92       	push	r15
+ 26a:	0f 93       	push	r16
+ 26c:	1f 93       	push	r17
+ 26e:	8c 01       	movw	r16, r24
+ 270:	7b 01       	movw	r14, r22
+ 272:	6a 01       	movw	r12, r20
+	I2C_Start();                          // Start I2C communication
+ 274:	0e 94 56 00 	call	0xac	; 0xac <I2C_Start>
+
+	I2C_Write(C_Ds1307WriteMode_U8);	      // connect to DS1307 by sending its ID on I2c Bus
+ 278:	80 ed       	ldi	r24, 0xD0	; 208
+ 27a:	0e 94 63 00 	call	0xc6	; 0xc6 <I2C_Write>
+	I2C_Write(C_Ds1307DateRegAddress_U8); // Request DAY RAM address at 04H
+ 27e:	84 e0       	ldi	r24, 0x04	; 4
+ 280:	0e 94 63 00 	call	0xc6	; 0xc6 <I2C_Write>
+
+	I2C_Stop();			                  // Stop I2C communication after selecting DAY Register
+ 284:	0e 94 5c 00 	call	0xb8	; 0xb8 <I2C_Stop>
+
+
+	I2C_Start();		                  // Start I2C communication
+ 288:	0e 94 56 00 	call	0xac	; 0xac <I2C_Start>
+	I2C_Write(C_Ds1307ReadMode_U8);	      // connect to DS1307(Read mode) by sending its ID
+ 28c:	81 ed       	ldi	r24, 0xD1	; 209
+ 28e:	0e 94 63 00 	call	0xc6	; 0xc6 <I2C_Write>
+
+	*ptr_day_u8 = I2C_Read(1);              // read Day and return Positive ACK
+ 292:	81 e0       	ldi	r24, 0x01	; 1
+ 294:	0e 94 6a 00 	call	0xd4	; 0xd4 <I2C_Read>
+ 298:	f8 01       	movw	r30, r16
+ 29a:	80 83       	st	Z, r24
+	*ptr_month_u8 = I2C_Read(1);            // read Month and return Positive ACK
+ 29c:	81 e0       	ldi	r24, 0x01	; 1
+ 29e:	0e 94 6a 00 	call	0xd4	; 0xd4 <I2C_Read>
+ 2a2:	f7 01       	movw	r30, r14
+ 2a4:	80 83       	st	Z, r24
+	*ptr_year_u8 = I2C_Read(0);             // read Year and return Negative/No ACK
+ 2a6:	80 e0       	ldi	r24, 0x00	; 0
+ 2a8:	0e 94 6a 00 	call	0xd4	; 0xd4 <I2C_Read>
+ 2ac:	f6 01       	movw	r30, r12
+ 2ae:	80 83       	st	Z, r24
+
+	I2C_Stop();		                      // Stop I2C communication after reading the Date
+ 2b0:	0e 94 5c 00 	call	0xb8	; 0xb8 <I2C_Stop>
+}
+ 2b4:	1f 91       	pop	r17
+ 2b6:	0f 91       	pop	r16
+ 2b8:	ff 90       	pop	r15
+ 2ba:	ef 90       	pop	r14
+ 2bc:	df 90       	pop	r13
+ 2be:	cf 90       	pop	r12
+ 2c0:	08 95       	ret
+
+000002c2 <RTC_GetTime>:
+
+	Note: The time read from Ds1307 will be of BCD format, 
+	      like 0x12,0x39,0x26 for 12hr,39min and 26sec.	
+***************************************************************************************************/
+void RTC_GetTime(uint8_t *ptr_hour_u8,uint8_t *ptr_min_u8,uint8_t *ptr_sec_u8)
+{
+ 2c2:	cf 92       	push	r12
+ 2c4:	df 92       	push	r13
+ 2c6:	ef 92       	push	r14
+ 2c8:	ff 92       	push	r15
+ 2ca:	0f 93       	push	r16
+ 2cc:	1f 93       	push	r17
+ 2ce:	6c 01       	movw	r12, r24
+ 2d0:	7b 01       	movw	r14, r22
+ 2d2:	8a 01       	movw	r16, r20
+	I2C_Start();                            // Start I2C communication
+ 2d4:	0e 94 56 00 	call	0xac	; 0xac <I2C_Start>
+
+	I2C_Write(C_Ds1307WriteMode_U8);	    // connect to DS1307 by sending its ID on I2c Bus
+ 2d8:	80 ed       	ldi	r24, 0xD0	; 208
+ 2da:	0e 94 63 00 	call	0xc6	; 0xc6 <I2C_Write>
+	I2C_Write(C_Ds1307SecondRegAddress_U8); // Request Sec RAM address at 00H
+ 2de:	80 e0       	ldi	r24, 0x00	; 0
+ 2e0:	0e 94 63 00 	call	0xc6	; 0xc6 <I2C_Write>
+
+	I2C_Stop();			                    // Stop I2C communication after selecting Sec Register
+ 2e4:	0e 94 5c 00 	call	0xb8	; 0xb8 <I2C_Stop>
+
+	I2C_Start();		                    // Start I2C communication
+ 2e8:	0e 94 56 00 	call	0xac	; 0xac <I2C_Start>
+	I2C_Write(C_Ds1307ReadMode_U8);	        // connect to DS1307(Read mode) by sending its ID
+ 2ec:	81 ed       	ldi	r24, 0xD1	; 209
+ 2ee:	0e 94 63 00 	call	0xc6	; 0xc6 <I2C_Write>
+
+	*ptr_sec_u8 = I2C_Read(1);                // read second and return Positive ACK
+ 2f2:	81 e0       	ldi	r24, 0x01	; 1
+ 2f4:	0e 94 6a 00 	call	0xd4	; 0xd4 <I2C_Read>
+ 2f8:	f8 01       	movw	r30, r16
+ 2fa:	80 83       	st	Z, r24
+	*ptr_min_u8 = I2C_Read(1); 	            // read minute and return Positive ACK
+ 2fc:	81 e0       	ldi	r24, 0x01	; 1
+ 2fe:	0e 94 6a 00 	call	0xd4	; 0xd4 <I2C_Read>
+ 302:	f7 01       	movw	r30, r14
+ 304:	80 83       	st	Z, r24
+	*ptr_hour_u8 = I2C_Read(0);               // read hour and return Negative/No ACK
+ 306:	80 e0       	ldi	r24, 0x00	; 0
+ 308:	0e 94 6a 00 	call	0xd4	; 0xd4 <I2C_Read>
+ 30c:	f6 01       	movw	r30, r12
+ 30e:	80 83       	st	Z, r24
+
+	I2C_Stop();		                        // Stop I2C communication after reading the Time
+ 310:	0e 94 5c 00 	call	0xb8	; 0xb8 <I2C_Stop>
+}
+ 314:	1f 91       	pop	r17
+ 316:	0f 91       	pop	r16
+ 318:	ff 90       	pop	r15
+ 31a:	ef 90       	pop	r14
+ 31c:	df 90       	pop	r13
+ 31e:	cf 90       	pop	r12
+ 320:	08 95       	ret
+
+00000322 <RTC_Init>:
+
+ * description :This function is used to Initialize the Ds1307 RTC.
+***************************************************************************************************/
+void RTC_Init()
+{
+	I2C_Init();                             // Initialize the I2c module.
+ 322:	0e 94 50 00 	call	0xa0	; 0xa0 <I2C_Init>
+	I2C_Start();                            // Start I2C communication
+ 326:	0e 94 56 00 	call	0xac	; 0xac <I2C_Start>
+
+	I2C_Write(C_Ds1307WriteMode_U8);        // Connect to DS1307 by sending its ID on I2c Bus
+ 32a:	80 ed       	ldi	r24, 0xD0	; 208
+ 32c:	0e 94 63 00 	call	0xc6	; 0xc6 <I2C_Write>
+	I2C_Write(C_Ds1307ControlRegAddress_U8);// Select the Ds1307 ControlRegister to configure Ds1307
+ 330:	87 e0       	ldi	r24, 0x07	; 7
+ 332:	0e 94 63 00 	call	0xc6	; 0xc6 <I2C_Write>
+
+	I2C_Write(0x00);                        // Write 0x00 to Control register to disable SQW-Out
+ 336:	80 e0       	ldi	r24, 0x00	; 0
+ 338:	0e 94 63 00 	call	0xc6	; 0xc6 <I2C_Write>
+
+	I2C_Stop();                             // Stop I2C communication after initializing DS1307
+ 33c:	0e 94 5c 00 	call	0xb8	; 0xb8 <I2C_Stop>
+}
+ 340:	08 95       	ret
+
+00000342 <UART_SetBaudRate>:
+                 the default baudrate of 9600 is set.
+
+		    Refer uart.h file for Supported range of baud rates.
+***************************************************************************************************/
+void UART_SetBaudRate(uint32_t var_baudRate_u32)
+{
+ 342:	9b 01       	movw	r18, r22
+ 344:	ac 01       	movw	r20, r24
+	uint16_t RegValue;
+
+	if((var_baudRate_u32 >= C_MinBaudRate_U32) && (var_baudRate_u32<=C_MaxBaudRate_U32))
+ 346:	dc 01       	movw	r26, r24
+ 348:	cb 01       	movw	r24, r22
+ 34a:	80 56       	subi	r24, 0x60	; 96
+ 34c:	99 40       	sbci	r25, 0x09	; 9
+ 34e:	a0 40       	sbci	r26, 0x00	; 0
+ 350:	b0 40       	sbci	r27, 0x00	; 0
+ 352:	81 5a       	subi	r24, 0xA1	; 161
+ 354:	98 4b       	sbci	r25, 0xB8	; 184
+ 356:	a1 40       	sbci	r26, 0x01	; 1
+ 358:	b0 40       	sbci	r27, 0x00	; 0
+ 35a:	18 f0       	brcs	.+6      	; 0x362 <UART_SetBaudRate+0x20>
+ 35c:	27 e6       	ldi	r18, 0x67	; 103
+ 35e:	30 e0       	ldi	r19, 0x00	; 0
+ 360:	18 c0       	rjmp	.+48     	; 0x392 <UART_SetBaudRate+0x50>
+	{
+		/* Check if the requested baudate is within range,
+	     If yes then calculate the value to be loaded into baud rate generator. */
+		RegValue = M_GetBaudRateGeneratorValue(var_baudRate_u32);
+ 362:	60 e8       	ldi	r22, 0x80	; 128
+ 364:	74 e8       	ldi	r23, 0x84	; 132
+ 366:	8e e1       	ldi	r24, 0x1E	; 30
+ 368:	90 e0       	ldi	r25, 0x00	; 0
+ 36a:	62 1b       	sub	r22, r18
+ 36c:	73 0b       	sbc	r23, r19
+ 36e:	84 0b       	sbc	r24, r20
+ 370:	95 0b       	sbc	r25, r21
+ 372:	f3 e0       	ldi	r31, 0x03	; 3
+ 374:	66 0f       	add	r22, r22
+ 376:	77 1f       	adc	r23, r23
+ 378:	88 1f       	adc	r24, r24
+ 37a:	99 1f       	adc	r25, r25
+ 37c:	fa 95       	dec	r31
+ 37e:	d1 f7       	brne	.-12     	; 0x374 <UART_SetBaudRate+0x32>
+ 380:	e4 e0       	ldi	r30, 0x04	; 4
+ 382:	22 0f       	add	r18, r18
+ 384:	33 1f       	adc	r19, r19
+ 386:	44 1f       	adc	r20, r20
+ 388:	55 1f       	adc	r21, r21
+ 38a:	ea 95       	dec	r30
+ 38c:	d1 f7       	brne	.-12     	; 0x382 <UART_SetBaudRate+0x40>
+ 38e:	0e 94 d7 02 	call	0x5ae	; 0x5ae <__udivmodsi4>
+	{
+		/*	 Invalid baudrate requested, hence set it to default baudrate of 9600 */
+		RegValue = M_GetBaudRateGeneratorValue(9600);
+	}
+
+	UBRRL = util_ExtractByte0to8(RegValue);
+ 392:	29 b9       	out	0x09, r18	; 9
+	UBRRH = util_ExtractByte8to16(RegValue);
+ 394:	30 bd       	out	0x20, r19	; 32
+}
+ 396:	08 95       	ret
+
+00000398 <UART_Init>:
+
+		    Refer uart.h file for Supported(range) baud rates.		
+***************************************************************************************************/
+void UART_Init(uint32_t var_baudRate_u32)
+{
+	UCSRB= (1<<RXEN) | (1<<TXEN);                  // Enable Receiver and Transmitter
+ 398:	28 e1       	ldi	r18, 0x18	; 24
+ 39a:	2a b9       	out	0x0a, r18	; 10
+	UCSRC= (1<<URSEL) | (1<<UCSZ1) | (1<<UCSZ0);   // Asynchronous mode 8-bit data and 1-stop bit
+ 39c:	26 e8       	ldi	r18, 0x86	; 134
+ 39e:	20 bd       	out	0x20, r18	; 32
+	UCSRA= 0x00;                                   // Clear the UASRT status register
+ 3a0:	1b b8       	out	0x0b, r1	; 11
+	UART_SetBaudRate(var_baudRate_u32);
+ 3a2:	0e 94 a1 01 	call	0x342	; 0x342 <UART_SetBaudRate>
+}
+ 3a6:	08 95       	ret
+
+000003a8 <UART_RxChar>:
+ * description :This function is used to receive a char from UART module.
+                It waits till a char is received and returns it after reception.
+***************************************************************************************************/
+char UART_RxChar()
+{
+	while(util_IsBitCleared(UCSRA,RXC));  // Wait till the data is received
+ 3a8:	5f 9b       	sbis	0x0b, 7	; 11
+ 3aa:	fe cf       	rjmp	.-4      	; 0x3a8 <UART_RxChar>
+	return(UDR);                          // return the received char
+ 3ac:	8c b1       	in	r24, 0x0c	; 12
+}
+ 3ae:	08 95       	ret
+
+000003b0 <UART_TxChar>:
+
+ * description  :This function is used to transmit a char through UART module.
+***************************************************************************************************/
+void UART_TxChar(char var_uartData_u8)
+{
+	while(util_IsBitCleared(UCSRA,UDRE)); // Wait till Transmitter(UDR) register becomes Empty
+ 3b0:	5d 9b       	sbis	0x0b, 5	; 11
+ 3b2:	fe cf       	rjmp	.-4      	; 0x3b0 <UART_TxChar>
+	UDR =var_uartData_u8;                              // Load the data to be transmitted
+ 3b4:	8c b9       	out	0x0c, r24	; 12
+}
+ 3b6:	08 95       	ret
+
+000003b8 <UART_TxString>:
+               1.The ptr_stringPointer_u8 points to the first char of the string
+                    and traverses till the end(NULL CHAR) and transmits a char each time
+***************************************************************************************************/
+#if (Enable_UART_TxString==1)
+void UART_TxString(char *ptr_stringPointer_u8)
+{
+ 3b8:	fc 01       	movw	r30, r24
+ 3ba:	04 c0       	rjmp	.+8      	; 0x3c4 <UART_TxString+0xc>
+
+ * description  :This function is used to transmit a char through UART module.
+***************************************************************************************************/
+void UART_TxChar(char var_uartData_u8)
+{
+	while(util_IsBitCleared(UCSRA,UDRE)); // Wait till Transmitter(UDR) register becomes Empty
+ 3bc:	5d 9b       	sbis	0x0b, 5	; 11
+ 3be:	fe cf       	rjmp	.-4      	; 0x3bc <UART_TxString+0x4>
+***************************************************************************************************/
+#if (Enable_UART_TxString==1)
+void UART_TxString(char *ptr_stringPointer_u8)
+{
+	while(*ptr_stringPointer_u8)
+		UART_TxChar(*ptr_stringPointer_u8++);// Loop through the string and transmit char by char
+ 3c0:	31 96       	adiw	r30, 0x01	; 1
+ * description  :This function is used to transmit a char through UART module.
+***************************************************************************************************/
+void UART_TxChar(char var_uartData_u8)
+{
+	while(util_IsBitCleared(UCSRA,UDRE)); // Wait till Transmitter(UDR) register becomes Empty
+	UDR =var_uartData_u8;                              // Load the data to be transmitted
+ 3c2:	8c b9       	out	0x0c, r24	; 12
+                    and traverses till the end(NULL CHAR) and transmits a char each time
+***************************************************************************************************/
+#if (Enable_UART_TxString==1)
+void UART_TxString(char *ptr_stringPointer_u8)
+{
+	while(*ptr_stringPointer_u8)
+ 3c4:	80 81       	ld	r24, Z
+ 3c6:	88 23       	and	r24, r24
+ 3c8:	c9 f7       	brne	.-14     	; 0x3bc <UART_TxString+0x4>
+		UART_TxChar(*ptr_stringPointer_u8++);// Loop through the string and transmit char by char
+}
+ 3ca:	08 95       	ret
+
+000003cc <UART_TxHexNumber>:
+				2.(0x12AB,6) then 6-digits ie. 0012AB will be transmitted
+				3.(0x12AB,C_DefaultDigitsToTransmit_U8) then 12AB will be transmitted.
+***************************************************************************************************/
+#if (Enable_UART_TxHexNumber==1)
+void UART_TxHexNumber(uint32_t var_hexNumber_u32,uint8_t var_numOfDigitsToTransmit_u8)
+{
+ 3cc:	0f 93       	push	r16
+ 3ce:	1f 93       	push	r17
+ 3d0:	df 93       	push	r29
+ 3d2:	cf 93       	push	r28
+ 3d4:	cd b7       	in	r28, 0x3d	; 61
+ 3d6:	de b7       	in	r29, 0x3e	; 62
+ 3d8:	2a 97       	sbiw	r28, 0x0a	; 10
+ 3da:	0f b6       	in	r0, 0x3f	; 63
+ 3dc:	f8 94       	cli
+ 3de:	de bf       	out	0x3e, r29	; 62
+ 3e0:	0f be       	out	0x3f, r0	; 63
+ 3e2:	cd bf       	out	0x3d, r28	; 61
+ 3e4:	8b 01       	movw	r16, r22
+ 3e6:	9c 01       	movw	r18, r24
+	uint8_t i=0,a[10];
+
+	if(var_hexNumber_u32==0)
+ 3e8:	61 15       	cp	r22, r1
+ 3ea:	71 05       	cpc	r23, r1
+ 3ec:	81 05       	cpc	r24, r1
+ 3ee:	91 05       	cpc	r25, r1
+ 3f0:	29 f0       	breq	.+10     	; 0x3fc <UART_TxHexNumber+0x30>
+ 3f2:	90 e0       	ldi	r25, 0x00	; 0
+			else
+			{
+				/* In case user expects more digits to be transmitted than the actual digits in number,
+  			           then update the remaining digits with zero.
+                Ex: var_number_u32 is 0x123 and user wants five digits then 00123 has to be transmitted */
+				a[i]=0x00;
+ 3f4:	be 01       	movw	r22, r28
+ 3f6:	6f 5f       	subi	r22, 0xFF	; 255
+ 3f8:	7f 4f       	sbci	r23, 0xFF	; 255
+ 3fa:	25 c0       	rjmp	.+74     	; 0x446 <UART_TxHexNumber+0x7a>
+#if (Enable_UART_TxHexNumber==1)
+void UART_TxHexNumber(uint32_t var_hexNumber_u32,uint8_t var_numOfDigitsToTransmit_u8)
+{
+	uint8_t i=0,a[10];
+
+	if(var_hexNumber_u32==0)
+ 3fc:	fe 01       	movw	r30, r28
+ 3fe:	31 96       	adiw	r30, 0x01	; 1
+ 400:	90 e0       	ldi	r25, 0x00	; 0
+ 402:	02 c0       	rjmp	.+4      	; 0x408 <UART_TxHexNumber+0x3c>
+	{
+		/* If the number zero then update the array with the same for transmitting */
+		for(i=0;((i<var_numOfDigitsToTransmit_u8) && (i<C_MaxDigitsToTransmit_U8)) ;i++)
+		  a[i]=0x00;
+ 404:	11 92       	st	Z+, r1
+	uint8_t i=0,a[10];
+
+	if(var_hexNumber_u32==0)
+	{
+		/* If the number zero then update the array with the same for transmitting */
+		for(i=0;((i<var_numOfDigitsToTransmit_u8) && (i<C_MaxDigitsToTransmit_U8)) ;i++)
+ 406:	9f 5f       	subi	r25, 0xFF	; 255
+ 408:	94 17       	cp	r25, r20
+ 40a:	68 f5       	brcc	.+90     	; 0x466 <UART_TxHexNumber+0x9a>
+ 40c:	9a 30       	cpi	r25, 0x0A	; 10
+ 40e:	d1 f7       	brne	.-12     	; 0x404 <UART_TxHexNumber+0x38>
+ 410:	2a c0       	rjmp	.+84     	; 0x466 <UART_TxHexNumber+0x9a>
+	else
+	{
+		for(i=0;i<var_numOfDigitsToTransmit_u8;i++)
+		{
+			/* Continue extracting the digits from right side till the Specified var_numOfDigitsToTransmit_u8 */
+			if(var_hexNumber_u32!=0)
+ 412:	01 15       	cp	r16, r1
+ 414:	11 05       	cpc	r17, r1
+ 416:	21 05       	cpc	r18, r1
+ 418:	31 05       	cpc	r19, r1
+ 41a:	71 f0       	breq	.+28     	; 0x438 <UART_TxHexNumber+0x6c>
+			{
+				/* Extract the digits from the number till it becomes zero.
+			    First get the lower nibble and shift the number 4 times.
+			   If var_number_u32 = 0xABC then extracted digit will be 0x0C and number will become 0xAB.
+			   The process continues till it becomes zero or max digits reached*/
+				a[i]=(uint8_t)(var_hexNumber_u32 & 0x0f);
+ 41c:	fb 01       	movw	r30, r22
+ 41e:	e9 0f       	add	r30, r25
+ 420:	f1 1d       	adc	r31, r1
+ 422:	80 2f       	mov	r24, r16
+ 424:	8f 70       	andi	r24, 0x0F	; 15
+ 426:	80 83       	st	Z, r24
+				var_hexNumber_u32=var_hexNumber_u32 >> 4;
+ 428:	a4 e0       	ldi	r26, 0x04	; 4
+ 42a:	36 95       	lsr	r19
+ 42c:	27 95       	ror	r18
+ 42e:	17 95       	ror	r17
+ 430:	07 95       	ror	r16
+ 432:	aa 95       	dec	r26
+ 434:	d1 f7       	brne	.-12     	; 0x42a <UART_TxHexNumber+0x5e>
+ 436:	06 c0       	rjmp	.+12     	; 0x444 <UART_TxHexNumber+0x78>
+			}
+			else if( (var_numOfDigitsToTransmit_u8 == C_DefaultDigitsToTransmit_U8) ||
+ 438:	4b 30       	cpi	r20, 0x0B	; 11
+ 43a:	a8 f4       	brcc	.+42     	; 0x466 <UART_TxHexNumber+0x9a>
+			else
+			{
+				/* In case user expects more digits to be transmitted than the actual digits in number,
+  			           then update the remaining digits with zero.
+                Ex: var_number_u32 is 0x123 and user wants five digits then 00123 has to be transmitted */
+				a[i]=0x00;
+ 43c:	fb 01       	movw	r30, r22
+ 43e:	e9 0f       	add	r30, r25
+ 440:	f1 1d       	adc	r31, r1
+ 442:	10 82       	st	Z, r1
+		for(i=0;((i<var_numOfDigitsToTransmit_u8) && (i<C_MaxDigitsToTransmit_U8)) ;i++)
+		  a[i]=0x00;
+	}
+	else
+	{
+		for(i=0;i<var_numOfDigitsToTransmit_u8;i++)
+ 444:	9f 5f       	subi	r25, 0xFF	; 255
+ 446:	94 17       	cp	r25, r20
+ 448:	20 f3       	brcs	.-56     	; 0x412 <UART_TxHexNumber+0x46>
+ 44a:	0d c0       	rjmp	.+26     	; 0x466 <UART_TxHexNumber+0x9a>
+	}
+
+	while(i!=0)
+	{
+		/* Finally get the ascii values of the digits and transmit*/
+		UART_TxChar(util_Hex2Ascii(a[i-1]));
+ 44c:	fe 01       	movw	r30, r28
+ 44e:	e9 0f       	add	r30, r25
+ 450:	f1 1d       	adc	r31, r1
+ 452:	e0 81       	ld	r30, Z
+ 454:	ea 30       	cpi	r30, 0x0A	; 10
+ 456:	10 f0       	brcs	.+4      	; 0x45c <UART_TxHexNumber+0x90>
+ 458:	e9 5c       	subi	r30, 0xC9	; 201
+ 45a:	01 c0       	rjmp	.+2      	; 0x45e <UART_TxHexNumber+0x92>
+ 45c:	e0 5d       	subi	r30, 0xD0	; 208
+
+ * description  :This function is used to transmit a char through UART module.
+***************************************************************************************************/
+void UART_TxChar(char var_uartData_u8)
+{
+	while(util_IsBitCleared(UCSRA,UDRE)); // Wait till Transmitter(UDR) register becomes Empty
+ 45e:	5d 9b       	sbis	0x0b, 5	; 11
+ 460:	fe cf       	rjmp	.-4      	; 0x45e <UART_TxHexNumber+0x92>
+	UDR =var_uartData_u8;                              // Load the data to be transmitted
+ 462:	ec b9       	out	0x0c, r30	; 12
+
+	while(i!=0)
+	{
+		/* Finally get the ascii values of the digits and transmit*/
+		UART_TxChar(util_Hex2Ascii(a[i-1]));
+		i--;
+ 464:	91 50       	subi	r25, 0x01	; 1
+				a[i]=0x00;
+			}
+		}
+	}
+
+	while(i!=0)
+ 466:	99 23       	and	r25, r25
+ 468:	89 f7       	brne	.-30     	; 0x44c <UART_TxHexNumber+0x80>
+	{
+		/* Finally get the ascii values of the digits and transmit*/
+		UART_TxChar(util_Hex2Ascii(a[i-1]));
+		i--;
+	}
+}
+ 46a:	2a 96       	adiw	r28, 0x0a	; 10
+ 46c:	0f b6       	in	r0, 0x3f	; 63
+ 46e:	f8 94       	cli
+ 470:	de bf       	out	0x3e, r29	; 62
+ 472:	0f be       	out	0x3f, r0	; 63
+ 474:	cd bf       	out	0x3d, r28	; 61
+ 476:	cf 91       	pop	r28
+ 478:	df 91       	pop	r29
+ 47a:	1f 91       	pop	r17
+ 47c:	0f 91       	pop	r16
+ 47e:	08 95       	ret
+
+00000480 <UART_Printf>:
+        uint8_t var_Num_u8;
+		UART_Printf("num1:%u",(uint16_t)var_Num_u8); 		 
+***************************************************************************************************/
+#if ( Enable_UART_Printf   == 1 ) 
+void UART_Printf(const char *argList, ...)
+{
+ 480:	cf 92       	push	r12
+ 482:	df 92       	push	r13
+ 484:	ef 92       	push	r14
+ 486:	ff 92       	push	r15
+ 488:	0f 93       	push	r16
+ 48a:	1f 93       	push	r17
+ 48c:	df 93       	push	r29
+ 48e:	cf 93       	push	r28
+ 490:	cd b7       	in	r28, 0x3d	; 61
+ 492:	de b7       	in	r29, 0x3e	; 62
+ 494:	fe 01       	movw	r30, r28
+ 496:	3d 96       	adiw	r30, 0x0d	; 13
+ 498:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 49a:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 49c:	9c 01       	movw	r18, r24
+ 49e:	79 01       	movw	r14, r18
+ * description  :This function is used to transmit a char through UART module.
+***************************************************************************************************/
+void UART_TxChar(char var_uartData_u8)
+{
+	while(util_IsBitCleared(UCSRA,UDRE)); // Wait till Transmitter(UDR) register becomes Empty
+	UDR =var_uartData_u8;                              // Load the data to be transmitted
+ 4a0:	15 e2       	ldi	r17, 0x25	; 37
+ 4a2:	c1 2e       	mov	r12, r17
+		   if((ch>=0x30) && (ch<=0x39))
+			{
+			   var_numOfDigitsToTransmit_u8 = 0;
+			   while((ch>=0x30) && (ch<=0x39))
+			    {
+				   var_numOfDigitsToTransmit_u8 = (var_numOfDigitsToTransmit_u8 * 10) + (ch-0x30);
+ 4a4:	ba e0       	ldi	r27, 0x0A	; 10
+ 4a6:	db 2e       	mov	r13, r27
+ 4a8:	74 c0       	rjmp	.+232    	; 0x592 <UART_Printf+0x112>
+	/* Loop through the list to extract all the input arguments */
+	for(ptr = argList; *ptr != '\0'; ptr++)
+	{
+
+		ch= *ptr;
+		if(ch == '%')         /*Check for '%' as there will be format specifier after it */
+ 4aa:	85 32       	cpi	r24, 0x25	; 37
+ 4ac:	09 f0       	breq	.+2      	; 0x4b0 <UART_Printf+0x30>
+ 4ae:	6b c0       	rjmp	.+214    	; 0x586 <UART_Printf+0x106>
+		{
+		    ptr++;
+ 4b0:	08 94       	sec
+ 4b2:	e1 1c       	adc	r14, r1
+ 4b4:	f1 1c       	adc	r15, r1
+		    ch = *ptr;
+ 4b6:	d7 01       	movw	r26, r14
+ 4b8:	9c 91       	ld	r25, X
+		   if((ch>=0x30) && (ch<=0x39))
+ 4ba:	89 2f       	mov	r24, r25
+ 4bc:	80 53       	subi	r24, 0x30	; 48
+ 4be:	8a 30       	cpi	r24, 0x0A	; 10
+ 4c0:	10 f0       	brcs	.+4      	; 0x4c6 <UART_Printf+0x46>
+ 4c2:	4f ef       	ldi	r20, 0xFF	; 255
+ 4c4:	0f c0       	rjmp	.+30     	; 0x4e4 <UART_Printf+0x64>
+ 4c6:	40 e0       	ldi	r20, 0x00	; 0
+ 4c8:	09 c0       	rjmp	.+18     	; 0x4dc <UART_Printf+0x5c>
+			{
+			   var_numOfDigitsToTransmit_u8 = 0;
+			   while((ch>=0x30) && (ch<=0x39))
+			    {
+				   var_numOfDigitsToTransmit_u8 = (var_numOfDigitsToTransmit_u8 * 10) + (ch-0x30);
+ 4ca:	4d 9d       	mul	r20, r13
+ 4cc:	40 2d       	mov	r20, r0
+ 4ce:	11 24       	eor	r1, r1
+ 4d0:	48 0f       	add	r20, r24
+				   ptr++;
+ 4d2:	08 94       	sec
+ 4d4:	e1 1c       	adc	r14, r1
+ 4d6:	f1 1c       	adc	r15, r1
+				   ch = *ptr;
+ 4d8:	d7 01       	movw	r26, r14
+ 4da:	9c 91       	ld	r25, X
+		    ptr++;
+		    ch = *ptr;
+		   if((ch>=0x30) && (ch<=0x39))
+			{
+			   var_numOfDigitsToTransmit_u8 = 0;
+			   while((ch>=0x30) && (ch<=0x39))
+ 4dc:	89 2f       	mov	r24, r25
+ 4de:	80 53       	subi	r24, 0x30	; 48
+ 4e0:	8a 30       	cpi	r24, 0x0A	; 10
+ 4e2:	98 f3       	brcs	.-26     	; 0x4ca <UART_Printf+0x4a>
+			{
+			  var_numOfDigitsToTransmit_u8 = C_MaxDigitsToTransmitUsingPrintf_U8;
+			}				
+
+
+			switch(ch)       /* Decode the type of the argument */
+ 4e4:	98 35       	cpi	r25, 0x58	; 88
+ 4e6:	a1 f1       	breq	.+104    	; 0x550 <UART_Printf+0xd0>
+ 4e8:	99 35       	cpi	r25, 0x59	; 89
+ 4ea:	98 f4       	brcc	.+38     	; 0x512 <UART_Printf+0x92>
+ 4ec:	94 34       	cpi	r25, 0x44	; 68
+ 4ee:	e1 f1       	breq	.+120    	; 0x568 <UART_Printf+0xe8>
+ 4f0:	95 34       	cpi	r25, 0x45	; 69
+ 4f2:	40 f4       	brcc	.+16     	; 0x504 <UART_Printf+0x84>
+ 4f4:	92 34       	cpi	r25, 0x42	; 66
+ 4f6:	c1 f1       	breq	.+112    	; 0x568 <UART_Printf+0xe8>
+ 4f8:	93 34       	cpi	r25, 0x43	; 67
+ 4fa:	e8 f4       	brcc	.+58     	; 0x536 <UART_Printf+0xb6>
+ 4fc:	95 32       	cpi	r25, 0x25	; 37
+ 4fe:	09 f0       	breq	.+2      	; 0x502 <UART_Printf+0x82>
+ 500:	45 c0       	rjmp	.+138    	; 0x58c <UART_Printf+0x10c>
+ 502:	3d c0       	rjmp	.+122    	; 0x57e <UART_Printf+0xfe>
+ 504:	93 35       	cpi	r25, 0x53	; 83
+ 506:	91 f1       	breq	.+100    	; 0x56c <UART_Printf+0xec>
+ 508:	95 35       	cpi	r25, 0x55	; 85
+ 50a:	71 f1       	breq	.+92     	; 0x568 <UART_Printf+0xe8>
+ 50c:	96 34       	cpi	r25, 0x46	; 70
+ 50e:	f1 f5       	brne	.+124    	; 0x58c <UART_Printf+0x10c>
+ 510:	2b c0       	rjmp	.+86     	; 0x568 <UART_Printf+0xe8>
+ 512:	96 36       	cpi	r25, 0x66	; 102
+ 514:	49 f1       	breq	.+82     	; 0x568 <UART_Printf+0xe8>
+ 516:	97 36       	cpi	r25, 0x67	; 103
+ 518:	38 f4       	brcc	.+14     	; 0x528 <UART_Printf+0xa8>
+ 51a:	93 36       	cpi	r25, 0x63	; 99
+ 51c:	61 f0       	breq	.+24     	; 0x536 <UART_Printf+0xb6>
+ 51e:	94 36       	cpi	r25, 0x64	; 100
+ 520:	09 f1       	breq	.+66     	; 0x564 <UART_Printf+0xe4>
+ 522:	92 36       	cpi	r25, 0x62	; 98
+ 524:	99 f5       	brne	.+102    	; 0x58c <UART_Printf+0x10c>
+ 526:	1e c0       	rjmp	.+60     	; 0x564 <UART_Printf+0xe4>
+ 528:	95 37       	cpi	r25, 0x75	; 117
+ 52a:	e1 f0       	breq	.+56     	; 0x564 <UART_Printf+0xe4>
+ 52c:	98 37       	cpi	r25, 0x78	; 120
+ 52e:	41 f0       	breq	.+16     	; 0x540 <UART_Printf+0xc0>
+ 530:	93 37       	cpi	r25, 0x73	; 115
+ 532:	61 f5       	brne	.+88     	; 0x58c <UART_Printf+0x10c>
+ 534:	1b c0       	rjmp	.+54     	; 0x56c <UART_Printf+0xec>
+			{
+			case 'C':
+			case 'c':     /* Argument type is of char, hence read char data from the argp */
+				ch = va_arg(argp, uint16_t);
+ 536:	80 81       	ld	r24, Z
+
+ * description  :This function is used to transmit a char through UART module.
+***************************************************************************************************/
+void UART_TxChar(char var_uartData_u8)
+{
+	while(util_IsBitCleared(UCSRA,UDRE)); // Wait till Transmitter(UDR) register becomes Empty
+ 538:	5d 9b       	sbis	0x0b, 5	; 11
+ 53a:	fe cf       	rjmp	.-4      	; 0x538 <UART_Printf+0xb8>
+
+			switch(ch)       /* Decode the type of the argument */
+			{
+			case 'C':
+			case 'c':     /* Argument type is of char, hence read char data from the argp */
+				ch = va_arg(argp, uint16_t);
+ 53c:	32 96       	adiw	r30, 0x02	; 2
+ 53e:	25 c0       	rjmp	.+74     	; 0x58a <UART_Printf+0x10a>
+				UART_TxDecimalNumber(var_num_u32,var_numOfDigitsToTransmit_u8);
+#endif				
+				break;			
+
+			case 'x':  /* Argument type is of hex, hence hexadecimal data from the argp */
+				var_num_u16 = va_arg(argp, uint16_t);
+ 540:	8f 01       	movw	r16, r30
+ 542:	0e 5f       	subi	r16, 0xFE	; 254
+ 544:	1f 4f       	sbci	r17, 0xFF	; 255
+#if (Enable_UART_TxHexNumber == 1)				
+				UART_TxHexNumber(var_num_u16,var_numOfDigitsToTransmit_u8);
+ 546:	60 81       	ld	r22, Z
+ 548:	71 81       	ldd	r23, Z+1	; 0x01
+ 54a:	80 e0       	ldi	r24, 0x00	; 0
+ 54c:	90 e0       	ldi	r25, 0x00	; 0
+ 54e:	07 c0       	rjmp	.+14     	; 0x55e <UART_Printf+0xde>
+#endif				
+				break;
+
+			case 'X':  /* Argument type is of hex, hence hexadecimal data from the argp */
+				var_num_u32 = va_arg(argp, uint32_t);
+ 550:	8f 01       	movw	r16, r30
+ 552:	0c 5f       	subi	r16, 0xFC	; 252
+ 554:	1f 4f       	sbci	r17, 0xFF	; 255
+#if (Enable_UART_TxHexNumber == 1)						
+				UART_TxHexNumber(var_num_u32,var_numOfDigitsToTransmit_u8);
+ 556:	60 81       	ld	r22, Z
+ 558:	71 81       	ldd	r23, Z+1	; 0x01
+ 55a:	82 81       	ldd	r24, Z+2	; 0x02
+ 55c:	93 81       	ldd	r25, Z+3	; 0x03
+ 55e:	0e 94 e6 01 	call	0x3cc	; 0x3cc <UART_TxHexNumber>
+ 562:	0b c0       	rjmp	.+22     	; 0x57a <UART_Printf+0xfa>
+#endif				
+				break;
+
+			
+			case 'b':  /* Argument type is of binary,Read int and convert to binary */
+				var_num_u16 = va_arg(argp, uint16_t);
+ 564:	32 96       	adiw	r30, 0x02	; 2
+ 566:	12 c0       	rjmp	.+36     	; 0x58c <UART_Printf+0x10c>
+#endif				
+				break;
+
+			case 'F':
+			case 'f': /* Argument type is of float, hence read double data from the argp */
+				var_floatNum_f32 = va_arg(argp, double);
+ 568:	34 96       	adiw	r30, 0x04	; 4
+ 56a:	10 c0       	rjmp	.+32     	; 0x58c <UART_Printf+0x10c>
+				break;
+
+
+			case 'S':
+			case 's': /* Argument type is of string, hence get the pointer to sting passed */
+				str = va_arg(argp, char *);
+ 56c:	8f 01       	movw	r16, r30
+ 56e:	0e 5f       	subi	r16, 0xFE	; 254
+ 570:	1f 4f       	sbci	r17, 0xFF	; 255
+#if (Enable_UART_TxString == 1)
+				UART_TxString(str);
+ 572:	80 81       	ld	r24, Z
+ 574:	91 81       	ldd	r25, Z+1	; 0x01
+ 576:	0e 94 dc 01 	call	0x3b8	; 0x3b8 <UART_TxString>
+ 57a:	f8 01       	movw	r30, r16
+ 57c:	07 c0       	rjmp	.+14     	; 0x58c <UART_Printf+0x10c>
+
+ * description  :This function is used to transmit a char through UART module.
+***************************************************************************************************/
+void UART_TxChar(char var_uartData_u8)
+{
+	while(util_IsBitCleared(UCSRA,UDRE)); // Wait till Transmitter(UDR) register becomes Empty
+ 57e:	5d 9b       	sbis	0x0b, 5	; 11
+ 580:	fe cf       	rjmp	.-4      	; 0x57e <UART_Printf+0xfe>
+	UDR =var_uartData_u8;                              // Load the data to be transmitted
+ 582:	cc b8       	out	0x0c, r12	; 12
+ 584:	03 c0       	rjmp	.+6      	; 0x58c <UART_Printf+0x10c>
+
+ * description  :This function is used to transmit a char through UART module.
+***************************************************************************************************/
+void UART_TxChar(char var_uartData_u8)
+{
+	while(util_IsBitCleared(UCSRA,UDRE)); // Wait till Transmitter(UDR) register becomes Empty
+ 586:	5d 9b       	sbis	0x0b, 5	; 11
+ 588:	fe cf       	rjmp	.-4      	; 0x586 <UART_Printf+0x106>
+	UDR =var_uartData_u8;                              // Load the data to be transmitted
+ 58a:	8c b9       	out	0x0c, r24	; 12
+	uint8_t var_numOfDigitsToTransmit_u8;
+
+	va_start(argp, argList);
+
+	/* Loop through the list to extract all the input arguments */
+	for(ptr = argList; *ptr != '\0'; ptr++)
+ 58c:	08 94       	sec
+ 58e:	e1 1c       	adc	r14, r1
+ 590:	f1 1c       	adc	r15, r1
+ 592:	d7 01       	movw	r26, r14
+ 594:	8c 91       	ld	r24, X
+ 596:	88 23       	and	r24, r24
+ 598:	09 f0       	breq	.+2      	; 0x59c <UART_Printf+0x11c>
+ 59a:	87 cf       	rjmp	.-242    	; 0x4aa <UART_Printf+0x2a>
+			UART_TxChar(ch);
+		}
+	}
+
+	va_end(argp);
+}
+ 59c:	cf 91       	pop	r28
+ 59e:	df 91       	pop	r29
+ 5a0:	1f 91       	pop	r17
+ 5a2:	0f 91       	pop	r16
+ 5a4:	ff 90       	pop	r15
+ 5a6:	ef 90       	pop	r14
+ 5a8:	df 90       	pop	r13
+ 5aa:	cf 90       	pop	r12
+ 5ac:	08 95       	ret
+
+000005ae <__udivmodsi4>:
+ 5ae:	a1 e2       	ldi	r26, 0x21	; 33
+ 5b0:	1a 2e       	mov	r1, r26
+ 5b2:	aa 1b       	sub	r26, r26
+ 5b4:	bb 1b       	sub	r27, r27
+ 5b6:	fd 01       	movw	r30, r26
+ 5b8:	0d c0       	rjmp	.+26     	; 0x5d4 <__udivmodsi4_ep>
+
+000005ba <__udivmodsi4_loop>:
+ 5ba:	aa 1f       	adc	r26, r26
+ 5bc:	bb 1f       	adc	r27, r27
+ 5be:	ee 1f       	adc	r30, r30
+ 5c0:	ff 1f       	adc	r31, r31
+ 5c2:	a2 17       	cp	r26, r18
+ 5c4:	b3 07       	cpc	r27, r19
+ 5c6:	e4 07       	cpc	r30, r20
+ 5c8:	f5 07       	cpc	r31, r21
+ 5ca:	20 f0       	brcs	.+8      	; 0x5d4 <__udivmodsi4_ep>
+ 5cc:	a2 1b       	sub	r26, r18
+ 5ce:	b3 0b       	sbc	r27, r19
+ 5d0:	e4 0b       	sbc	r30, r20
+ 5d2:	f5 0b       	sbc	r31, r21
+
+000005d4 <__udivmodsi4_ep>:
+ 5d4:	66 1f       	adc	r22, r22
+ 5d6:	77 1f       	adc	r23, r23
+ 5d8:	88 1f       	adc	r24, r24
+ 5da:	99 1f       	adc	r25, r25
+ 5dc:	1a 94       	dec	r1
+ 5de:	69 f7       	brne	.-38     	; 0x5ba <__udivmodsi4_loop>
+ 5e0:	60 95       	com	r22
+ 5e2:	70 95       	com	r23
+ 5e4:	80 95       	com	r24
+ 5e6:	90 95       	com	r25
+ 5e8:	9b 01       	movw	r18, r22
+ 5ea:	ac 01       	movw	r20, r24
+ 5ec:	bd 01       	movw	r22, r26
+ 5ee:	cf 01       	movw	r24, r30
+ 5f0:	08 95       	ret
+
+000005f2 <_exit>:
+ 5f2:	f8 94       	cli
+
+000005f4 <__stop_program>:
+ 5f4:	ff cf       	rjmp	.-2      	; 0x5f4 <__stop_program>

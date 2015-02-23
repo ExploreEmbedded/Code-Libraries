@@ -1,0 +1,87 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\work_space\updatedLib\8051\HexKeypad\keypad.uvproj
+Project File Date:  12/28/2014
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling delay.c...
+compiling keypad.c...
+KEYPAD.C(103): error C202: 'DDRB': undefined identifier
+KEYPAD.C(125): error C202: 'PORTB': undefined identifier
+KEYPAD.C(126): error C202: 'PINB': undefined identifier
+KEYPAD.C(131): error C202: 'PORTB': undefined identifier
+KEYPAD.C(132): error C202: 'PINB': undefined identifier
+KEYPAD.C(158): error C202: 'PORTB': undefined identifier
+KEYPAD.C(159): error C202: 'PINB': undefined identifier
+KEYPAD.C(165): error C202: 'PORTB': undefined identifier
+KEYPAD.C(166): error C202: 'PINB': undefined identifier
+KEYPAD.C(253): error C202: 'PORTB': undefined identifier
+KEYPAD.C(255): error C202: 'PINB': undefined identifier
+compiling main.c...
+compiling lcd.c...
+LCD.C(118): error C204: 'mvar_LcdMode_U8': undefined member
+LCD.C(119): error C204: 'mvar_MaxSupportedChars_U8': undefined member
+LCD.C(120): error C204: 'mvar_MaxSupportedLines_U8': undefined member
+LCD.C(121): error C202: 'mENUM_LcdLineTwo': undefined identifier
+LCD.C(123): error C202: 'mENUM_LcdLineThree': undefined identifier
+LCD.C(124): error C202: 'mENUM_LcdLineFour': undefined identifier
+LCD.C(129): error C204: 'mvar_LcdMode_U8': undefined member
+LCD.C(133): error C204: 'mvar_LcdMode_U8': undefined member
+LCD.C(157): error C202: 'mENUM_LcdLineOne': undefined identifier
+LCD.C(183): error C204: 'mvar_MaxSupportedLines_U8': undefined member
+LCD.C(214): error C204: 'mvar_MaxSupportedLines_U8': undefined member
+LCD.C(277): error C204: 'mvar_LcdMode_U8': undefined member
+LCD.C(283): error C204: 'mvar_LcdMode_U8': undefined member
+LCD.C(311): error C204: 'mvar_MaxSupportedChars_U8': undefined member
+LCD.C(842): error C204: 'mvar_LcdMode_U8': undefined member
+LCD.C(847): error C204: 'mvar_LcdMode_U8': undefined member
+LCD.C(891): error C204: 'mvar_LcdMode_U8': undefined member
+Target not created
+Build target 'Target 1'
+compiling delay.c...
+compiling keypad.c...
+KEYPAD.C(103): error C202: 'DDRB': undefined identifier
+KEYPAD.C(125): error C202: 'PORTB': undefined identifier
+KEYPAD.C(126): error C202: 'PINB': undefined identifier
+KEYPAD.C(131): error C202: 'PORTB': undefined identifier
+KEYPAD.C(132): error C202: 'PINB': undefined identifier
+KEYPAD.C(158): error C202: 'PORTB': undefined identifier
+KEYPAD.C(159): error C202: 'PINB': undefined identifier
+KEYPAD.C(165): error C202: 'PORTB': undefined identifier
+KEYPAD.C(166): error C202: 'PINB': undefined identifier
+KEYPAD.C(253): error C202: 'PORTB': undefined identifier
+KEYPAD.C(255): error C202: 'PINB': undefined identifier
+compiling main.c...
+compiling lcd.c...
+Target not created
+Build target 'Target 1'
+compiling keypad.c...
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+Program Size: data=24.0 xdata=0 code=974
+creating hex file from "keypad"...
+"keypad" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling keypad.c...
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+Program Size: data=24.0 xdata=0 code=974
+creating hex file from "keypad"...
+"keypad" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling keypad.c...
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+Program Size: data=24.0 xdata=0 code=974
+creating hex file from "keypad"...
+"keypad" - 0 Error(s), 1 Warning(s).

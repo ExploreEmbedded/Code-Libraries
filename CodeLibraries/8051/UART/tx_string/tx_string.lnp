@@ -1,0 +1,4 @@
+"main.obj",
+"uart.obj" 
+TO "tx_string" 
+RAMSIZE(256) 

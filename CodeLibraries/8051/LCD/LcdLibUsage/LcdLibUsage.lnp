@@ -1,0 +1,5 @@
+"delay.obj",
+"lcd.obj",
+"main.obj" 
+TO "LcdLibUsage" 
+RAMSIZE(256) 

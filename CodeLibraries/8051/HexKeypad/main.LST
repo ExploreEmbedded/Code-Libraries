@@ -1,0 +1,53 @@
+C51 COMPILER V9.02   MAIN                                                                  02/21/2015 10:47:35 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*-----------------------------------------------------------------------------
+   2                              Program to demonstrate 4*4-Matrix Keypad
+   3            -----------------------------------------------------------------------------
+   4            note:
+   5            1.Refer lcd.c(lcd_4_bit.c/lcd_8_bit.c) file for Pin connections
+   6            2.Refer keypad.c for Keypad(Row/Col) connections.
+   7          ------------------------------------------------------------------------------*/
+   8          
+   9          
+  10          /* Reg51.h contains the defnition of all ports and SFRs */
+  11          #include"keypad.h"
+  12          #include"lcd.h"
+  13          #include "delay.h"
+  14          
+  15          
+  16          /* Program to demonstrate the hex-Keypad interface*/
+  17          int  main()
+  18          {
+  19   1        uint8_t key;
+  20   1        LCD_Init(8,2,16);            /*Initialize the 2x16 LCD in 8-bit mode */
+  21   1        KEYPAD_Init();               /*Configure the ROWs and COLUMNs for keypad scanning*/
+  22   1      
+  23   1              while(1)
+  24   1              {
+  25   2                      key = KEYPAD_GetKey(); /*Get the Ascii value of the key Pressed */
+  26   2                      LCD_DisplayChar(key);  /*Display the key pressed */
+  27   2              }
+  28   1      
+  29   1              return 0;
+  30   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     22    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,158 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\work_space\updatedLib\8051\LCD\LcdLibUsage\LcdLibUsage.uvproj
+Project File Date:  01/28/2015
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling delay.c...
+compiling lcd.c...
+compiling main.c...
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _LCD_DISPLAYHEXNUMBER
+    MODULE:  main.obj (MAIN)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  ?_LCD_DISPLAYHEXNUMBER?BYTE
+    MODULE:  main.obj (MAIN)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _LCD_PRINTF
+    MODULE:  main.obj (MAIN)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  ?_LCD_PRINTF?BYTE
+    MODULE:  main.obj (MAIN)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _LCD_DISPLAYBINARYNUMBER
+    MODULE:  main.obj (MAIN)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  ?_LCD_DISPLAYBINARYNUMBER?BYTE
+    MODULE:  main.obj (MAIN)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _LCD_SCROLLMESSAGE
+    MODULE:  main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _LCD_SCROLLMESSAGE
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0A6BH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?_LCD_DISPLAYHEXNUMBER?BYTE
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0ACDH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _LCD_DISPLAYHEXNUMBER
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0AD8H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?_LCD_DISPLAYBINARYNUMBER?BYTE
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0ADEH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _LCD_DISPLAYBINARYNUMBER
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0AE9H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?_LCD_PRINTF?BYTE
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0AFDH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?_LCD_PRINTF?BYTE
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0B00H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?_LCD_PRINTF?BYTE
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0B03H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?_LCD_PRINTF?BYTE
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0B06H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?_LCD_PRINTF?BYTE
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0B09H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?_LCD_PRINTF?BYTE
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0B0CH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _LCD_PRINTF
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0B0EH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _LCD_PRINTF
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 0B21H
+Program Size: data=54.0 xdata=0 code=1844
+"LcdLibUsage" - 0 Error(s), 20 Warning(s).
+Build target 'Target 1'
+compiling lcd.c...
+compiling main.c...
+linking...
+BL51 BANKED LINKER/LOCATER V6.22 - SN: Eval Version
+COPYRIGHT KEIL ELEKTRONIK GmbH 1987 - 2009
+"delay.obj",
+"lcd.obj",
+"main.obj" 
+TO "LcdLibUsage" 
+RAMSIZE(256) 
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0860H BYTE (104%) *
+******************************************************************************
+Program Size: data=96.0 xdata=0 code=3175
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
+*** FATAL ERROR L250: CODE SIZE LIMIT IN RESTRICTED VERSION EXCEEDED
+    MODULE:  C:\KEIL\C51\LIB\C51S.LIB (-----)
+    LIMIT:   0800H BYTES
+Target not created
+Build target 'Target 1'
+compiling delay.c...
+compiling lcd.c...
+compiling main.c...
+linking...
+Program Size: data=96.0 xdata=0 code=2998
+"LcdLibUsage" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=96.0 xdata=0 code=2998
+creating hex file from "LcdLibUsage"...
+"LcdLibUsage" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling delay.c...
+compiling lcd.c...
+compiling main.c...
+linking...
+Program Size: data=96.0 xdata=0 code=2998
+creating hex file from "LcdLibUsage"...
+"LcdLibUsage" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling delay.c...
+compiling lcd.c...
+compiling main.c...
+linking...
+BL51 BANKED LINKER/LOCATER V6.22 - SN: Eval Version
+COPYRIGHT KEIL ELEKTRONIK GmbH 1987 - 2009
+"delay.obj",
+"lcd.obj",
+"main.obj" 
+TO "LcdLibUsage" 
+RAMSIZE(256) 
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 086AH BYTE (105%) *
+******************************************************************************
+Program Size: data=96.0 xdata=0 code=3223
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
+*** FATAL ERROR L250: CODE SIZE LIMIT IN RESTRICTED VERSION EXCEEDED
+    MODULE:  C:\KEIL\C51\LIB\C51S.LIB (-----)
+    LIMIT:   0800H BYTES
+Target not created
+Build target 'Target 1'
+compiling delay.c...
+compiling lcd.c...
+compiling main.c...
+linking...
+Program Size: data=96.0 xdata=0 code=2998
+creating hex file from "LcdLibUsage"...
+"LcdLibUsage" - 0 Error(s), 0 Warning(s).

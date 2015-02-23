@@ -1,0 +1,266 @@
+C51 COMPILER V9.05   DS1307                                                                12/19/2012 16:41:44 PAGE 1   
+
+
+C51 COMPILER V9.05, COMPILATION OF MODULE DS1307
+OBJECT MODULE PLACED IN ds1307.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE ds1307.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*--------------------------------------------------------------------------------
+   2                                                   8051 DS1307  library
+   3          Filename: DS1307.c
+   4          Controller: P89V51RD2/89c51(8051 family)
+   5          Oscillator: 11.0592 MHz
+   6          Author: XploreLabz
+   7          website: www.xplorelabz.com
+   8          
+   9           ---------------------------------------------------------------------------------*/
+  10          
+  11          #include "ds1307.h"
+  12          #include "i2c.h"
+  13          #include "delay.h"
+  14          
+  15          
+  16          
+  17          /* Below values are fixed and should not be changed.
+  18              Refer Ds1307 DataSheet for more info*/
+  19          
+  20          #define DS1307_ID 0xD0     // DS1307 ID
+  21          
+  22          #define SEC_ADDRESS   0x00 // Address to access Ds1307 SEC register
+  23          #define DATE_ADDRESS  0x04 // Address to access Ds1307 DATE register
+  24          #define CONTROL 0x07       // Address to access Ds1307 CONTROL register
+  25          
+  26          
+  27          
+  28          
+  29          
+  30          
+  31          /*---------------------------------------------------------------------------------
+  32                                   void DS1307_Init()
+  33           ----------------------------------------------------------------------------------
+  34           * I/P Arguments: none.
+  35           * Return value : none
+  36          
+  37           * description :This function is used to initialize the Ds1307 RTC.
+  38                          Ds1307 ic is enabled by sending the DS1307 id on the I2C bus.
+  39                          After selecting DS1307, write 0x00 into Control register of Ds1307
+  40          
+  41          ------------------------------------------------------------------------------------*/
+  42          void DS1307_Init()
+  43          {
+  44   1              I2C_Start();            // Start I2C communication
+  45   1      
+  46   1              DS1307_Write(DS1307_ID);   // Connect to DS1307 by sending its ID on I2c Bus
+  47   1              DS1307_Write(CONTROL);     // Select the Ds1307 ControlRegister to configure Ds1307
+  48   1      
+  49   1              DS1307_Write(0x00);        // Write 0x00 to Control register to disable SQW-Out
+  50   1      
+  51   1              I2C_Stop();             // Stop I2C communication after initilizing DS1307
+  52   1      
+  53   1       }
+  54          
+  55          
+C51 COMPILER V9.05   DS1307                                                                12/19/2012 16:41:44 PAGE 2   
+
+  56          
+  57          
+  58          
+  59          
+  60          
+  61          
+  62          
+  63          /*---------------------------------------------------------------------------------
+  64                                   void DS1307_Write(unsigned char dat)
+  65           ----------------------------------------------------------------------------------
+  66           * I/P Arguments: char-> Data to be written into DS1307.
+  67           * Return value : none
+  68          
+  69           * description :This function is used to initialize the Ds1307 RTC.
+  70                          Ds1307 ic is enabled by sending the DS1307 id on the I2C bus.
+  71                          After selecting DS1307, write 0x00 into Control register of Ds1307
+  72          
+  73          ------------------------------------------------------------------------------------*/
+  74          void DS1307_Write(unsigned char dat)
+  75          {
+  76   1              I2C_Write(dat);   // Connect to DS1307 by sending its ID on I2c Bus
+  77   1              I2C_Clock();
+  78   1       }
+  79          
+  80          
+  81          
+  82          /*---------------------------------------------------------------------------------
+  83                                   unsigned char DS1307_Read()
+  84           ----------------------------------------------------------------------------------
+  85           * I/P Arguments: char-> Data to be written into DS1307.
+  86           * Return value : none
+  87          
+  88           * description :This function is used to initialize the Ds1307 RTC.
+  89                          Ds1307 ic is enabled by sending the DS1307 id on the I2C bus.
+  90                          After selecting DS1307, write 0x00 into Control register of Ds1307
+  91          
+  92          ------------------------------------------------------------------------------------*/
+  93          unsigned char DS1307_Read()
+  94          {
+  95   1              unsigned char dat;
+  96   1              dat = I2C_Read();   // Connect to DS1307 by sending its ID on I2c Bus
+  97   1              return(dat);
+  98   1       }
+  99          
+ 100          
+ 101          
+ 102          
+ 103          /*----------------------------------------------------------------------------------
+ 104                  void DS1307_SetTime(unsigned char hh, unsigned char mm, unsigned char ss)
+ 105           -----------------------------------------------------------------------------------
+ 106           * I/P Arguments: char,char,char-->hh,mm,ss to initilize the time into DS1307.
+ 107           * Return value : none
+ 108          
+ 109           * description  :This function is used to set Time(hh,mm,ss) into the Ds1307 RTC.
+ 110                           Ds1307 ic is enabled by sending the DS1307 id on the I2C bus.
+ 111                           After selecting DS1307, select the RAM address 0x00 to point to sec
+ 112                           Initilze Sec, MIN, Hour one after the other.
+ 113                           Stop the I2c communication.
+ 114          -----------------------------------------------------------------------------------*/
+ 115          void DS1307_SetTime(unsigned char hh, unsigned char mm, unsigned char ss)
+ 116          {
+ 117   1              I2C_Start();            // Start I2C communication
+C51 COMPILER V9.05   DS1307                                                                12/19/2012 16:41:44 PAGE 3   
+
+ 118   1      
+ 119   1              DS1307_Write(DS1307_ID);        // connect to DS1307 by sending its ID on I2c Bus
+ 120   1              DS1307_Write(SEC_ADDRESS); // Select the SEC RAM address
+ 121   1      
+ 122   1              DS1307_Write(ss);                       // Write sec on RAM address 00H
+ 123   1              DS1307_Write(mm);                       // Write min on RAM address 01H
+ 124   1              DS1307_Write(hh);                       // Write hour on RAM address 02H
+ 125   1      
+ 126   1              I2C_Stop();             // Stop I2C communication after Setting the Time
+ 127   1      }
+ 128          
+ 129          
+ 130          
+ 131          
+ 132          
+ 133          
+ 134          
+ 135          /*---------------------------------------------------------------------------------
+ 136                    void DS1307_SetDate(unsigned char dd, unsigned char mm, unsigned char yy)
+ 137           ----------------------------------------------------------------------------------
+ 138           * I/P Arguments: char,char,char-->day,month,year to initilize the Date into DS1307.
+ 139           * Return value : none
+ 140          
+ 141           * description  :This function is used to set Date(dd,mm,yy) into the Ds1307 RTC.
+ 142                           Ds1307 ic is enabled by sending the DS1307 id on the I2C bus.
+ 143                           After selecting DS1307, select the RAM address 0x04 to point to day
+ 144                           Initilze Day,Month and Year one after the other.
+ 145                           Stop the I2c communication.
+ 146          ----------------------------------------------------------------------------------*/
+ 147          void DS1307_SetDate(unsigned char dd, unsigned char mm, unsigned char yy)
+ 148          {
+ 149   1              I2C_Start();            // Start I2C communication
+ 150   1      
+ 151   1              DS1307_Write(DS1307_ID);        // connect to DS1307 by sending its ID on I2c Bus
+ 152   1              DS1307_Write(DATE_ADDRESS);             // Request DAY RAM address at 04H
+ 153   1      
+ 154   1              DS1307_Write(dd);                       // Write date on RAM address 04H
+ 155   1              DS1307_Write(mm);                       // Write month on RAM address 05H
+ 156   1              DS1307_Write(yy);                       // Write year on RAM address 06h
+ 157   1      
+ 158   1              I2C_Stop();                             // Stop I2C communication after Setting the Date
+ 159   1      }
+ 160          
+ 161          
+ 162          
+ 163          
+ 164          
+ 165          
+ 166          /*----------------------------------------------------------------------------------
+ 167           void DS1307_GetTime(unsigned char *h_ptr,unsigned char *m_ptr,unsigned char *s_ptr)
+ 168           -----------------------------------------------------------------------------------
+ 169           * I/P Arguments: char *,char *,char *-->pointers to get the hh,mm,ss.
+ 170           * Return value : none
+ 171          
+ 172           * description  :This function is used to get the Time(hh,mm,ss) from Ds1307 RTC.
+ 173                           Ds1307 ic is enabled by sending the DS1307 id on the I2C bus.
+ 174                           After selecting DS1307, select the RAM address 0x00 to point to sec
+ 175                           Get Sec, MIN, Hour one after the other.
+ 176                           Stop the I2c communication.
+ 177          -----------------------------------------------------------------------------------*/
+ 178          void DS1307_GetTime(unsigned char *h_ptr,unsigned char *m_ptr,unsigned char *s_ptr)
+ 179          {
+C51 COMPILER V9.05   DS1307                                                                12/19/2012 16:41:44 PAGE 4   
+
+ 180   1           I2C_Start();           // Start I2C communication
+ 181   1      
+ 182   1              DS1307_Write(DS1307_ID);        // connect to DS1307 by sending its ID on I2c Bus
+ 183   1              DS1307_Write(SEC_ADDRESS);                  // Request Sec RAM address at 00H
+ 184   1      
+ 185   1           I2C_Stop();                        // Stop I2C communication after selecting Sec Register
+ 186   1      
+ 187   1          I2C_Start();                        // Start I2C communication
+ 188   1          DS1307_Write(0xD1);         // connect to DS1307( under Read mode)
+ 189   1                                      //by sending its ID on I2c Bus
+ 190   1      
+ 191   1        *s_ptr = DS1307_Read();  I2C_Ack();     // read second and return Positive ACK
+ 192   1        *m_ptr = DS1307_Read();  I2C_Ack();      // read minute and return Positive ACK
+ 193   1        *h_ptr = DS1307_Read();  I2C_NoAck();   // read hour and return Negative/No ACK
+ 194   1      
+ 195   1        I2C_Stop();                   // Stop I2C communication after reading the Time
+ 196   1       }
+ 197          
+ 198          
+ 199          
+ 200          
+ 201          
+ 202          
+ 203          
+ 204          /*----------------------------------------------------------------------------------
+ 205           void DS1307_GetDate(unsigned char *y_ptr,unsigned char *m_ptr,unsigned char *d_ptr)
+ 206           -----------------------------------------------------------------------------------
+ 207           * I/P Arguments: char *,char *,char *-->pointers to get the y,m,d.
+ 208           * Return value : none
+ 209          
+ 210           * description  :This function is used to get the Date(y,m,d) from Ds1307 RTC.
+ 211                           Ds1307 ic is enabled by sending the DS1307 id on the I2C bus.
+ 212                           After selecting DS1307, select the RAM address 0x00 to point to DAY
+ 213                           Get Day, Month, Year one after the other.
+ 214                           Stop the I2c communication.
+ 215          -----------------------------------------------------------------------------------*/
+ 216          void DS1307_GetDate(unsigned char *d_ptr,unsigned char *m_ptr,unsigned char *y_ptr)
+ 217          {
+ 218   1          I2C_Start();            // Start I2C communication
+ 219   1      
+ 220   1              DS1307_Write(DS1307_ID);        // connect to DS1307 by sending its ID on I2c Bus
+ 221   1              DS1307_Write(DATE_ADDRESS);             // Request DAY RAM address at 04H
+ 222   1      
+ 223   1          I2C_Stop();                     // Stop I2C communication after selecting DAY Register
+ 224   1      
+ 225   1      
+ 226   1         I2C_Start();                 // Start I2C communication
+ 227   1         DS1307_Write(0xD1);          // connect to DS1307( under Read mode)
+ 228   1                                  // by sending its ID on I2c Bus
+ 229   1      
+ 230   1        *d_ptr = DS1307_Read(); I2C_Ack();     // read Day and return Positive ACK
+ 231   1        *m_ptr = DS1307_Read(); I2C_Ack();     // read Month and return Positive ACK
+ 232   1        *y_ptr = DS1307_Read(); I2C_NoAck();   // read Year and return Negative/No ACK
+ 233   1      
+ 234   1        I2C_Stop();             // Stop I2C communication after reading the Time
+ 235   1       }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    267    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.05   DS1307                                                                12/19/2012 16:41:44 PAGE 5   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      24
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

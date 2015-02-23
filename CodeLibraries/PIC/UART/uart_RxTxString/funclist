@@ -1,0 +1,12 @@
+_UART_TxString: CODE, 1738 0 35
+__stringtab: STRING, 3 0 16
+__stringdata: STRING, 19 0 45
+_UART_Init: CODE, 1716 0 22
+_UART_RxChar: CODE, 1700 0 7
+_main: CODE, 1813 0 49
+_UART_RxString: CODE, 1773 0 40
+__initialization: CODE, 2044 0 0
+___lldiv: CODE, 1950 0 94
+_UART_SetBaudRate: CODE, 1862 0 88
+_UART_TxChar: CODE, 1707 0 9
+Total: 405

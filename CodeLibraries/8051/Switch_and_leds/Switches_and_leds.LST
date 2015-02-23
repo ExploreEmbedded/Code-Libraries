@@ -1,0 +1,58 @@
+C51 COMPILER V9.05   SWITCHES_AND_LEDS                                                     12/22/2012 18:59:25 PAGE 1   
+
+
+C51 COMPILER V9.05, COMPILATION OF MODULE SWITCHES_AND_LEDS
+OBJECT MODULE PLACED IN Switches_and_leds.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE Switches_and_leds.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*-----------------------------------------------------------------------------
+   2                           Program to demonstrate Switches and Leds
+   3            -----------------------------------------------------------------------------
+   4           
+   5          note: 
+   6          1.Leds are  connected to PORT2
+   7          2.Switches are connected to PORT0
+   8          
+   9          ------------------------------------------------------------------------------*/
+  10          
+  11          
+  12          /* Reg51.h contains the defnition of all ports and SFRs */
+  13          #include <reg51.h> 
+  14          
+  15          #define Switches P0
+  16          #define LEDs P2
+  17          
+  18          /* start the main program */
+  19          void main() 
+  20          {
+  21   1         unsigned char SwitchData;
+  22   1      
+  23   1        /*Configure the P0 as I/p to read the switche data */ 
+  24   1         Switches=0xff;
+  25   1      
+  26   1        while(1)
+  27   1          {
+  28   2                
+  29   2                /*Read the switch position */ 
+  30   2                 SwitchData =  Switches; 
+  31   2               
+  32   2               /*Turn on the respective led depending on Switch position */ 
+  33   2                 LEDs=SwitchData;
+  34   2                }
+  35   1        }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =      9    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

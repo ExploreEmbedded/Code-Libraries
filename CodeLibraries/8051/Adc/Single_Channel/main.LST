@@ -1,0 +1,56 @@
+C51 COMPILER V9.02   MAIN                                                                  01/28/2015 20:14:54 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*-----------------------------------------------------------------------------
+   2           Program to demonstrate single channel ADC, 8bit(0-255) adc value is displayed on lcd
+   3            -----------------------------------------------------------------------------
+   4            note:
+   5            1.Refer lcd.h file for Pin connections
+   6            2.Refer adc.c for adc pin connection(adc_databus,A,B,C,ALE,Start,Eoc,OE)
+   7          ------------------------------------------------------------------------------*/
+   8          
+   9          
+  10          /* Reg51.h contains the defnition of all ports and SFRs */
+  11          #include <reg51.h> 
+  12          
+  13          #include "lcd.h"        //User defined LCD library which conatins the lcd routines
+  14          #include "adc.h"   //User defined library which conatins the adc routines
+  15          
+  16          
+  17          /* start the main program */
+  18          void main() 
+  19          {
+  20   1         unsigned char adc_result;
+  21   1      
+  22   1        /* Initilize the lcd before displaying any thing on the lcd */
+  23   1          LCD_Init(8,2,16);
+  24   1      
+  25   1        /* Initilize the adc before starting the conversion */
+  26   1          ADC_Init();
+  27   1      
+  28   1        /* Display "ADC Channel zero" on first line*/
+  29   1        LCD_DisplayString("ADC Channel zero");
+  30   1      
+  31   1         /* Display the adc channel zero value continously */ 
+  32   1         while(1)
+  33   1          {
+  34   2                   /*Get the adc value of channel zero */
+  35   2                       adc_result= ADC_StartConversion(0);
+*** WARNING C206 IN LINE 35 OF MAIN.C: 'ADC_StartConversion': missing function-prototype
+*** ERROR C267 IN LINE 35 OF MAIN.C: 'ADC_StartConversion': requires ANSI-style prototype
+  36   2      
+  37   2              /*Go to second line and display the adc value */
+  38   2               LCD_GoToLineTwo();
+  39   2               LCD_DisplayDecimalNumber(adc_result,);
+  40   2            }
+  41   1      
+  42   1      
+  43   1        }
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  1 ERROR(S)

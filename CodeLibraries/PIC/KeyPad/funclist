@@ -1,0 +1,22 @@
+_KEYPAD_Init: CODE, 1175 0 5
+_LCD_Init: CODE, 1734 0 79
+_DELAY_ms: CODE, 1207 0 20
+_KEYPAD_GetKey: CODE, 1897 0 117
+_lcd_SendCmdSignals: CODE, 1292 0 25
+_main: CODE, 1420 0 36
+_LCD_CmdWrite: CODE, 1547 0 54
+__initialization: CODE, 2014 0 30
+_KEYPAD_WaitForKeyRelease: CODE, 1384 0 36
+_LCD_Clear: CODE, 1196 0 11
+_DELAY_us: CODE, 1185 0 11
+_LCD_GoToLine: CODE, 1227 0 21
+_lcd_BusyCheck: CODE, 1813 0 84
+_LCD_GoToNextLine: CODE, 1248 0 22
+_lcd_SendNibble: CODE, 1456 0 38
+_lcd_Reset: CODE, 1655 0 79
+_lcd_DataWrite: CODE, 1601 0 54
+_LCD_DisplayChar: CODE, 1317 0 31
+_keypad_ScanKey: CODE, 1494 0 53
+_lcd_SendDataSignals: CODE, 1270 0 22
+_KEYPAD_WaitForKeyPress: CODE, 1348 0 36
+Total: 864

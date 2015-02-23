@@ -1,0 +1,581 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$C:\Users\bagwan\AppData\Local\Temp\s42s.obj
+end_init CODE 0 0 0 3 2
+config CONFIG 0 2007 2007 1 2
+$dist/default/production\uart_RxTxLcd.production.obj
+cinit CODE 0 7DB 7DB 25 2
+text19 CODE 0 4AC 4AC B 2
+text18 CODE 0 6D1 6D1 54 2
+text17 CODE 0 52D 52D 19 2
+text16 CODE 0 565 565 26 2
+text15 CODE 0 58B 58B 36 2
+text14 CODE 0 4EB 4EB 16 2
+text13 CODE 0 501 501 16 2
+text12 CODE 0 5C1 5C1 36 2
+text11 CODE 0 546 546 1F 2
+text10 CODE 0 4D6 4D6 15 2
+text9 CODE 0 4B7 4B7 B 2
+text8 CODE 0 4C2 4C2 14 2
+text7 CODE 0 633 633 4F 2
+text6 CODE 0 682 682 4F 2
+text5 CODE 0 77D 77D 5E 2
+text4 CODE 0 725 725 58 2
+text3 CODE 0 517 517 16 2
+text2 CODE 0 49C 49C 7 2
+text1 CODE 0 4A3 4A3 9 2
+maintext CODE 0 5F7 5F7 3C 2
+cstackBANK0 BANK0 1 20 20 11 1
+cstackCOMMON COMMON 1 70 70 E 1
+dataBANK0 BANK0 1 36 36 5 1
+bssBANK0 BANK0 1 31 31 5 1
+idataBANK0 CODE 0 497 497 5 2
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+BANK0 003B-006F 1
+BANK1 00A0-00EF 1
+BANK2 0110-016F 1
+BANK3 0190-01EF 1
+CODE 0003-0496 2
+CODE 0800-1FFF 2
+CONST 0003-0496 2
+CONST 0800-1FFF 2
+EEDATA 2100-21FF 2
+ENTRY 0003-0496 2
+ENTRY 0800-1FFF 2
+IDLOC 2000-2003 2
+RAM 003B-006F 1
+RAM 00A0-00EF 1
+RAM 0110-016F 1
+RAM 0190-01EF 1
+SFR0 0000-001F 1
+SFR1 0080-009F 1
+SFR2 0100-010F 1
+SFR3 0180-018F 1
+STACK 0110-016F 1
+STRCODE 0003-0496 2
+STRCODE 0800-1FFF 2
+STRING 0003-0496 2
+STRING 0800-1FFF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <file name>:<line number> <address> <psect name> <class name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production\uart_RxTxLcd.production.obj
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":116 49C text2 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":118 49C text2 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":119 4A0 text2 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":120 4A1 text2 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":138 4A3 text1 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":140 4A4 text1 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":141 4A8 text1 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":142 4A9 text1 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":143 4AB text1 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\delay.c":55 4AC text19 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\delay.c":57 4AC text19 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\delay.c":59 4B0 text19 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\delay.c":57 4B6 text19 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":154 4B7 text9 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":156 4B7 text9 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":157 4BD text9 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":158 4C1 text9 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\delay.c":76 4C2 text8 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\delay.c":78 4C2 text8 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\delay.c":80 4C6 text8 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\delay.c":81 4CF text8 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\delay.c":78 4D5 text8 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":181 4D6 text10 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":183 4D7 text10 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":187 4DD text10 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":188 4DE text10 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":189 4E2 text10 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":208 4EB text14 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":212 4EB text14 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":213 4F1 text14 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":214 4F2 text14 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":215 4F6 text14 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":216 4F8 text14 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":217 500 text14 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":994 501 text13 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":996 501 text13 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":998 504 text13 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":1000 508 text13 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":1001 509 text13 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":1002 510 text13 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":1003 516 text13 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":59 517 text3 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":61 517 text3 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":62 51B text3 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":63 51D text3 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":64 521 text3 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":65 52C text3 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":972 52D text17 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":974 52D text17 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":976 533 text17 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":978 537 text17 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":979 538 text17 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":980 53F text17 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":981 545 text17 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":309 546 text11 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":311 547 text11 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":315 551 text11 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":317 556 text11 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":320 55A text11 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":321 55E text11 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":953 565 text16 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":955 566 text16 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":956 572 text16 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":957 57A text16 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":958 582 text16 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":274 58B text15 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":276 58C text15 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":277 591 text15 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":280 597 text15 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":281 599 text15 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":282 59C text15 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":283 59D text15 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":285 5A3 text15 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":286 5A9 text15 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":288 5AE text15 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":289 5BD text15 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":290 5C0 text15 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":839 5C1 text12 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":841 5C2 text12 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":842 5C7 text12 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":844 5CD text12 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":845 5CF text12 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":846 5D2 text12 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":847 5D3 text12 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":849 5D9 text12 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":850 5DF text12 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":852 5E4 text12 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":853 5F3 text12 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":854 5F6 text12 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\rx_tx_lcd.c":17 5F7 maintext CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\rx_tx_lcd.c":19 5F7 maintext CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\rx_tx_lcd.c":22 5FD maintext CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\rx_tx_lcd.c":25 60A maintext CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\rx_tx_lcd.c":30 61A maintext CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\rx_tx_lcd.c":32 624 maintext CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\rx_tx_lcd.c":34 62A maintext CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\rx_tx_lcd.c":27 632 maintext CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":923 633 text7 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":926 633 text7 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":927 639 text7 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":928 63E text7 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":929 647 text7 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":930 64D text7 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":931 652 text7 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":932 65B text7 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":933 661 text7 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":934 666 text7 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":935 66F text7 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":936 675 text7 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":937 67A text7 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":938 681 text7 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":112 682 text6 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":116 683 text6 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":117 686 text6 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":118 687 text6 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":119 68D text6 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":120 691 text6 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":121 695 text6 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":123 699 text6 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":124 69F text6 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":127 6A5 text6 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":129 6AE text6 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":131 6B4 text6 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":133 6B6 text6 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":135 6BC text6 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":136 6C1 text6 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":139 6C7 text6 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":140 6CD text6 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":141 6D0 text6 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":873 6D1 text18 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":878 6D1 text18 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":879 6D4 text18 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":880 6DA text18 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":881 6DB text18 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":884 6DB text18 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":885 6E1 text18 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":886 6EA text18 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":887 6ED text18 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":888 6F6 text18 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":891 6FE text18 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":894 702 text18 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":895 706 text18 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":896 70F text18 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":897 712 text18 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":899 71B text18 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\lcd.c":901 71E text18 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":84 725 text4 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":88 725 text4 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":92 747 text4 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":97 774 text4 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":100 778 text4 CODE
+"D:\work_space\updatedLib\PIC\UART\uart_RxTxLcd\uart.c":101 77C text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":6 77D text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":14 77D text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":15 785 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":16 78B text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":17 78D text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":18 78F text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":19 798 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":17 79C text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":22 79D text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":23 7A6 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":24 7B6 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":25 7C4 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":27 7C5 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":28 7CE text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c":30 7D2 text5 CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":495 7DB cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":498 7DB cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":523 7DB cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":524 7DC cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":525 7DD cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":526 7DE cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":527 7DF cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":532 7E0 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":533 7E5 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":534 7E6 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":535 7EB cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":536 7EC cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":537 7F1 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":538 7F2 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":539 7F7 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":540 7F8 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":541 7FB cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":547 7FC cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":548 7FC cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s42s.":549 7FD cinit CODE
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+___lldiv@counter 7D 0 COMMON 1 cstackCOMMON dist/default/production\uart_RxTxLcd.production.obj
+_UART_RxChar 938 0 CODE 0 text2 dist/default/production\uart_RxTxLcd.production.obj
+__CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+__size_of_LCD_CmdWrite 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+_UART_TxChar 946 0 CODE 0 text1 dist/default/production\uart_RxTxLcd.production.obj
+__S0 2008 0 ABS 0 - -
+__S1 7E 0 ABS 0 - -
+__S2 0 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+UART_SetBaudRate@RegValue 29 0 BANK0 1 cstackBANK0 dist/default/production\uart_RxTxLcd.production.obj
+__Hintentry 0 0 CODE 0 intentry -
+__Lintentry 0 0 CODE 0 intentry -
+_RCIF 65 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+_LCD_DisplayChar A8C 0 CODE 0 text11 dist/default/production\uart_RxTxLcd.production.obj
+_TXIF 64 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+__end_of_LCD_Init DA2 0 CODE 0 text6 dist/default/production\uart_RxTxLcd.production.obj
+__size_of_lcd_DataWrite 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+lcd_BusyCheck@busyflag 73 0 COMMON 1 cstackCOMMON dist/default/production\uart_RxTxLcd.production.obj
+_main BEE 0 CODE 0 maintext dist/default/production\uart_RxTxLcd.production.obj
+___sp 0 0 STACK 2 stack C:\Users\bagwan\AppData\Local\Temp\s42s.obj
+btemp 7E 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+ltemp 7E 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+ttemp 7E 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+wtemp 7E 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+start 0 0 CODE 0 init C:\Users\bagwan\AppData\Local\Temp\s42s.obj
+_LCD_GoToNextLine 9D6 0 CODE 0 text14 dist/default/production\uart_RxTxLcd.production.obj
+_RCREG 1A 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+_RCSTA 18 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+_TRISB 86 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+_TRISC 87 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+_TXREG 19 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\bagwan\AppData\Local\Temp\s42s.obj
+_TRISD 88 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+_PORTB 6 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+_SPBRG 99 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+_TXSTA 98 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+_PORTD 8 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+ltemp0 7E 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+ttemp0 7E 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+wtemp0 7E 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+ltemp1 82 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+ttemp1 81 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+wtemp1 80 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+ltemp2 86 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+ttemp2 84 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+wtemp2 82 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+ltemp3 80 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+ttemp3 87 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+wtemp3 84 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+ttemp4 7F 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+wtemp4 86 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+wtemp5 88 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+wtemp6 7F 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+__Hconfig 4010 0 CONFIG 0 config -
+__Lconfig 400E 0 CONFIG 0 config -
+__end_of_DELAY_ms 9AC 0 CODE 0 text8 dist/default/production\uart_RxTxLcd.production.obj
+__size_of_lcd_BusyCheck 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+__size_of_lcd_SendCmdSignals 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
+_LCD_CmdWrite B16 0 CODE 0 text15 dist/default/production\uart_RxTxLcd.production.obj
+_DELAY_ms 984 0 CODE 0 text8 dist/default/production\uart_RxTxLcd.production.obj
+_lcd_SendNibble ACA 0 CODE 0 text16 dist/default/production\uart_RxTxLcd.production.obj
+_LCD_Init D04 0 CODE 0 text6 dist/default/production\uart_RxTxLcd.production.obj
+__Hfunctab 0 0 CODE 0 functab -
+__Lfunctab 0 0 CODE 0 functab -
+_DELAY_us 958 0 CODE 0 text19 dist/default/production\uart_RxTxLcd.production.obj
+__Hcommon 0 0 ABS 0 common -
+__Lcommon 0 0 ABS 0 common -
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+DELAY_ms@ms_count 72 0 COMMON 1 cstackCOMMON dist/default/production\uart_RxTxLcd.production.obj
+UART_TxChar@var_uartData_u8 70 0 COMMON 1 cstackCOMMON dist/default/production\uart_RxTxLcd.production.obj
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+__size_of_UART_Init 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+___int_sp 0 0 STACK 2 stack C:\Users\bagwan\AppData\Local\Temp\s42s.obj
+?___lldiv 70 0 COMMON 1 cstackCOMMON dist/default/production\uart_RxTxLcd.production.obj
+__Habs1 0 0 ABS 0 abs1 -
+__Labs1 0 0 ABS 0 abs1 -
+__size_of_LCD_Clear 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+__Hsfr0 0 0 ABS 0 sfr0 -
+__Lsfr0 0 0 ABS 0 sfr0 -
+__Hsfr1 0 0 ABS 0 sfr1 -
+__Lsfr1 0 0 ABS 0 sfr1 -
+__Hsfr2 0 0 ABS 0 sfr2 -
+__Lsfr2 0 0 ABS 0 sfr2 -
+__Hsfr3 0 0 ABS 0 sfr3 -
+__Lsfr3 0 0 ABS 0 sfr3 -
+__end_of_lcd_SendCmdSignals A8C 0 CODE 0 text17 dist/default/production\uart_RxTxLcd.production.obj
+__size_of_lcd_SendNibble 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+__size_of_UART_SetBaudRate 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+main@ch 30 0 BANK0 1 cstackBANK0 dist/default/production\uart_RxTxLcd.production.obj
+__end_of_UART_Init A5A 0 CODE 0 text3 dist/default/production\uart_RxTxLcd.production.obj
+_LCD_Clear 96E 0 CODE 0 text9 dist/default/production\uart_RxTxLcd.production.obj
+__size_of_DELAY_ms 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+__size_of_DELAY_us 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+__end_of_UART_RxChar 946 0 CODE 0 text2 dist/default/production\uart_RxTxLcd.production.obj
+__Hcode 0 0 ABS 0 code -
+__Lcode 0 0 ABS 0 code -
+DELAY_us@us_count 70 0 COMMON 1 cstackCOMMON dist/default/production\uart_RxTxLcd.production.obj
+lcd_SendNibble@var 71 0 COMMON 1 cstackCOMMON dist/default/production\uart_RxTxLcd.production.obj
+stackhi 0 0 ABS 0 - C:\Users\bagwan\AppData\Local\Temp\s42s.obj
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\uart_RxTxLcd.production.obj
+stacklo 0 0 ABS 0 - C:\Users\bagwan\AppData\Local\Temp\s42s.obj
+__Hinit 0 0 CODE 0 init -
+__Linit 0 0 CODE 0 init -
+__end_of_main C66 0 CODE 0 maintext dist/default/production\uart_RxTxLcd.production.obj
+__end_of_LCD_CmdWrite B82 0 CODE 0 text15 dist/default/production\uart_RxTxLcd.production.obj
+__Htext 0 0 ABS 0 text -
+__Ltext 0 0 ABS 0 text -
+lcd_DataWrite@dat 75 0 COMMON 1 cstackCOMMON dist/default/production\uart_RxTxLcd.production.obj
+__HdataBANK0 0 0 ABS 0 dataBANK0 -
+__LdataBANK0 0 0 ABS 0 dataBANK0 -
+__CFG_LVP$ON 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+__pdataBANK0 36 0 BANK0 1 dataBANK0 dist/default/production\uart_RxTxLcd.production.obj
+end_of_initialization FF8 0 CODE 0 cinit dist/default/production\uart_RxTxLcd.production.obj
+_lcd_DataWrite B82 0 CODE 0 text12 dist/default/production\uart_RxTxLcd.production.obj
+_UART_Init A2E 0 CODE 0 text3 dist/default/production\uart_RxTxLcd.production.obj
+UART_SetBaudRate@var_baudRate_u32 20 0 BANK0 1 cstackBANK0 dist/default/production\uart_RxTxLcd.production.obj
+_lcd_Reset C66 0 CODE 0 text7 dist/default/production\uart_RxTxLcd.production.obj
+__size_of_lcd_Reset 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+__Hstrings 0 0 ABS 0 strings -
+__Lstrings 0 0 ABS 0 strings -
+__Hbank0 0 0 ABS 0 bank0 -
+__Lbank0 0 0 ABS 0 bank0 -
+__Hbank1 0 0 ABS 0 bank1 -
+__Lbank1 0 0 ABS 0 bank1 -
+LCD_CmdWrite@var_lcdCmd_u8 75 0 COMMON 1 cstackCOMMON dist/default/production\uart_RxTxLcd.production.obj
+__Hbank2 0 0 ABS 0 bank2 -
+__Lbank2 0 0 ABS 0 bank2 -
+__Hbank3 0 0 ABS 0 bank3 -
+__Lbank3 0 0 ABS 0 bank3 -
+___latbits 2 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+__size_of_UART_RxChar 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+__Hpowerup 0 0 CODE 0 powerup -
+__Lpowerup 0 0 CODE 0 powerup -
+_STK_LCDConfig 31 0 BANK0 1 bssBANK0 dist/default/production\uart_RxTxLcd.production.obj
+__ptext1 946 0 CODE 0 text1 dist/default/production\uart_RxTxLcd.production.obj
+__ptext2 938 0 CODE 0 text2 dist/default/production\uart_RxTxLcd.production.obj
+_lcd_BusyCheck DA2 0 CODE 0 text18 dist/default/production\uart_RxTxLcd.production.obj
+__ptext3 A2E 0 CODE 0 text3 dist/default/production\uart_RxTxLcd.production.obj
+__ptext4 E4A 0 CODE 0 text4 dist/default/production\uart_RxTxLcd.production.obj
+__ptext5 EFA 0 CODE 0 text5 dist/default/production\uart_RxTxLcd.production.obj
+__ptext6 D04 0 CODE 0 text6 dist/default/production\uart_RxTxLcd.production.obj
+__ptext7 C66 0 CODE 0 text7 dist/default/production\uart_RxTxLcd.production.obj
+__ptext8 984 0 CODE 0 text8 dist/default/production\uart_RxTxLcd.production.obj
+__ptext9 96E 0 CODE 0 text9 dist/default/production\uart_RxTxLcd.production.obj
+__Hclrtext 0 0 ABS 0 clrtext -
+__Lclrtext 0 0 ABS 0 clrtext -
+__end_of__initialization FF8 0 CODE 0 cinit dist/default/production\uart_RxTxLcd.production.obj
+_lcd_SendDataSignals A02 0 CODE 0 text13 dist/default/production\uart_RxTxLcd.production.obj
+UART_Init@var_baudRate_u32 2A 0 BANK0 1 cstackBANK0 dist/default/production\uart_RxTxLcd.production.obj
+__Hidloc 0 0 IDLOC 0 idloc -
+__Lidloc 0 0 IDLOC 0 idloc -
+__Hstack 0 0 STACK 2 stack -
+__Lstack 0 0 STACK 2 stack -
+__end_of___lldiv FB6 0 CODE 0 text5 dist/default/production\uart_RxTxLcd.production.obj
+_LCD_GoToLine 9AC 0 CODE 0 text10 dist/default/production\uart_RxTxLcd.production.obj
+__Hspace_0 2008 0 ABS 0 - -
+__Lspace_0 0 0 ABS 0 - -
+__size_of_lcd_SendDataSignals 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+__Hspace_1 7E 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__end_of_LCD_Clear 984 0 CODE 0 text9 dist/default/production\uart_RxTxLcd.production.obj
+__Hspace_2 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Hcinit 1000 0 CODE 0 cinit -
+__Lcinit FB6 0 CODE 0 cinit -
+__CFG_FOSC$HS 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+___lldiv EFA 0 CODE 0 text5 dist/default/production\uart_RxTxLcd.production.obj
+__Hspace_3 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__size_of_LCD_DisplayChar 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+__size_of_main 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+_ARR_LcdLineNumAddress_U8 36 0 BANK0 1 dataBANK0 dist/default/production\uart_RxTxLcd.production.obj
+__end_of_UART_SetBaudRate EFA 0 CODE 0 text4 dist/default/production\uart_RxTxLcd.production.obj
+__end_of_DELAY_us 96E 0 CODE 0 text19 dist/default/production\uart_RxTxLcd.production.obj
+__HidataBANK0 0 0 ABS 0 idataBANK0 -
+__LidataBANK0 0 0 ABS 0 idataBANK0 -
+__pidataBANK0 92E 0 CODE 0 idataBANK0 dist/default/production\uart_RxTxLcd.production.obj
+__size_of_LCD_Init 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+LCD_DisplayChar@var_lcdData_u8 78 0 COMMON 1 cstackCOMMON dist/default/production\uart_RxTxLcd.production.obj
+__HbssBANK0 0 0 ABS 0 bssBANK0 -
+__LbssBANK0 0 0 ABS 0 bssBANK0 -
+__end_of_LCD_GoToLine 9D6 0 CODE 0 text10 dist/default/production\uart_RxTxLcd.production.obj
+__pbssBANK0 31 0 BANK0 1 bssBANK0 dist/default/production\uart_RxTxLcd.production.obj
+__end_of_lcd_BusyCheck E4A 0 CODE 0 text18 dist/default/production\uart_RxTxLcd.production.obj
+__ptext10 9AC 0 CODE 0 text10 dist/default/production\uart_RxTxLcd.production.obj
+__ptext11 A8C 0 CODE 0 text11 dist/default/production\uart_RxTxLcd.production.obj
+__end_of_LCD_GoToNextLine A02 0 CODE 0 text14 dist/default/production\uart_RxTxLcd.production.obj
+__ptext12 B82 0 CODE 0 text12 dist/default/production\uart_RxTxLcd.production.obj
+__ptext13 A02 0 CODE 0 text13 dist/default/production\uart_RxTxLcd.production.obj
+__ptext14 9D6 0 CODE 0 text14 dist/default/production\uart_RxTxLcd.production.obj
+__ptext15 B16 0 CODE 0 text15 dist/default/production\uart_RxTxLcd.production.obj
+__ptext16 ACA 0 CODE 0 text16 dist/default/production\uart_RxTxLcd.production.obj
+__CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+__ptext17 A5A 0 CODE 0 text17 dist/default/production\uart_RxTxLcd.production.obj
+_VAR_LcdTrackCursorPos_U8 34 0 BANK0 1 bssBANK0 dist/default/production\uart_RxTxLcd.production.obj
+__ptext18 DA2 0 CODE 0 text18 dist/default/production\uart_RxTxLcd.production.obj
+__CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+__ptext19 958 0 CODE 0 text19 dist/default/production\uart_RxTxLcd.production.obj
+__Hend_init 6 0 CODE 0 end_init -
+__Lend_init 0 0 CODE 0 end_init -
+__size_of_LCD_GoToLine 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+___lldiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\uart_RxTxLcd.production.obj
+__size_of___lldiv 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+_lcd_SendCmdSignals A5A 0 CODE 0 text17 dist/default/production\uart_RxTxLcd.production.obj
+LCD_GoToLine@var_lineNumber_u8 77 0 COMMON 1 cstackCOMMON dist/default/production\uart_RxTxLcd.production.obj
+__end_of_lcd_SendNibble B16 0 CODE 0 text16 dist/default/production\uart_RxTxLcd.production.obj
+__end_of_lcd_Reset D04 0 CODE 0 text7 dist/default/production\uart_RxTxLcd.production.obj
+__Hreset_vec 0 0 CODE 0 reset_vec -
+__Lreset_vec 0 0 CODE 0 reset_vec -
+_VAR_LcdTrackLineNum_U8 35 0 BANK0 1 bssBANK0 dist/default/production\uart_RxTxLcd.production.obj
+__size_of_UART_TxChar 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+_UART_SetBaudRate E4A 0 CODE 0 text4 dist/default/production\uart_RxTxLcd.production.obj
+intlevel0 0 0 CODE 0 functab C:\Users\bagwan\AppData\Local\Temp\s42s.obj
+__end_of_lcd_DataWrite BEE 0 CODE 0 text12 dist/default/production\uart_RxTxLcd.production.obj
+__CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+intlevel1 0 0 CODE 0 functab C:\Users\bagwan\AppData\Local\Temp\s42s.obj
+__size_of_LCD_GoToNextLine 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+intlevel2 0 0 CODE 0 functab C:\Users\bagwan\AppData\Local\Temp\s42s.obj
+intlevel3 0 0 CODE 0 functab C:\Users\bagwan\AppData\Local\Temp\s42s.obj
+intlevel4 0 0 CODE 0 functab C:\Users\bagwan\AppData\Local\Temp\s42s.obj
+intlevel5 0 0 CODE 0 functab C:\Users\bagwan\AppData\Local\Temp\s42s.obj
+LCD_Init@var_lcdNoOfLines_u8 78 0 COMMON 1 cstackCOMMON dist/default/production\uart_RxTxLcd.production.obj
+LCD_Init@var_MaxCharsPerLine_u8 79 0 COMMON 1 cstackCOMMON dist/default/production\uart_RxTxLcd.production.obj
+__HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+__LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\uart_RxTxLcd.production.obj
+__CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+start_initialization FB6 0 CODE 0 cinit dist/default/production\uart_RxTxLcd.production.obj
+___lldiv@quotient 79 0 COMMON 1 cstackCOMMON dist/default/production\uart_RxTxLcd.production.obj
+__end_of_LCD_DisplayChar ACA 0 CODE 0 text11 dist/default/production\uart_RxTxLcd.production.obj
+__Hmaintext 0 0 ABS 0 maintext -
+__Lmaintext 0 0 ABS 0 maintext -
+__pmaintext BEE 0 CODE 0 maintext dist/default/production\uart_RxTxLcd.production.obj
+__initialization FB6 0 CODE 0 cinit dist/default/production\uart_RxTxLcd.production.obj
+__end_of_UART_TxChar 958 0 CODE 0 text1 dist/default/production\uart_RxTxLcd.production.obj
+__end_of_lcd_SendDataSignals A2E 0 CODE 0 text13 dist/default/production\uart_RxTxLcd.production.obj
+__CFG_CP$OFF 0 0 ABS 0 - dist/default/production\uart_RxTxLcd.production.obj
+LCD_Init@var_lcdMode_u8 7B 0 COMMON 1 cstackCOMMON dist/default/production\uart_RxTxLcd.production.obj
+___lldiv@dividend 74 0 COMMON 1 cstackCOMMON dist/default/production\uart_RxTxLcd.production.obj
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect in on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+- 1 7E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+reset_vec 0 0 0 3 2
+cinit 0 7DB FB6 25 2
+config 0 2007 400E 1 2
+cstackCOMMON 1 70 70 E 1
+cstackBANK0 1 20 20 1B 1
+text5 0 77D EFA 5E 2
+text4 0 725 E4A 58 2
+text18 0 6D1 DA2 54 2
+text6 0 682 D04 4F 2
+text7 0 633 C66 4F 2
+maintext 0 5F7 BEE 3C 2
+text12 0 5C1 B82 36 2
+text15 0 58B B16 36 2
+text16 0 565 ACA 26 2
+text11 0 546 A8C 1F 2
+text17 0 52D A5A 19 2
+text3 0 517 A2E 16 2
+text13 0 501 A02 16 2
+text14 0 4EB 9D6 16 2
+text10 0 4D6 9AC 15 2
+text8 0 4C2 984 14 2
+text9 0 4B7 96E B 2
+text19 0 4AC 958 B 2
+text1 0 4A3 946 9 2
+text2 0 49C 938 7 2
+idataBANK0 0 497 92E 5 2

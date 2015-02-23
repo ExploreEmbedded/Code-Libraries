@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "SevenSegment_FireHelp", "SevenSegment_FireHelp.cproj", "{AC0DC800-ECCF-4F71-B49C-C8BD6F95D1FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC0DC800-ECCF-4F71-B49C-C8BD6F95D1FD}.Debug|AVR.ActiveCfg = Debug|AVR
+		{AC0DC800-ECCF-4F71-B49C-C8BD6F95D1FD}.Debug|AVR.Build.0 = Debug|AVR
+		{AC0DC800-ECCF-4F71-B49C-C8BD6F95D1FD}.Release|AVR.ActiveCfg = Release|AVR
+		{AC0DC800-ECCF-4F71-B49C-C8BD6F95D1FD}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

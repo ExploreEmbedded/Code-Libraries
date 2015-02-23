@@ -1,0 +1,6 @@
+"delay.obj",
+"keypad.obj",
+"main.obj",
+"lcd.obj" 
+TO "keypad" 
+RAMSIZE(256) 

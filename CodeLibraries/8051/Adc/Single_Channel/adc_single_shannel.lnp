@@ -1,0 +1,6 @@
+"delay.obj",
+"lcd_8_bit.obj",
+"main.obj",
+"adc.obj" 
+TO "adc_single_shannel" 
+RAMSIZE(256) 

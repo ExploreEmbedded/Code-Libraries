@@ -1,0 +1,72 @@
+C51 COMPILER V9.02   MAIN                                                                  02/11/2015 21:55:18 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*-----------------------------------------------------------------------------
+   2                   Program to demonstrate displaying of RTC on Uart at 9600 Baud Rate
+   3            -----------------------------------------------------------------------------
+   4            note:
+   5            Refer uart.h for baudrate configuration.  
+   6            Refer i2c.h for SDA and SCL connection.
+   7          ------------------------------------------------------------------------------*/
+   8          
+   9          
+  10          #include "uart.h"       //User defined UART library which conatins the UART routines
+  11          #include "rtc.h" //User defined library which conatins the RTC(ds1307) routines
+  12          
+  13          
+  14          
+  15          /* start the main program */
+  16          void main() 
+  17          {
+  18   1         unsigned char sec,min,hour,day,month,year;
+  19   1      
+  20   1        /* Initilize the Uart before Transmiting/Reaceiving any data */
+  21   1          UART_Init(9600);
+  22   1      
+  23   1        /* Initilize the RTC(ds1307) before reading or writing time/date */
+  24   1          RTC_Init();
+  25   1      
+  26   1              UART_TxString(" Testing RTC ");
+  27   1       /*##### Set the time and Date only once. Once the Time and Date is set, comment these lines
+  28   1               and reflash the code. Else the time will be set every time the controller is reset*/
+  29   1          RTC_SetTime(0x10,0x40,0x00);  //  10:40:20 am
+  30   1          RTC_SetDate(0x01,0x01,0x15);  //  1st Jan 2015
+  31   1      
+  32   1      
+  33   1      
+  34   1         /* Display the Time and Date continuously */ 
+  35   1         while(1)
+  36   1          {
+  37   2                 /* Read the Time from RTC(ds1307) */ 
+  38   2              RTC_GetTime(&hour,&min,&sec);      
+  39   2                      
+  40   2                  /* Read the Date from RTC(ds1307) */ 
+  41   2              RTC_GetDate(&day,&month,&year);        
+  42   2               
+  43   2              UART_Printf("\n\rtime:%2x:%2x:%2x  \nDate:%2x/%2x/%2x",(uint16_t)hour,(uint16_t)min,(uint16_t)sec,
+             -(uint16_t)day,(uint16_t)month,(uint16_t)year);
+  44   2                }             
+  45   1      
+  46   1        }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    142    ----
+   CONSTANT SIZE    =     52    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       6
+C51 COMPILER V9.02   MAIN                                                                  02/11/2015 21:55:18 PAGE 2   
+
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

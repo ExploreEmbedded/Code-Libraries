@@ -1,0 +1,4 @@
+"delay.obj",
+"Led_Counter.obj" 
+TO "Led_Counter" 
+RAMSIZE(256) 

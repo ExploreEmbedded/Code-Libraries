@@ -1,0 +1,62 @@
+C51 COMPILER V9.02   MAIN                                                                  01/30/2015 19:08:49 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*-----------------------------------------------------------------------------
+   2                   Program to demonstrate Eeprom char Read Write on Lcd 
+   3            -----------------------------------------------------------------------------
+   4            note:
+   5            Refer lcd.c(lcd_4_bit.c/lcd_8_bit.c) file for Pin connections
+   6            Refer i2c.c for SDA and SCL connection.
+   7          ------------------------------------------------------------------------------*/
+   8          
+   9          
+  10          /* Reg51.h contains the defnition of all ports and SFRs */
+  11          #include <reg51.h> 
+  12          
+  13          #include "lcd.h"        //User defined LCD library which conatins the lcd routines
+  14          #include "eeprom.h" //User defined library which conatins eeprom(At2404) routines
+  15          
+  16          
+  17          /* start the main program */
+  18          void main() 
+  19          {
+  20   1         unsigned char eeprom_address=0x00, write_String[] = {"123456789"}, read_string[15];
+  21   1      
+  22   1        /* Initilize the lcd before displaying any thing on the lcd */
+  23   1          LCD_Init(8,2,16);                                                                                             
+  24   1       
+  25   1         while(1)
+  26   1          {
+  27   2                      LCD_GoToLine(1);                                  // Move the cursor to first line
+  28   2              LCD_DisplayString("Wr:");         //Display the message on first line
+  29   2                      LCD_DisplayString(write_String);  //Dispaly the String to be written 
+  30   2                      EEPROM_WriteString(eeprom_address,write_String); // Write the String at memory Location 0x00
+  31   2      
+  32   2                      LCD_GoToLine(2);                                   // Move the cursor to Second line
+  33   2                      LCD_DisplayString("Rd:");          //Display the message on Second line
+  34   2                      EEPROM_ReadString(eeprom_address,read_string);  // Read the String from memory Location 0x00
+  35   2                      LCD_DisplayString(read_string);                         //Display the read String
+  36   2      
+  37   2                }             
+  38   1      
+  39   1        }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    101    ----
+   CONSTANT SIZE    =     18    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      26
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,17 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\work_space\updatedLib\8051\Adc\Temp_Sensor_Lm35\Temp_Sensor.uvproj
+Project File Date:  02/13/2015
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+Program Size: data=86.0 xdata=0 code=2032
+creating hex file from "Temp_Sensor"...
+"Temp_Sensor" - 0 Error(s), 1 Warning(s).

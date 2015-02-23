@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "RTC_UART", "RTC_UART.cproj", "{453E7E03-4E23-4C06-86B8-2A48BD42CACD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{453E7E03-4E23-4C06-86B8-2A48BD42CACD}.Debug|AVR.ActiveCfg = Debug|AVR
+		{453E7E03-4E23-4C06-86B8-2A48BD42CACD}.Debug|AVR.Build.0 = Debug|AVR
+		{453E7E03-4E23-4C06-86B8-2A48BD42CACD}.Release|AVR.ActiveCfg = Release|AVR
+		{453E7E03-4E23-4C06-86B8-2A48BD42CACD}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

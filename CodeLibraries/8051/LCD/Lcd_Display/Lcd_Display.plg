@@ -1,0 +1,87 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\work_space\updatedLib\8051\LCD\Lcd_Display\Lcd_Display.uvproj
+Project File Date:  10/14/2012
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling delay.c...
+compiling main.c...
+compiling lcd.c...
+linking...
+Program Size: data=96.0 xdata=0 code=2998
+creating hex file from "Lcd_Display"...
+"Lcd_Display" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(18): warning C209: '_LCD_Init': too few actual parameters
+MAIN.C(24): warning C206: 'LCD_GoToLineTwo': missing function-prototype
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_SCROLLMESSAGE?LCD
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_PRINTF?LCD
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  LCD_GOTOLINETWO
+    MODULE:  main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  LCD_GOTOLINETWO
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 10C3H
+Program Size: data=111.0 xdata=0 code=2433
+creating hex file from "Lcd_Display"...
+"Lcd_Display" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling delay.c...
+compiling main.c...
+compiling lcd.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_SCROLLMESSAGE?LCD
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_PRINTF?LCD
+Program Size: data=111.0 xdata=0 code=2439
+creating hex file from "Lcd_Display"...
+"Lcd_Display" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling delay.c...
+compiling main.c...
+compiling lcd.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_SCROLLMESSAGE?LCD
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_PRINTF?LCD
+Program Size: data=111.0 xdata=0 code=2437
+creating hex file from "Lcd_Display"...
+"Lcd_Display" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_SCROLLMESSAGE?LCD
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_PRINTF?LCD
+Program Size: data=111.0 xdata=0 code=2439
+creating hex file from "Lcd_Display"...
+"Lcd_Display" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling lcd.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+Program Size: data=25.0 xdata=0 code=767
+creating hex file from "Lcd_Display"...
+"Lcd_Display" - 0 Error(s), 1 Warning(s).

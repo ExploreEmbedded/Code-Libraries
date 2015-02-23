@@ -1,0 +1,574 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$C:\Users\bagwan\AppData\Local\Temp\s1uo.obj
+end_init CODE 0 0 0 3 2
+config CONFIG 0 2007 2007 1 2
+$dist/default/production\Lcd_Scroll.production.obj
+cinit CODE 0 7E1 7E1 1F 2
+text15 CODE 0 4A7 4A7 B 2
+text14 CODE 0 6F7 6F7 54 2
+text13 CODE 0 523 523 19 2
+text12 CODE 0 55B 55B 26 2
+text11 CODE 0 5B3 5B3 36 2
+text10 CODE 0 4E2 4E2 15 2
+text9 CODE 0 4B2 4B2 B 2
+text8 CODE 0 4CE 4CE 14 2
+text7 CODE 0 659 659 4F 2
+text6 CODE 0 6A8 6A8 4F 2
+text5 CODE 0 4F7 4F7 16 2
+text4 CODE 0 50D 50D 16 2
+text3 CODE 0 5E9 5E9 36 2
+text2 CODE 0 53C 53C 1F 2
+text1 CODE 0 74B 74B 96 2
+maintext CODE 0 61F 61F 3A 2
+cstackBANK0 BANK0 1 20 20 3A 1
+cstackCOMMON COMMON 1 70 70 E 1
+inittext CODE 0 4BD 4BD 11 2
+dataBANK1 BANK1 1 A0 A0 32 1
+dataBANK0 BANK0 1 5A 5A 5 1
+bssBANK0 BANK0 1 62 62 2 1
+strings STRING 0 3 3 36 2
+nvBANK0 BANK0 1 5F 5F 3 1
+idataBANK1 CODE 0 581 581 32 2
+idataBANK0 CODE 0 4A2 4A2 5 2
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+BANK0 0064-006F 1
+BANK1 00D2-00EF 1
+BANK2 0110-016F 1
+BANK3 0190-01EF 1
+CODE 0039-04A1 2
+CODE 0800-1FFF 2
+CONST 0039-04A1 2
+CONST 0800-1FFF 2
+EEDATA 2100-21FF 2
+ENTRY 0039-04A1 2
+ENTRY 0800-1FFF 2
+IDLOC 2000-2003 2
+RAM 0064-006F 1
+RAM 00D2-00EF 1
+RAM 0110-016F 1
+RAM 0190-01EF 1
+SFR0 0000-001F 1
+SFR1 0080-009F 1
+SFR2 0100-010F 1
+SFR3 0180-018F 1
+STACK 0110-016F 1
+STRCODE 0039-04A1 2
+STRCODE 0800-1FFF 2
+STRING 0039-04A1 2
+STRING 0800-1FFF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <file name>:<line number> <address> <psect name> <class name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production\Lcd_Scroll.production.obj
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\delay.c":55 4A7 text15 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\delay.c":57 4A7 text15 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\delay.c":59 4AB text15 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\delay.c":57 4B1 text15 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":154 4B2 text9 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":156 4B2 text9 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":157 4B8 text9 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":158 4BC text9 CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":536 4BD inittext CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":537 4BD inittext CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":538 4BE inittext CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":539 4BF inittext CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":540 4C0 inittext CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":547 4C1 inittext CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":548 4C1 inittext CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":549 4C4 inittext CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":550 4C5 inittext CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":551 4C6 inittext CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":552 4C7 inittext CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":553 4C8 inittext CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":554 4C9 inittext CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":555 4CA inittext CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":556 4CB inittext CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":557 4CC inittext CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":558 4CD inittext CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\delay.c":76 4CE text8 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\delay.c":78 4CE text8 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\delay.c":80 4D2 text8 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\delay.c":81 4DB text8 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\delay.c":78 4E1 text8 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":181 4E2 text10 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":183 4E3 text10 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":187 4E9 text10 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":188 4EA text10 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":189 4EE text10 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":208 4F7 text5 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":212 4F7 text5 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":213 4FD text5 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":214 4FE text5 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":215 502 text5 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":216 504 text5 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":217 50C text5 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":994 50D text4 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":996 50D text4 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":998 510 text4 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":1000 514 text4 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":1001 515 text4 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":1002 51C text4 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":1003 522 text4 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":972 523 text13 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":974 523 text13 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":976 529 text13 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":978 52D text13 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":979 52E text13 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":980 535 text13 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":981 53B text13 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":309 53C text2 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":311 53D text2 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":315 547 text2 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":317 54C text2 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":320 550 text2 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":321 554 text2 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":953 55B text12 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":955 55C text12 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":956 568 text12 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":957 570 text12 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":958 578 text12 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":274 5B3 text11 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":276 5B4 text11 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":277 5B9 text11 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":280 5BF text11 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":281 5C1 text11 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":282 5C4 text11 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":283 5C5 text11 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":285 5CB text11 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":286 5D1 text11 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":288 5D6 text11 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":289 5E5 text11 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":290 5E8 text11 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":839 5E9 text3 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":841 5EA text3 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":842 5EF text3 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":844 5F5 text3 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":845 5F7 text3 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":846 5FA text3 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":847 5FB text3 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":849 601 text3 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":850 607 text3 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":852 60C text3 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":853 61B text3 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":854 61E text3 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\Lcd_Scrol.c":17 61F maintext CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\Lcd_Scrol.c":19 61F maintext CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\Lcd_Scrol.c":22 636 maintext CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\Lcd_Scrol.c":27 644 maintext CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\Lcd_Scrol.c":29 64E maintext CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\Lcd_Scrol.c":24 658 maintext CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":923 659 text7 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":926 659 text7 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":927 65F text7 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":928 664 text7 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":929 66D text7 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":930 673 text7 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":931 678 text7 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":932 681 text7 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":933 687 text7 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":934 68C text7 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":935 695 text7 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":936 69B text7 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":937 6A0 text7 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":938 6A7 text7 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":112 6A8 text6 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":116 6A9 text6 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":117 6AC text6 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":118 6AD text6 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":119 6B3 text6 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":120 6B7 text6 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":121 6BB text6 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":123 6BF text6 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":124 6C5 text6 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":127 6CB text6 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":129 6D4 text6 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":131 6DA text6 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":133 6DC text6 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":135 6E2 text6 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":136 6E7 text6 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":139 6ED text6 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":140 6F3 text6 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":141 6F6 text6 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":873 6F7 text14 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":878 6F7 text14 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":879 6FA text14 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":880 700 text14 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":881 701 text14 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":884 701 text14 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":885 707 text14 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":886 710 text14 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":887 713 text14 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":888 71C text14 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":891 724 text14 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":894 728 text14 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":895 72C text14 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":896 735 text14 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":897 738 text14 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":899 741 text14 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":901 744 text14 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":371 74B text1 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":376 74C text1 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":377 752 text1 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":379 754 text1 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":381 75A text1 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":387 76C text1 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":389 772 text1 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":392 795 text1 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":389 7B5 text1 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":400 7BC text1 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":401 7C2 text1 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":396 7C8 text1 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":404 7CC text1 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":381 7D5 text1 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":406 7DC text1 CODE
+"D:\work_space\updatedLib\PIC\Lcd\Lcd_Scroll\lcd.c":407 7E0 text1 CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":496 7E1 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":499 7E1 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":529 7E1 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":530 7E2 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":562 7E3 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":563 7E4 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":564 7E5 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":565 7E6 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":566 7E7 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":567 7E8 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":568 7E9 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":569 7EA cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":570 7EB cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":571 7EC cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":575 7F1 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":576 7F2 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":577 7F3 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":578 7F4 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":579 7F5 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":580 7F6 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":581 7F7 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":582 7F8 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":583 7F9 cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":589 7FC cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":590 7FC cinit CODE
+"C:\Users\bagwan\AppData\Local\Temp\s1uo.":591 7FD cinit CODE
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+__CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+__size_of_LCD_CmdWrite 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+__S0 2008 0 ABS 0 - -
+__S1 D2 0 ABS 0 - -
+__S2 0 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+__Hintentry 0 0 CODE 0 intentry -
+__Lintentry 0 0 CODE 0 intentry -
+_LCD_DisplayChar A78 0 CODE 0 text2 dist/default/production\Lcd_Scroll.production.obj
+__end_of_LCD_Init DEE 0 CODE 0 text6 dist/default/production\Lcd_Scroll.production.obj
+__size_of_lcd_DataWrite 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+lcd_BusyCheck@busyflag 73 0 COMMON 1 cstackCOMMON dist/default/production\Lcd_Scroll.production.obj
+_main C3E 0 CODE 0 maintext dist/default/production\Lcd_Scroll.production.obj
+___sp 0 0 STACK 2 stack C:\Users\bagwan\AppData\Local\Temp\s1uo.obj
+btemp 7E 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+ltemp 7E 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+ttemp 7E 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+wtemp 7E 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+start 0 0 CODE 0 init C:\Users\bagwan\AppData\Local\Temp\s1uo.obj
+_LCD_GoToNextLine 9EE 0 CODE 0 text5 dist/default/production\Lcd_Scroll.production.obj
+main@F1121 A0 0 BANK1 1 dataBANK1 dist/default/production\Lcd_Scroll.production.obj
+_TRISB 86 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\bagwan\AppData\Local\Temp\s1uo.obj
+_TRISD 88 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+_PORTB 6 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+_PORTD 8 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+ltemp0 7E 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+ttemp0 7E 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+wtemp0 7E 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+ltemp1 82 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+ttemp1 81 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+wtemp1 80 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+ltemp2 86 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+ttemp2 84 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+wtemp2 82 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+ltemp3 80 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+ttemp3 87 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+wtemp3 84 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+ttemp4 7F 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+wtemp4 86 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+wtemp5 88 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+wtemp6 7F 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+__Hconfig 4010 0 CONFIG 0 config -
+__Lconfig 400E 0 CONFIG 0 config -
+__end_of_DELAY_ms 9C4 0 CODE 0 text8 dist/default/production\Lcd_Scroll.production.obj
+__end_of__stringtab 26 0 STRING 0 strings dist/default/production\Lcd_Scroll.production.obj
+__size_of_lcd_BusyCheck 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+__size_of_lcd_SendCmdSignals 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
+_LCD_CmdWrite B66 0 CODE 0 text11 dist/default/production\Lcd_Scroll.production.obj
+__end_of__stringdata 72 0 STRING 0 strings dist/default/production\Lcd_Scroll.production.obj
+_DELAY_ms 99C 0 CODE 0 text8 dist/default/production\Lcd_Scroll.production.obj
+_lcd_SendNibble AB6 0 CODE 0 text12 dist/default/production\Lcd_Scroll.production.obj
+_LCD_Init D50 0 CODE 0 text6 dist/default/production\Lcd_Scroll.production.obj
+__Hfunctab 0 0 CODE 0 functab -
+__Lfunctab 0 0 CODE 0 functab -
+_DELAY_us 94E 0 CODE 0 text15 dist/default/production\Lcd_Scroll.production.obj
+__Hcommon 0 0 ABS 0 common -
+__Lcommon 0 0 ABS 0 common -
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+DELAY_ms@ms_count 72 0 COMMON 1 cstackCOMMON dist/default/production\Lcd_Scroll.production.obj
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+___int_sp 0 0 STACK 2 stack C:\Users\bagwan\AppData\Local\Temp\s1uo.obj
+__Habs1 0 0 ABS 0 abs1 -
+__Labs1 0 0 ABS 0 abs1 -
+__size_of_LCD_Clear 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+__Hsfr0 0 0 ABS 0 sfr0 -
+__Lsfr0 0 0 ABS 0 sfr0 -
+__Hsfr1 0 0 ABS 0 sfr1 -
+__Lsfr1 0 0 ABS 0 sfr1 -
+__Hsfr2 0 0 ABS 0 sfr2 -
+__Lsfr2 0 0 ABS 0 sfr2 -
+__Hsfr3 0 0 ABS 0 sfr3 -
+__Lsfr3 0 0 ABS 0 sfr3 -
+LCD_ScrollMessage@i 7C 0 COMMON 1 cstackCOMMON dist/default/production\Lcd_Scroll.production.obj
+LCD_ScrollMessage@j 7D 0 COMMON 1 cstackCOMMON dist/default/production\Lcd_Scroll.production.obj
+__end_of_lcd_SendCmdSignals A78 0 CODE 0 text13 dist/default/production\Lcd_Scroll.production.obj
+__size_of_lcd_SendNibble 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+_LCD_Clear 964 0 CODE 0 text9 dist/default/production\Lcd_Scroll.production.obj
+__size_of_DELAY_ms 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+__size_of_DELAY_us 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+init_fetch0 97A 0 CODE 0 inittext dist/default/production\Lcd_Scroll.production.obj
+__Hcode 0 0 ABS 0 code -
+__Lcode 0 0 ABS 0 code -
+DELAY_us@us_count 70 0 COMMON 1 cstackCOMMON dist/default/production\Lcd_Scroll.production.obj
+lcd_SendNibble@var 71 0 COMMON 1 cstackCOMMON dist/default/production\Lcd_Scroll.production.obj
+stackhi 0 0 ABS 0 - C:\Users\bagwan\AppData\Local\Temp\s1uo.obj
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\Lcd_Scroll.production.obj
+stacklo 0 0 ABS 0 - C:\Users\bagwan\AppData\Local\Temp\s1uo.obj
+__Hinit 0 0 CODE 0 init -
+__Linit 0 0 CODE 0 init -
+__end_of_main CB2 0 CODE 0 maintext dist/default/production\Lcd_Scroll.production.obj
+__end_of_LCD_CmdWrite BD2 0 CODE 0 text11 dist/default/production\Lcd_Scroll.production.obj
+__Htext 0 0 ABS 0 text -
+__Ltext 0 0 ABS 0 text -
+lcd_DataWrite@dat 75 0 COMMON 1 cstackCOMMON dist/default/production\Lcd_Scroll.production.obj
+__HdataBANK0 0 0 ABS 0 dataBANK0 -
+__LdataBANK0 0 0 ABS 0 dataBANK0 -
+__CFG_LVP$ON 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+__pdataBANK0 5A 0 BANK0 1 dataBANK0 dist/default/production\Lcd_Scroll.production.obj
+end_of_initialization FF8 0 CODE 0 cinit dist/default/production\Lcd_Scroll.production.obj
+_lcd_DataWrite BD2 0 CODE 0 text3 dist/default/production\Lcd_Scroll.production.obj
+__HnvBANK0 0 0 ABS 0 nvBANK0 -
+__LnvBANK0 0 0 ABS 0 nvBANK0 -
+__pnvBANK0 5F 0 BANK0 1 nvBANK0 dist/default/production\Lcd_Scroll.production.obj
+__stringtab 6 0 STRING 0 strings dist/default/production\Lcd_Scroll.production.obj
+_lcd_Reset CB2 0 CODE 0 text7 dist/default/production\Lcd_Scroll.production.obj
+__HdataBANK1 0 0 ABS 0 dataBANK1 -
+__LdataBANK1 0 0 ABS 0 dataBANK1 -
+__pdataBANK1 A0 0 BANK1 1 dataBANK1 dist/default/production\Lcd_Scroll.production.obj
+__size_of_lcd_Reset 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+__end_of_LCD_ScrollMessage FC2 0 CODE 0 text1 dist/default/production\Lcd_Scroll.production.obj
+__Hstrings 0 0 ABS 0 strings -
+__Lstrings 0 0 ABS 0 strings -
+__pstrings 6 0 STRING 0 strings dist/default/production\Lcd_Scroll.production.obj
+__Hbank0 0 0 ABS 0 bank0 -
+__Lbank0 0 0 ABS 0 bank0 -
+__Hbank1 0 0 ABS 0 bank1 -
+__Lbank1 0 0 ABS 0 bank1 -
+LCD_CmdWrite@var_lcdCmd_u8 75 0 COMMON 1 cstackCOMMON dist/default/production\Lcd_Scroll.production.obj
+__Hbank2 0 0 ABS 0 bank2 -
+__Lbank2 0 0 ABS 0 bank2 -
+__Hbank3 0 0 ABS 0 bank3 -
+__Lbank3 0 0 ABS 0 bank3 -
+___latbits 2 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+__Hpowerup 0 0 CODE 0 powerup -
+__Lpowerup 0 0 CODE 0 powerup -
+_STK_LCDConfig 5F 0 BANK0 1 nvBANK0 dist/default/production\Lcd_Scroll.production.obj
+__ptext1 E96 0 CODE 0 text1 dist/default/production\Lcd_Scroll.production.obj
+__ptext2 A78 0 CODE 0 text2 dist/default/production\Lcd_Scroll.production.obj
+_lcd_BusyCheck DEE 0 CODE 0 text14 dist/default/production\Lcd_Scroll.production.obj
+__ptext3 BD2 0 CODE 0 text3 dist/default/production\Lcd_Scroll.production.obj
+__ptext4 A1A 0 CODE 0 text4 dist/default/production\Lcd_Scroll.production.obj
+__ptext5 9EE 0 CODE 0 text5 dist/default/production\Lcd_Scroll.production.obj
+__ptext6 D50 0 CODE 0 text6 dist/default/production\Lcd_Scroll.production.obj
+__ptext7 CB2 0 CODE 0 text7 dist/default/production\Lcd_Scroll.production.obj
+__ptext8 99C 0 CODE 0 text8 dist/default/production\Lcd_Scroll.production.obj
+__ptext9 964 0 CODE 0 text9 dist/default/production\Lcd_Scroll.production.obj
+__Hclrtext 0 0 ABS 0 clrtext -
+__Lclrtext 0 0 ABS 0 clrtext -
+__end_of__initialization FF8 0 CODE 0 cinit dist/default/production\Lcd_Scroll.production.obj
+_lcd_SendDataSignals A1A 0 CODE 0 text4 dist/default/production\Lcd_Scroll.production.obj
+__Hidloc 0 0 IDLOC 0 idloc -
+__Lidloc 0 0 IDLOC 0 idloc -
+__Hstack 0 0 STACK 2 stack -
+__Lstack 0 0 STACK 2 stack -
+main@msg 28 0 BANK0 1 cstackBANK0 dist/default/production\Lcd_Scroll.production.obj
+_LCD_GoToLine 9C4 0 CODE 0 text10 dist/default/production\Lcd_Scroll.production.obj
+__Hspace_0 2008 0 ABS 0 - -
+__Lspace_0 0 0 ABS 0 - -
+LCD_ScrollMessage@var_lineNumber_u8 7B 0 COMMON 1 cstackCOMMON dist/default/production\Lcd_Scroll.production.obj
+__size_of_lcd_SendDataSignals 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+__Hspace_1 D2 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__end_of_LCD_Clear 97A 0 CODE 0 text9 dist/default/production\Lcd_Scroll.production.obj
+__Hspace_2 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Hcinit 1000 0 CODE 0 cinit -
+__Lcinit FC2 0 CODE 0 cinit -
+__CFG_FOSC$HS 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+__Hspace_3 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__size_of_LCD_DisplayChar 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+__size_of_main 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+_ARR_LcdLineNumAddress_U8 5A 0 BANK0 1 dataBANK0 dist/default/production\Lcd_Scroll.production.obj
+__end_of_DELAY_us 964 0 CODE 0 text15 dist/default/production\Lcd_Scroll.production.obj
+__HidataBANK0 0 0 ABS 0 idataBANK0 -
+__LidataBANK0 0 0 ABS 0 idataBANK0 -
+__pidataBANK0 944 0 CODE 0 idataBANK0 dist/default/production\Lcd_Scroll.production.obj
+__size_of_LCD_Init 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+LCD_DisplayChar@var_lcdData_u8 78 0 COMMON 1 cstackCOMMON dist/default/production\Lcd_Scroll.production.obj
+__HbssBANK0 0 0 ABS 0 bssBANK0 -
+__LbssBANK0 0 0 ABS 0 bssBANK0 -
+__end_of_LCD_GoToLine 9EE 0 CODE 0 text10 dist/default/production\Lcd_Scroll.production.obj
+__pbssBANK0 62 0 BANK0 1 bssBANK0 dist/default/production\Lcd_Scroll.production.obj
+__end_of_lcd_BusyCheck E96 0 CODE 0 text14 dist/default/production\Lcd_Scroll.production.obj
+__ptext10 9C4 0 CODE 0 text10 dist/default/production\Lcd_Scroll.production.obj
+__ptext11 B66 0 CODE 0 text11 dist/default/production\Lcd_Scroll.production.obj
+__end_of_LCD_GoToNextLine A1A 0 CODE 0 text5 dist/default/production\Lcd_Scroll.production.obj
+_LCD_ScrollMessage E96 0 CODE 0 text1 dist/default/production\Lcd_Scroll.production.obj
+__ptext12 AB6 0 CODE 0 text12 dist/default/production\Lcd_Scroll.production.obj
+__ptext13 A46 0 CODE 0 text13 dist/default/production\Lcd_Scroll.production.obj
+LCD_ScrollMessage@ptr_msgPointer_u8 79 0 COMMON 1 cstackCOMMON dist/default/production\Lcd_Scroll.production.obj
+__HidataBANK1 0 0 ABS 0 idataBANK1 -
+__LidataBANK1 0 0 ABS 0 idataBANK1 -
+__ptext14 DEE 0 CODE 0 text14 dist/default/production\Lcd_Scroll.production.obj
+__pidataBANK1 B02 0 CODE 0 idataBANK1 dist/default/production\Lcd_Scroll.production.obj
+__ptext15 94E 0 CODE 0 text15 dist/default/production\Lcd_Scroll.production.obj
+__CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+_VAR_LcdTrackCursorPos_U8 62 0 BANK0 1 bssBANK0 dist/default/production\Lcd_Scroll.production.obj
+__CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+__Hend_init 6 0 CODE 0 end_init -
+__Lend_init 0 0 CODE 0 end_init -
+__size_of_LCD_GoToLine 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+_lcd_SendCmdSignals A46 0 CODE 0 text13 dist/default/production\Lcd_Scroll.production.obj
+LCD_GoToLine@var_lineNumber_u8 77 0 COMMON 1 cstackCOMMON dist/default/production\Lcd_Scroll.production.obj
+__end_of_lcd_SendNibble B02 0 CODE 0 text12 dist/default/production\Lcd_Scroll.production.obj
+__end_of_lcd_Reset D50 0 CODE 0 text7 dist/default/production\Lcd_Scroll.production.obj
+__Hreset_vec 0 0 CODE 0 reset_vec -
+__Lreset_vec 0 0 CODE 0 reset_vec -
+_VAR_LcdTrackLineNum_U8 63 0 BANK0 1 bssBANK0 dist/default/production\Lcd_Scroll.production.obj
+__stringdata 26 0 STRING 0 strings dist/default/production\Lcd_Scroll.production.obj
+init_ram0 982 0 CODE 0 inittext dist/default/production\Lcd_Scroll.production.obj
+intlevel0 0 0 CODE 0 functab C:\Users\bagwan\AppData\Local\Temp\s1uo.obj
+__end_of_lcd_DataWrite C3E 0 CODE 0 text3 dist/default/production\Lcd_Scroll.production.obj
+__CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+intlevel1 0 0 CODE 0 functab C:\Users\bagwan\AppData\Local\Temp\s1uo.obj
+__size_of_LCD_GoToNextLine 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+intlevel2 0 0 CODE 0 functab C:\Users\bagwan\AppData\Local\Temp\s1uo.obj
+intlevel3 0 0 CODE 0 functab C:\Users\bagwan\AppData\Local\Temp\s1uo.obj
+intlevel4 0 0 CODE 0 functab C:\Users\bagwan\AppData\Local\Temp\s1uo.obj
+intlevel5 0 0 CODE 0 functab C:\Users\bagwan\AppData\Local\Temp\s1uo.obj
+LCD_Init@var_lcdNoOfLines_u8 78 0 COMMON 1 cstackCOMMON dist/default/production\Lcd_Scroll.production.obj
+LCD_Init@var_MaxCharsPerLine_u8 79 0 COMMON 1 cstackCOMMON dist/default/production\Lcd_Scroll.production.obj
+__HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+__LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\Lcd_Scroll.production.obj
+__size_of_LCD_ScrollMessage 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+__CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+start_initialization FC2 0 CODE 0 cinit dist/default/production\Lcd_Scroll.production.obj
+__end_of_LCD_DisplayChar AB6 0 CODE 0 text2 dist/default/production\Lcd_Scroll.production.obj
+__Hmaintext 0 0 ABS 0 maintext -
+__Lmaintext 0 0 ABS 0 maintext -
+__pmaintext C3E 0 CODE 0 maintext dist/default/production\Lcd_Scroll.production.obj
+__Hinittext 0 0 ABS 0 inittext -
+__Linittext 0 0 ABS 0 inittext -
+__initialization FC2 0 CODE 0 cinit dist/default/production\Lcd_Scroll.production.obj
+__stringbase 24 0 STRING 0 strings dist/default/production\Lcd_Scroll.production.obj
+__end_of_lcd_SendDataSignals A46 0 CODE 0 text4 dist/default/production\Lcd_Scroll.production.obj
+__CFG_CP$OFF 0 0 ABS 0 - dist/default/production\Lcd_Scroll.production.obj
+LCD_Init@var_lcdMode_u8 7B 0 COMMON 1 cstackCOMMON dist/default/production\Lcd_Scroll.production.obj
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect in on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+- 1 7E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+reset_vec 0 0 0 3 2
+cinit 0 7E1 FC2 1F 2
+config 0 2007 400E 1 2
+cstackCOMMON 1 70 70 E 1
+cstackBANK0 1 20 20 44 1
+dataBANK1 1 A0 A0 32 1
+text1 0 74B E96 96 2
+text14 0 6F7 DEE 54 2
+text6 0 6A8 D50 4F 2
+text7 0 659 CB2 4F 2
+maintext 0 61F C3E 3A 2
+strings 0 3 6 36 2
+text3 0 5E9 BD2 36 2
+text11 0 5B3 B66 36 2
+idataBANK1 0 581 B02 32 2
+text12 0 55B AB6 26 2
+text2 0 53C A78 1F 2
+text13 0 523 A46 19 2
+text4 0 50D A1A 16 2
+text5 0 4F7 9EE 16 2
+text10 0 4E2 9C4 15 2
+text8 0 4CE 99C 14 2
+inittext 0 4BD 97A 11 2
+text9 0 4B2 964 B 2
+text15 0 4A7 94E B 2
+idataBANK0 0 4A2 944 5 2

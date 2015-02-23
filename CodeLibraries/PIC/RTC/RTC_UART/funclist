@@ -1,0 +1,26 @@
+_i2c_NoAck: CODE, 843 0 7
+_UART_TxString: CODE, 936 0 28
+_UART_TxHexNumber: CODE, 1439 0 133
+__stringtab: STRING, 3 0 6
+__stringdata: STRING, 9 0 52
+_UART_Init: CODE, 914 0 22
+_main: CODE, 1572 0 136
+_I2C_Write: CODE, 870 0 13
+_RTC_Init: CODE, 964 0 32
+_UART_Printf: CODE, 1708 0 336
+__initialization: CODE, 2044 0 0
+_I2C_Stop: CODE, 830 0 6
+_i2c_Ack: CODE, 836 0 7
+_I2C_Read: CODE, 996 0 33
+___lldiv: CODE, 1345 0 94
+_RTC_GetDate: CODE, 1109 0 74
+_RTC_GetTime: CODE, 1183 0 74
+_UART_SetBaudRate: CODE, 1257 0 88
+_I2C_Init: CODE, 883 0 14
+_RTC_SetDate: CODE, 1029 0 40
+_RTC_SetTime: CODE, 1069 0 40
+_i2c_WaitForIdle: CODE, 859 0 11
+_I2C_Start: CODE, 824 0 6
+_UART_TxChar: CODE, 850 0 9
+___bmul: CODE, 897 0 17
+Total: 1278

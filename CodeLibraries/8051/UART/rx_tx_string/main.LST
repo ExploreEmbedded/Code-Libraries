@@ -1,0 +1,56 @@
+C51 COMPILER V9.02   MAIN                                                                  02/01/2015 18:37:43 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*-----------------------------------------------------------------------------
+   2            Program to demonstrate reception & transmission of a String at 9600 baudrate
+   3            -----------------------------------------------------------------------------
+   4            note:
+   5            Refer uart.c for baud rate configuraton.
+   6          ------------------------------------------------------------------------------*/
+   7          
+   8          
+   9          /* Reg51.h contains the defnition of all ports and SFRs */
+  10          #include <reg51.h> 
+  11          
+  12          #include "uart.h"       //User defined UART library which conatins the uart routines
+  13          
+  14          
+  15          /* start the main program */
+  16          void main() 
+  17          {
+  18   1               char msg[50];
+  19   1      
+  20   1        /* Initilize the UART before Transmitting/Receiving any data */
+  21   1          UART_Init(9600);
+  22   1              
+  23   1         while(1)
+  24   1          {
+  25   2                  /*Receive and transmit a string indefinitely at 9600 baud rate */
+  26   2                   UART_TxString("\n\r\n\rEnter a new String: ");
+  27   2                       UART_RxString(msg);   //Receive a string and store it in msg
+  28   2      
+  29   2                       UART_TxString("Entered String: ");
+  30   2                       UART_TxString(msg);   //Transmit the received string
+  31   2                }        
+  32   1      
+  33   1        }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     45    ----
+   CONSTANT SIZE    =     42    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      50
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

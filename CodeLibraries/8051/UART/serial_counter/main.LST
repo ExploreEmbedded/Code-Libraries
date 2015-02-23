@@ -1,0 +1,59 @@
+C51 COMPILER V9.02   MAIN                                                                  02/01/2015 18:50:49 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*-----------------------------------------------------------------------------
+   2            Program to demonstrate a 5 digit counter at 9600 baudrate
+   3            -----------------------------------------------------------------------------
+   4            note:
+   5            Refer uart.c for baud rate configuraton.
+   6          ------------------------------------------------------------------------------*/
+   7          
+   8          
+   9          #include "uart.h"       //User defined UART library which conatins the uart routines
+  10          
+  11          #include "delay.h" //User defined library which conatins the delay routines
+  12          
+  13          
+  14          /* start the main program */
+  15          void main() 
+  16          {
+  17   1               uint16_t cnt=0;
+  18   1      
+  19   1        /* Initilize the UART before Transmitting/Receiving any data */
+  20   1          UART_Init(9600);
+  21   1              UART_Printf("5digit decimal counter: ");
+  22   1      
+  23   1        /* Transmit the counter till 9999 */ 
+  24   1         while(cnt < 9999)
+  25   1          {
+  26   2                 
+  27   2                  /* Transmit the 4-digit counter value and go to next line */ 
+  28   2                       UART_Printf("\n\r%4u",cnt);
+  29   2                       
+  30   2                      /* Increment the counter value after 1-sec */  
+  31   2                       DELAY_sec(1);
+  32   2                       cnt++;
+  33   2                }      
+  34   1        while(1);         
+  35   1      
+  36   1       }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     68    ----
+   CONSTANT SIZE    =     31    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

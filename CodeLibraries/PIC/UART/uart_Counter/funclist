@@ -1,0 +1,15 @@
+_DELAY_ms: CODE, 1173 0 20
+__stringtab: STRING, 3 0 6
+__stringdata: STRING, 9 0 31
+_DELAY_sec: CODE, 1193 0 20
+_UART_Init: CODE, 1213 0 22
+_main: CODE, 1235 0 65
+_UART_Printf: CODE, 1634 0 410
+_UART_TxDecimalNumber: CODE, 1482 0 152
+__initialization: CODE, 2044 0 0
+___lldiv: CODE, 1388 0 94
+_UART_SetBaudRate: CODE, 1300 0 88
+_DELAY_us: CODE, 1143 0 11
+_UART_TxChar: CODE, 1134 0 9
+___bmul: CODE, 1154 0 19
+Total: 947

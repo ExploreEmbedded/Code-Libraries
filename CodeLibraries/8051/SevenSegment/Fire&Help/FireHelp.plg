@@ -1,0 +1,16 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\work_space\updatedLib\8051\SevenSegment\Fire&Help\FireHelp.uvproj
+Project File Date:  10/20/2012
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling delay.c...
+compiling main.c...
+linking...
+Program Size: data=21.0 xdata=0 code=561
+creating hex file from "FireHelp"...
+"FireHelp" - 0 Error(s), 0 Warning(s).

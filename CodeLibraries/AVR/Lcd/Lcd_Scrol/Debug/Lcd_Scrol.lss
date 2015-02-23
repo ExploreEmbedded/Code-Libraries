@@ -1,0 +1,820 @@
+
+Lcd_Scrol.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000003b0  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000005e  00800060  000003b0  00000444  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000005  008000be  008000be  000004a2  2**0
+                  ALLOC
+  3 .debug_aranges 00000040  00000000  00000000  000004a2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_pubnames 00000110  00000000  00000000  000004e2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000007e6  00000000  00000000  000005f2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000002c4  00000000  00000000  00000dd8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000633  00000000  00000000  0000109c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000e0  00000000  00000000  000016d0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000349  00000000  00000000  000017b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000350  00000000  00000000  00001af9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000090  00000000  00000000  00001e49  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e0 eb       	ldi	r30, 0xB0	; 176
+  68:	f3 e0       	ldi	r31, 0x03	; 3
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
+
+0000006c <.do_copy_data_loop>:
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+
+00000070 <.do_copy_data_start>:
+  70:	ae 3b       	cpi	r26, 0xBE	; 190
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <.do_copy_data_loop>
+
+00000076 <__do_clear_bss>:
+  76:	10 e0       	ldi	r17, 0x00	; 0
+  78:	ae eb       	ldi	r26, 0xBE	; 190
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	a3 3c       	cpi	r26, 0xC3	; 195
+  82:	b1 07       	cpc	r27, r17
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 af 01 	call	0x35e	; 0x35e <main>
+  8a:	0c 94 d6 01 	jmp	0x3ac	; 0x3ac <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <lcd_BusyCheck>:
+static void lcd_BusyCheck()
+{
+	uint8_t busyflag;
+#ifdef LCD_RW       //Perform Busy check if LCD_RW pin is used
+
+	util_UpdateBit(M_LcdDataBusDirection,LCD_D7,C_PinInput_U8); // Configure busy pin as input
+  92:	a7 98       	cbi	0x14, 7	; 20
+	M_LcdClearBit(LCD_RS);           // Select the Command Register by pulling RS LOW
+  94:	95 98       	cbi	0x12, 5	; 18
+	M_LcdSetBit(LCD_RW);             // Select the Read Operation for busy flag by setting RW
+  96:	96 9a       	sbi	0x12, 6	; 18
+		M_LcdSetBit(LCD_EN); 
+		DELAY_us(10);
+		busyflag = util_GetBitStatus(M_LcdDataBusInput,LCD_D7);
+
+
+		if(STK_LCDConfig.mvar_LcdMode_U8 == 4)
+  98:	30 91 c2 00 	lds	r19, 0x00C2
+    can be achieved.
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+  9c:	94 e2       	ldi	r25, 0x24	; 36
+	M_LcdClearBit(LCD_RS);           // Select the Command Register by pulling RS LOW
+	M_LcdSetBit(LCD_RW);             // Select the Read Operation for busy flag by setting RW
+	do
+	{
+
+		M_LcdClearBit(LCD_EN);             // Send a High-to-Low Pulse at Enable Pin
+  9e:	97 98       	cbi	0x12, 7	; 18
+  a0:	89 2f       	mov	r24, r25
+  a2:	8a 95       	dec	r24
+  a4:	f1 f7       	brne	.-4      	; 0xa2 <lcd_BusyCheck+0x10>
+		DELAY_us(10);	
+		M_LcdSetBit(LCD_EN); 
+  a6:	97 9a       	sbi	0x12, 7	; 18
+  a8:	89 2f       	mov	r24, r25
+  aa:	8a 95       	dec	r24
+  ac:	f1 f7       	brne	.-4      	; 0xaa <lcd_BusyCheck+0x18>
+		DELAY_us(10);
+		busyflag = util_GetBitStatus(M_LcdDataBusInput,LCD_D7);
+  ae:	23 b3       	in	r18, 0x13	; 19
+
+
+		if(STK_LCDConfig.mvar_LcdMode_U8 == 4)
+  b0:	34 30       	cpi	r19, 0x04	; 4
+  b2:	41 f4       	brne	.+16     	; 0xc4 <lcd_BusyCheck+0x32>
+		{
+			/* Perform extra dummy read for 4-bit */ 	   	
+			M_LcdClearBit(LCD_EN);
+  b4:	97 98       	cbi	0x12, 7	; 18
+  b6:	89 2f       	mov	r24, r25
+  b8:	8a 95       	dec	r24
+  ba:	f1 f7       	brne	.-4      	; 0xb8 <lcd_BusyCheck+0x26>
+			DELAY_us(10);
+			M_LcdSetBit(LCD_EN); 
+  bc:	97 9a       	sbi	0x12, 7	; 18
+  be:	89 2f       	mov	r24, r25
+  c0:	8a 95       	dec	r24
+  c2:	f1 f7       	brne	.-4      	; 0xc0 <lcd_BusyCheck+0x2e>
+			DELAY_us(10);
+		}	
+	}while(busyflag);
+  c4:	27 fd       	sbrc	r18, 7
+  c6:	eb cf       	rjmp	.-42     	; 0x9e <lcd_BusyCheck+0xc>
+
+	util_UpdateBit(M_LcdDataBusDirection,LCD_D7,C_PinOutput_U8);
+  c8:	a7 9a       	sbi	0x14, 7	; 20
+#else
+	/* Busy flag cannot be read as LCD_RW is not available hence Extra delay of 1ms is added 
+	  to ensure the LCD completes previous operation and ready to receive new commands/data */
+	DELAY_ms(1);  
+#endif
+}
+  ca:	08 95       	ret
+
+000000cc <lcd_SendNibble>:
+
+ * description : This functions is used to send the higher nibble of the data to LCD in 4-bit mode
+ *************************************************************************************************/
+static void lcd_SendNibble(uint8_t var)
+{
+	util_UpdateBit(M_LcdDataBus,LCD_D4,util_GetBitStatus(var,LCD_D4));
+  cc:	98 2f       	mov	r25, r24
+  ce:	84 ff       	sbrs	r24, 4
+  d0:	02 c0       	rjmp	.+4      	; 0xd6 <lcd_SendNibble+0xa>
+  d2:	ac 9a       	sbi	0x15, 4	; 21
+  d4:	01 c0       	rjmp	.+2      	; 0xd8 <lcd_SendNibble+0xc>
+  d6:	ac 98       	cbi	0x15, 4	; 21
+  d8:	25 b3       	in	r18, 0x15	; 21
+	util_UpdateBit(M_LcdDataBus,LCD_D5,util_GetBitStatus(var,LCD_D5));
+  da:	95 ff       	sbrs	r25, 5
+  dc:	02 c0       	rjmp	.+4      	; 0xe2 <lcd_SendNibble+0x16>
+  de:	ad 9a       	sbi	0x15, 5	; 21
+  e0:	01 c0       	rjmp	.+2      	; 0xe4 <lcd_SendNibble+0x18>
+  e2:	ad 98       	cbi	0x15, 5	; 21
+  e4:	25 b3       	in	r18, 0x15	; 21
+	util_UpdateBit(M_LcdDataBus,LCD_D6,util_GetBitStatus(var,LCD_D6));
+  e6:	96 ff       	sbrs	r25, 6
+  e8:	02 c0       	rjmp	.+4      	; 0xee <lcd_SendNibble+0x22>
+  ea:	ae 9a       	sbi	0x15, 6	; 21
+  ec:	01 c0       	rjmp	.+2      	; 0xf0 <lcd_SendNibble+0x24>
+  ee:	ae 98       	cbi	0x15, 6	; 21
+  f0:	95 b3       	in	r25, 0x15	; 21
+	util_UpdateBit(M_LcdDataBus,LCD_D7,util_GetBitStatus(var,LCD_D7));
+  f2:	87 ff       	sbrs	r24, 7
+  f4:	02 c0       	rjmp	.+4      	; 0xfa <lcd_SendNibble+0x2e>
+  f6:	af 9a       	sbi	0x15, 7	; 21
+  f8:	01 c0       	rjmp	.+2      	; 0xfc <lcd_SendNibble+0x30>
+  fa:	af 98       	cbi	0x15, 7	; 21
+  fc:	85 b3       	in	r24, 0x15	; 21
+  fe:	08 95       	ret
+
+00000100 <lcd_SendCmdSignals>:
+
+ * description : This functions generates the signals for sending the var_lcdCmd_u8 to LCD
+ *************************************************************************************************/
+static void lcd_SendCmdSignals()
+{
+	M_LcdClearBit(LCD_RS);           // Select the Command Register by pulling RS LOW
+ 100:	95 98       	cbi	0x12, 5	; 18
+#ifdef LCD_RW
+	M_LcdClearBit(LCD_RW);           // Select the Write Operation  by pulling RW LOW
+ 102:	96 98       	cbi	0x12, 6	; 18
+#endif
+	M_LcdSetBit(LCD_EN);             // Send a High-to-Low Pusle at Enable Pin
+ 104:	97 9a       	sbi	0x12, 7	; 18
+ 106:	84 e2       	ldi	r24, 0x24	; 36
+ 108:	8a 95       	dec	r24
+ 10a:	f1 f7       	brne	.-4      	; 0x108 <lcd_SendCmdSignals+0x8>
+	DELAY_us(10);
+	M_LcdClearBit(LCD_EN);
+ 10c:	97 98       	cbi	0x12, 7	; 18
+}
+ 10e:	08 95       	ret
+
+00000110 <LCD_CmdWrite>:
+                Some of the commonly used commands are defined in lcd.h.
+                For more commands refer the data sheet and send the supported command.				
+				The behaviour is undefined if unsupported commands are sent.    
+ ***************************************************************************************************/
+void LCD_CmdWrite( uint8_t var_lcdCmd_u8)
+{
+ 110:	1f 93       	push	r17
+ 112:	18 2f       	mov	r17, r24
+	lcd_BusyCheck();
+ 114:	0e 94 49 00 	call	0x92	; 0x92 <lcd_BusyCheck>
+	if(STK_LCDConfig.mvar_LcdMode_U8 == M_EightBitMode)
+ 118:	80 91 c2 00 	lds	r24, 0x00C2
+ 11c:	88 30       	cpi	r24, 0x08	; 8
+ 11e:	11 f4       	brne	.+4      	; 0x124 <LCD_CmdWrite+0x14>
+	{
+
+		M_LcdDataBus = var_lcdCmd_u8;     // Send the complete command if the selected mode is 8-bit
+ 120:	15 bb       	out	0x15, r17	; 21
+ 122:	0c c0       	rjmp	.+24     	; 0x13c <LCD_CmdWrite+0x2c>
+		lcd_SendCmdSignals();  // Signals for command write operation
+	}
+	else if(STK_LCDConfig.mvar_LcdMode_U8 == M_FourBitMode)
+ 124:	84 30       	cpi	r24, 0x04	; 4
+ 126:	61 f4       	brne	.+24     	; 0x140 <LCD_CmdWrite+0x30>
+	{
+		lcd_SendNibble(var_lcdCmd_u8);  // Send the command in two nibbles as the selected mode is 4-bit
+ 128:	81 2f       	mov	r24, r17
+ 12a:	0e 94 66 00 	call	0xcc	; 0xcc <lcd_SendNibble>
+		lcd_SendCmdSignals(); // Signals for command write operation
+ 12e:	0e 94 80 00 	call	0x100	; 0x100 <lcd_SendCmdSignals>
+
+		lcd_SendNibble(var_lcdCmd_u8 << 4);
+ 132:	81 2f       	mov	r24, r17
+ 134:	82 95       	swap	r24
+ 136:	80 7f       	andi	r24, 0xF0	; 240
+ 138:	0e 94 66 00 	call	0xcc	; 0xcc <lcd_SendNibble>
+		lcd_SendCmdSignals();
+ 13c:	0e 94 80 00 	call	0x100	; 0x100 <lcd_SendCmdSignals>
+	}
+}
+ 140:	1f 91       	pop	r17
+ 142:	08 95       	ret
+
+00000144 <LCD_GoToNextLine>:
+ ***************************************************************************************************/
+void  LCD_GoToNextLine()
+{
+	/*Increment the current line number.
+	  In case it exceeds the limit, rool it back to first line */
+	VAR_LcdTrackLineNum_U8++;
+ 144:	80 91 bf 00 	lds	r24, 0x00BF
+ 148:	8f 5f       	subi	r24, 0xFF	; 255
+ 14a:	80 93 bf 00 	sts	0x00BF, r24
+	VAR_LcdTrackCursorPos_U8 = 0x00;
+ 14e:	10 92 be 00 	sts	0x00BE, r1
+	if(VAR_LcdTrackLineNum_U8 > STK_LCDConfig.mvar_MaxSupportedLines_U8)
+ 152:	90 91 c0 00 	lds	r25, 0x00C0
+ 156:	98 17       	cp	r25, r24
+ 158:	18 f4       	brcc	.+6      	; 0x160 <LCD_GoToNextLine+0x1c>
+		VAR_LcdTrackLineNum_U8 = 0x01;
+ 15a:	81 e0       	ldi	r24, 0x01	; 1
+ 15c:	80 93 bf 00 	sts	0x00BF, r24
+	LCD_CmdWrite(ARR_LcdLineNumAddress_U8[VAR_LcdTrackLineNum_U8]);
+ 160:	e0 91 bf 00 	lds	r30, 0x00BF
+ 164:	f0 e0       	ldi	r31, 0x00	; 0
+ 166:	e0 5a       	subi	r30, 0xA0	; 160
+ 168:	ff 4f       	sbci	r31, 0xFF	; 255
+ 16a:	80 81       	ld	r24, Z
+ 16c:	0e 94 88 00 	call	0x110	; 0x110 <LCD_CmdWrite>
+}
+ 170:	08 95       	ret
+
+00000172 <LCD_GoToLine>:
+           mENUM_LcdLineTwo,
+           mENUM_LcdLineThree,
+           mENUM_LcdLineFour,
+ ***************************************************************************************************/
+void LCD_GoToLine(uint8_t var_lineNumber_u8)
+{
+ 172:	e8 2f       	mov	r30, r24
+	if(var_lineNumber_u8 <= STK_LCDConfig.mvar_MaxSupportedLines_U8)
+ 174:	80 91 c0 00 	lds	r24, 0x00C0
+ 178:	8e 17       	cp	r24, r30
+ 17a:	50 f0       	brcs	.+20     	; 0x190 <LCD_GoToLine+0x1e>
+	{
+		/* If the line number is within range then
+	       Move the Cursor to beginning of the specified line */
+		VAR_LcdTrackCursorPos_U8 = 0x00;
+ 17c:	10 92 be 00 	sts	0x00BE, r1
+		VAR_LcdTrackLineNum_U8 = var_lineNumber_u8;
+ 180:	e0 93 bf 00 	sts	0x00BF, r30
+		LCD_CmdWrite(ARR_LcdLineNumAddress_U8[var_lineNumber_u8]);
+ 184:	f0 e0       	ldi	r31, 0x00	; 0
+ 186:	e0 5a       	subi	r30, 0xA0	; 160
+ 188:	ff 4f       	sbci	r31, 0xFF	; 255
+ 18a:	80 81       	ld	r24, Z
+ 18c:	0e 94 88 00 	call	0x110	; 0x110 <LCD_CmdWrite>
+ 190:	08 95       	ret
+
+00000192 <LCD_Clear>:
+
+ * description  :This function clears the LCD and moves the cursor to beginning of first line
+ ***************************************************************************************************/
+void LCD_Clear()
+{
+	LCD_CmdWrite(CMD_LCD_CLEAR);	// Clear the LCD and go to First line First Position
+ 192:	81 e0       	ldi	r24, 0x01	; 1
+ 194:	0e 94 88 00 	call	0x110	; 0x110 <LCD_CmdWrite>
+	LCD_GoToLine(mENUM_LcdLineOne);
+ 198:	81 e0       	ldi	r24, 0x01	; 1
+ 19a:	0e 94 b9 00 	call	0x172	; 0x172 <LCD_GoToLine>
+}
+ 19e:	08 95       	ret
+
+000001a0 <LCD_Init>:
+
+ * description  :This function is used to initialize the lcd.
+                 *It initializes the LCD for selected mode(4/8-bit) and Type(16x2/16x1 etc)
+**************************************************************************************************/
+void LCD_Init(uint8_t var_lcdMode_u8, uint8_t var_lcdNoOfLines_u8, uint8_t var_MaxCharsPerLine_u8)
+{
+ 1a0:	0f 93       	push	r16
+ 1a2:	1f 93       	push	r17
+ 1a4:	58 2f       	mov	r21, r24
+
+
+	M_LcdDataBusDirection = C_PortOutput_U8;     //Configure the Data Bus as output
+ 1a6:	8f ef       	ldi	r24, 0xFF	; 255
+ 1a8:	84 bb       	out	0x14, r24	; 20
+	M_LcdControlBusDirection = C_PortOutput_U8;  //Configure the Control Bus as output
+ 1aa:	81 bb       	out	0x11, r24	; 17
+	STK_LCDConfig.mvar_LcdMode_U8 = var_lcdMode_u8;      // Keep the track of selected Mode(4/8 bit)
+ 1ac:	50 93 c2 00 	sts	0x00C2, r21
+	STK_LCDConfig.mvar_MaxSupportedChars_U8 = var_MaxCharsPerLine_u8; //Keep the LCD type
+ 1b0:	40 93 c1 00 	sts	0x00C1, r20
+	STK_LCDConfig.mvar_MaxSupportedLines_U8 = var_lcdNoOfLines_u8;
+ 1b4:	60 93 c0 00 	sts	0x00C0, r22
+	if(var_lcdNoOfLines_u8 > mENUM_LcdLineTwo)
+ 1b8:	63 30       	cpi	r22, 0x03	; 3
+ 1ba:	40 f0       	brcs	.+16     	; 0x1cc <LCD_Init+0x2c>
+	{
+		ARR_LcdLineNumAddress_U8[mENUM_LcdLineThree] =  0x90 + (var_MaxCharsPerLine_u8 & 0x0fu);
+ 1bc:	84 2f       	mov	r24, r20
+ 1be:	8f 70       	andi	r24, 0x0F	; 15
+ 1c0:	80 57       	subi	r24, 0x70	; 112
+ 1c2:	80 93 63 00 	sts	0x0063, r24
+		ARR_LcdLineNumAddress_U8[mENUM_LcdLineFour] =  0xd0 + (var_MaxCharsPerLine_u8 & 0x0fu);
+ 1c6:	80 5c       	subi	r24, 0xC0	; 192
+ 1c8:	80 93 64 00 	sts	0x0064, r24
+ 1cc:	88 ee       	ldi	r24, 0xE8	; 232
+ 1ce:	93 e0       	ldi	r25, 0x03	; 3
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+ 1d0:	24 e1       	ldi	r18, 0x14	; 20
+ 1d2:	31 e0       	ldi	r19, 0x01	; 1
+ 1d4:	f9 01       	movw	r30, r18
+ 1d6:	31 97       	sbiw	r30, 0x01	; 1
+ 1d8:	f1 f7       	brne	.-4      	; 0x1d6 <LCD_Init+0x36>
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 1da:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 1dc:	d9 f7       	brne	.-10     	; 0x1d4 <LCD_Init+0x34>
+	}
+
+	DELAY_ms(100);
+
+	if(STK_LCDConfig.mvar_LcdMode_U8 == M_EightBitMode)
+ 1de:	58 30       	cpi	r21, 0x08	; 8
+ 1e0:	11 f4       	brne	.+4      	; 0x1e6 <LCD_Init+0x46>
+	{
+		LCD_CmdWrite(CMD_LCD_EIGHT_BIT_MODE); // Initialize the LCD for 8-bit 5x7 matrix type
+ 1e2:	88 e3       	ldi	r24, 0x38	; 56
+ 1e4:	2b c0       	rjmp	.+86     	; 0x23c <LCD_Init+0x9c>
+	}
+	else if(STK_LCDConfig.mvar_LcdMode_U8 == M_FourBitMode)
+ 1e6:	54 30       	cpi	r21, 0x04	; 4
+ 1e8:	59 f5       	brne	.+86     	; 0x240 <LCD_Init+0xa0>
+                 This is used only in 4-bit mode as the LCD by default boots in 8-Bit mode.
+----------------------------------------------------------------------------------*/
+static void lcd_Reset()
+{
+	/* LCD reset sequence for 4-bit mode, refer data sheet for more info */
+	lcd_SendNibble(0x30);
+ 1ea:	80 e3       	ldi	r24, 0x30	; 48
+ 1ec:	0e 94 66 00 	call	0xcc	; 0xcc <lcd_SendNibble>
+	lcd_SendCmdSignals();
+ 1f0:	0e 94 80 00 	call	0x100	; 0x100 <lcd_SendCmdSignals>
+ 1f4:	88 ee       	ldi	r24, 0xE8	; 232
+ 1f6:	93 e0       	ldi	r25, 0x03	; 3
+ 1f8:	24 e1       	ldi	r18, 0x14	; 20
+ 1fa:	31 e0       	ldi	r19, 0x01	; 1
+ 1fc:	f9 01       	movw	r30, r18
+ 1fe:	31 97       	sbiw	r30, 0x01	; 1
+ 200:	f1 f7       	brne	.-4      	; 0x1fe <LCD_Init+0x5e>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 202:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 204:	d9 f7       	brne	.-10     	; 0x1fc <LCD_Init+0x5c>
+	DELAY_ms(100);
+	lcd_SendNibble(0x30);
+ 206:	80 e3       	ldi	r24, 0x30	; 48
+ 208:	0e 94 66 00 	call	0xcc	; 0xcc <lcd_SendNibble>
+	lcd_SendCmdSignals();
+ 20c:	0e 94 80 00 	call	0x100	; 0x100 <lcd_SendCmdSignals>
+ 210:	08 e2       	ldi	r16, 0x28	; 40
+ 212:	12 e0       	ldi	r17, 0x02	; 2
+ 214:	c8 01       	movw	r24, r16
+ 216:	01 97       	sbiw	r24, 0x01	; 1
+ 218:	f1 f7       	brne	.-4      	; 0x216 <LCD_Init+0x76>
+	DELAY_us(200);
+	lcd_SendNibble(0x30);
+ 21a:	80 e3       	ldi	r24, 0x30	; 48
+ 21c:	0e 94 66 00 	call	0xcc	; 0xcc <lcd_SendNibble>
+	lcd_SendCmdSignals();
+ 220:	0e 94 80 00 	call	0x100	; 0x100 <lcd_SendCmdSignals>
+ 224:	c8 01       	movw	r24, r16
+ 226:	01 97       	sbiw	r24, 0x01	; 1
+ 228:	f1 f7       	brne	.-4      	; 0x226 <LCD_Init+0x86>
+	DELAY_us(200);
+	lcd_SendNibble(0x20);
+ 22a:	80 e2       	ldi	r24, 0x20	; 32
+ 22c:	0e 94 66 00 	call	0xcc	; 0xcc <lcd_SendNibble>
+	lcd_SendCmdSignals();
+ 230:	0e 94 80 00 	call	0x100	; 0x100 <lcd_SendCmdSignals>
+ 234:	c8 01       	movw	r24, r16
+ 236:	01 97       	sbiw	r24, 0x01	; 1
+ 238:	f1 f7       	brne	.-4      	; 0x236 <LCD_Init+0x96>
+		LCD_CmdWrite(CMD_LCD_EIGHT_BIT_MODE); // Initialize the LCD for 8-bit 5x7 matrix type
+	}
+	else if(STK_LCDConfig.mvar_LcdMode_U8 == M_FourBitMode)
+	{
+		lcd_Reset();
+		LCD_CmdWrite(CMD_LCD_FOUR_BIT_MODE); // Initialize the LCD for 4-bit 5x7 matrix type 
+ 23a:	88 e2       	ldi	r24, 0x28	; 40
+ 23c:	0e 94 88 00 	call	0x110	; 0x110 <LCD_CmdWrite>
+	}
+
+	LCD_CmdWrite(CMD_DISPLAY_ON_CURSOR_ON);	 // Display ON cursor ON
+ 240:	8e e0       	ldi	r24, 0x0E	; 14
+ 242:	0e 94 88 00 	call	0x110	; 0x110 <LCD_CmdWrite>
+	LCD_Clear();	                         // Clear the LCD and go to First line First Position
+ 246:	0e 94 c9 00 	call	0x192	; 0x192 <LCD_Clear>
+}
+ 24a:	1f 91       	pop	r17
+ 24c:	0f 91       	pop	r16
+ 24e:	08 95       	ret
+
+00000250 <lcd_SendDataSignals>:
+
+ * description : This functions generates the signals for sending the Data to LCD
+ *************************************************************************************************/
+static void lcd_SendDataSignals()
+{
+	M_LcdSetBit(LCD_RS); 			// Select the Data Register by pulling RS HIGH
+ 250:	95 9a       	sbi	0x12, 5	; 18
+#ifdef LCD_RW
+	M_LcdClearBit(LCD_RW);          // Select the Write Operation  by pulling RW LOW
+ 252:	96 98       	cbi	0x12, 6	; 18
+#endif
+	M_LcdSetBit(LCD_EN);            // Send a High-to-Low Pusle at Enable Pin
+ 254:	97 9a       	sbi	0x12, 7	; 18
+    can be achieved.
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+ 256:	84 e2       	ldi	r24, 0x24	; 36
+ 258:	8a 95       	dec	r24
+ 25a:	f1 f7       	brne	.-4      	; 0x258 <lcd_SendDataSignals+0x8>
+	DELAY_us(10);
+	M_LcdClearBit(LCD_EN);
+ 25c:	97 98       	cbi	0x12, 7	; 18
+}
+ 25e:	08 95       	ret
+
+00000260 <LCD_DisplayChar>:
+ * description  : This function sends a character to be displayed on LCD.
+                  Any valid ascii value can be passed to display respective character
+
+ ***************************************************************************************************/
+void LCD_DisplayChar(char var_lcdData_u8)
+{
+ 260:	1f 93       	push	r17
+ 262:	18 2f       	mov	r17, r24
+	if((VAR_LcdTrackCursorPos_U8>=STK_LCDConfig.mvar_MaxSupportedChars_U8) || (var_lcdData_u8=='\n'))
+ 264:	90 91 be 00 	lds	r25, 0x00BE
+ 268:	80 91 c1 00 	lds	r24, 0x00C1
+ 26c:	98 17       	cp	r25, r24
+ 26e:	10 f4       	brcc	.+4      	; 0x274 <LCD_DisplayChar+0x14>
+ 270:	1a 30       	cpi	r17, 0x0A	; 10
+ 272:	21 f4       	brne	.+8      	; 0x27c <LCD_DisplayChar+0x1c>
+	{
+		/* If the cursor has reached to end of line on page1
+		OR NewLine command is issued Then Move the cursor to next line */
+		LCD_GoToNextLine();
+ 274:	0e 94 a2 00 	call	0x144	; 0x144 <LCD_GoToNextLine>
+	}
+	if(var_lcdData_u8!='\n') /* Display the character if its not newLine Char */
+ 278:	1a 30       	cpi	r17, 0x0A	; 10
+ 27a:	d9 f0       	breq	.+54     	; 0x2b2 <LCD_DisplayChar+0x52>
+
+ * description : This functions is used to send a byte of data to LCD.                 .    
+ *************************************************************************************************/
+static void lcd_DataWrite( uint8_t dat)
+{
+	lcd_BusyCheck();
+ 27c:	0e 94 49 00 	call	0x92	; 0x92 <lcd_BusyCheck>
+	if(STK_LCDConfig.mvar_LcdMode_U8 == M_EightBitMode)
+ 280:	80 91 c2 00 	lds	r24, 0x00C2
+ 284:	88 30       	cpi	r24, 0x08	; 8
+ 286:	11 f4       	brne	.+4      	; 0x28c <LCD_DisplayChar+0x2c>
+	{
+		M_LcdDataBus = dat;      // Send the complete data byte if the selected mode is 8-bit
+ 288:	15 bb       	out	0x15, r17	; 21
+ 28a:	0c c0       	rjmp	.+24     	; 0x2a4 <LCD_DisplayChar+0x44>
+		lcd_SendDataSignals();  // Signals for data write operation
+	}
+	else if(STK_LCDConfig.mvar_LcdMode_U8 == M_FourBitMode)
+ 28c:	84 30       	cpi	r24, 0x04	; 4
+ 28e:	61 f4       	brne	.+24     	; 0x2a8 <LCD_DisplayChar+0x48>
+	{
+		lcd_SendNibble(dat);    // Send the data in two nibbles as the selected mode is 4-bit
+ 290:	81 2f       	mov	r24, r17
+ 292:	0e 94 66 00 	call	0xcc	; 0xcc <lcd_SendNibble>
+		lcd_SendDataSignals();  // Signals for data write operation
+ 296:	0e 94 28 01 	call	0x250	; 0x250 <lcd_SendDataSignals>
+
+		lcd_SendNibble(dat << 4);
+ 29a:	81 2f       	mov	r24, r17
+ 29c:	82 95       	swap	r24
+ 29e:	80 7f       	andi	r24, 0xF0	; 240
+ 2a0:	0e 94 66 00 	call	0xcc	; 0xcc <lcd_SendNibble>
+		lcd_SendDataSignals();
+ 2a4:	0e 94 28 01 	call	0x250	; 0x250 <lcd_SendDataSignals>
+	}
+	if(var_lcdData_u8!='\n') /* Display the character if its not newLine Char */
+	{
+
+		lcd_DataWrite(var_lcdData_u8); /* Display the data and keep track of cursor */
+		VAR_LcdTrackCursorPos_U8++;
+ 2a8:	80 91 be 00 	lds	r24, 0x00BE
+ 2ac:	8f 5f       	subi	r24, 0xFF	; 255
+ 2ae:	80 93 be 00 	sts	0x00BE, r24
+	}
+}
+ 2b2:	1f 91       	pop	r17
+ 2b4:	08 95       	ret
+
+000002b6 <LCD_ScrollMessage>:
+                 If the specified line number is out of range then the message
+				 will be scrolled on first line
+ ***************************************************************************************************/
+#if ( Enable_LCD_ScrollMessage  == 1 )
+void LCD_ScrollMessage(uint8_t var_lineNumber_u8, char *ptr_msgPointer_u8)
+{
+ 2b6:	af 92       	push	r10
+ 2b8:	bf 92       	push	r11
+ 2ba:	cf 92       	push	r12
+ 2bc:	df 92       	push	r13
+ 2be:	ff 92       	push	r15
+ 2c0:	0f 93       	push	r16
+ 2c2:	1f 93       	push	r17
+ 2c4:	cf 93       	push	r28
+ 2c6:	df 93       	push	r29
+ 2c8:	f8 2e       	mov	r15, r24
+ 2ca:	6b 01       	movw	r12, r22
+	unsigned char i,j;
+
+
+	if(var_lineNumber_u8 > STK_LCDConfig.mvar_MaxSupportedLines_U8)
+ 2cc:	80 91 c0 00 	lds	r24, 0x00C0
+ 2d0:	8f 15       	cp	r24, r15
+ 2d2:	10 f4       	brcc	.+4      	; 0x2d8 <LCD_ScrollMessage+0x22>
+ 2d4:	ff 24       	eor	r15, r15
+ 2d6:	f3 94       	inc	r15
+		var_lineNumber_u8 = mENUM_LcdLineOne; // Select first line if the var_lineNumber_u8 is out of range
+
+	LCD_CmdWrite(CMD_DISPLAY_ON_CURSOR_OFF);			 //Disable the Cursor
+ 2d8:	8c e0       	ldi	r24, 0x0C	; 12
+ 2da:	0e 94 88 00 	call	0x110	; 0x110 <LCD_CmdWrite>
+ 2de:	00 e0       	ldi	r16, 0x00	; 0
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+ 2e0:	84 e1       	ldi	r24, 0x14	; 20
+ 2e2:	a8 2e       	mov	r10, r24
+ 2e4:	81 e0       	ldi	r24, 0x01	; 1
+ 2e6:	b8 2e       	mov	r11, r24
+ 2e8:	25 c0       	rjmp	.+74     	; 0x334 <LCD_ScrollMessage+0x7e>
+	{      
+		/* Loop to display the complete string,	each time 16 chars are displayed and
+		pointer is incremented to point to next char */
+
+
+		LCD_GoToLine(var_lineNumber_u8);     //Move the Cursor to first line
+ 2ea:	8f 2d       	mov	r24, r15
+ 2ec:	0e 94 b9 00 	call	0x172	; 0x172 <LCD_GoToLine>
+ 2f0:	10 e0       	ldi	r17, 0x00	; 0
+ 2f2:	03 c0       	rjmp	.+6      	; 0x2fa <LCD_ScrollMessage+0x44>
+
+		for(j=0;j<STK_LCDConfig.mvar_MaxSupportedChars_U8 && ptr_msgPointer_u8[i+j];j++)
+		{
+			//Display first 16 Chars or till Null char is reached
+			LCD_DisplayChar(ptr_msgPointer_u8[i+j]);
+ 2f4:	0e 94 30 01 	call	0x260	; 0x260 <LCD_DisplayChar>
+		pointer is incremented to point to next char */
+
+
+		LCD_GoToLine(var_lineNumber_u8);     //Move the Cursor to first line
+
+		for(j=0;j<STK_LCDConfig.mvar_MaxSupportedChars_U8 && ptr_msgPointer_u8[i+j];j++)
+ 2f8:	1f 5f       	subi	r17, 0xFF	; 255
+ 2fa:	80 91 c1 00 	lds	r24, 0x00C1
+ 2fe:	18 17       	cp	r17, r24
+ 300:	68 f4       	brcc	.+26     	; 0x31c <LCD_ScrollMessage+0x66>
+ 302:	f6 01       	movw	r30, r12
+ 304:	e1 0f       	add	r30, r17
+ 306:	f1 1d       	adc	r31, r1
+ 308:	ec 0f       	add	r30, r28
+ 30a:	fd 1f       	adc	r31, r29
+ 30c:	80 81       	ld	r24, Z
+ 30e:	88 23       	and	r24, r24
+ 310:	89 f7       	brne	.-30     	; 0x2f4 <LCD_ScrollMessage+0x3e>
+ 312:	04 c0       	rjmp	.+8      	; 0x31c <LCD_ScrollMessage+0x66>
+
+		while( j<STK_LCDConfig.mvar_MaxSupportedChars_U8)
+		{
+			/*If the chars to be scrolled are less than MaxLcdChars,
+			  then display remaining chars with blank spaces*/
+			LCD_DisplayChar(' ');
+ 314:	80 e2       	ldi	r24, 0x20	; 32
+ 316:	0e 94 30 01 	call	0x260	; 0x260 <LCD_DisplayChar>
+			j++;
+ 31a:	1f 5f       	subi	r17, 0xFF	; 255
+			//Display first 16 Chars or till Null char is reached
+			LCD_DisplayChar(ptr_msgPointer_u8[i+j]);
+		}
+
+
+		while( j<STK_LCDConfig.mvar_MaxSupportedChars_U8)
+ 31c:	80 91 c1 00 	lds	r24, 0x00C1
+ 320:	18 17       	cp	r17, r24
+ 322:	c0 f3       	brcs	.-16     	; 0x314 <LCD_ScrollMessage+0x5e>
+ 324:	82 ee       	ldi	r24, 0xE2	; 226
+ 326:	94 e0       	ldi	r25, 0x04	; 4
+ 328:	f5 01       	movw	r30, r10
+ 32a:	31 97       	sbiw	r30, 0x01	; 1
+ 32c:	f1 f7       	brne	.-4      	; 0x32a <LCD_ScrollMessage+0x74>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 32e:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 330:	d9 f7       	brne	.-10     	; 0x328 <LCD_ScrollMessage+0x72>
+	if(var_lineNumber_u8 > STK_LCDConfig.mvar_MaxSupportedLines_U8)
+		var_lineNumber_u8 = mENUM_LcdLineOne; // Select first line if the var_lineNumber_u8 is out of range
+
+	LCD_CmdWrite(CMD_DISPLAY_ON_CURSOR_OFF);			 //Disable the Cursor
+
+	for(i=0;ptr_msgPointer_u8[i];i++)
+ 332:	0f 5f       	subi	r16, 0xFF	; 255
+ 334:	c0 2f       	mov	r28, r16
+ 336:	d0 e0       	ldi	r29, 0x00	; 0
+ 338:	f6 01       	movw	r30, r12
+ 33a:	ec 0f       	add	r30, r28
+ 33c:	fd 1f       	adc	r31, r29
+ 33e:	80 81       	ld	r24, Z
+ 340:	88 23       	and	r24, r24
+ 342:	99 f6       	brne	.-90     	; 0x2ea <LCD_ScrollMessage+0x34>
+			j++;
+		}
+
+		DELAY_ms(125);
+	}
+	LCD_CmdWrite(CMD_DISPLAY_ON_CURSOR_ON);			  // Finally enable the Cursor
+ 344:	8e e0       	ldi	r24, 0x0E	; 14
+ 346:	0e 94 88 00 	call	0x110	; 0x110 <LCD_CmdWrite>
+}
+ 34a:	df 91       	pop	r29
+ 34c:	cf 91       	pop	r28
+ 34e:	1f 91       	pop	r17
+ 350:	0f 91       	pop	r16
+ 352:	ff 90       	pop	r15
+ 354:	df 90       	pop	r13
+ 356:	cf 90       	pop	r12
+ 358:	bf 90       	pop	r11
+ 35a:	af 90       	pop	r10
+ 35c:	08 95       	ret
+
+0000035e <main>:
+
+
+
+/* start the main program */
+void main()
+{
+ 35e:	0f 93       	push	r16
+ 360:	1f 93       	push	r17
+ 362:	df 93       	push	r29
+ 364:	cf 93       	push	r28
+ 366:	cd b7       	in	r28, 0x3d	; 61
+ 368:	de b7       	in	r29, 0x3e	; 62
+ 36a:	e2 97       	sbiw	r28, 0x32	; 50
+ 36c:	0f b6       	in	r0, 0x3f	; 63
+ 36e:	f8 94       	cli
+ 370:	de bf       	out	0x3e, r29	; 62
+ 372:	0f be       	out	0x3f, r0	; 63
+ 374:	cd bf       	out	0x3d, r28	; 61
+  char msg[]={"         hello world, welcome to AVR programming "};
+ 376:	de 01       	movw	r26, r28
+ 378:	11 96       	adiw	r26, 0x01	; 1
+ 37a:	eb e8       	ldi	r30, 0x8B	; 139
+ 37c:	f0 e0       	ldi	r31, 0x00	; 0
+ 37e:	82 e3       	ldi	r24, 0x32	; 50
+ 380:	01 90       	ld	r0, Z+
+ 382:	0d 92       	st	X+, r0
+ 384:	81 50       	subi	r24, 0x01	; 1
+ 386:	e1 f7       	brne	.-8      	; 0x380 <main+0x22>
+
+/* Initialize the lcd before displaying any thing on the lcd */
+LCD_Init(8,2,16);
+ 388:	88 e0       	ldi	r24, 0x08	; 8
+ 38a:	62 e0       	ldi	r22, 0x02	; 2
+ 38c:	40 e1       	ldi	r20, 0x10	; 16
+ 38e:	0e 94 d0 00 	call	0x1a0	; 0x1a0 <LCD_Init>
+
+while(1)
+{
+	/*scroll the message on line1 indefnitely*/
+	LCD_ScrollMessage(1,msg);
+ 392:	8e 01       	movw	r16, r28
+ 394:	0f 5f       	subi	r16, 0xFF	; 255
+ 396:	1f 4f       	sbci	r17, 0xFF	; 255
+ 398:	81 e0       	ldi	r24, 0x01	; 1
+ 39a:	b8 01       	movw	r22, r16
+ 39c:	0e 94 5b 01 	call	0x2b6	; 0x2b6 <LCD_ScrollMessage>
+
+	LCD_ScrollMessage(2,"          Enjoy embedded programming ");
+ 3a0:	82 e0       	ldi	r24, 0x02	; 2
+ 3a2:	65 e6       	ldi	r22, 0x65	; 101
+ 3a4:	70 e0       	ldi	r23, 0x00	; 0
+ 3a6:	0e 94 5b 01 	call	0x2b6	; 0x2b6 <LCD_ScrollMessage>
+ 3aa:	f6 cf       	rjmp	.-20     	; 0x398 <main+0x3a>
+
+000003ac <_exit>:
+ 3ac:	f8 94       	cli
+
+000003ae <__stop_program>:
+ 3ae:	ff cf       	rjmp	.-2      	; 0x3ae <__stop_program>

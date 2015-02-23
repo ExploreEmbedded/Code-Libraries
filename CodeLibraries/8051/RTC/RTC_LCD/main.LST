@@ -1,0 +1,73 @@
+C51 COMPILER V9.02   MAIN                                                                  02/11/2015 21:58:49 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*-----------------------------------------------------------------------------
+   2                   Program to demonstrate displaying of RTC on LCD
+   3            -----------------------------------------------------------------------------
+   4            note:
+   5            Refer lcd.c(lcd_4_bit.c/lcd_8_bit.c) file for Pin connections
+   6            Refer i2c.c for SDA and SCL connection.
+   7          ------------------------------------------------------------------------------*/
+   8          
+   9          
+  10          #include "lcd.h"        //User defined LCD library which contains the lcd routines
+  11          #include "rtc.h" //User defined library which contains the RTC(ds1307) routines
+  12          
+  13          
+  14          /* start the main program */
+  15          void main() 
+  16          {
+  17   1        
+  18   1         unsigned char sec,min,hour,day,month,year;
+  19   1      
+  20   1        /* Initialize the lcd before displaying any thing on the lcd */
+  21   1          LCD_Init(8,2,16);
+  22   1      
+  23   1        /* Initialize the RTC(ds1307) before reading or writing time/date */
+  24   1          RTC_Init();
+  25   1      
+  26   1      
+  27   1         /*##### Set the time and Date only once. Once the Time and Date is set, comment these lines
+  28   1               and reflash the code. Else the time will be set every time the controller is reset*/
+  29   1          RTC_SetTime(0x10,0x40,0x00);  //  10:40:20 am
+  30   1          RTC_SetDate(0x01,0x01,0x15);  //  1st Jan 2015
+  31   1      
+  32   1      
+  33   1      
+  34   1         /* Display the Time and Date continuously */ 
+  35   1         while(1)
+  36   1          {
+  37   2                      LCD_GoToLine(1);
+  38   2                 /* Read the Time from RTC(ds1307) */ 
+  39   2              RTC_GetTime(&hour,&min,&sec);    
+  40   2                      
+  41   2                 /* Read the Date from RTC(ds1307) */ 
+  42   2             RTC_GetDate(&day,&month,&year);                   
+  43   2              
+  44   2                 LCD_Printf("\n\rtime:%2x:%2x:%2x  \nDate:%2x/%2x/%2x",(uint16_t)hour,(uint16_t)min,(uint16_t)sec,(uint
+             -16_t)day,(uint16_t)month,(uint16_t)year);
+  45   2              }               
+  46   1      
+  47   1        }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    136    ----
+   CONSTANT SIZE    =     38    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+C51 COMPILER V9.02   MAIN                                                                  02/11/2015 21:58:49 PAGE 2   
+
+   DATA SIZE        =   ----       6
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

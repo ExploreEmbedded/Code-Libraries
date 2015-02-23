@@ -1,0 +1,7 @@
+"delay.obj",
+"eeprom.obj",
+"i2c.obj",
+"main.obj",
+"uart.obj" 
+TO "Eeprom_CharRdWr_Uart" 
+RAMSIZE(256) 

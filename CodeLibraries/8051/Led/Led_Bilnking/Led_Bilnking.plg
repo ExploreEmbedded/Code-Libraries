@@ -1,0 +1,45 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\work_space\updatedLib\8051\Led\Led_Bilnking\Led_Bilnking.uvproj
+Project File Date:  01/30/2015
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling Led_Blinking.c...
+delay.h(44): warning C318: can't open file 'stdutils.h'
+DELAY.H(55): error C141: syntax error near 'us_count', expected ')'
+DELAY.H(56): error C141: syntax error near 'ms_count', expected ')'
+DELAY.H(57): error C141: syntax error near 'var_delaySecCount_u16', expected ')'
+compiling delay.c...
+delay.h(44): warning C318: can't open file 'stdutils.h'
+DELAY.H(55): error C141: syntax error near 'us_count', expected ')'
+DELAY.H(56): error C141: syntax error near 'ms_count', expected ')'
+DELAY.H(57): error C141: syntax error near 'var_delaySecCount_u16', expected ')'
+DELAY.C(55): error C141: syntax error near 'us_count', expected ')'
+DELAY.C(57): error C202: 'us_count': undefined identifier
+DELAY.C(59): error C202: 'us_count': undefined identifier
+DELAY.C(76): error C141: syntax error near 'ms_count', expected ')'
+DELAY.C(78): error C202: 'ms_count': undefined identifier
+DELAY.C(81): error C202: 'ms_count': undefined identifier
+DELAY.C(102): error C141: syntax error near 'sec_count', expected ')'
+DELAY.C(106): error C202: 'sec_count': undefined identifier
+DELAY.C(109): error C202: 'sec_count': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling Led_Blinking.c...
+compiling delay.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+Program Size: data=9.0 xdata=0 code=109
+creating hex file from "Led_Bilnking"...
+"Led_Bilnking" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling Led_Blinking.c...
+linking...
+Program Size: data=9.0 xdata=0 code=109
+creating hex file from "Led_Bilnking"...
+"Led_Bilnking" - 0 Error(s), 0 Warning(s).

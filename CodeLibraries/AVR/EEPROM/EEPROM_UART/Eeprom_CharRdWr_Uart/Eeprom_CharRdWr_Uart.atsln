@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Eeprom_CharRdWr_Uart", "Eeprom_CharRdWr_Uart.cproj", "{1A375AA0-90BA-436F-8BAD-01E94910C4DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A375AA0-90BA-436F-8BAD-01E94910C4DF}.Debug|AVR.ActiveCfg = Debug|AVR
+		{1A375AA0-90BA-436F-8BAD-01E94910C4DF}.Debug|AVR.Build.0 = Debug|AVR
+		{1A375AA0-90BA-436F-8BAD-01E94910C4DF}.Release|AVR.ActiveCfg = Release|AVR
+		{1A375AA0-90BA-436F-8BAD-01E94910C4DF}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

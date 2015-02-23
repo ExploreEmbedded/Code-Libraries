@@ -1,0 +1,5 @@
+"main.obj",
+"uart.obj",
+"delay.obj" 
+TO "serial_counter" 
+RAMSIZE(256) 

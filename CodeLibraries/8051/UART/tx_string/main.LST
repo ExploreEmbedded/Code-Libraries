@@ -1,0 +1,49 @@
+C51 COMPILER V9.02   MAIN                                                                  02/01/2015 18:52:04 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*-----------------------------------------------------------------------------
+   2            Program to demonstrate transmission of String at 9600 baudrate
+   3            -----------------------------------------------------------------------------
+   4            note:
+   5            Refer uart.h for baud rate configuraton.
+   6          ------------------------------------------------------------------------------*/
+   7          
+   8          #include "uart.h"       //User defined UART library which conatins the uart routines
+   9          
+  10          
+  11          /* start the main program */
+  12          void main() 
+  13          {
+  14   1               char msg[]={"hello world, "};
+  15   1      
+  16   1        /* Initilize the UART before Transmitting/Receiving any data */
+  17   1          UART_Init(9600);
+  18   1      
+  19   1         while(1)
+  20   1          {
+  21   2                  /*Transmit a string indefinitely at 9600 baud rate */
+  22   2                   UART_TxString(msg); 
+  23   2               UART_TxString("welcome to 8051 programming\n\r"); 
+  24   2                }        
+  25   1      
+  26   1        }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     50    ----
+   CONSTANT SIZE    =     44    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      14
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

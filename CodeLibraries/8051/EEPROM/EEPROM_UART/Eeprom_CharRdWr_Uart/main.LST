@@ -1,0 +1,61 @@
+C51 COMPILER V9.02   MAIN                                                                  02/01/2015 19:04:22 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*-----------------------------------------------------------------------------
+   2                   Program to demonstrate Eeprom char Read Write on UART 
+   3            -----------------------------------------------------------------------------
+   4            note:
+   5            Refer Uart.c for baudrate configuration.
+   6            Refer i2c.c for SDA and SCL connection.
+   7          ------------------------------------------------------------------------------*/
+   8          
+   9          
+  10          /* Reg51.h contains the defnition of all ports and SFRs */
+  11          #include <reg51.h> 
+  12          
+  13          #include "uart.h"       //User defined UART library which conatins the UART routines
+  14          #include "eeprom.h" //User defined library which conatins eeprom(At2404) routines
+  15          
+  16          
+  17          /* start the main program */
+  18          void main() 
+  19          {
+  20   1         unsigned char eeprom_address=0x00, write_char = 'X', read_char;
+  21   1      
+  22   1        /* Initilize the Uart before Transmiting/Reaceiving any data */
+  23   1          UART_Init(9600);                                                                                              
+  24   1       
+  25   1         while(1)
+  26   1          {
+  27   2                         UART_TxString("\n\rEeprom Write: ");      //Print the message on UART
+  28   2                         UART_TxChar(write_char);                              //Print the char to be written 
+  29   2                         EEPROM_WriteByte(eeprom_address,write_char); // Write the data at memoryLocation     0x00
+  30   2      
+  31   2                         
+  32   2                         UART_TxString("  Eeprom Read: ");            //Print the message on UART
+  33   2                         read_char = EEPROM_ReadByte(eeprom_address); // Read the data from memoryLocation 0x00
+  34   2                         UART_TxChar(read_char);                                  //Print the read data 
+  35   2      
+  36   2                }             
+  37   1      
+  38   1        }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     61    ----
+   CONSTANT SIZE    =     33    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

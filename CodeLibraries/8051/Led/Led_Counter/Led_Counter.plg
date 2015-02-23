@@ -1,0 +1,16 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\work_space\updatedLib\8051\Led\Led_Counter\Led_Counter.uvproj
+Project File Date:  10/14/2012
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling delay.c...
+compiling Led_Counter.c...
+linking...
+Program Size: data=10.0 xdata=0 code=99
+creating hex file from "Led_Counter"...
+"Led_Counter" - 0 Error(s), 0 Warning(s).

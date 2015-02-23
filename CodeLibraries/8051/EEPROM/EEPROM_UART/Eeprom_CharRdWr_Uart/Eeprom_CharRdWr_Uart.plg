@@ -1,0 +1,51 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\work_space\updatedLib\8051\EEPROM\EEPROM_UART\Eeprom_CharRdWr_Uart\Eeprom_CharRdWr_Uart.uvproj
+Project File Date:  12/20/2012
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling delay.c...
+compiling eeprom.c...
+EEPROM.C(98): warning C280: 'var_eepromHigherAddress_u8': unreferenced local variable
+EEPROM.C(182): warning C280: 'var_eepromHigherAddress_u8': unreferenced local variable
+compiling i2c.c...
+compiling main.c...
+compiling uart.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=19.0 xdata=0 code=965
+creating hex file from "Eeprom_CharRdWr_Uart"...
+"Eeprom_CharRdWr_Uart" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=19.0 xdata=0 code=966
+creating hex file from "Eeprom_CharRdWr_Uart"...
+"Eeprom_CharRdWr_Uart" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_SEC?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?UART_RXCHAR?UART
+Program Size: data=19.0 xdata=0 code=966
+creating hex file from "Eeprom_CharRdWr_Uart"...
+"Eeprom_CharRdWr_Uart" - 0 Error(s), 3 Warning(s).

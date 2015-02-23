@@ -1,0 +1,125 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\work_space\updatedLib\8051\EEPROM\EEPROM_LCD\EEPROM_NumberRdWr_LCD\EEPROM_NumberRdWr_LCD.uvproj
+Project File Date:  01/30/2015
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(24): warning C206: 'DELAY_sec': missing function-prototype
+MAIN.C(24): error C267: 'DELAY_sec': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(29): error C214: illegal pointer conversion
+Target not created
+Build target 'Target 1'
+compiling eeprom.c...
+EEPROM.C(98): warning C280: 'var_eepromHigherAddress_u8': unreferenced local variable
+EEPROM.C(182): warning C280: 'var_eepromHigherAddress_u8': unreferenced local variable
+compiling main.c...
+MAIN.C(29): warning C182: pointer to different objects
+MAIN.C(32): warning C182: pointer to different objects
+MAIN.C(19): warning C280: 'var_readNumber_u32': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _LCD_PRINTF
+    MODULE:  main.obj (MAIN)
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  ?_LCD_PRINTF?BYTE
+    MODULE:  main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?_LCD_PRINTF?BYTE
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 08F9H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?_LCD_PRINTF?BYTE
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 08FCH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _LCD_PRINTF
+    MODULE:  main.obj (MAIN)
+    ADDRESS: 08FEH
+Program Size: data=45.0 xdata=0 code=1312
+"EEPROM_NumberRdWr_LCD" - 0 Error(s), 11 Warning(s).
+Build target 'Target 1'
+compiling lcd.c...
+compiling main.c...
+MAIN.C(29): warning C182: pointer to different objects
+MAIN.C(32): warning C182: pointer to different objects
+MAIN.C(19): warning C280: 'var_readNumber_u32': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+Program Size: data=92.0 xdata=0 code=2489
+"EEPROM_NumberRdWr_LCD" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling delay.c...
+compiling eeprom.c...
+EEPROM.C(98): warning C280: 'var_eepromHigherAddress_u8': unreferenced local variable
+EEPROM.C(182): warning C280: 'var_eepromHigherAddress_u8': unreferenced local variable
+compiling i2c.c...
+compiling lcd.c...
+compiling main.c...
+MAIN.C(29): warning C182: pointer to different objects
+MAIN.C(32): warning C182: pointer to different objects
+MAIN.C(19): warning C280: 'var_readNumber_u32': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+Program Size: data=92.0 xdata=0 code=2489
+creating hex file from "EEPROM_NumberRdWr_LCD"...
+"EEPROM_NumberRdWr_LCD" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(29): warning C182: pointer to different objects
+MAIN.C(32): warning C182: pointer to different objects
+MAIN.C(43): warning C182: pointer to different objects
+MAIN.C(46): warning C182: pointer to different objects
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+Program Size: data=92.0 xdata=0 code=2602
+creating hex file from "EEPROM_NumberRdWr_LCD"...
+"EEPROM_NumberRdWr_LCD" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(29): warning C182: pointer to different objects
+MAIN.C(32): warning C182: pointer to different objects
+MAIN.C(43): warning C182: pointer to different objects
+MAIN.C(46): warning C182: pointer to different objects
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+Program Size: data=92.0 xdata=0 code=2606
+creating hex file from "EEPROM_NumberRdWr_LCD"...
+"EEPROM_NumberRdWr_LCD" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(29): warning C182: pointer to different objects
+MAIN.C(32): warning C182: pointer to different objects
+MAIN.C(43): warning C182: pointer to different objects
+MAIN.C(46): warning C182: pointer to different objects
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+Program Size: data=92.0 xdata=0 code=2622
+creating hex file from "EEPROM_NumberRdWr_LCD"...
+"EEPROM_NumberRdWr_LCD" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(29): warning C182: pointer to different objects
+MAIN.C(32): warning C182: pointer to different objects
+MAIN.C(43): warning C182: pointer to different objects
+MAIN.C(46): warning C182: pointer to different objects
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_INIT?I2C
+Program Size: data=92.0 xdata=0 code=2622
+creating hex file from "EEPROM_NumberRdWr_LCD"...
+"EEPROM_NumberRdWr_LCD" - 0 Error(s), 5 Warning(s).

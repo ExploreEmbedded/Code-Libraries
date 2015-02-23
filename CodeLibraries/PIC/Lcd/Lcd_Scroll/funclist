@@ -1,0 +1,20 @@
+_LCD_Init: CODE, 1704 0 79
+_DELAY_ms: CODE, 1230 0 20
+__stringtab: STRING, 3 0 16
+__stringdata: STRING, 19 0 38
+_lcd_SendCmdSignals: CODE, 1315 0 25
+_main: CODE, 1567 0 58
+_LCD_CmdWrite: CODE, 1459 0 54
+_LCD_ScrollMessage: CODE, 1867 0 150
+__initialization: CODE, 2017 0 27
+_LCD_Clear: CODE, 1202 0 11
+_DELAY_us: CODE, 1191 0 11
+_LCD_GoToLine: CODE, 1250 0 21
+_lcd_BusyCheck: CODE, 1783 0 84
+_LCD_GoToNextLine: CODE, 1271 0 22
+_lcd_SendNibble: CODE, 1371 0 38
+_lcd_Reset: CODE, 1625 0 79
+_lcd_DataWrite: CODE, 1513 0 54
+_LCD_DisplayChar: CODE, 1340 0 31
+_lcd_SendDataSignals: CODE, 1293 0 22
+Total: 840
