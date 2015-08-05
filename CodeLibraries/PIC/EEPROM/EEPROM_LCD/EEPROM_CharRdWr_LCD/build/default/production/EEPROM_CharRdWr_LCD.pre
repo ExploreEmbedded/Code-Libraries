@@ -1,7 +1,7 @@
 
 # 1 "EEPROM_CharRdWr_LCD.c"
 
-# 47 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h"
+# 47 "C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h"
 extern volatile unsigned char INDF @ 0x000;
 
 asm("INDF equ 00h");

@@ -1,19 +1,19 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"268 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
+"268 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
 [v _PORTC `Vuc ~T0 @X0 0 e@7 ]
 "207
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "56 delay.h
 [v _DELAY_ms `(v ~T0 @X0 0 ef1`ui ]
 [p mainexit ]
-"1335 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
+"1335 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
 "1396
 [v _TRISC `Vuc ~T0 @X0 0 e@135 ]
 "57 delay.h
 [v _DELAY_sec `(v ~T0 @X0 0 ef1`ui ]
 [; ;pic16f877a.h: 47: extern volatile unsigned char INDF @ 0x000;
-"49 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
+"49 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
 [; ;pic16f877a.h: 49: asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
 [; ;pic16f877a.h: 53: extern volatile unsigned char TMR0 @ 0x001;
@@ -1055,11 +1055,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "26
 [v _i `uc ~T0 @X0 1 a ]
 [; ;main.c: 26: unsigned char i;
-[; ;main.c: 28: for(i=0;i<50;i++)
+[; ;main.c: 28: for(i=0;i<200;i++)
 "28
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 50 `i 97  ]
+[e $ < -> _i `i -> 200 `i 97  ]
 [e $U 98  ]
 "29
 [e :U 97 ]
@@ -1071,41 +1071,41 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 31: PORTB = seg_code[0];
 "31
 [e = _PORTB *U + _seg_code * -> -> 0 `i `x -> -> # *U _seg_code `i `x ]
-[; ;main.c: 32: DELAY_ms(10);
+[; ;main.c: 32: DELAY_ms(1);
 "32
-[e ( _DELAY_ms (1 -> -> 10 `i `ui ]
+[e ( _DELAY_ms (1 -> -> 1 `i `ui ]
 [; ;main.c: 34: PORTC=0x02;
 "34
 [e = _PORTC -> -> 2 `i `uc ]
 [; ;main.c: 35: PORTB = seg_code[1];
 "35
 [e = _PORTB *U + _seg_code * -> -> 1 `i `x -> -> # *U _seg_code `i `x ]
-[; ;main.c: 36: DELAY_ms(10);
+[; ;main.c: 36: DELAY_ms(1);
 "36
-[e ( _DELAY_ms (1 -> -> 10 `i `ui ]
+[e ( _DELAY_ms (1 -> -> 1 `i `ui ]
 [; ;main.c: 38: PORTC=0x04;
 "38
 [e = _PORTC -> -> 4 `i `uc ]
 [; ;main.c: 39: PORTB = seg_code[2];
 "39
 [e = _PORTB *U + _seg_code * -> -> 2 `i `x -> -> # *U _seg_code `i `x ]
-[; ;main.c: 40: DELAY_ms(10);
+[; ;main.c: 40: DELAY_ms(1);
 "40
-[e ( _DELAY_ms (1 -> -> 10 `i `ui ]
+[e ( _DELAY_ms (1 -> -> 1 `i `ui ]
 [; ;main.c: 42: PORTC=0x08;
 "42
 [e = _PORTC -> -> 8 `i `uc ]
 [; ;main.c: 43: PORTB = seg_code[3];
 "43
 [e = _PORTB *U + _seg_code * -> -> 3 `i `x -> -> # *U _seg_code `i `x ]
-[; ;main.c: 44: DELAY_ms(10);
+[; ;main.c: 44: DELAY_ms(1);
 "44
-[e ( _DELAY_ms (1 -> -> 10 `i `ui ]
+[e ( _DELAY_ms (1 -> -> 1 `i `ui ]
 "45
 }
 "28
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 50 `i 97  ]
+[e $ < -> _i `i -> 200 `i 97  ]
 [e :U 98 ]
 "45
 }
@@ -1132,22 +1132,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i F1084
 :U ..
 "52
--> -> 113 `i `uc
--> -> 6 `i `uc
--> -> 80 `i `uc
--> -> 121 `i `uc
+-> -> 142 `i `uc
+-> -> 207 `i `uc
+-> -> 136 `i `uc
+-> -> 134 `i `uc
 ..
 ]
 [v _fire_code `uc ~T0 @X0 4  a ]
-[; ;main.c: 52: unsigned char fire_code[]={0x71,0x06,0x50,0x79},help_code[]={0x76,0x79,0x38,0x73};
+[; ;main.c: 52: unsigned char fire_code[]={0x8E,0xCF,0x88,0x86},help_code[]={0x89,0x86,0xC7,0x8C};
 [e = _fire_code F1084 ]
 [v F1086 `uc ~T0 @X0 -> 0 `x s ]
 [i F1086
 :U ..
--> -> 118 `i `uc
--> -> 121 `i `uc
--> -> 56 `i `uc
--> -> 115 `i `uc
+-> -> 137 `i `uc
+-> -> 134 `i `uc
+-> -> 199 `i `uc
+-> -> 140 `i `uc
 ..
 ]
 [v _help_code `uc ~T0 @X0 4  a ]

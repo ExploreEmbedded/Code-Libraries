@@ -17,7 +17,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "71 rtc.h
 [v _RTC_GetDate `(v ~T0 @X0 0 ef3`*uc`*uc`*uc ]
 [; ;pic16f877a.h: 47: extern volatile unsigned char INDF @ 0x000;
-"49 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
+"49 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
 [; ;pic16f877a.h: 49: asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
 [; ;pic16f877a.h: 53: extern volatile unsigned char TMR0 @ 0x001;

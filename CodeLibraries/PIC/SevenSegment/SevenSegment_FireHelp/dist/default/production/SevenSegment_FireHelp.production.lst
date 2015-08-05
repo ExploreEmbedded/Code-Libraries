@@ -1,9 +1,9 @@
 
 
-Microchip Technology PIC LITE Macro Assembler V1.33 build 59893 
-                                                                                               Sat Feb 21 09:17:37 2015
+Microchip Technology PIC LITE Macro Assembler V1.32 build 58300 
+                                                                                               Wed Aug 05 20:00:05 2015
 
-Microchip Technology Omniscient Code Generator (Lite mode) build 59893
+Microchip Technology Omniscient Code Generator (Lite mode) build 58300
      1                           	processor	16F877A
      2                           	opt	pw 120
      3                           	opt	lm
@@ -84,16 +84,16 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
     78  0712                     __pidataBANK0:	
     79                           
     80                           ;initializer for main@F1084
-    81  0712  3471               	retlw	113
-    82  0713  3406               	retlw	6
-    83  0714  3450               	retlw	80
-    84  0715  3479               	retlw	121
+    81  0712  348E               	retlw	142
+    82  0713  34CF               	retlw	207
+    83  0714  3488               	retlw	136
+    84  0715  3486               	retlw	134
     85                           
     86                           ;initializer for main@F1086
-    87  0716  3476               	retlw	118
-    88  0717  3479               	retlw	121
-    89  0718  3438               	retlw	56
-    90  0719  3473               	retlw	115
+    87  0716  3489               	retlw	137
+    88  0717  3486               	retlw	134
+    89  0718  34C7               	retlw	199
+    90  0719  348C               	retlw	140
     91  0006                     _PORTB	set	6
     92  0007                     _PORTC	set	7
     93  0086                     _TRISB	set	134
@@ -261,8 +261,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    255                           ;psect for function _main
    256  075E                     _main:	
    257                           
-   258                           ;main.c: 52: unsigned char fire_code[]={0x71,0x06,0x50,0x79},help_code[]={0x76,0x79,0x38
-      +                          ,0x73};
+   258                           ;main.c: 52: unsigned char fire_code[]={0x8E,0xCF,0x88,0x86},help_code[]={0x89,0x86,0xC7
+      +                          ,0x8C};
    259                           
    260                           ;incstack = 0
    261                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
@@ -366,9 +366,9 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    359  0793  00F6               	movwf	display@seg_code
    360                           
    361                           ;main.c: 26: unsigned char i;
-   362                           ;main.c: 28: for(i=0;i<50;i++)
+   362                           ;main.c: 28: for(i=0;i<200;i++)
    363  0794  01F5               	clrf	display@i
-   364  0795  3032               	movlw	50
+   364  0795  30C8               	movlw	200
    365  0796  0275               	subwf	display@i,w
    366  0797  1803               	btfsc	3,0
    367  0798  2FEB               	goto	l622
@@ -388,8 +388,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    381  07A0  0800               	movf	0,w
    382  07A1  0086               	movwf	6	;volatile
    383                           
-   384                           ;main.c: 32: DELAY_ms(10);
-   385  07A2  300A               	movlw	10
+   384                           ;main.c: 32: DELAY_ms(1);
+   385  07A2  3001               	movlw	1
    386  07A3  00F2               	movwf	DELAY_ms@ms_count
    387  07A4  3000               	movlw	0
    388  07A5  00F3               	movwf	DELAY_ms@ms_count+1
@@ -408,8 +408,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    401  07B2  0800               	movf	0,w
    402  07B3  0086               	movwf	6	;volatile
    403                           
-   404                           ;main.c: 36: DELAY_ms(10);
-   405  07B4  300A               	movlw	10
+   404                           ;main.c: 36: DELAY_ms(1);
+   405  07B4  3001               	movlw	1
    406  07B5  00F2               	movwf	DELAY_ms@ms_count
    407  07B6  3000               	movlw	0
    408  07B7  00F3               	movwf	DELAY_ms@ms_count+1
@@ -429,8 +429,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    422  07C5  0800               	movf	0,w
    423  07C6  0086               	movwf	6	;volatile
    424                           
-   425                           ;main.c: 40: DELAY_ms(10);
-   426  07C7  300A               	movlw	10
+   425                           ;main.c: 40: DELAY_ms(1);
+   426  07C7  3001               	movlw	1
    427  07C8  00F2               	movwf	DELAY_ms@ms_count
    428  07C9  3000               	movlw	0
    429  07CA  00F3               	movwf	DELAY_ms@ms_count+1
@@ -450,8 +450,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    443  07D8  0800               	movf	0,w
    444  07D9  0086               	movwf	6	;volatile
    445                           
-   446                           ;main.c: 44: DELAY_ms(10);
-   447  07DA  300A               	movlw	10
+   446                           ;main.c: 44: DELAY_ms(1);
+   447  07DA  3001               	movlw	1
    448  07DB  00F2               	movwf	DELAY_ms@ms_count
    449  07DC  3000               	movlw	0
    450  07DD  00F3               	movwf	DELAY_ms@ms_count+1
@@ -460,7 +460,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    453  07E4  00F4               	movwf	??_display
    454  07E5  0874               	movf	??_display,w
    455  07E6  07F5               	addwf	display@i,f
-   456  07E7  3032               	movlw	50
+   456  07E7  30C8               	movlw	200
    457  07E8  0275               	subwf	display@i,w
    458  07E9  1C03               	skipc
    459  07EA  2F99               	goto	l598
@@ -794,8 +794,8 @@ STACK                0      0       0       2        0.0%
 EEDATA             100      0       0       0        0.0%
 
 
-Microchip Technology PIC Macro Assembler V1.33 build 59893 
-Symbol Table                                                                                   Sat Feb 21 09:17:37 2015
+Microchip Technology PIC Macro Assembler V1.32 build 58300 
+Symbol Table                                                                                   Wed Aug 05 20:00:05 2015
 
                       pc 0002              __CFG_CP$OFF 0000                       fsr 0004  
             __CFG_LVP$ON 0000       __size_of_DELAY_sec 0014                      l622 07EB  

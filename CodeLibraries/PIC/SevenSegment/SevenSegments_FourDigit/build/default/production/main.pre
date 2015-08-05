@@ -1,7 +1,7 @@
 
 # 1 "main.c"
 
-# 47 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h"
+# 47 "C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h"
 extern volatile unsigned char INDF @ 0x000;
 
 asm("INDF equ 00h");
@@ -1429,7 +1429,7 @@ void DELAY_sec(uint16_t var_delaySecCount_u16);
 # 23 "main.c"
 void display_number(unsigned int number)
 {
-unsigned char seg_code[]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71};
+unsigned char seg_code[]={0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82, 0xF8,0x80,0x90};
 unsigned char temp,i;
 unsigned int num;
 

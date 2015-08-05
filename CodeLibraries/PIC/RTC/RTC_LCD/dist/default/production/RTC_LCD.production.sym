@@ -28,11 +28,11 @@ ttemp 7E 0 ABS 0
 wtemp 7E 0 ABS 0
 start 0 0 CODE 0
 _LCD_GoToNextLine 271 0 CODE 0
-_TRISB 86 0 ABS 0
+_TRISC 87 0 ABS 0
 reset_vec 0 0 CODE 0
 _TRISD 88 0 ABS 0
-_PORTB 6 0 ABS 0
 _ACKEN 48C 0 ABS 0
+_PORTC 7 0 ABS 0
 _PORTD 8 0 ABS 0
 _ACKDT 48D 0 ABS 0
 ltemp0 7E 0 ABS 0
@@ -372,7 +372,7 @@ text9 3C2 3CD CODE 3C2 0
 idataBANK0 3B8 3C1 CODE 3B8 0
 %locals
 dist/default/production\RTC_LCD.production.obj
-C:\Users\bagwan\AppData\Local\Temp\s2v8.
+C:\Users\desktop\AppData\Local\Temp\s31o.
 724 7DE 0 CODE 0
 727 7DE 0 CODE 0
 749 7DE 0 CODE 0
@@ -543,7 +543,7 @@ lcd.c
 814 7D0 0 CODE 0
 818 7D1 0 CODE 0
 689 7D7 0 CODE 0
-C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c
+C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul8.c
 4 237 0 CODE 0
 6 238 0 CODE 0
 43 239 0 CODE 0

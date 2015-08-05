@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1122 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
+"1122 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
 [v _ADCON0 `Vuc ~T0 @X0 0 e@31 ]
 "2173
 [v _ADCON1 `Vuc ~T0 @X0 0 e@159 ]
@@ -7,7 +7,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ADON `Vb ~T0 @X0 0 e@248 ]
 "55 delay.h
 [v _DELAY_us `(v ~T0 @X0 0 ef1`ui ]
-"2443 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
+"2443 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
 [v _GO `Vb ~T0 @X0 0 e@250 ]
 "2445
 [v _GO_DONE `Vb ~T0 @X0 0 e@250 ]
@@ -16,7 +16,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "2167
 [v _ADRESL `Vuc ~T0 @X0 0 e@158 ]
 [; ;pic16f877a.h: 47: extern volatile unsigned char INDF @ 0x000;
-"49 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
+"49 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
 [; ;pic16f877a.h: 49: asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
 [; ;pic16f877a.h: 53: extern volatile unsigned char TMR0 @ 0x001;

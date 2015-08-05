@@ -129,7 +129,7 @@ cstackCOMMON 70 71 COMMON 70 1
 maintext FDE FF7 CODE FDE 0
 %locals
 dist/default/production\Switch_Led.production.obj
-C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
+C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
 2761 7EF 0 CODE 0
 main.c
 20 7EF 0 CODE 0
@@ -138,7 +138,7 @@ main.c
 32 7F4 0 CODE 0
 35 7F9 0 CODE 0
 28 7FB 0 CODE 0
-C:\Users\bagwan\AppData\Local\Temp\s1k.
+C:\Users\desktop\AppData\Local\Temp\ss4.
 197 7FC 0 CODE 0
 200 7FC 0 CODE 0
 206 7FC 0 CODE 0

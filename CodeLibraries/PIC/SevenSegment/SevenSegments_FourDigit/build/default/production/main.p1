@@ -1,17 +1,17 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"268 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
+"268 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
 [v _PORTC `Vuc ~T0 @X0 0 e@7 ]
 "207
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "56 delay.h
 [v _DELAY_ms `(v ~T0 @X0 0 ef1`ui ]
 [p mainexit ]
-"1335 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
+"1335 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
 "1396
 [v _TRISC `Vuc ~T0 @X0 0 e@135 ]
 [; ;pic16f877a.h: 47: extern volatile unsigned char INDF @ 0x000;
-"49 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
+"49 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
 [; ;pic16f877a.h: 49: asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
 [; ;pic16f877a.h: 53: extern volatile unsigned char TMR0 @ 0x001;
@@ -1054,26 +1054,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i F1082
 :U ..
 "25
--> -> 63 `i `uc
--> -> 6 `i `uc
--> -> 91 `i `uc
--> -> 79 `i `uc
--> -> 102 `i `uc
--> -> 109 `i `uc
--> -> 125 `i `uc
--> -> 7 `i `uc
--> -> 127 `i `uc
--> -> 111 `i `uc
--> -> 119 `i `uc
--> -> 124 `i `uc
--> -> 57 `i `uc
--> -> 94 `i `uc
--> -> 121 `i `uc
--> -> 113 `i `uc
+-> -> 192 `i `uc
+-> -> 249 `i `uc
+-> -> 164 `i `uc
+-> -> 176 `i `uc
+-> -> 153 `i `uc
+-> -> 146 `i `uc
+-> -> 130 `i `uc
+-> -> 248 `i `uc
+-> -> 128 `i `uc
+-> -> 144 `i `uc
 ..
 ]
-[v _seg_code `uc ~T0 @X0 16  a ]
-[; ;main.c: 25: unsigned char seg_code[]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71};
+[v _seg_code `uc ~T0 @X0 10  a ]
+[; ;main.c: 25: unsigned char seg_code[]={0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82, 0xF8,0x80,0x90};
 [e = _seg_code F1082 ]
 "26
 [v _temp `uc ~T0 @X0 1 a ]

@@ -23,10 +23,10 @@ ttemp 7E 0 ABS 0
 wtemp 7E 0 ABS 0
 start 0 0 CODE 0
 _LCD_GoToNextLine 4EC 0 CODE 0
-_TRISB 86 0 ABS 0
+_TRISC 87 0 ABS 0
 reset_vec 0 0 CODE 0
 _TRISD 88 0 ABS 0
-_PORTB 6 0 ABS 0
+_PORTC 7 0 ABS 0
 _EEADR 10D 0 ABS 0
 _PORTD 8 0 ABS 0
 ltemp0 7E 0 ABS 0
@@ -286,7 +286,7 @@ text4 92C 941 CODE 92C 0
 text19 916 92B CODE 916 0
 %locals
 dist/default/production\EEPROM_StringRdWr_LCD.production.obj
-C:\Users\bagwan\AppData\Local\Temp\s2r8.
+C:\Users\desktop\AppData\Local\Temp\s3q0.
 564 7EE 0 CODE 0
 567 7EE 0 CODE 0
 595 7EE 0 CODE 0

@@ -1,11 +1,11 @@
-Microchip MPLAB XC8 Compiler V1.33 ()
+Microchip MPLAB XC8 Compiler V1.32 ()
 
 Linker command line:
 
---edf=C:\Program Files (x86)\Microchip\xc8\v1.33\dat\en_msgs.txt -cs \
+--edf=C:\Program Files\Microchip\xc8\v1.32\dat\en_msgs.txt -cs \
   -h+dist/default/production\SevenSegment_FireHelp.production.sym \
   --cmf=dist/default/production\SevenSegment_FireHelp.production.cmf -z \
-  -Q16F877A -oC:\Users\bagwan\AppData\Local\Temp\s3sk.6 \
+  -Q16F877A -oC:\Users\desktop\AppData\Local\Temp\s4vg.6 \
   -Mdist/default/production/SevenSegment_FireHelp.production.map -E1 \
   -ver=XC8 -ASTACK=0110h-016fh -pstack=STACK -ACONST=00h-0FFhx32 \
   -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -AENTRY=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -pfunctab=CODE -ACONFIG=02007h-02007h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k C:\Users\bagwan\AppData\Local\Temp\s3sk.obj \
+  -DENTRY=2 -k C:\Users\desktop\AppData\Local\Temp\s4vg.obj \
   dist/default/production\SevenSegment_FireHelp.production.obj 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F877A
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\bagwan\AppData\Local\Temp\s3sk.obj
+C:\Users\desktop\AppData\Local\Temp\s4vg.obj
                 end_init                              0        0        3        0       0
                 config                             2007     2007        1     400E       0
 dist/default/production\SevenSegment_FireHelp.production.obj

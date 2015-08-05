@@ -1,9 +1,9 @@
 
 
-Microchip Technology PIC LITE Macro Assembler V1.33 build 59893 
-                                                                                               Sat Feb 21 09:02:00 2015
+Microchip Technology PIC LITE Macro Assembler V1.32 build 58300 
+                                                                                               Wed Aug 05 16:00:16 2015
 
-Microchip Technology Omniscient Code Generator (Lite mode) build 59893
+Microchip Technology Omniscient Code Generator (Lite mode) build 58300
      1                           	processor	16F877A
      2                           	opt	pw 120
      3                           	opt	lm
@@ -273,8 +273,8 @@ BANK2               60      0       0      11        0.0%
 DATA                 0      0       0      12        0.0%
 
 
-Microchip Technology PIC Macro Assembler V1.33 build 59893 
-Symbol Table                                                                                   Sat Feb 21 09:02:00 2015
+Microchip Technology PIC Macro Assembler V1.32 build 58300 
+Symbol Table                                                                                   Wed Aug 05 16:00:16 2015
 
             __CFG_CP$OFF 0000              __CFG_LVP$ON 0000                      l515 07F4  
            __CFG_CPD$OFF 0000             __CFG_FOSC$HS 0000             __CFG_WRT$OFF 0000  

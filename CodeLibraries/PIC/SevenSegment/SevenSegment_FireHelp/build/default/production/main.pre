@@ -1,7 +1,7 @@
 
 # 1 "main.c"
 
-# 47 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h"
+# 47 "C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h"
 extern volatile unsigned char INDF @ 0x000;
 
 asm("INDF equ 00h");
@@ -1431,23 +1431,23 @@ void display(unsigned char seg_code[])
 {
 unsigned char i;
 
-for(i=0;i<50;i++)
+for(i=0;i<200;i++)
 {
 PORTC=0x01;
 PORTB = seg_code[0];
-DELAY_ms(10);
+DELAY_ms(1);
 
 PORTC=0x02;
 PORTB = seg_code[1];
-DELAY_ms(10);
+DELAY_ms(1);
 
 PORTC=0x04;
 PORTB = seg_code[2];
-DELAY_ms(10);
+DELAY_ms(1);
 
 PORTC=0x08;
 PORTB = seg_code[3];
-DELAY_ms(10);
+DELAY_ms(1);
 }
 PORTC=0x00;
 PORTB = 0x00;
@@ -1455,7 +1455,7 @@ PORTB = 0x00;
 
 void main()
 {
-unsigned char fire_code[]={0x71,0x06,0x50,0x79},help_code[]={0x76,0x79,0x38,0x73};
+unsigned char fire_code[]={0x8E,0xCF,0x88,0x86},help_code[]={0x89,0x86,0xC7,0x8C};
 
 
 TRISB = 0x00u;

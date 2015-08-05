@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 16F877A ]
 [d frameptr 6 ]
-"121 D:\work_space\updatedLib\PIC\RTC\RTC_LCD\lcd.c
+"121 H:\Github\Code-Libraries\CodeLibraries\PIC\RTC\RTC_LCD\lcd.c
 [e E1084 . `uc
 mENUM_LcdDummy 0
 mENUM_LcdLineOne 1
@@ -12,77 +12,77 @@ mENUM_LcdLineThree 3
 mENUM_LcdLineFour 4
 mENUM_LcdMaxLines 5
 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abdiv.c
+"4 C:\Program Files\Microchip\xc8\v1.32\sources\common\abdiv.c
 [v ___abdiv __abdiv `(c  1 e 1 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abmod.c
+"4 C:\Program Files\Microchip\xc8\v1.32\sources\common\abmod.c
 [v ___abmod __abmod `(c  1 e 1 0 ]
-"33 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abtoft.c
+"33 C:\Program Files\Microchip\xc8\v1.32\sources\common\abtoft.c
 [v ___abtoft __abtoft `(f  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c
+"6 C:\Program Files\Microchip\xc8\v1.32\sources\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
-"5 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\almod.c
+"5 C:\Program Files\Microchip\xc8\v1.32\sources\common\almod.c
 [v ___almod __almod `(l  1 e 4 0 ]
-"42 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\altoft.c
+"42 C:\Program Files\Microchip\xc8\v1.32\sources\common\altoft.c
 [v ___altoft __altoft `(f  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\atdiv.c
+"6 C:\Program Files\Microchip\xc8\v1.32\sources\common\atdiv.c
 [v ___atdiv __atdiv `(m  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\atmod.c
+"6 C:\Program Files\Microchip\xc8\v1.32\sources\common\atmod.c
 [v ___atmod __atmod `(m  1 e 3 0 ]
-"37 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\attoft.c
+"37 C:\Program Files\Microchip\xc8\v1.32\sources\common\attoft.c
 [v ___attoft __attoft `(f  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c
+"6 C:\Program Files\Microchip\xc8\v1.32\sources\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c
+"6 C:\Program Files\Microchip\xc8\v1.32\sources\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
-"32 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awtoft.c
+"32 C:\Program Files\Microchip\xc8\v1.32\sources\common\awtoft.c
 [v ___awtoft __awtoft `(f  1 e 3 0 ]
-"62 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c
+"62 C:\Program Files\Microchip\xc8\v1.32\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
-"86 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c
+"86 C:\Program Files\Microchip\xc8\v1.32\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftge.c
+"4 C:\Program Files\Microchip\xc8\v1.32\sources\common\ftge.c
 [v ___ftge __ftge `(b  1 e 0 0 ]
-"62 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c
+"62 C:\Program Files\Microchip\xc8\v1.32\sources\common\ftmul.c
 [v ___ftmul __ftmul `(f  1 e 3 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftneg.c
+"15 C:\Program Files\Microchip\xc8\v1.32\sources\common\ftneg.c
 [v ___ftneg __ftneg `(f  1 e 3 0 ]
-"18 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftsub.c
+"18 C:\Program Files\Microchip\xc8\v1.32\sources\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 3 0 ]
-"44 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c
+"44 C:\Program Files\Microchip\xc8\v1.32\sources\common\fttol.c
 [v ___fttol __fttol `(l  1 e 4 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lbdiv.c
+"4 C:\Program Files\Microchip\xc8\v1.32\sources\common\lbdiv.c
 [v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lbmod.c
+"4 C:\Program Files\Microchip\xc8\v1.32\sources\common\lbmod.c
 [v ___lbmod __lbmod `(uc  1 e 1 0 ]
-"27 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lbtoft.c
+"27 C:\Program Files\Microchip\xc8\v1.32\sources\common\lbtoft.c
 [v ___lbtoft __lbtoft `(f  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c
+"6 C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\llmod.c
+"6 C:\Program Files\Microchip\xc8\v1.32\sources\common\llmod.c
 [v ___llmod __llmod `(ul  1 e 4 0 ]
-"35 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lltoft.c
+"35 C:\Program Files\Microchip\xc8\v1.32\sources\common\lltoft.c
 [v ___lltoft __lltoft `(f  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ltdiv.c
+"6 C:\Program Files\Microchip\xc8\v1.32\sources\common\ltdiv.c
 [v ___ltdiv __ltdiv `(um  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ltmod.c
+"6 C:\Program Files\Microchip\xc8\v1.32\sources\common\ltmod.c
 [v ___ltmod __ltmod `(um  1 e 3 0 ]
-"30 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lttoft.c
+"30 C:\Program Files\Microchip\xc8\v1.32\sources\common\lttoft.c
 [v ___lttoft __lttoft `(f  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c
+"6 C:\Program Files\Microchip\xc8\v1.32\sources\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c
+"6 C:\Program Files\Microchip\xc8\v1.32\sources\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
-"28 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwtoft.c
+"28 C:\Program Files\Microchip\xc8\v1.32\sources\common\lwtoft.c
 [v ___lwtoft __lwtoft `(f  1 e 3 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c
+"15 C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul24.c
+"15 C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul24.c
 [v ___tmul __tmul `(um  1 e 3 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul32.c
+"15 C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c
+"4 C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul8.c
 [v ___bmul __bmul `(uc  1 e 1 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic\eeprom.c
+"6 C:\Program Files\Microchip\xc8\v1.32\sources\pic\eeprom.c
 [v _eecpymem eecpymem `(v  1 e 0 0 ]
 "24
 [v _memcpyee memcpyee `(v  1 e 0 0 ]
@@ -110,15 +110,15 @@ mENUM_LcdMaxLines 5
 [v ___fttoee __fttoee `(f  1 e 3 0 ]
 "131
 [v ___fltoee __fltoee `(d  1 e 3 0 ]
-"49 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic\ftdiv.c
+"49 C:\Program Files\Microchip\xc8\v1.32\sources\pic\ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 3 0 ]
-"55 D:\work_space\updatedLib\PIC\RTC\RTC_LCD\delay.c
+"55 H:\Github\Code-Libraries\CodeLibraries\PIC\RTC\RTC_LCD\delay.c
 [v _DELAY_us DELAY_us `(v  1 e 0 0 ]
 "76
 [v _DELAY_ms DELAY_ms `(v  1 e 0 0 ]
 "102
 [v _DELAY_sec DELAY_sec `(v  1 e 0 0 ]
-"68 D:\work_space\updatedLib\PIC\RTC\RTC_LCD\i2c.c
+"68 H:\Github\Code-Libraries\CodeLibraries\PIC\RTC\RTC_LCD\i2c.c
 [v _I2C_Restart I2C_Restart `(v  1 e 0 0 ]
 "87
 [v _I2C_Init I2C_Init `(v  1 e 0 0 ]
@@ -136,7 +136,7 @@ mENUM_LcdMaxLines 5
 [v _i2c_Ack i2c_Ack `(v  1 s 0 i2c_Ack ]
 "299
 [v _i2c_NoAck i2c_NoAck `(v  1 s 0 i2c_NoAck ]
-"112 D:\work_space\updatedLib\PIC\RTC\RTC_LCD\lcd.c
+"112 H:\Github\Code-Libraries\CodeLibraries\PIC\RTC\RTC_LCD\lcd.c
 [v _LCD_Init LCD_Init `(v  1 e 0 0 ]
 "154
 [v _LCD_Clear LCD_Clear `(v  1 e 0 0 ]
@@ -164,7 +164,7 @@ mENUM_LcdMaxLines 5
 [v _lcd_SendCmdSignals lcd_SendCmdSignals `(v  1 s 0 lcd_SendCmdSignals ]
 "994
 [v _lcd_SendDataSignals lcd_SendDataSignals `(v  1 s 0 lcd_SendDataSignals ]
-"57 D:\work_space\updatedLib\PIC\RTC\RTC_LCD\rtc.c
+"57 H:\Github\Code-Libraries\CodeLibraries\PIC\RTC\RTC_LCD\rtc.c
 [v _RTC_Init RTC_Init `(v  1 e 0 0 ]
 "86
 [v _RTC_SetTime RTC_SetTime `(v  1 e 0 0 ]
@@ -174,18 +174,18 @@ mENUM_LcdMaxLines 5
 [v _RTC_GetTime RTC_GetTime `(v  1 e 0 0 ]
 "183
 [v _RTC_GetDate RTC_GetDate `(v  1 e 0 0 ]
-"16 D:\work_space\updatedLib\PIC\RTC\RTC_LCD\RTC_LCD.c
+"16 H:\Github\Code-Libraries\CodeLibraries\PIC\RTC\RTC_LCD\RTC_LCD.c
 [v _main main `(v  1 e 0 0 ]
-"207 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
-[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"268 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
+[v _PORTC PORTC `VEuc  1 e 1 @7 ]
 "329
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 "785
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "791
 [v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
-"1335
-[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1396
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
 "1457
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1774
@@ -230,7 +230,7 @@ mENUM_LcdMaxLines 5
 [v _WR WR `VEb  1 e 0 @3169 ]
 "2761
 [v _WREN WREN `VEb  1 e 0 @3170 ]
-"76 D:\work_space\updatedLib\PIC\RTC\RTC_LCD\lcd.c
+"76 H:\Github\Code-Libraries\CodeLibraries\PIC\RTC\RTC_LCD\lcd.c
 [v _VAR_LcdTrackLineNum_U8 VAR_LcdTrackLineNum_U8 `uc  1 e 1 0 ]
 "77
 [v _VAR_LcdTrackCursorPos_U8 VAR_LcdTrackCursorPos_U8 `uc  1 e 1 0 ]
@@ -239,7 +239,7 @@ mENUM_LcdMaxLines 5
 [v _STK_LCDConfig STK_LCDConfig `S123  1 e 3 0 ]
 "79
 [v _ARR_LcdLineNumAddress_U8 ARR_LcdLineNumAddress_U8 `[5]uc  1 e 5 0 ]
-"16 D:\work_space\updatedLib\PIC\RTC\RTC_LCD\RTC_LCD.c
+"16 H:\Github\Code-Libraries\CodeLibraries\PIC\RTC\RTC_LCD\RTC_LCD.c
 [v _main main `(v  1 e 0 0 ]
 {
 "18
@@ -251,7 +251,7 @@ mENUM_LcdMaxLines 5
 [v main@sec sec `uc  1 a 1 52 ]
 "49
 } 0
-"86 D:\work_space\updatedLib\PIC\RTC\RTC_LCD\rtc.c
+"86 H:\Github\Code-Libraries\CodeLibraries\PIC\RTC\RTC_LCD\rtc.c
 [v _RTC_SetTime RTC_SetTime `(v  1 e 0 0 ]
 {
 [v RTC_SetTime@var_hour_u8 var_hour_u8 `uc  1 a 1 wreg ]
@@ -278,12 +278,12 @@ mENUM_LcdMaxLines 5
 {
 "68
 } 0
-"87 D:\work_space\updatedLib\PIC\RTC\RTC_LCD\i2c.c
+"87 H:\Github\Code-Libraries\CodeLibraries\PIC\RTC\RTC_LCD\i2c.c
 [v _I2C_Init I2C_Init `(v  1 e 0 0 ]
 {
 "95
 } 0
-"147 D:\work_space\updatedLib\PIC\RTC\RTC_LCD\rtc.c
+"147 H:\Github\Code-Libraries\CodeLibraries\PIC\RTC\RTC_LCD\rtc.c
 [v _RTC_GetTime RTC_GetTime `(v  1 e 0 0 ]
 {
 [v RTC_GetTime@ptr_hour_u8 ptr_hour_u8 `*.4uc  1 a 1 wreg ]
@@ -305,7 +305,7 @@ mENUM_LcdMaxLines 5
 [v RTC_GetDate@ptr_day_u8 ptr_day_u8 `*.4uc  1 a 1 6 ]
 "201
 } 0
-"179 D:\work_space\updatedLib\PIC\RTC\RTC_LCD\i2c.c
+"179 H:\Github\Code-Libraries\CodeLibraries\PIC\RTC\RTC_LCD\i2c.c
 [v _I2C_Write I2C_Write `(v  1 e 0 0 ]
 {
 [v I2C_Write@var_i2cData_u8 var_i2cData_u8 `uc  1 a 1 wreg ]
@@ -351,7 +351,7 @@ mENUM_LcdMaxLines 5
 {
 "284
 } 0
-"673 D:\work_space\updatedLib\PIC\RTC\RTC_LCD\lcd.c
+"673 H:\Github\Code-Libraries\CodeLibraries\PIC\RTC\RTC_LCD\lcd.c
 [v _LCD_Printf LCD_Printf `(v  1 e 0 0 ]
 {
 [v LCD_Printf@argList argList `*.24DCCuc  1 a 1 wreg ]
@@ -381,7 +381,7 @@ mENUM_LcdMaxLines 5
 [v LCD_Printf@argList argList `*.24DCCuc  1 a 1 41 ]
 "823
 } 0
-"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c
+"4 C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul8.c
 [v ___bmul __bmul `(uc  1 e 1 0 ]
 {
 [v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
@@ -394,7 +394,7 @@ mENUM_LcdMaxLines 5
 [v ___bmul@multiplier multiplier `uc  1 a 1 3 ]
 "51
 } 0
-"503 D:\work_space\updatedLib\PIC\RTC\RTC_LCD\lcd.c
+"503 H:\Github\Code-Libraries\CodeLibraries\PIC\RTC\RTC_LCD\lcd.c
 [v _LCD_DisplayHexNumber LCD_DisplayHexNumber `(v  1 e 0 0 ]
 {
 "505
@@ -449,13 +449,13 @@ mENUM_LcdMaxLines 5
 {
 "938
 } 0
-"76 D:\work_space\updatedLib\PIC\RTC\RTC_LCD\delay.c
+"76 H:\Github\Code-Libraries\CodeLibraries\PIC\RTC\RTC_LCD\delay.c
 [v _DELAY_ms DELAY_ms `(v  1 e 0 0 ]
 {
 [v DELAY_ms@ms_count ms_count `ui  1 p 2 2 ]
 "84
 } 0
-"154 D:\work_space\updatedLib\PIC\RTC\RTC_LCD\lcd.c
+"154 H:\Github\Code-Libraries\CodeLibraries\PIC\RTC\RTC_LCD\lcd.c
 [v _LCD_Clear LCD_Clear `(v  1 e 0 0 ]
 {
 "158
@@ -499,7 +499,7 @@ mENUM_LcdMaxLines 5
 [v lcd_BusyCheck@busyflag busyflag `uc  1 a 1 3 ]
 "907
 } 0
-"55 D:\work_space\updatedLib\PIC\RTC\RTC_LCD\delay.c
+"55 H:\Github\Code-Libraries\CodeLibraries\PIC\RTC\RTC_LCD\delay.c
 [v _DELAY_us DELAY_us `(v  1 e 0 0 ]
 {
 [v DELAY_us@us_count us_count `ui  1 p 2 0 ]

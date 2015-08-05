@@ -19,10 +19,10 @@ ttemp 7E 0 ABS 0
 wtemp 7E 0 ABS 0
 start 0 0 CODE 0
 _LCD_GoToNextLine 5B9 0 CODE 0
-_TRISB 86 0 ABS 0
+_TRISC 87 0 ABS 0
 reset_vec 0 0 CODE 0
 _TRISD 88 0 ABS 0
-_PORTB 6 0 ABS 0
+_PORTC 7 0 ABS 0
 _PORTD 8 0 ABS 0
 ltemp0 7E 0 ABS 0
 ttemp0 7E 0 ABS 0
@@ -240,7 +240,7 @@ text15 AF4 B09 CODE AF4 0
 idataBANK0 AEA AF3 CODE AEA 0
 %locals
 dist/default/production\Lcd_Display.production.obj
-C:\Users\bagwan\AppData\Local\Temp\s2ko.
+C:\Users\desktop\AppData\Local\Temp\s7ig.
 417 7DE 0 CODE 0
 420 7DE 0 CODE 0
 442 7DE 0 CODE 0

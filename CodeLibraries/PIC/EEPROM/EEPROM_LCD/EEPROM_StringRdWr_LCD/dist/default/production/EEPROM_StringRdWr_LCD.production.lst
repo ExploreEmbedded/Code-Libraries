@@ -1,9 +1,9 @@
 
 
-Microchip Technology PIC LITE Macro Assembler V1.33 build 59893 
-                                                                                               Sun Feb 15 07:24:43 2015
+Microchip Technology PIC LITE Macro Assembler V1.32 build 58300 
+                                                                                               Wed Aug 05 22:43:03 2015
 
-Microchip Technology Omniscient Code Generator (Lite mode) build 59893
+Microchip Technology Omniscient Code Generator (Lite mode) build 58300
      1                           	processor	16F877A
      2                           	opt	pw 120
      3                           	opt	lm
@@ -246,9 +246,9 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    240  0051                     __pnvBANK0:	
    241  0051                     _STK_LCDConfig:	
    242  0051                     	ds	3
-   243  0006                     _PORTB	set	6
+   243  0007                     _PORTC	set	7
    244  0008                     _PORTD	set	8
-   245  0086                     _TRISB	set	134
+   245  0087                     _TRISC	set	135
    246  0088                     _TRISD	set	136
    247  010D                     _EEADR	set	269
    248  010C                     _EEDATA	set	268
@@ -787,10 +787,10 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    780                           ;LCD_Init@var_lcdMode_u8 stored from wreg
    781  06D0  00FB               	movwf	LCD_Init@var_lcdMode_u8
    782                           
-   783                           ;lcd.c: 116: TRISB = 0x00u;
+   783                           ;lcd.c: 116: TRISC = 0x00u;
    784  06D1  1683               	bsf	3,5	;RP0=1, select bank1
    785  06D2  1303               	bcf	3,6	;RP1=0, select bank1
-   786  06D3  0186               	clrf	6	;volatile
+   786  06D3  0187               	clrf	7	;volatile
    787                           
    788                           ;lcd.c: 117: TRISD = 0x00u;
    789  06D4  0188               	clrf	8	;volatile
@@ -1384,9 +1384,9 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
   1374  0656  2E5D               	goto	l1030
   1375                           
   1376                           ;lcd.c: 843: {
-  1377                           ;lcd.c: 844: PORTB = dat;
+  1377                           ;lcd.c: 844: PORTC = dat;
   1378  0657  0875               	movf	lcd_DataWrite@dat,w
-  1379  0658  0086               	movwf	6	;volatile
+  1379  0658  0087               	movwf	7	;volatile
   1380                           
   1381                           ;lcd.c: 845: lcd_SendDataSignals();
   1382  0659  120A  118A  2502   	fcall	_lcd_SendDataSignals
@@ -1629,9 +1629,9 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
   1619  0620  2E27               	goto	l982
   1620                           
   1621                           ;lcd.c: 278: {
-  1622                           ;lcd.c: 280: PORTB = var_lcdCmd_u8;
+  1622                           ;lcd.c: 280: PORTC = var_lcdCmd_u8;
   1623  0621  0875               	movf	LCD_CmdWrite@var_lcdCmd_u8,w
-  1624  0622  0086               	movwf	6	;volatile
+  1624  0622  0087               	movwf	7	;volatile
   1625                           
   1626                           ;lcd.c: 281: lcd_SendCmdSignals();
   1627  0623  120A  118A  2530   	fcall	_lcd_SendCmdSignals
@@ -1717,13 +1717,13 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
   1707                           ;lcd_SendNibble@var stored from wreg
   1708  05EF  00F1               	movwf	lcd_SendNibble@var
   1709                           
-  1710                           ;lcd.c: 955: (((((var)&((1<<(4))))!=0u))? ((PORTB) |= (1<<(4))): ((PORTB) &= ~(1<<(4))))
+  1710                           ;lcd.c: 955: (((((var)&((1<<(4))))!=0u))? ((PORTC) |= (1<<(4))): ((PORTC) &= ~(1<<(4))))
       +                          ;
   1711  05F0  1E71               	btfss	lcd_SendNibble@var,4
   1712  05F1  2DF6               	goto	l954
   1713  05F2  1283               	bcf	3,5	;RP0=0, select bank0
   1714  05F3  1303               	bcf	3,6	;RP1=0, select bank0
-  1715  05F4  1606               	bsf	6,4	;volatile
+  1715  05F4  1607               	bsf	7,4	;volatile
   1716  05F5  2DFC               	goto	l956
   1717  05F6                     l954:	
   1718  05F6  30EF               	movlw	239
@@ -1731,46 +1731,46 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
   1720  05F8  0870               	movf	??_lcd_SendNibble,w
   1721  05F9  1283               	bcf	3,5	;RP0=0, select bank0
   1722  05FA  1303               	bcf	3,6	;RP1=0, select bank0
-  1723  05FB  0586               	andwf	6,f	;volatile
+  1723  05FB  0587               	andwf	7,f	;volatile
   1724  05FC                     l956:	
   1725                           
-  1726                           ;lcd.c: 956: (((((var)&((1<<(5))))!=0u))? ((PORTB) |= (1<<(5))): ((PORTB) &= ~(1<<(5))))
+  1726                           ;lcd.c: 956: (((((var)&((1<<(5))))!=0u))? ((PORTC) |= (1<<(5))): ((PORTC) &= ~(1<<(5))))
       +                          ;
   1727  05FC  1EF1               	btfss	lcd_SendNibble@var,5
   1728  05FD  2E00               	goto	l960
-  1729  05FE  1686               	bsf	6,5	;volatile
+  1729  05FE  1687               	bsf	7,5	;volatile
   1730  05FF  2E04               	goto	l962
   1731  0600                     l960:	
   1732  0600  30DF               	movlw	223
   1733  0601  00F0               	movwf	??_lcd_SendNibble
   1734  0602  0870               	movf	??_lcd_SendNibble,w
-  1735  0603  0586               	andwf	6,f	;volatile
+  1735  0603  0587               	andwf	7,f	;volatile
   1736  0604                     l962:	
   1737                           
-  1738                           ;lcd.c: 957: (((((var)&((1<<(6))))!=0u))? ((PORTB) |= (1<<(6))): ((PORTB) &= ~(1<<(6))))
+  1738                           ;lcd.c: 957: (((((var)&((1<<(6))))!=0u))? ((PORTC) |= (1<<(6))): ((PORTC) &= ~(1<<(6))))
       +                          ;
   1739  0604  1F71               	btfss	lcd_SendNibble@var,6
   1740  0605  2E08               	goto	l966
-  1741  0606  1706               	bsf	6,6	;volatile
+  1741  0606  1707               	bsf	7,6	;volatile
   1742  0607  2E0C               	goto	l968
   1743  0608                     l966:	
   1744  0608  30BF               	movlw	191
   1745  0609  00F0               	movwf	??_lcd_SendNibble
   1746  060A  0870               	movf	??_lcd_SendNibble,w
-  1747  060B  0586               	andwf	6,f	;volatile
+  1747  060B  0587               	andwf	7,f	;volatile
   1748  060C                     l968:	
   1749                           
-  1750                           ;lcd.c: 958: (((((var)&((1<<(7))))!=0u))? ((PORTB) |= (1<<(7))): ((PORTB) &= ~(1<<(7))))
+  1750                           ;lcd.c: 958: (((((var)&((1<<(7))))!=0u))? ((PORTC) |= (1<<(7))): ((PORTC) &= ~(1<<(7))))
       +                          ;
   1751  060C  1FF1               	btfss	lcd_SendNibble@var,7
   1752  060D  2E10               	goto	l972
-  1753  060E  1786               	bsf	6,7	;volatile
+  1753  060E  1787               	bsf	7,7	;volatile
   1754  060F  0008               	return
   1755  0610                     l972:	
   1756  0610  307F               	movlw	127
   1757  0611  00F0               	movwf	??_lcd_SendNibble
   1758  0612  0870               	movf	??_lcd_SendNibble,w
-  1759  0613  0586               	andwf	6,f	;volatile
+  1759  0613  0587               	andwf	7,f	;volatile
   1760  0614  0008               	return
   1761  0615                     __end_of_lcd_SendNibble:	
   1762                           
@@ -1889,7 +1889,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
   1875                           ; Regs used in _lcd_BusyCheck: [wreg+status,2+status,0+pclath+cstack]
   1876  071F  1683               	bsf	3,5	;RP0=1, select bank1
   1877  0720  1303               	bcf	3,6	;RP1=0, select bank1
-  1878  0721  1786               	bsf	6,7	;volatile
+  1878  0721  1787               	bsf	7,7	;volatile
   1879                           
   1880                           ;lcd.c: 879: (((PORTD)) &= ~(1<<((0))));
   1881  0722  30FE               	movlw	254
@@ -1933,11 +1933,11 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
   1919  073E  00F1               	movwf	DELAY_us@us_count+1
   1920  073F  120A  118A  248B  120A  118A  	fcall	_DELAY_us
   1921                           
-  1922                           ;lcd.c: 888: busyflag = (((PORTB)&((1<<(7))))!=0u);
+  1922                           ;lcd.c: 888: busyflag = (((PORTC)&((1<<(7))))!=0u);
   1923  0744  3000               	movlw	0
   1924  0745  1283               	bcf	3,5	;RP0=0, select bank0
   1925  0746  1303               	bcf	3,6	;RP1=0, select bank0
-  1926  0747  1B86               	btfsc	6,7	;volatile
+  1926  0747  1B87               	btfsc	7,7	;volatile
   1927  0748  3001               	movlw	1
   1928  0749  00F2               	movwf	??_lcd_BusyCheck
   1929  074A  0872               	movf	??_lcd_BusyCheck,w
@@ -1982,13 +1982,13 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
   1968  076A  1D03               	skipz
   1969  076B  2F29               	goto	l160
   1970                           
-  1971                           ;lcd.c: 901: ((0x00u)? ((TRISB) |= (1<<(7))): ((TRISB) &= ~(1<<(7))));
+  1971                           ;lcd.c: 901: ((0x00u)? ((TRISC) |= (1<<(7))): ((TRISC) &= ~(1<<(7))));
   1972  076C  307F               	movlw	127
   1973  076D  00F2               	movwf	??_lcd_BusyCheck
   1974  076E  0872               	movf	??_lcd_BusyCheck,w
   1975  076F  1683               	bsf	3,5	;RP0=1, select bank1
   1976  0770  1303               	bcf	3,6	;RP1=0, select bank1
-  1977  0771  0586               	andwf	6,f	;volatile
+  1977  0771  0587               	andwf	7,f	;volatile
   1978  0772  0008               	return
   1979  0773                     __end_of_lcd_BusyCheck:	
   1980                           
@@ -2663,8 +2663,8 @@ STACK                0      0       0       2        0.0%
 EEDATA             100      0       0       0        0.0%
 
 
-Microchip Technology PIC Macro Assembler V1.33 build 59893 
-Symbol Table                                                                                   Sun Feb 15 07:24:43 2015
+Microchip Technology PIC Macro Assembler V1.32 build 58300 
+Symbol Table                                                                                   Wed Aug 05 22:43:03 2015
 
                                         pc 0002                                __CFG_CP$OFF 0000  
                             ?_LCD_CmdWrite 0070                                         l53 0566  
@@ -2698,8 +2698,8 @@ Symbol Table                                                                    
                            ??_LCD_CmdWrite 0074                             ??_LCD_GoToLine 0076  
                          __end_of_LCD_Init 071F                           lcd_DataWrite@dat 0075  
                                     ?_main 0070                                      _EEADR 010D  
-                            __CFG_WDTE$OFF 0000                                      _PORTB 0006  
-                                    _PORTD 0008                                      _TRISB 0086  
+                            __CFG_WDTE$OFF 0000                                      _PORTC 0007  
+                                    _PORTD 0008                                      _TRISC 0087  
                                     _TRISD 0088      LCD_DisplayString@ptr_stringPointer_u8 0079  
                            __CFG_BOREN$OFF 0000                                      pclath 000A  
                                     ltemp0 007E                                      ltemp1 0082  

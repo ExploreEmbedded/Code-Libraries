@@ -19,10 +19,10 @@ wtemp 7E 0 ABS 0
 start 0 0 CODE 0
 _LCD_GoToNextLine 4F7 0 CODE 0
 main@F1121 A0 0 BANK1 1
-_TRISB 86 0 ABS 0
+_TRISC 87 0 ABS 0
 reset_vec 0 0 CODE 0
 _TRISD 88 0 ABS 0
-_PORTB 6 0 ABS 0
+_PORTC 7 0 ABS 0
 _PORTD 8 0 ABS 0
 ltemp0 7E 0 ABS 0
 ttemp0 7E 0 ABS 0
@@ -261,7 +261,7 @@ text15 94E 963 CODE 94E 0
 idataBANK0 944 94D CODE 944 0
 %locals
 dist/default/production\Lcd_Scroll.production.obj
-C:\Users\bagwan\AppData\Local\Temp\s1uo.
+C:\Users\desktop\AppData\Local\Temp\s3g4.
 496 7E1 0 CODE 0
 499 7E1 0 CODE 0
 529 7E1 0 CODE 0

@@ -1,14 +1,14 @@
 ### HEXMate logfile and output summary ###
 ### Memory Usage ###
  Unused memory ranges:
-  6h - EC3h
+  6h - ECFh
   1000h - 3FFFh
   4000h - 400Dh
   4010h - 403Fh
   
  dist/default/production\SevenSegment_SingleDigit.production.hex ranges:
   0h - 5h
-  EC4h - FFFh
+  ED0h - FFFh
   400Eh - 400Fh
   
 ### Hex Memory Map ###
@@ -24,7 +24,7 @@
   X = Find & delete opcode
   1 = dist/default/production\SevenSegment_SingleDigit.production.hex
 00000000: 111111----------------------------------------------------------
-00000EC0: ----111111111111111111111111111111111111111111111111111111111111
+00000EC0: ----------------111111111111111111111111111111111111111111111111
 00000F00: 1111111111111111111111111111111111111111111111111111111111111111
 00000F40: 1111111111111111111111111111111111111111111111111111111111111111
 00000F80: 1111111111111111111111111111111111111111111111111111111111111111

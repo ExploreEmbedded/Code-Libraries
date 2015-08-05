@@ -3,6 +3,6 @@ _main: CODE, 1635 0 38
 _display_number: CODE, 1787 0 245
 __initialization: CODE, 2032 0 12
 ___lwdiv: CODE, 1725 0 62
-_DELAY_us: CODE, 1571 0 11
+_DELAY_us: CODE, 1587 0 11
 ___lwmod: CODE, 1673 0 52
 Total: 440

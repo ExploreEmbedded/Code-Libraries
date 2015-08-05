@@ -49,7 +49,7 @@ void display(unsigned char seg_code[])
 /* start the main program */
 void main() 
 {
-    unsigned char fire_code[]={0x71,0x06,0x50,0x79},help_code[]={0x76,0x79,0x38,0x73};
+    unsigned char fire_code[]={0x8E,0xCF,0x88,0x86},help_code[]={0x89,0x86,0xC7,0x8C};
   
 /* Configure the ports as output */  
   TRISB = C_PortOutput_U8;

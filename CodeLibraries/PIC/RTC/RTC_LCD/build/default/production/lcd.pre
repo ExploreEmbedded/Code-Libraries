@@ -1,7 +1,7 @@
 
 # 1 "lcd.c"
 
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdarg.h"
+# 7 "C:\Program Files\Microchip\xc8\v1.32\include\stdarg.h"
 typedef void * va_list[1];
 
 #pragma intrinsic(__va_start)
@@ -36,7 +36,7 @@ void DELAY_us(uint16_t us_count);
 void DELAY_ms(uint16_t ms_count);
 void DELAY_sec(uint16_t var_delaySecCount_u16);
 
-# 47 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h"
+# 47 "C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h"
 extern volatile unsigned char INDF @ 0x000;
 
 asm("INDF equ 00h");
@@ -1487,7 +1487,7 @@ void LCD_Init(uint8_t var_lcdMode_u8, uint8_t var_lcdNoOfLines_u8, uint8_t var_M
 {
 
 
-TRISB = 0x00u;
+TRISC = 0x00u;
 TRISD = 0x00u;
 STK_LCDConfig.mvar_LcdMode_U8 = var_lcdMode_u8;
 STK_LCDConfig.mvar_MaxSupportedChars_U8 = var_MaxCharsPerLine_u8;
@@ -1553,7 +1553,7 @@ lcd_BusyCheck();
 if(STK_LCDConfig.mvar_LcdMode_U8 == 8u)
 {
 
-PORTB = var_lcdCmd_u8;
+PORTC = var_lcdCmd_u8;
 lcd_SendCmdSignals();
 }
 else if(STK_LCDConfig.mvar_LcdMode_U8 == 4u)
@@ -1768,7 +1768,7 @@ static void lcd_DataWrite( uint8_t dat)
 lcd_BusyCheck();
 if(STK_LCDConfig.mvar_LcdMode_U8 == 8u)
 {
-PORTB = dat;
+PORTC = dat;
 lcd_SendDataSignals();
 }
 else if(STK_LCDConfig.mvar_LcdMode_U8 == 4u)
@@ -1787,7 +1787,7 @@ static void lcd_BusyCheck()
 uint8_t busyflag;
 
 
-((0x01u)? ((TRISB) |= (1<<(7))): ((TRISB) &= ~(1<<(7))));
+((0x01u)? ((TRISC) |= (1<<(7))): ((TRISC) &= ~(1<<(7))));
 (((PORTD)) &= ~(1<<((0))));
 (((PORTD)) |= (1<<((1))));
 do
@@ -1797,7 +1797,7 @@ do
 DELAY_us(10);
 (((PORTD)) |= (1<<((2))));
 DELAY_us(10);
-busyflag = (((PORTB)&((1<<(7))))!=0u);
+busyflag = (((PORTC)&((1<<(7))))!=0u);
 
 
 if(STK_LCDConfig.mvar_LcdMode_U8 == 4)
@@ -1810,7 +1810,7 @@ DELAY_us(10);
 }
 }while(busyflag);
 
-((0x00u)? ((TRISB) |= (1<<(7))): ((TRISB) &= ~(1<<(7))));
+((0x00u)? ((TRISC) |= (1<<(7))): ((TRISC) &= ~(1<<(7))));
 
 # 907
 }
@@ -1836,10 +1836,10 @@ DELAY_us(200);
 # 953
 static void lcd_SendNibble(uint8_t var)
 {
-(((((var)&((1<<(4))))!=0u))? ((PORTB) |= (1<<(4))): ((PORTB) &= ~(1<<(4))));
-(((((var)&((1<<(5))))!=0u))? ((PORTB) |= (1<<(5))): ((PORTB) &= ~(1<<(5))));
-(((((var)&((1<<(6))))!=0u))? ((PORTB) |= (1<<(6))): ((PORTB) &= ~(1<<(6))));
-(((((var)&((1<<(7))))!=0u))? ((PORTB) |= (1<<(7))): ((PORTB) &= ~(1<<(7))));
+(((((var)&((1<<(4))))!=0u))? ((PORTC) |= (1<<(4))): ((PORTC) &= ~(1<<(4))));
+(((((var)&((1<<(5))))!=0u))? ((PORTC) |= (1<<(5))): ((PORTC) &= ~(1<<(5))));
+(((((var)&((1<<(6))))!=0u))? ((PORTC) |= (1<<(6))): ((PORTC) &= ~(1<<(6))));
+(((((var)&((1<<(7))))!=0u))? ((PORTC) |= (1<<(7))): ((PORTC) &= ~(1<<(7))));
 }
 
 # 972

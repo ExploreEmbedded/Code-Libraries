@@ -20,10 +20,10 @@ ttemp 7E 0 ABS 0
 wtemp 7E 0 ABS 0
 start 0 0 CODE 0
 _LCD_GoToNextLine 499 0 CODE 0
-_TRISB 86 0 ABS 0
+_TRISC 87 0 ABS 0
 reset_vec 0 0 CODE 0
 _TRISD 88 0 ABS 0
-_PORTB 6 0 ABS 0
+_PORTC 7 0 ABS 0
 _PORTD 8 0 ABS 0
 ltemp0 7E 0 ABS 0
 ttemp0 7E 0 ABS 0
@@ -277,7 +277,7 @@ text19 866 87B CODE 866 0
 idataBANK0 85C 865 CODE 85C 0
 %locals
 dist/default/production\Lcd_Counter.production.obj
-C:\Users\bagwan\AppData\Local\Temp\s3dc.
+C:\Users\desktop\AppData\Local\Temp\s78o.
 406 7DE 0 CODE 0
 409 7DE 0 CODE 0
 431 7DE 0 CODE 0
@@ -372,7 +372,7 @@ lcd.c
 474 7DA 0 CODE 0
 480 7DC 0 CODE 0
 474 7DD 0 CODE 0
-C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c
+C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c
 6 6E8 0 CODE 0
 14 6E8 0 CODE 0
 15 6F0 0 CODE 0
@@ -388,7 +388,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c
 27 730 0 CODE 0
 28 739 0 CODE 0
 30 73D 0 CODE 0
-C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c
+C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul8.c
 4 449 0 CODE 0
 6 44C 0 CODE 0
 43 44D 0 CODE 0

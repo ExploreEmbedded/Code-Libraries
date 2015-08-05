@@ -1,11 +1,11 @@
-Microchip MPLAB XC8 Compiler V1.33 ()
+Microchip MPLAB XC8 Compiler V1.32 ()
 
 Linker command line:
 
---edf=C:\Program Files (x86)\Microchip\xc8\v1.33\dat\en_msgs.txt -cs \
+--edf=C:\Program Files\Microchip\xc8\v1.32\dat\en_msgs.txt -cs \
   -h+dist/default/production\RTC_LCD.production.sym \
   --cmf=dist/default/production\RTC_LCD.production.cmf -z -Q16F877A \
-  -oC:\Users\bagwan\AppData\Local\Temp\s2v8.6 \
+  -oC:\Users\desktop\AppData\Local\Temp\s31o.6 \
   -Mdist/default/production/RTC_LCD.production.map -E1 -ver=XC8 \
   -ASTACK=0110h-016fh -pstack=STACK -ACONST=00h-0FFhx32 -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -AENTRY=00h-0FFhx32 -ASTRING=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -pfunctab=CODE -ACONFIG=02007h-02007h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k C:\Users\bagwan\AppData\Local\Temp\s2v8.obj \
+  -DENTRY=2 -k C:\Users\desktop\AppData\Local\Temp\s31o.obj \
   dist/default/production\RTC_LCD.production.obj 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F877A
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\bagwan\AppData\Local\Temp\s2v8.obj
+C:\Users\desktop\AppData\Local\Temp\s31o.obj
                 end_init                              0        0        3        0       0
                 config                             2007     2007        1     400E       0
 dist/default/production\RTC_LCD.production.obj
@@ -290,7 +290,7 @@ _LCD_GoToNextLine                                text20       0271
 _LCD_Init                                        text21       04DB
 _LCD_Printf                                      text14       0697
 _PEN                                             (abs)        048A
-_PORTB                                           (abs)        0006
+_PORTC                                           (abs)        0007
 _PORTD                                           (abs)        0008
 _RCEN                                            (abs)        048B
 _RSEN                                            (abs)        0489
@@ -306,7 +306,7 @@ _SSPBUF                                          (abs)        0013
 _SSPCON                                          (abs)        0014
 _SSPSTAT                                         (abs)        0094
 _STK_LCDConfig                                   nvBANK0      005F
-_TRISB                                           (abs)        0086
+_TRISC                                           (abs)        0087
 _TRISC3                                          (abs)        043B
 _TRISC4                                          (abs)        043C
 _TRISD                                           (abs)        0088
@@ -1086,7 +1086,7 @@ Total ram usage:       29 bytes
 
  *************** function ___bmul *****************
  Defined at:
-		line 4 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c"
+		line 4 in file "C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul8.c"
  Parameters:    Size  Location     Type
   multiplier      1    wreg     unsigned char 
   multiplicand    1    0[COMMON] unsigned char 
@@ -1621,17 +1621,17 @@ i2c.c
 
 i2c.c estimated size: 97
 
+C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul8.c
+		___bmul        		CODE           	0237	0000	17
+
+C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul8.c estimated size: 17
+
 shared
 		__stringtab    		STRING         	0003	0000	6
 		__stringdata   		STRING         	0009	0000	35
 		__initializatio		CODE           	07DE	0000	30
 
 shared estimated size: 71
-
-C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c
-		___bmul        		CODE           	0237	0000	17
-
-C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c estimated size: 17
 
 rtc.c
 		_RTC_Init      		CODE           	02D5	0000	32

@@ -27,10 +27,10 @@ start 0 0 CODE 0
 main@var_readNumber_u32 53 0 BANK0 1
 main@var_readNumber_u16 57 0 BANK0 1
 _LCD_GoToNextLine 1D6 0 CODE 0
-_TRISB 86 0 ABS 0
+_TRISC 87 0 ABS 0
 reset_vec 0 0 CODE 0
 _TRISD 88 0 ABS 0
-_PORTB 6 0 ABS 0
+_PORTC 7 0 ABS 0
 _EEADR 10D 0 ABS 0
 _PORTD 8 0 ABS 0
 ltemp0 7E 0 ABS 0
@@ -332,7 +332,7 @@ text24 2E0 2F5 CODE 2E0 0
 idataBANK0 2D6 2DF CODE 2D6 0
 %locals
 dist/default/production\EEPROM_NumberRdWr_LCD.production.obj
-C:\Users\bagwan\AppData\Local\Temp\s19c.
+C:\Users\desktop\AppData\Local\Temp\s700.
 630 7DE 0 CODE 0
 633 7DE 0 CODE 0
 655 7DE 0 CODE 0
@@ -448,7 +448,7 @@ lcd.c
 474 550 0 CODE 0
 480 552 0 CODE 0
 474 553 0 CODE 0
-C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c
+C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c
 6 45E 0 CODE 0
 14 45E 0 CODE 0
 15 466 0 CODE 0
@@ -464,7 +464,7 @@ C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c
 27 4A6 0 CODE 0
 28 4AF 0 CODE 0
 30 4B3 0 CODE 0
-C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c
+C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul8.c
 4 186 0 CODE 0
 6 189 0 CODE 0
 43 18A 0 CODE 0

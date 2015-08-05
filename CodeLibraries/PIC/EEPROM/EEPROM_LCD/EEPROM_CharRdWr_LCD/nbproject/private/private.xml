@@ -1,3 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?><project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/H:/Github/Code-Libraries/CodeLibraries/PIC/EEPROM/EEPROM_LCD/EEPROM_CharRdWr_LCD/EEPROM_CharRdWr_LCD.c</file>
+            <file>file:/H:/Github/Code-Libraries/CodeLibraries/PIC/EEPROM/EEPROM_LCD/EEPROM_CharRdWr_LCD/eeprom.c</file>
+            <file>file:/H:/Github/Code-Libraries/CodeLibraries/PIC/EEPROM/EEPROM_LCD/EEPROM_CharRdWr_LCD/eeprom.h</file>
+            <file>file:/H:/Github/Code-Libraries/CodeLibraries/PIC/EEPROM/EEPROM_LCD/EEPROM_CharRdWr_LCD/lcd.c</file>
+            <file>file:/H:/Github/Code-Libraries/CodeLibraries/PIC/EEPROM/EEPROM_LCD/EEPROM_CharRdWr_LCD/lcd.h</file>
+        </group>
+    </open-files>
 </project-private>

@@ -1,11 +1,11 @@
-Microchip MPLAB XC8 Compiler V1.33 ()
+Microchip MPLAB XC8 Compiler V1.32 ()
 
 Linker command line:
 
---edf=C:\Program Files (x86)\Microchip\xc8\v1.33\dat\en_msgs.txt -cs \
+--edf=C:\Program Files\Microchip\xc8\v1.32\dat\en_msgs.txt -cs \
   -h+dist/default/production\Lcd_Counter.production.sym \
   --cmf=dist/default/production\Lcd_Counter.production.cmf -z -Q16F877A \
-  -oC:\Users\bagwan\AppData\Local\Temp\s3dc.6 \
+  -oC:\Users\desktop\AppData\Local\Temp\s78o.6 \
   -Mdist/default/production/Lcd_Counter.production.map -E1 -ver=XC8 \
   -ASTACK=0110h-016fh -pstack=STACK -ACONST=00h-0FFhx32 -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -AENTRY=00h-0FFhx32 -ASTRING=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -pfunctab=CODE -ACONFIG=02007h-02007h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k C:\Users\bagwan\AppData\Local\Temp\s3dc.obj \
+  -DENTRY=2 -k C:\Users\desktop\AppData\Local\Temp\s78o.obj \
   dist/default/production\Lcd_Counter.production.obj 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F877A
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\bagwan\AppData\Local\Temp\s3dc.obj
+C:\Users\desktop\AppData\Local\Temp\s78o.obj
                 end_init                              0        0        3        0       0
                 config                             2007     2007        1     400E       0
 dist/default/production\Lcd_Counter.production.obj
@@ -224,10 +224,10 @@ _LCD_DisplayString                                   text5        04DE
 _LCD_GoToLine                                        text4        0484
 _LCD_GoToNextLine                                    text12       0499
 _LCD_Init                                            text1        0645
-_PORTB                                               (abs)        0006
+_PORTC                                               (abs)        0007
 _PORTD                                               (abs)        0008
 _STK_LCDConfig                                       nvBANK0      003F
-_TRISB                                               (abs)        0086
+_TRISC                                               (abs)        0087
 _TRISD                                               (abs)        0088
 _VAR_LcdTrackCursorPos_U8                            bssBANK0     0042
 _VAR_LcdTrackLineNum_U8                              bssBANK0     0043
@@ -681,7 +681,7 @@ Total ram usage:       18 bytes
 
  *************** function ___lldiv *****************
  Defined at:
-		line 6 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c"
+		line 6 in file "C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c"
  Parameters:    Size  Location     Type
   divisor         4    0[COMMON] unsigned long 
   dividend        4    4[COMMON] unsigned long 
@@ -712,7 +712,7 @@ Total ram usage:       14 bytes
 
  *************** function ___bmul *****************
  Defined at:
-		line 4 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c"
+		line 4 in file "C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul8.c"
  Parameters:    Size  Location     Type
   multiplier      1    wreg     unsigned char 
   multiplicand    1    0[BANK0 ] unsigned char 
@@ -1104,10 +1104,15 @@ Lcd_Counter.c
 
 Lcd_Counter.c estimated size: 75
 
-C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c
+C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c
 		___lldiv       		CODE           	06E8	0000	94
 
-C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c estimated size: 94
+C:\Program Files\Microchip\xc8\v1.32\sources\common\lldiv.c estimated size: 94
+
+C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul8.c
+		___bmul        		CODE           	0449	0000	19
+
+C:\Program Files\Microchip\xc8\v1.32\sources\common\Umul8.c estimated size: 19
 
 shared
 		__stringtab    		STRING         	0003	0000	6
@@ -1115,11 +1120,6 @@ shared
 		__initializatio		CODE           	07DE	0000	30
 
 shared estimated size: 48
-
-C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c
-		___bmul        		CODE           	0449	0000	19
-
-C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c estimated size: 19
 
 lcd.c
 		_LCD_Init      		CODE           	0645	0000	79

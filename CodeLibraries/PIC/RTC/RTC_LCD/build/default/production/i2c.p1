@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"2589 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
+"2589 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
 [v _RSEN `Vb ~T0 @X0 0 e@1161 ]
 "2707
 [v _TRISC3 `Vb ~T0 @X0 0 e@1083 ]
@@ -21,13 +21,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _BF `Vb ~T0 @X0 0 e@1184 ]
 "51 i2c.c
 [v _i2c_WaitForIdle `(v ~T0 @X0 0 sf ]
-"2553 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
+"2553 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
 [v _RCEN `Vb ~T0 @X0 0 e@1163 ]
 "52 i2c.c
 [v _i2c_Ack `(v ~T0 @X0 0 sf ]
 "53
 [v _i2c_NoAck `(v ~T0 @X0 0 sf ]
-"2595 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
+"2595 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
 [v _R_W `Vb ~T0 @X0 0 e@1186 ]
 "2311
 [v _ACKDT `Vb ~T0 @X0 0 e@1165 ]
@@ -59,7 +59,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;delay.h: 56: void DELAY_ms(uint16_t ms_count);
 [; ;delay.h: 57: void DELAY_sec(uint16_t var_delaySecCount_u16);
 [; ;pic16f877a.h: 47: extern volatile unsigned char INDF @ 0x000;
-"49 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f877a.h
+"49 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
 [; ;pic16f877a.h: 49: asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
 [; ;pic16f877a.h: 53: extern volatile unsigned char TMR0 @ 0x001;
