@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\desktop\AppData\Local\Temp\s3ss.obj
+$C:\Users\desktop\AppData\Local\Temp\s2cs.obj
 end_init CODE 0 0 0 3 2
 config CONFIG 0 2007 2007 1 2
 $dist/default/production\KeyPad.production.obj
@@ -276,23 +276,23 @@ $dist/default/production\KeyPad.production.obj
 "H:\Github\Code-Libraries\CodeLibraries\PIC\KeyPad\keypad.c":223 7A9 text14 CODE
 "H:\Github\Code-Libraries\CodeLibraries\PIC\KeyPad\keypad.c":204 7AA text14 CODE
 "H:\Github\Code-Libraries\CodeLibraries\PIC\KeyPad\keypad.c":224 7DC text14 CODE
-"C:\Users\desktop\AppData\Local\Temp\s3ss.":489 7DE cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s3ss.":492 7DE cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s3ss.":514 7DE cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s3ss.":515 7DF cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s3ss.":520 7E0 cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s3ss.":521 7E5 cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s3ss.":522 7E6 cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s3ss.":523 7EB cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s3ss.":524 7EC cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s3ss.":525 7F1 cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s3ss.":526 7F2 cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s3ss.":527 7F7 cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s3ss.":528 7F8 cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s3ss.":529 7FB cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s3ss.":535 7FC cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s3ss.":536 7FC cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s3ss.":537 7FD cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s2cs.":493 7DE cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s2cs.":496 7DE cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s2cs.":518 7DE cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s2cs.":519 7DF cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s2cs.":524 7E0 cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s2cs.":525 7E5 cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s2cs.":526 7E6 cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s2cs.":527 7EB cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s2cs.":528 7EC cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s2cs.":529 7F1 cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s2cs.":530 7F2 cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s2cs.":531 7F7 cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s2cs.":532 7F8 cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s2cs.":533 7FB cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s2cs.":539 7FC cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s2cs.":540 7FC cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\s2cs.":541 7FD cinit CODE
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -319,16 +319,18 @@ __end_of_LCD_Init E2A 0 CODE 0 text1 dist/default/production\KeyPad.production.o
 __size_of_lcd_DataWrite 0 0 ABS 0 - dist/default/production\KeyPad.production.obj
 lcd_BusyCheck@busyflag 73 0 COMMON 1 cstackCOMMON dist/default/production\KeyPad.production.obj
 _main B18 0 CODE 0 maintext dist/default/production\KeyPad.production.obj
-___sp 0 0 STACK 2 stack C:\Users\desktop\AppData\Local\Temp\s3ss.obj
+___sp 0 0 STACK 2 stack C:\Users\desktop\AppData\Local\Temp\s2cs.obj
 btemp 7E 0 ABS 0 - dist/default/production\KeyPad.production.obj
 ltemp 7E 0 ABS 0 - dist/default/production\KeyPad.production.obj
 ttemp 7E 0 ABS 0 - dist/default/production\KeyPad.production.obj
 wtemp 7E 0 ABS 0 - dist/default/production\KeyPad.production.obj
-start 0 0 CODE 0 init C:\Users\desktop\AppData\Local\Temp\s3ss.obj
+start 0 0 CODE 0 init C:\Users\desktop\AppData\Local\Temp\s2cs.obj
 _LCD_GoToNextLine 9C0 0 CODE 0 text8 dist/default/production\KeyPad.production.obj
+_TRISB 86 0 ABS 0 - dist/default/production\KeyPad.production.obj
 _TRISC 87 0 ABS 0 - dist/default/production\KeyPad.production.obj
-reset_vec 0 0 CODE 0 reset_vec C:\Users\desktop\AppData\Local\Temp\s3ss.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\desktop\AppData\Local\Temp\s2cs.obj
 _TRISD 88 0 ABS 0 - dist/default/production\KeyPad.production.obj
+_PORTB 6 0 ABS 0 - dist/default/production\KeyPad.production.obj
 _PORTC 7 0 ABS 0 - dist/default/production\KeyPad.production.obj
 _PORTD 8 0 ABS 0 - dist/default/production\KeyPad.production.obj
 ltemp0 7E 0 ABS 0 - dist/default/production\KeyPad.production.obj
@@ -368,7 +370,7 @@ __Lcommon 0 0 ABS 0 common -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 DELAY_ms@ms_count 72 0 COMMON 1 cstackCOMMON dist/default/production\KeyPad.production.obj
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
-___int_sp 0 0 STACK 2 stack C:\Users\desktop\AppData\Local\Temp\s3ss.obj
+___int_sp 0 0 STACK 2 stack C:\Users\desktop\AppData\Local\Temp\s2cs.obj
 KEYPAD_GetKey@var_keyPress_u8 7A 0 COMMON 1 cstackCOMMON dist/default/production\KeyPad.production.obj
 __size_of_keypad_ScanKey 0 0 ABS 0 - dist/default/production\KeyPad.production.obj
 __Habs1 0 0 ABS 0 abs1 -
@@ -395,11 +397,11 @@ __Hcode 0 0 ABS 0 code -
 __Lcode 0 0 ABS 0 code -
 DELAY_us@us_count 70 0 COMMON 1 cstackCOMMON dist/default/production\KeyPad.production.obj
 lcd_SendNibble@var 71 0 COMMON 1 cstackCOMMON dist/default/production\KeyPad.production.obj
-stackhi 0 0 ABS 0 - C:\Users\desktop\AppData\Local\Temp\s3ss.obj
+stackhi 0 0 ABS 0 - C:\Users\desktop\AppData\Local\Temp\s2cs.obj
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __pcstackBANK0 2A 0 BANK0 1 cstackBANK0 dist/default/production\KeyPad.production.obj
-stacklo 0 0 ABS 0 - C:\Users\desktop\AppData\Local\Temp\s3ss.obj
+stacklo 0 0 ABS 0 - C:\Users\desktop\AppData\Local\Temp\s2cs.obj
 __Hinit 0 0 CODE 0 init -
 __Linit 0 0 CODE 0 init -
 __end_of_main B60 0 CODE 0 maintext dist/default/production\KeyPad.production.obj
@@ -512,15 +514,15 @@ __end_of_lcd_Reset D8C 0 CODE 0 text2 dist/default/production\KeyPad.production.
 __Hreset_vec 0 0 CODE 0 reset_vec -
 __Lreset_vec 0 0 CODE 0 reset_vec -
 _VAR_LcdTrackLineNum_U8 29 0 BANK0 1 bssBANK0 dist/default/production\KeyPad.production.obj
-intlevel0 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s3ss.obj
+intlevel0 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s2cs.obj
 __end_of_lcd_DataWrite CEE 0 CODE 0 text6 dist/default/production\KeyPad.production.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\KeyPad.production.obj
-intlevel1 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s3ss.obj
+intlevel1 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s2cs.obj
 __size_of_LCD_GoToNextLine 0 0 ABS 0 - dist/default/production\KeyPad.production.obj
-intlevel2 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s3ss.obj
-intlevel3 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s3ss.obj
-intlevel4 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s3ss.obj
-intlevel5 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s3ss.obj
+intlevel2 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s2cs.obj
+intlevel3 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s2cs.obj
+intlevel4 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s2cs.obj
+intlevel5 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s2cs.obj
 LCD_Init@var_lcdNoOfLines_u8 78 0 COMMON 1 cstackCOMMON dist/default/production\KeyPad.production.obj
 LCD_Init@var_MaxCharsPerLine_u8 79 0 COMMON 1 cstackCOMMON dist/default/production\KeyPad.production.obj
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -

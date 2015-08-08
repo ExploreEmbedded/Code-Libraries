@@ -154,10 +154,14 @@ mENUM_LcdMaxLines 5
 [v _lcd_SendDataSignals lcd_SendDataSignals `(v  1 s 0 lcd_SendDataSignals ]
 "17 H:\Github\Code-Libraries\CodeLibraries\PIC\KeyPad\main.c
 [v _main main `(i  1 e 2 0 ]
-"268 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
+"207 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"268
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
 "329
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"1335
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
 "1396
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
 "1457

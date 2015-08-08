@@ -1438,7 +1438,7 @@ static uint8_t keypad_ScanKey();
 # 101
 void KEYPAD_Init()
 {
-TRISC= 0x0f;
+TRISB= 0x0f;
 }
 
 # 118
@@ -1449,14 +1449,14 @@ do
 {
 do
 {
-PORTC=0x0F;
-key=PORTC & 0x0F;
+PORTB=0x0F;
+key=PORTB & 0x0F;
 }while(key!=0x0F);
 
 DELAY_ms(1);
 
-PORTC=0x0F;
-key=PORTC & 0x0F;
+PORTB=0x0F;
+key=PORTB & 0x0F;
 }while(key!=0x0F);
 
 }
@@ -1469,15 +1469,15 @@ do
 {
 do
 {
-PORTC=0x0F;
-var_keyPress_u8=PORTC & 0x0F;
+PORTB=0x0F;
+var_keyPress_u8=PORTB & 0x0F;
 }while(var_keyPress_u8==0x0F);
 
 
 DELAY_ms(1);
 
-PORTC=0x0F;
-var_keyPress_u8=PORTC & 0x0F;
+PORTB=0x0F;
+var_keyPress_u8=PORTB & 0x0F;
 
 }while(var_keyPress_u8==0x0F);
 }
@@ -1524,9 +1524,9 @@ uint8_t var_keyScanCode_u8 = 0xEF,i, var_keyPress_u8;
 
 for(i=0;i<0x04;i++)
 {
-PORTC=var_keyScanCode_u8;
+PORTB=var_keyScanCode_u8;
 DELAY_ms(1);
-var_keyPress_u8=PORTC & 0x0F;
+var_keyPress_u8=PORTB & 0x0F;
 
 if(var_keyPress_u8!=0x0F)
 break;

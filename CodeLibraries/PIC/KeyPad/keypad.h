@@ -48,9 +48,9 @@ Errors and omissions should be reported to codelibraries@exploreembedded.com
 /***************************************************************************************************
                                  Hex-Keypad PORT Configuration
  ***************************************************************************************************/
-#define M_RowColDirection TRISC      //PORT Direction Configuration for keypad
-#define M_ROW PORTC                  //Higher four bits of PORT are used as ROWs
-#define M_COL PORTC                   //Lower four bits of PORT are used as COLs
+#define M_RowColDirection TRISB      //PORT Direction Configuration for keypad
+#define M_ROW PORTB                  //Higher four bits of PORT are used as ROWs
+#define M_COL PORTB                   //Lower four bits of PORT are used as COLs
 #define C_RowOutputColInput_U8 0x0f	 //value to configure Rows as Output and Columns as Input
 /**************************************************************************************************/
 

@@ -50,12 +50,12 @@ Errors and omissions should be reported to codelibraries@exploreembedded.com
 /***************************************************************************************************
                                LCD PORT Configuration 
  ***************************************************************************************************/
-#define M_LcdDataBus PORTC
-#define M_LcdDataBusDirection TRISC
-#define M_LcdDataBusInput PORTC
+#define M_LcdDataBus PORTD
+#define M_LcdDataBusDirection TRISD
+#define M_LcdDataBusInput PORTD
 
-#define M_LcdControlBus PORTD
-#define M_LcdControlBusDirection TRISD
+#define M_LcdControlBus PORTC
+#define M_LcdControlBusDirection TRISC
 
 
 #define LCD_D4  4

@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\desktop\AppData\Local\Temp\s5o0.obj
+$C:\Users\desktop\AppData\Local\Temp\sto.obj
 end_init CODE 0 0 0 3 2
 config CONFIG 0 2007 2007 1 2
 $dist/default/production\Adc_Multi_channel.production.obj
@@ -323,23 +323,23 @@ $dist/default/production\Adc_Multi_channel.production.obj
 "H:\Github\Code-Libraries\CodeLibraries\PIC\Adc\Adc_Multi_channel\lcd.c":814 7D0 text1 CODE
 "H:\Github\Code-Libraries\CodeLibraries\PIC\Adc\Adc_Multi_channel\lcd.c":818 7D1 text1 CODE
 "H:\Github\Code-Libraries\CodeLibraries\PIC\Adc\Adc_Multi_channel\lcd.c":689 7D7 text1 CODE
-"C:\Users\desktop\AppData\Local\Temp\s5o0.":556 7DE cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s5o0.":559 7DE cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s5o0.":581 7DE cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s5o0.":582 7DF cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s5o0.":587 7E0 cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s5o0.":588 7E5 cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s5o0.":589 7E6 cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s5o0.":590 7EB cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s5o0.":591 7EC cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s5o0.":592 7F1 cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s5o0.":593 7F2 cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s5o0.":594 7F7 cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s5o0.":595 7F8 cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s5o0.":596 7FB cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s5o0.":602 7FC cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s5o0.":603 7FC cinit CODE
-"C:\Users\desktop\AppData\Local\Temp\s5o0.":604 7FD cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\sto.":556 7DE cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\sto.":559 7DE cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\sto.":581 7DE cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\sto.":582 7DF cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\sto.":587 7E0 cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\sto.":588 7E5 cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\sto.":589 7E6 cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\sto.":590 7EB cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\sto.":591 7EC cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\sto.":592 7F1 cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\sto.":593 7F2 cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\sto.":594 7F7 cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\sto.":595 7F8 cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\sto.":596 7FB cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\sto.":602 7FC cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\sto.":603 7FC cinit CODE
+"C:\Users\desktop\AppData\Local\Temp\sto.":604 7FD cinit CODE
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -370,15 +370,15 @@ LCD_Printf@ptr 51 0 BANK0 1 cstackBANK0 dist/default/production\Adc_Multi_channe
 __size_of_lcd_DataWrite 0 0 ABS 0 - dist/default/production\Adc_Multi_channel.production.obj
 lcd_BusyCheck@busyflag 73 0 COMMON 1 cstackCOMMON dist/default/production\Adc_Multi_channel.production.obj
 _main A70 0 CODE 0 maintext dist/default/production\Adc_Multi_channel.production.obj
-___sp 0 0 STACK 2 stack C:\Users\desktop\AppData\Local\Temp\s5o0.obj
+___sp 0 0 STACK 2 stack C:\Users\desktop\AppData\Local\Temp\sto.obj
 btemp 7E 0 ABS 0 - dist/default/production\Adc_Multi_channel.production.obj
 ltemp 7E 0 ABS 0 - dist/default/production\Adc_Multi_channel.production.obj
 ttemp 7E 0 ABS 0 - dist/default/production\Adc_Multi_channel.production.obj
 wtemp 7E 0 ABS 0 - dist/default/production\Adc_Multi_channel.production.obj
-start 0 0 CODE 0 init C:\Users\desktop\AppData\Local\Temp\s5o0.obj
+start 0 0 CODE 0 init C:\Users\desktop\AppData\Local\Temp\sto.obj
 _LCD_GoToNextLine 598 0 CODE 0 text8 dist/default/production\Adc_Multi_channel.production.obj
 _TRISC 87 0 ABS 0 - dist/default/production\Adc_Multi_channel.production.obj
-reset_vec 0 0 CODE 0 reset_vec C:\Users\desktop\AppData\Local\Temp\s5o0.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\desktop\AppData\Local\Temp\sto.obj
 _TRISD 88 0 ABS 0 - dist/default/production\Adc_Multi_channel.production.obj
 _PORTC 7 0 ABS 0 - dist/default/production\Adc_Multi_channel.production.obj
 _PORTD 8 0 ABS 0 - dist/default/production\Adc_Multi_channel.production.obj
@@ -427,7 +427,7 @@ __Lcommon 0 0 ABS 0 common -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 DELAY_ms@ms_count 72 0 COMMON 1 cstackCOMMON dist/default/production\Adc_Multi_channel.production.obj
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
-___int_sp 0 0 STACK 2 stack C:\Users\desktop\AppData\Local\Temp\s5o0.obj
+___int_sp 0 0 STACK 2 stack C:\Users\desktop\AppData\Local\Temp\sto.obj
 ?___lldiv 70 0 COMMON 1 cstackCOMMON dist/default/production\Adc_Multi_channel.production.obj
 LCD_Printf@str 43 0 BANK0 1 cstackBANK0 dist/default/production\Adc_Multi_channel.production.obj
 _ADRESH 1E 0 ABS 0 - dist/default/production\Adc_Multi_channel.production.obj
@@ -456,11 +456,11 @@ __Lcode 0 0 ABS 0 code -
 _LCD_DisplayDecimalNumber B58 0 CODE 0 text2 dist/default/production\Adc_Multi_channel.production.obj
 DELAY_us@us_count 70 0 COMMON 1 cstackCOMMON dist/default/production\Adc_Multi_channel.production.obj
 lcd_SendNibble@var 71 0 COMMON 1 cstackCOMMON dist/default/production\Adc_Multi_channel.production.obj
-stackhi 0 0 ABS 0 - C:\Users\desktop\AppData\Local\Temp\s5o0.obj
+stackhi 0 0 ABS 0 - C:\Users\desktop\AppData\Local\Temp\sto.obj
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\Adc_Multi_channel.production.obj
-stacklo 0 0 ABS 0 - C:\Users\desktop\AppData\Local\Temp\s5o0.obj
+stacklo 0 0 ABS 0 - C:\Users\desktop\AppData\Local\Temp\sto.obj
 ___bmul 520 0 CODE 0 text4 dist/default/production\Adc_Multi_channel.production.obj
 __Hinit 0 0 CODE 0 init -
 __Linit 0 0 CODE 0 init -
@@ -590,17 +590,17 @@ __Lreset_vec 0 0 CODE 0 reset_vec -
 _VAR_LcdTrackLineNum_U8 68 0 BANK0 1 bssBANK0 dist/default/production\Adc_Multi_channel.production.obj
 __stringdata 12 0 STRING 0 strings dist/default/production\Adc_Multi_channel.production.obj
 __size_of_LCD_Printf 0 0 ABS 0 - dist/default/production\Adc_Multi_channel.production.obj
-intlevel0 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s5o0.obj
+intlevel0 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\sto.obj
 __end_of_lcd_DataWrite 7D0 0 CODE 0 text6 dist/default/production\Adc_Multi_channel.production.obj
 ADC_GetAdcValue@var_adcChannel_u8 75 0 COMMON 1 cstackCOMMON dist/default/production\Adc_Multi_channel.production.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\Adc_Multi_channel.production.obj
-intlevel1 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s5o0.obj
+intlevel1 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\sto.obj
 __size_of_LCD_GoToNextLine 0 0 ABS 0 - dist/default/production\Adc_Multi_channel.production.obj
 LCD_DisplayDecimalNumber@var_DecNumber_u32 24 0 BANK0 1 cstackBANK0 dist/default/production\Adc_Multi_channel.production.obj
-intlevel2 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s5o0.obj
-intlevel3 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s5o0.obj
-intlevel4 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s5o0.obj
-intlevel5 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\s5o0.obj
+intlevel2 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\sto.obj
+intlevel3 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\sto.obj
+intlevel4 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\sto.obj
+intlevel5 0 0 CODE 0 functab C:\Users\desktop\AppData\Local\Temp\sto.obj
 LCD_Printf@ch 53 0 BANK0 1 cstackBANK0 dist/default/production\Adc_Multi_channel.production.obj
 LCD_Printf@argp 54 0 BANK0 1 cstackBANK0 dist/default/production\Adc_Multi_channel.production.obj
 LCD_Init@var_lcdNoOfLines_u8 78 0 COMMON 1 cstackCOMMON dist/default/production\Adc_Multi_channel.production.obj

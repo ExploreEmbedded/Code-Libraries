@@ -1,8 +1,8 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1396 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
-[v _TRISC `Vuc ~T0 @X0 0 e@135 ]
-"268
-[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
+"1335 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"207
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "56 delay.h
 [v _DELAY_ms `(v ~T0 @X0 0 ef1`ui ]
 "84 keypad.c
@@ -1049,9 +1049,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;keypad.c: 102: {
 [e :U _KEYPAD_Init ]
 [f ]
-[; ;keypad.c: 103: TRISC= 0x0f;
+[; ;keypad.c: 103: TRISB= 0x0f;
 "103
-[e = _TRISC -> -> 15 `i `uc ]
+[e = _TRISB -> -> 15 `i `uc ]
 [; ;keypad.c: 104: }
 "104
 [e :UE 96 ]
@@ -1079,12 +1079,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;keypad.c: 124: {
 "124
 {
-[; ;keypad.c: 125: PORTC=0x0F;
+[; ;keypad.c: 125: PORTB=0x0F;
 "125
-[e = _PORTC -> -> 15 `i `uc ]
-[; ;keypad.c: 126: key=PORTC & 0x0F;
+[e = _PORTB -> -> 15 `i `uc ]
+[; ;keypad.c: 126: key=PORTB & 0x0F;
 "126
-[e = _key -> & -> _PORTC `i -> 15 `i `uc ]
+[e = _key -> & -> _PORTB `i -> 15 `i `uc ]
 "127
 }
 [; ;keypad.c: 127: }while(key!=0x0F);
@@ -1093,12 +1093,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;keypad.c: 129: DELAY_ms(1);
 "129
 [e ( _DELAY_ms (1 -> -> 1 `i `ui ]
-[; ;keypad.c: 131: PORTC=0x0F;
+[; ;keypad.c: 131: PORTB=0x0F;
 "131
-[e = _PORTC -> -> 15 `i `uc ]
-[; ;keypad.c: 132: key=PORTC & 0x0F;
+[e = _PORTB -> -> 15 `i `uc ]
+[; ;keypad.c: 132: key=PORTB & 0x0F;
 "132
-[e = _key -> & -> _PORTC `i -> 15 `i `uc ]
+[e = _key -> & -> _PORTB `i -> 15 `i `uc ]
 "133
 }
 [; ;keypad.c: 133: }while(key!=0x0F);
@@ -1131,12 +1131,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;keypad.c: 157: {
 "157
 {
-[; ;keypad.c: 158: PORTC=0x0F;
+[; ;keypad.c: 158: PORTB=0x0F;
 "158
-[e = _PORTC -> -> 15 `i `uc ]
-[; ;keypad.c: 159: var_keyPress_u8=PORTC & 0x0F;
+[e = _PORTB -> -> 15 `i `uc ]
+[; ;keypad.c: 159: var_keyPress_u8=PORTB & 0x0F;
 "159
-[e = _var_keyPress_u8 -> & -> _PORTC `i -> 15 `i `uc ]
+[e = _var_keyPress_u8 -> & -> _PORTB `i -> 15 `i `uc ]
 "160
 }
 [; ;keypad.c: 160: }while(var_keyPress_u8==0x0F);
@@ -1145,12 +1145,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;keypad.c: 163: DELAY_ms(1);
 "163
 [e ( _DELAY_ms (1 -> -> 1 `i `ui ]
-[; ;keypad.c: 165: PORTC=0x0F;
+[; ;keypad.c: 165: PORTB=0x0F;
 "165
-[e = _PORTC -> -> 15 `i `uc ]
-[; ;keypad.c: 166: var_keyPress_u8=PORTC & 0x0F;
+[e = _PORTB -> -> 15 `i `uc ]
+[; ;keypad.c: 166: var_keyPress_u8=PORTB & 0x0F;
 "166
-[e = _var_keyPress_u8 -> & -> _PORTC `i -> 15 `i `uc ]
+[e = _var_keyPress_u8 -> & -> _PORTB `i -> 15 `i `uc ]
 "168
 }
 [; ;keypad.c: 168: }while(var_keyPress_u8==0x0F);
@@ -1331,15 +1331,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 132 ]
 [; ;keypad.c: 252: {
 {
-[; ;keypad.c: 253: PORTC=var_keyScanCode_u8;
+[; ;keypad.c: 253: PORTB=var_keyScanCode_u8;
 "253
-[e = _PORTC _var_keyScanCode_u8 ]
+[e = _PORTB _var_keyScanCode_u8 ]
 [; ;keypad.c: 254: DELAY_ms(1);
 "254
 [e ( _DELAY_ms (1 -> -> 1 `i `ui ]
-[; ;keypad.c: 255: var_keyPress_u8=PORTC & 0x0F;
+[; ;keypad.c: 255: var_keyPress_u8=PORTB & 0x0F;
 "255
-[e = _var_keyPress_u8 -> & -> _PORTC `i -> 15 `i `uc ]
+[e = _var_keyPress_u8 -> & -> _PORTB `i -> 15 `i `uc ]
 [; ;keypad.c: 257: if(var_keyPress_u8!=0x0F)
 "257
 [e $ ! != -> _var_keyPress_u8 `i -> 15 `i 135  ]

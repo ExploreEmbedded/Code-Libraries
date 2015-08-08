@@ -2,10 +2,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "156 lcd.h
 [s S96 `uc 1 `uc 1 `uc 1 ]
 [n S96 . mvar_MaxSupportedLines_U8 mvar_MaxSupportedChars_U8 mvar_LcdMode_U8 ]
-"1396 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
-[v _TRISC `Vuc ~T0 @X0 0 e@135 ]
-"1457
+"1457 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
 [v _TRISD `Vuc ~T0 @X0 0 e@136 ]
+"1396
+[v _TRISC `Vuc ~T0 @X0 0 e@135 ]
 "121 lcd.c
 [c E1084 0 1 2 3 4 5 .. ]
 [n E1084 . mENUM_LcdDummy mENUM_LcdLineOne mENUM_LcdLineTwo mENUM_LcdLineThree mENUM_LcdLineFour mENUM_LcdMaxLines  ]
@@ -21,8 +21,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LCD_GoToLine `(v ~T0 @X0 0 ef1`uc ]
 "89 lcd.c
 [v _lcd_BusyCheck `(v ~T0 @X0 0 sf ]
-"268 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
-[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
+"329 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 "92 lcd.c
 [v _lcd_SendCmdSignals `(v ~T0 @X0 0 sf ]
 "91
@@ -31,8 +31,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _lcd_DataWrite `(v ~T0 @X0 0 sf1`uc ]
 "93
 [v _lcd_SendDataSignals `(v ~T0 @X0 0 sf ]
-"329 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"268 C:\Program Files\Microchip\xc8\v1.32\include\pic16f877a.h
+[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
 "55 delay.h
 [v _DELAY_us `(v ~T0 @X0 0 ef1`ui ]
 [; ;stdarg.h: 7: typedef void * va_list[1];
@@ -1134,12 +1134,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _var_MaxCharsPerLine_u8 `uc ~T0 @X0 1 r3 ]
 "113
 [f ]
-[; ;lcd.c: 116: TRISC = 0x00u;
+[; ;lcd.c: 116: TRISD = 0x00u;
 "116
-[e = _TRISC -> -> 0 `ui `uc ]
-[; ;lcd.c: 117: TRISD = 0x00u;
-"117
 [e = _TRISD -> -> 0 `ui `uc ]
+[; ;lcd.c: 117: TRISC = 0x00u;
+"117
+[e = _TRISC -> -> 0 `ui `uc ]
 [; ;lcd.c: 118: STK_LCDConfig.mvar_LcdMode_U8 = var_lcdMode_u8;
 "118
 [e = . _STK_LCDConfig 2 _var_lcdMode_u8 ]
@@ -1309,9 +1309,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd.c: 278: {
 "278
 {
-[; ;lcd.c: 280: PORTC = var_lcdCmd_u8;
+[; ;lcd.c: 280: PORTD = var_lcdCmd_u8;
 "280
-[e = _PORTC _var_lcdCmd_u8 ]
+[e = _PORTD _var_lcdCmd_u8 ]
 [; ;lcd.c: 281: lcd_SendCmdSignals();
 "281
 [e ( _lcd_SendCmdSignals ..  ]
@@ -1511,9 +1511,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd.c: 843: {
 "843
 {
-[; ;lcd.c: 844: PORTC = dat;
+[; ;lcd.c: 844: PORTD = dat;
 "844
-[e = _PORTC _dat ]
+[e = _PORTD _dat ]
 [; ;lcd.c: 845: lcd_SendDataSignals();
 "845
 [e ( _lcd_SendDataSignals ..  ]
@@ -1560,51 +1560,51 @@ Version 3.2 HI-TECH Software Intermediate Code
 "875
 [v _busyflag `uc ~T0 @X0 1 a ]
 [; ;lcd.c: 875: uint8_t busyflag;
-[; ;lcd.c: 878: ((0x01u)? ((TRISC) |= (1<<(7))): ((TRISC) &= ~(1<<(7))));
+[; ;lcd.c: 878: ((0x01u)? ((TRISD) |= (1<<(7))): ((TRISD) &= ~(1<<(7))));
 "878
-[e ? != -> 1 `ui -> -> 0 `i `ui : -> =| _TRISC -> << -> 1 `i -> 7 `i `uc `i -> =& _TRISC -> ~ << -> 1 `i -> 7 `i `uc `i ]
-[; ;lcd.c: 879: (((PORTD)) &= ~(1<<((0))));
+[e ? != -> 1 `ui -> -> 0 `i `ui : -> =| _TRISD -> << -> 1 `i -> 7 `i `uc `i -> =& _TRISD -> ~ << -> 1 `i -> 7 `i `uc `i ]
+[; ;lcd.c: 879: (((PORTC)) &= ~(1<<((0))));
 "879
-[e =& _PORTD -> ~ << -> 1 `i -> 0 `i `uc ]
-[; ;lcd.c: 880: (((PORTD)) |= (1<<((1))));
+[e =& _PORTC -> ~ << -> 1 `i -> 0 `i `uc ]
+[; ;lcd.c: 880: (((PORTC)) |= (1<<((1))));
 "880
-[e =| _PORTD -> << -> 1 `i -> 1 `i `uc ]
+[e =| _PORTC -> << -> 1 `i -> 1 `i `uc ]
 [; ;lcd.c: 881: do
 "881
 [e :U 134 ]
 [; ;lcd.c: 882: {
 "882
 {
-[; ;lcd.c: 884: (((PORTD)) &= ~(1<<((2))));
+[; ;lcd.c: 884: (((PORTC)) &= ~(1<<((2))));
 "884
-[e =& _PORTD -> ~ << -> 1 `i -> 2 `i `uc ]
+[e =& _PORTC -> ~ << -> 1 `i -> 2 `i `uc ]
 [; ;lcd.c: 885: DELAY_us(10);
 "885
 [e ( _DELAY_us (1 -> -> 10 `i `ui ]
-[; ;lcd.c: 886: (((PORTD)) |= (1<<((2))));
+[; ;lcd.c: 886: (((PORTC)) |= (1<<((2))));
 "886
-[e =| _PORTD -> << -> 1 `i -> 2 `i `uc ]
+[e =| _PORTC -> << -> 1 `i -> 2 `i `uc ]
 [; ;lcd.c: 887: DELAY_us(10);
 "887
 [e ( _DELAY_us (1 -> -> 10 `i `ui ]
-[; ;lcd.c: 888: busyflag = (((PORTC)&((1<<(7))))!=0u);
+[; ;lcd.c: 888: busyflag = (((PORTD)&((1<<(7))))!=0u);
 "888
-[e = _busyflag -> -> != -> & -> _PORTC `i << -> 1 `i -> 7 `i `ui -> 0 `ui `i `uc ]
+[e = _busyflag -> -> != -> & -> _PORTD `i << -> 1 `i -> 7 `i `ui -> 0 `ui `i `uc ]
 [; ;lcd.c: 891: if(STK_LCDConfig.mvar_LcdMode_U8 == 4)
 "891
 [e $ ! == -> . _STK_LCDConfig 2 `i -> 4 `i 135  ]
 [; ;lcd.c: 892: {
 "892
 {
-[; ;lcd.c: 894: (((PORTD)) &= ~(1<<((2))));
+[; ;lcd.c: 894: (((PORTC)) &= ~(1<<((2))));
 "894
-[e =& _PORTD -> ~ << -> 1 `i -> 2 `i `uc ]
+[e =& _PORTC -> ~ << -> 1 `i -> 2 `i `uc ]
 [; ;lcd.c: 895: DELAY_us(10);
 "895
 [e ( _DELAY_us (1 -> -> 10 `i `ui ]
-[; ;lcd.c: 896: (((PORTD)) |= (1<<((2))));
+[; ;lcd.c: 896: (((PORTC)) |= (1<<((2))));
 "896
-[e =| _PORTD -> << -> 1 `i -> 2 `i `uc ]
+[e =| _PORTC -> << -> 1 `i -> 2 `i `uc ]
 [; ;lcd.c: 897: DELAY_us(10);
 "897
 [e ( _DELAY_us (1 -> -> 10 `i `ui ]
@@ -1617,9 +1617,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd.c: 899: }while(busyflag);
 [e $ != -> _busyflag `i -> -> -> 0 `i `uc `i 134  ]
 [e :U 133 ]
-[; ;lcd.c: 901: ((0x00u)? ((TRISC) |= (1<<(7))): ((TRISC) &= ~(1<<(7))));
+[; ;lcd.c: 901: ((0x00u)? ((TRISD) |= (1<<(7))): ((TRISD) &= ~(1<<(7))));
 "901
-[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISC -> << -> 1 `i -> 7 `i `uc `i -> =& _TRISC -> ~ << -> 1 `i -> 7 `i `uc `i ]
+[e ? != -> 0 `ui -> -> 0 `i `ui : -> =| _TRISD -> << -> 1 `i -> 7 `i `uc `i -> =& _TRISD -> ~ << -> 1 `i -> 7 `i `uc `i ]
 [; ;lcd.c: 907: }
 "907
 [e :UE 131 ]
@@ -1683,18 +1683,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _var `uc ~T0 @X0 1 r1 ]
 "954
 [f ]
-[; ;lcd.c: 955: (((((var)&((1<<(4))))!=0u))? ((PORTC) |= (1<<(4))): ((PORTC) &= ~(1<<(4))));
+[; ;lcd.c: 955: (((((var)&((1<<(4))))!=0u))? ((PORTD) |= (1<<(4))): ((PORTD) &= ~(1<<(4))));
 "955
-[e ? != -> & -> _var `i << -> 1 `i -> 4 `i `ui -> 0 `ui : -> =| _PORTC -> << -> 1 `i -> 4 `i `uc `i -> =& _PORTC -> ~ << -> 1 `i -> 4 `i `uc `i ]
-[; ;lcd.c: 956: (((((var)&((1<<(5))))!=0u))? ((PORTC) |= (1<<(5))): ((PORTC) &= ~(1<<(5))));
+[e ? != -> & -> _var `i << -> 1 `i -> 4 `i `ui -> 0 `ui : -> =| _PORTD -> << -> 1 `i -> 4 `i `uc `i -> =& _PORTD -> ~ << -> 1 `i -> 4 `i `uc `i ]
+[; ;lcd.c: 956: (((((var)&((1<<(5))))!=0u))? ((PORTD) |= (1<<(5))): ((PORTD) &= ~(1<<(5))));
 "956
-[e ? != -> & -> _var `i << -> 1 `i -> 5 `i `ui -> 0 `ui : -> =| _PORTC -> << -> 1 `i -> 5 `i `uc `i -> =& _PORTC -> ~ << -> 1 `i -> 5 `i `uc `i ]
-[; ;lcd.c: 957: (((((var)&((1<<(6))))!=0u))? ((PORTC) |= (1<<(6))): ((PORTC) &= ~(1<<(6))));
+[e ? != -> & -> _var `i << -> 1 `i -> 5 `i `ui -> 0 `ui : -> =| _PORTD -> << -> 1 `i -> 5 `i `uc `i -> =& _PORTD -> ~ << -> 1 `i -> 5 `i `uc `i ]
+[; ;lcd.c: 957: (((((var)&((1<<(6))))!=0u))? ((PORTD) |= (1<<(6))): ((PORTD) &= ~(1<<(6))));
 "957
-[e ? != -> & -> _var `i << -> 1 `i -> 6 `i `ui -> 0 `ui : -> =| _PORTC -> << -> 1 `i -> 6 `i `uc `i -> =& _PORTC -> ~ << -> 1 `i -> 6 `i `uc `i ]
-[; ;lcd.c: 958: (((((var)&((1<<(7))))!=0u))? ((PORTC) |= (1<<(7))): ((PORTC) &= ~(1<<(7))));
+[e ? != -> & -> _var `i << -> 1 `i -> 6 `i `ui -> 0 `ui : -> =| _PORTD -> << -> 1 `i -> 6 `i `uc `i -> =& _PORTD -> ~ << -> 1 `i -> 6 `i `uc `i ]
+[; ;lcd.c: 958: (((((var)&((1<<(7))))!=0u))? ((PORTD) |= (1<<(7))): ((PORTD) &= ~(1<<(7))));
 "958
-[e ? != -> & -> _var `i << -> 1 `i -> 7 `i `ui -> 0 `ui : -> =| _PORTC -> << -> 1 `i -> 7 `i `uc `i -> =& _PORTC -> ~ << -> 1 `i -> 7 `i `uc `i ]
+[e ? != -> & -> _var `i << -> 1 `i -> 7 `i `ui -> 0 `ui : -> =| _PORTD -> << -> 1 `i -> 7 `i `uc `i -> =& _PORTD -> ~ << -> 1 `i -> 7 `i `uc `i ]
 [; ;lcd.c: 959: }
 "959
 [e :UE 137 ]
@@ -1707,21 +1707,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd.c: 973: {
 [e :U _lcd_SendCmdSignals ]
 [f ]
-[; ;lcd.c: 974: (((PORTD)) &= ~(1<<((0))));
+[; ;lcd.c: 974: (((PORTC)) &= ~(1<<((0))));
 "974
-[e =& _PORTD -> ~ << -> 1 `i -> 0 `i `uc ]
-[; ;lcd.c: 976: (((PORTD)) &= ~(1<<((1))));
+[e =& _PORTC -> ~ << -> 1 `i -> 0 `i `uc ]
+[; ;lcd.c: 976: (((PORTC)) &= ~(1<<((1))));
 "976
-[e =& _PORTD -> ~ << -> 1 `i -> 1 `i `uc ]
-[; ;lcd.c: 978: (((PORTD)) |= (1<<((2))));
+[e =& _PORTC -> ~ << -> 1 `i -> 1 `i `uc ]
+[; ;lcd.c: 978: (((PORTC)) |= (1<<((2))));
 "978
-[e =| _PORTD -> << -> 1 `i -> 2 `i `uc ]
+[e =| _PORTC -> << -> 1 `i -> 2 `i `uc ]
 [; ;lcd.c: 979: DELAY_us(10);
 "979
 [e ( _DELAY_us (1 -> -> 10 `i `ui ]
-[; ;lcd.c: 980: (((PORTD)) &= ~(1<<((2))));
+[; ;lcd.c: 980: (((PORTC)) &= ~(1<<((2))));
 "980
-[e =& _PORTD -> ~ << -> 1 `i -> 2 `i `uc ]
+[e =& _PORTC -> ~ << -> 1 `i -> 2 `i `uc ]
 [; ;lcd.c: 981: }
 "981
 [e :UE 138 ]
@@ -1734,21 +1734,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd.c: 995: {
 [e :U _lcd_SendDataSignals ]
 [f ]
-[; ;lcd.c: 996: (((PORTD)) |= (1<<((0))));
+[; ;lcd.c: 996: (((PORTC)) |= (1<<((0))));
 "996
-[e =| _PORTD -> << -> 1 `i -> 0 `i `uc ]
-[; ;lcd.c: 998: (((PORTD)) &= ~(1<<((1))));
+[e =| _PORTC -> << -> 1 `i -> 0 `i `uc ]
+[; ;lcd.c: 998: (((PORTC)) &= ~(1<<((1))));
 "998
-[e =& _PORTD -> ~ << -> 1 `i -> 1 `i `uc ]
-[; ;lcd.c: 1000: (((PORTD)) |= (1<<((2))));
+[e =& _PORTC -> ~ << -> 1 `i -> 1 `i `uc ]
+[; ;lcd.c: 1000: (((PORTC)) |= (1<<((2))));
 "1000
-[e =| _PORTD -> << -> 1 `i -> 2 `i `uc ]
+[e =| _PORTC -> << -> 1 `i -> 2 `i `uc ]
 [; ;lcd.c: 1001: DELAY_us(10);
 "1001
 [e ( _DELAY_us (1 -> -> 10 `i `ui ]
-[; ;lcd.c: 1002: (((PORTD)) &= ~(1<<((2))));
+[; ;lcd.c: 1002: (((PORTC)) &= ~(1<<((2))));
 "1002
-[e =& _PORTD -> ~ << -> 1 `i -> 2 `i `uc ]
+[e =& _PORTC -> ~ << -> 1 `i -> 2 `i `uc ]
 [; ;lcd.c: 1003: }
 "1003
 [e :UE 139 ]
