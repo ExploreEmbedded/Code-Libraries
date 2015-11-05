@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------
-                 Program to demonstrate Led_Blinging
+                 Program to demonstrate Led_Blinking
   -----------------------------------------------------------------------------
  
 note: Leds can be connected to any of the ports as all the ports are blinked
